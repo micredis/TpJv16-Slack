@@ -25,3 +25,21 @@ Sky [5:13 PM]
 
 Vladimir Glinskikh [5:15 PM]
 @Sky :handshake:
+
+
+Roman   [Yesterday at 11:56 AM]
+Всем привет, подскажите, можно использовать JDK-10 или обязательно ставить JDK-8 ?
+1 reply
+
+Grigory Kislin   [1 day ago]
+можно, но нужно будет при добавлении JPA/hibernate сделать правки. на JDK11 мы на 5м занятии мигрируем (edited)
+
+
+Vladimir Glinskikh [12:07 PM]
+@Roman JDK_10 > JDK_8 true. Ставить можно. :slightly_smiling_face:
+
+Roman [12:08 PM]
+Понял, спасибо
+
+HeartANDu [12:08 PM]
+Между JDK8 и JDK10 есть несовместимые изменения. Где-то в описаниях написано было, что нужно использовать JDK8.

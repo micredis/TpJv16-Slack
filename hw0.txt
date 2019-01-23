@@ -122,6 +122,71 @@ Grigory Kislin   [7 hours ago]
 присылать на ревью нужно, только если есть проверка HW
 дедлайны для проверки - вечер вторника перед след. занятием
 
+Grigory Kislin   [1 day ago]
+так, вторник- это 05.10. ошибся
+
 
 Sky [9:34 PM]
 Отсылают на проверку все или только те кто купил ревью? я просто тут с JavaRush
+
+
+Grigory Kislin   [1 day ago]
+все же есть в письме участника. Независимо откуда
+
+pr1zrak   [1 day ago]
+скажите пожалуйста, до какого можно оплатить проверку ДЗ?
+
+shomnest   [1 day ago]
+@pr1zrak если память мне не изменяет, то на любой стадии проекта.
+
+Grigory Kislin   [1 day ago]
+да, но если с самого начала с HW0, то до дедлайна 05.10
+вообще лучше пораньше- тогда можно исправить ошибки и еще раз сделать ревью
+
+
+Dementev   [Today at 7:45 AM]
+@Grigory Kislin Я смотрю перешли на java 11 - <java.version>11</java.version>, но нигде ни слова на вступительном занятии, даже наоборот куча ссылок на статьи по java 8:  
+```Java 8 Date and Time API, Установить ПО (git, JDK8, IntelliJ IDEA, Maven), A Guide to Java 8 и тд ...```
+7 replies
+
+Dima Merechko   [5 hours ago]
+Будет рассказано позже,как переходить и что нового
+
+Roman   [5 hours ago]
+Я как понял, продолжаем использовать java8, а на 5 занятии, будем делать переход на java11 (edited)
+
+Dementev   [4 hours ago]
+не, не получится сейчас использовать 8, в pom.xml прописана 11я. Он просто не запустится на 8й... если только не исправить pom. Короче нужны ЦУ от автора)
+
+TheMescaline   [3 hours ago]
+https://github.com/JavaOPs/topjava/blob/master/pom.xml
+здесь версия 1.8
+GitHub
+JavaOPs/topjava
+Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery - JavaOPs/topjava
+
+Dementev   [3 hours ago]
+@TheMescaline А я ж по видео форк  делал, из JavaWebinar/topjava, там 11я - https://github.com/JavaWebinar/topjava/blob/master/pom.xml
+GitHub
+JavaWebinar/topjava
+Contribute to JavaWebinar/topjava development by creating an account on GitHub.
+
+TheMescaline   [3 hours ago]
+не, там помник заполнен всем что используется вообще. А нам надо начать с нуля и все самими сделать по урокам) После форка у тебя должен быть проект с одним классом мейн в котором один println и все))
+
+TheMescaline   [3 hours ago]
+Инструкция по шагам (из видео):
+Установить ПО (git, JDK8, IntelliJ IDEA, Maven)
+Создать аккаунт на GitHub
+Сделать Fork ЭТОГО проекта (https://github.com/JavaOPs/topjava)
+GitHub
+JavaOPs/topjava
+Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery - JavaOPs/topjava
+
+
+Олег [10:49 AM]
+В HW0 перед возвратом список надо отсортировать? А то в программе он всегда отсортированный по LocalDataTime, а по условию приходит не отсортированный
+
+TheMescaline [11:06 AM]
+метод называется getFiltered, а не getFilteredAndSorted
+в программе список отсортирован даже тогда, когда фильтры не заданы (а значит метод getFiltered не применяется). Вероятно из-за того, что в дальнейшем мы добавим логику сортировки сразу при добавлении записи
