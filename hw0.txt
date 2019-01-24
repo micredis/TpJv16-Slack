@@ -184,8 +184,22 @@ JavaOPs/topjava
 Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery - JavaOPs/topjava
 
 
+Grigory Kislin   [20 hours ago]
+@Dementev 1. делаем все по инструкции.
+видео иногда будут отличаться, тк проект рефакторится.
+под видео указываю все изменения
+2. вернул https://github.com/JavaWebinar/topjava в исходное состояние.
+теперь можно делать clone из любого репозитория (edited)
+
+
 Олег [10:49 AM]
 В HW0 перед возвратом список надо отсортировать? А то в программе он всегда отсортированный по LocalDataTime, а по условию приходит не отсортированный
+
+Grigory Kislin   [20 hours ago]
+1. а где про сортировку написано? почему так решил?
+2. поищи сложность сортировки. по условию сложность решения должна быть O(N)
+3. https://github.com/JavaOPs/topjava#-замечания-к-hw0:
+- 13: Не полагайтесь в решении на то, что список будет подаваться отсортированным. Такого условия нет. (edited)
 
 TheMescaline [11:06 AM]
 метод называется getFiltered, а не getFilteredAndSorted
