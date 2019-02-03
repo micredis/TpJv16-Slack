@@ -1,2 +1,154 @@
 Grigory Kislin [8:03 PM]
 joined #idea along with 19 others.
+
+
+German_lbt   [Jan 28th at 1:21 AM]
+борюсь уже час с томкатом...не могу его притулить...я всегда пользовался эмбедет а тут я так понял надо сервер поднять? а если я установлю правильный путь webApp в контексте tomcat? или низя так?а он вообще какое участие принимает в нашем задании? может пиратка глючная...аааааа....пчелы в голове
+4 replies
+
+Grigory Kislin   [7 days ago]
+@German_lbt 1.не тот канал  2. нет томката на hw0
+
+German_lbt   [7 days ago]
+$END$ оно? а этот канал не по IntelliJ?
+
+Dementev   [6 days ago]
+С томкатом лучше не биться, он там качается и просто запускается из папочки. Понадобится позже, там же всё и расскажут как им пользоваться.
+Томкат это котейнер сервлетов, из intellijIDEA он просто может запускаться если настроить, может и по другому стартовать, но об этом позже.
+
+German_lbt   [3 days ago]
+по видео его нужно выбирать после добавления app...но у мну его не было...пришлось ручками качать и привязывать...а то что просто деплоить и использовать через контекст так я и делал...так быстрее все стартует...но решил быть как все...чтобы не отрываться от коллектива )))
+
+
+Sobart [5:48 PM]
+Подскажите, кодировку ставить with BOM или with NO BOM?
+
+
+DenisPavlov1989   [Jan 29th at 5:13 AM]
+with NO BOM
+1 reply
+
+Sobart   [5 days ago]
+Благодарю.
+
+
+DenisPavlov1989 [5:14 AM]
+у меня ubuntu по дефолту такая была кодировка
+
+YuriiKlimenko [12:48 PM]
+1.JPG 
+
+скачал дежавю  не знаю что тут менять
+
+Александр [12:49 PM]
+Font
+В выпадающем списке его найди. И кроме скачивания шрифты ещё устанавливать надо. Ты устанавливал? (edited) 
+
+YuriiKlimenko [12:50 PM]
+сначала в винду?
+
+Александр [12:50 PM]
+Ну да.
+Идея берёт шрифты из системы. Может ещё как-то можно, но я делал так. (edited) 
+
+YuriiKlimenko [12:51 PM]
+4.JPG 
+
+этот устанавливать?
+
+Александр [12:52 PM]
+Все которые mono
+
+YuriiKlimenko [12:57 PM]
+а в каком? там есть Fond  ColorFond и Color Scheme Fond?
+Console Fond
+
+Александр [1:01 PM]
+А это уже под себя выбирай.Font это шрифт редактора.
+Console font это шрифт терминала.
+
+YuriiKlimenko [1:02 PM]
+12.JPG 
+
+
+Александр [1:02 PM]
+Именно так.
+
+YuriiKlimenko [1:02 PM]
+вот так?
+спасибо большое
+
+Александр [1:03 PM]
+Не за что. И поставь галочку enable font ligatures
+Будет ещё красивше выглядеть.
+
+YuriiKlimenko [1:03 PM]
+ок
+
+Александр [1:03 PM]
+Лично я вообще Fira Code юзаю.
+Это тоже шрифт для кодеров.
+
+YuriiKlimenko [1:08 PM]
+этот шрифт такой не привычный. для работы лучше к такому привыкать?
+
+Александр [1:11 PM]
+Работать лучше с тем, что не выедает глаза.
+Шрифт никак не скажется на твоих навыках и стиле кода. ))
+
+Dmitry [3:22 PM]
+Всем привет. А почему IDEA полная (триал период) так тормозит на встроенных проверках, аналогичной версии IDEA community edition - сразу подсвечивает опечатки, неверные типы и т.д., и т.п. А в триальной даже закомментированная строка не вся сереет сразу. Что-то можно настроить где-то, чтобы скорость сравнялась с бесплатной версией?
+
+Александр [3:24 PM]
+А идея на ссд установлена?
+
+Dmitry [3:28 PM]
+Да, обе на SSD в соседних директориях стоят.
+
+John [3:37 PM]
+Может быть, что оперативка заканчивается и используется своп - IDEA довольно требовательна.
+Отключи все неиспользуемые плагины. Это как минимум ускорит запуск.
+Лично тормозов не замечал так чтобы разительно в глаза бросалось.
+
+valera [3:58 PM]
+у меня тормозить начинает когда больше 4-х проектов открываю
+
+German_lbt [12:02 AM]
+плагины и апликэйшины...лишнее все почикай...всегда когда надо добавишь
+
+
+Bahis   [Feb 2nd at 9:05 PM]
+Как активировать идею для студента по ключу из профиля?
+6 replies
+
+Andrew   [1 day ago]
+вкладка help -> register
+
+Bahis   [1 day ago]
+спасибо)
+
+Sergey   [1 day ago]
+блин я просто с торрента скачал
+
+Vladimir Sh   [1 day ago]
+Григорий рекомендовал сначала использовать месяц trial, а уже потом активировать ключ.
+
+Andrew   [1 day ago]
+ещё, если вы студенты, то можно брать на год лицензию от jetbrains по студаку
+
+RamZet   [12 hours ago]
+Я в инете активирую, есть серверы активации пиратские. Все работает отлично
+
+
+Artyom1:49 PM
+Всем привет. Склонировал проект и и пытался его запустить, получал ошибку 'abnormal build process termination'
+Решить помогли
+https://stackoverflow.com/questions/43294333/intellij-idea-abnormal-build-process-termination-after-heap-size-change
+https://stackoverflow.com/questions/17221725/how-to-increase-the-memory-heap-size-on-intellij-idea/17221838#17221838
+Но осталось неясно, почему для этого проекта потребовалось увеличить размер памяти JVM (-Xmx4096m)?
+Stack OverflowStack Overflow
+IntelliJ IDEA: Abnormal build process termination after heap size change
+I've been trying to allocate 256MB array, which produced Java heap space exception. I've tried this solution and it didn't help. So I've been looking for another similar problems and found this. Ho...
+Stack OverflowStack Overflow
+How to increase the memory heap size on IntelliJ IDEA?
+I want to allocate around 1GB of heap size, but I can't seem to figure it out. How to do this?
