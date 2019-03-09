@@ -152,3 +152,86 @@ I've been trying to allocate 256MB array, which produced Java heap space excepti
 Stack OverflowStack Overflow
 How to increase the memory heap size on IntelliJ IDEA?
 I want to allocate around 1GB of heap size, but I can't seem to figure it out. How to do this?
+
+
+Vitaly Khan   [Feb 15th at 1:56 PM]
+я, возможно, что-то пропустил... но где ключ-то учебный брать?
+припоминаю только, что Григорий говорил, что JetBrains просили уведомлять, чтобы ключ использовался для обучения только.
+у меня триал месячный завтра заканчивается...
+2 replies
+
+Andrey Dil   [22 days ago]
+В личном кабинете: http://javaops.ru/auth/profile#topjava
+Java Online Projects
+Java программист:от новичка до профессионала. Бесплатные первые занятия. Core,Web,Веб,Maven,Spring 5,Security,JPA(Hibernate),REST,AJAX,Botstrap,Enterprise
+Java программист:от новичка до профессионала. Бесплатные первые занятия. Core,Web,Веб,Maven,Spring 5,Security,JPA(Hibernate),REST,AJAX,Botstrap,Enterprise
+
+Vitaly Khan   [22 days ago]
+благодарю, все получилось...
+
+
+YuriiKlimenko   [Feb 18th at 6:02 PM]
+а если я месяц ключом попользуюсь а потом винду переустановлю у меня ключ будет работать?
+3 replies
+
+John   [19 days ago]
+Да. Он не привязан к системе/железу. Ты и сейчас можешь его на другом компе использовать.
+
+Grigory Kislin   [19 days ago]
+только одновременно не работать
+
+YuriiKlimenko   [19 days ago]
+спасибо
+
+
+YuriiKlimenko   [Feb 19th at 11:51 PM]
+А если просто переустановить idea после 30 дней , то моно опять бесплатно пользоваться?
+10 replies
+
+John   [18 days ago]
+Можно и не переустанавливая пользоваться. Только каждые полчаса перезапускать придется.
+
+YuriiKlimenko   [17 days ago]
+тогда ключ для того чтобы раз в месяц не переустанавливать?)
+
+Sambalinski   [17 days ago]
+Я думаю, на rutracker.org тебе с этим помогут.
+
+John   [17 days ago]
+Чтобы не переустанавливать надо или пользоваться СЕ или покупать ключ для UE.
+
+YuriiKlimenko   [17 days ago]
+у меня переустановка 2 мин заняла. плюс настройки и плагины 2 мин.  То за 500 $ в год     лучше переустановить 12 раз)
+
+RamZet   [16 days ago]
+Активировался на каком-то сервере - просто нашел адреса серверов в гугле - и у меня все работает, активировано и бессрочно
+
+Sambalinski   [16 days ago]
+Онлайн активация - отличный способ. Но иногда эти сервера банятся.
+Я активировал при помощи jar файла, скаченного с рутрекера, в корне идеи прописываются пути к этому файлу в проперти. Но единственный минус - не обновишься. Вернее, после обновления нужно скачивать этот же обновлённый файл бля новой версии идеи.
+
+ILYA   [10 days ago]
+А я через почту университета активировал на год (edited)
+
+ILYA   [10 days ago]
+В целях обучения дали на год лицензию и плюс ещё на многие ихние продукты
+
+Sambalinski   [9 days ago]
+:+1:
+
+
+Sky [10:08 PM]
+Народ, подскажите как вернуть настройки идейки по умолчанию, случайно применил sql диалект к jsp файлам и беда уже  час ничего не могу вернуть вернуть обратно?
+
+Sky [10:22 PM]
+Если мало ли кому тоже надо будет вот статья https://www.jetbrains.com/help/idea/2017.1/project-and-ide-settings.html
+jetbrains.com
+Project and IDE Settings - Help | IntelliJ IDEA
+Reference information about IntelliJ IDEA project specific and IDE global settings configuration specific for Windows, Linux and macOS operating systems.
+
+Solenoid [1:24 PM]
+Почему могут не работать горячие клавиши в IDEA?
+
+Выделяю 3 строки, жму Ctrl + Shift + / и строки не становятся закомментироваными. Справа от номера строки появлается цифра 7 в квадратике и всё...
+
+В Settings -> Keymap стоит Default

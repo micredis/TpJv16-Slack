@@ -810,3 +810,259 @@ Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstr
 
 Alexandr   [1 day ago]
 Привет, для тестового ревью сделан  канал #test_review.
+
+
+Max   [Feb 6th at 10:07 PM]
+Я пока довольно слабо разобрался в тонкостях работы стримов, но у меня вопрос возник. А вот в данном конкретном случае в этом задании использовать стрим действительно выгоднее, чем цикл, или это мы просто для тренировки? Просто я пытался замерить какой вариант быстрее отработает и у меня выходит что вариант с циклами работает где-то на 30% быстрее. Решение, я так глянул, у нас почти всех примерно одинаковое. Вот мне и интересно, может вариант через стрим в чем-то другом выигрывает? Ну и заодно сразу еще один вопрос, а как правильно тестировать такие маленькие кусочки кода, я то просто тупо _currentTimeMillis()_ использовал, но видимо для таких целей более умные решения есть, а я пока не смог разобраться.
+7 replies
+
+Grigory Kislin   [1 month ago]
+по использования стримов и замера производительности есть в уроке:
+https://github.com/JavaOPs/topjava#замечания-по-использованию-stream-api
+ты не первый:) (edited)
+
+Max   [1 month ago]
+Ну, я уже смотрел это все вроде, но понимание не пришло. Хотя, возможно проблема в том, что я это все смотрел еще до того, как сам начал пробовать сделать что-то со стримами, так что наверное этой информации не за что было зацепиться у меня в голове и она прошла мимо :)) Пожалуй завтра еще разок покопаюсь в этом
+
+Denis Volkov   [1 month ago]
+Говорят, что преимущество стримов будет видно при "разогретой" jvm.
+
+Dmitry   [1 month ago]
+Насколько я понимаю - стримы намного проще параллелить для обработки коллекций. Т.е. тут можно рассматривать в кач-ве задела на будущее, если в остальном разницы с циклами нет.
+
+Dmitry   [1 month ago]
+А для замеров по-простому (и не стимов) ставлю метки System.nanoTime() до и после, потом разность между ними можно посмотреть.
+
+valera   [1 month ago]
+Основная выгода стримов это то что не нужно писать код для распаралеливания. Достаточно заменить stream на parallelStream().
+Второе это более лаконичный код за счет использования лямбд в методах stream API.
+Нашел недавно минус - в stream().forEach нельзя сделать break как в обычном цикле. Если кто знает как подскажите. (edited)
+
+Torino   [28 days ago]
+https://stackoverflow.com/questions/23308193/break-or-return-from-java-8-stream-foreach
+Stack Overflow
+Break or return from Java 8 stream forEach?
+When using external iteration over an Iterable we use break or return from enhanced for-each loop as: for (SomeObject obj : someObjects) { if (some_condition_met) { break; // or return ob...
+
+
+Александр [10:16 PM]
+Для тестов быстро действия существуют специальные фреймворки. Так просто его не затестить.
+
+Johnny115 [10:41 AM]
+Здравствуйте, на первое занятие будет канал HW1?
+
+pr1zrak [10:42 AM]
+да, он уже есть
+
+Johnny115 [10:43 AM]
+а как туда попасть?
+мне email не пришел
+
+Александр [10:45 AM]
+https://topjava16.slack.com/archives/CG063UDMG
+
+mpalii [10:45 AM]
+в дженерал канале
+
+Johnny115 [10:46 AM]
+Спасибо!!!
+
+Story [1:27 PM]
+Привет. У меня два вопроса.
+1) Правильно ли я понимаю, что вариант решения стримом с одним return дан с целью показать что так тоже можно, но по правилам он является О(N^2) ?
+2) Можно ли где-то скачать код вариантов с AtomicBoolean и с последним с созданием коллектора, хочется разобраться, а по видео не очень удобно. (edited) 
+
+Александр [1:29 PM]
+Там же всё в патчах есть.
+
+Story [1:30 PM]
+о спасибо, я решила что это старый патч
+
+
+Александр [1:30 PM]
+Вот патч с самой сложнои и правильной версией
+1_3_HW0_optional2.patch 
+Index: src/main/java/ru/javawebinar/topjava/util/MealsUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/ru/javawebinar/topjava/util/MealsUtil.java	(date 1549486493000)
++++ src/main/java/ru/javawebinar/topjava/util/MealsUtil.java	(date 1549486770040)
+@@ -8,7 +8,12 @@
+ import java.time.LocalTime;
+ import java.time.Month;
+ import java.util.*;
++import java.util.stream.Collector;
+ import java.util.stream.Collectors;
++import java.util.stream.Stream;
++
++import static java.util.function.Function.identity;
++import static java.util.stream.Collectors.toList;
+ 
+ public class MealsUtil {
+   public static void main(String[] args) {
+@@ -24,6 +29,8 @@
+     mealsWithExcess.forEach(System.out::println);
+ 
+     System.out.println(getFilteredWithExcessByCycle(meals, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
++    System.out.println(getFilteredWithExcessInOnePass(meals, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
++    System.out.println(getFilteredWithExcessInOnePass2(meals, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
+   }
+ 
+   public static List<MealTo> getFilteredWithExcess(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
+@@ -53,6 +60,51 @@
+     return mealsWithExcess;
+   }
+ 
++  public static List<MealTo> getFilteredWithExcessInOnePass(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
++    Collection<List<Meal>> list = meals.stream()
++        .collect(Collectors.groupingBy(Meal::getDate)).values();
++
++    return list.stream().flatMap(dayMeals -> {
++      boolean excess = dayMeals.stream().mapToInt(Meal::getCalories).sum() > caloriesPerDay;
++      return dayMeals.stream().filter(meal ->
++          TimeUtil.isBetween(meal.getTime(), startTime, endTime))
++          .map(meal -> createWithExcess(meal, excess));
++    }).collect(toList());
++  }
++
++  public static List<MealTo> getFilteredWithExcessInOnePass2(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
++    final class Aggregate {
++      private final List<Meal> dailyMeals = new ArrayList<>();
++      private int dailySumOfCalories;
++
++      private void accumulate(Meal meal) {
++        dailySumOfCalories += meal.getCalories();
++        if (TimeUtil.isBetween(meal.getDateTime().toLocalTime(), startTime, endTime)) {
++          dailyMeals.add(meal);
++        }
++      }
++
++      // never invoked if the upstream is sequential
++      private Aggregate combine(Aggregate that) {
++        this.dailySumOfCalories += that.dailySumOfCalories;
++        this.dailyMeals.addAll(that.dailyMeals);
++        return this;
++      }
++
++      private Stream<MealTo> finisher() {
++        final boolean excess = dailySumOfCalories > caloriesPerDay;
++        return dailyMeals.stream().map(meal -> createWithExcess(meal, excess));
++      }
++    }
++
++    Collection<Stream<MealTo>> values = meals.stream()
++        .collect(Collectors.groupingBy(Meal::getDate,
++            Collector.of(Aggregate::new, Aggregate::accumulate, Aggregate::combine, Aggregate::finisher))
++        ).values();
++
++    return values.stream().flatMap(identity()).collect(toList());
++  }
++
+   public static MealTo createWithExcess(Meal meal, boolean excess) {
+     return new MealTo(meal.getDateTime(), meal.getDescription(), meal.getCalories(), excess);
+   }
+Collapse
+
+Story [1:30 PM]
+а слона то я и не заметил, спасибо
+
+John [2:41 PM]
+Что-то я не вижу в данных методах (getFilteredWithExcessInOnePass и getFilteredWithExcessInOnePass2) решения в *один* проход.
+В первом методе сперва проходим по входному списку и группируем по дням. Если входной список содержит по одной записи на каждый день, то на выходе получим этот же список и потом снова по нему итерируемся в _return list.stream()_. То, что его переименовали ничего не меняет - 2N итераций в итоге.
+Аналогично во втором методе: первый стрим в строчке 71, второй в методе finisher(). В итоге те же 2N итераций.
+
+mpalii [3:19 PM]
+смотри в раздаточном материале ссылку по сложностям алгоритмов
+константа 2 не рассматривается
+это будет O(N)
+
+John [3:22 PM]
+Я не говорю, что данное решение нелинейное. Я о том, что название метода (..InOnePass) не соответствует реализации (по факту 2 прохода)
+
+Grigory Kislin [3:25 PM]
+@Story все варианты решения O(N). самый "правильный" - именно в кавычках- getFilteredWithExcess. его оставим
+@John прочти внимательно условия по Ontional2. Запрещается 2 раза проходить по исходному листу
+
+John [3:28 PM]
+@Grigory Kislin, то есть, если в начале метода создать копию входного списка и использовать копию, то у меня будет ноль проходов по исходному списку?
+
+
+mpalii   [Feb 7th at 3:28 PM]
+при чем тут это?)
+1 reply
+
+John   [1 month ago]
+Collection<List<Meal>> list = meals.stream().collect(Collectors.groupingBy(Meal::getDate)).values();
+этот код создает копию исходного списка при условии, что каждый день содержит по одной записи
+
+
+Grigory Kislin [3:28 PM]
+@John формально- да. фактически решение не приму
+
+Dmitry [3:39 PM]
+В решение N1 +N2 (или 2N), что приводится к сложности O(N)
+
+
+Sergey   [Feb 7th at 4:03 PM]
+@John Короче кто не решил еще за один проход по коллекции, то можно сделать так: проход и запись в одну количество калорий за день, в другую результат UserMeal фильтрованных. Потом пройтись по фильтрованной и вынуть оттуда сравнение результата для заполнения. Получилось 6+2 итераций. я так понял, что это самое кратчайщее. С стримами наверное надо тоже самое как то сделать. (edited)
+2 replies
+
+Grigory Kislin   [1 month ago]
+уже можно решения смотреть:)
+
+Max   [1 month ago]
+@Sergey Я тоже сначала так сделал, но мне объяснили, что польза от такого вспомогательного списка сомнительна. Дело в том, что это в данном конкретном случае получается маленький список, но в общем то мы не будем знать, какой список будут отправлять параметром в этот метод. И если туда отправить список, в котором почти все элементы, а то и вообще все элементы останутся после фильтрации, тогда получится что мы просто создали второй такой же список, а значит это уже затратнее, чем просто дважды пройтись по исходному списку.
+
+
+Konstantin Shishin   [Feb 7th at 4:25 PM]
+Добрый вечер!
+А можно поподробнее рассказать про то, как именно происходит установка AtomicBoolean exceed в true "задним числом" в листе?
+Ведь к этому времени мы уже добавили туда new UserMealWithExceed с exceed=false.
+1 reply
+
+ILYA   [30 days ago]
+Потому что у тебя в UserMealWithExceed будет ссылка на объект. И значение этого объекта с фолс меняется на тру.
+
+
+Grigory Kislin [4:39 PM]
+это же референсный объект-обертка. точно также как мы можем по ссылке на лист менять значения его элементов (edited) 
+
+Konstantin Shishin [4:52 PM]
+Сорри, повнимательнее посмотрел на класс AtomicBoolean и нашел у него сеттер.
+Просто я сначала пробовал с обычным Boolean, у которого нет сеттера и соответственно у меня ничего не получалось.
+
+
+YuriiKlimenko   [Feb 7th at 4:59 PM]
+у меня через циклы на 25% быстрее отрабатывает метод через стримы. Это так и должно быть?
+9 replies
+
+John   [1 month ago]
+зависит от средства и условий проведения замерений
+
+YuriiKlimenko   [1 month ago]
+а конретно для нашего задания лучше стрим или цикл?
+
+Evgenii   [1 month ago]
+все советуют стрим. Мне как новичку, удобнее через циклы
+
+Yevhen Maksymovych   [1 month ago]
+стрим лучше хотя бы с той позиции, что заставляет тебя перестроить свой мозг, потом начинаешь ценить стримы, опционалы, метод-референсы и т.п. - очень упрощает жизнь
+
+RamZet   [1 month ago]
+стрим читается легче. Григорий правильно говорит, что вопрос привычки. Но стримы стали уже обыденностью.
+
+John   [1 month ago]
+Стрим - меньше кода, но цикл понимать проще. То же самое при сравнении анонимного класса и лямбды. Хотя если начинать изучение сразу с лямбд и на анонимные классы/функции не обращать внимания, то может и наоборот.
+А для нашего задания, ИМХО, лучше то, что для самого проще понимать.
+
+Grigory Kislin   [1 month ago]
+https://github.com/JavaOPs/topjava#%D0%B7%D0%B0%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E-stream-api
+второй раз уже даю. читайте урок внимательно! (edited)
+
+valera   [29 days ago]
+насчет скорости попробуйте вместо stream - parallelStream. И коллекцию побольше
+
+Dmitry   [29 days ago]
+Читабельность > Скорость

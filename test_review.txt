@@ -455,3 +455,18 @@ https://github.com/kostya-mygit/topjava/commit/47f44082c2a1458ee51c36d9aadbeee27
 GitHub
 My-HW0-cycle&stream · kostya-mygit/topjava@47f4408
 Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery - kostya-mygit/topjava
+
+
+Katherine   [1 month ago]
+Привет. Еще не поздно. Написала в ЛС.
+
+
+Sergey Filippov   [Feb 6th at 7:43 PM]
+А если была проверка уже и были замечания по коду, скидывать на ревью повторно можно или данное тестовое ревью работает 1 раз?
+2 replies
+
+Katherine   [1 month ago]
+Тестовое - один раз.
+
+Sergey Filippov   [1 month ago]
+Ясно. Спасибо за информацию
