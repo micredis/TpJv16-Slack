@@ -1,0 +1,1904 @@
+https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson01.md
+
+hw1
+@Grigory Kislin created this channel on February 6th. This is the very beginning of the hw1 channel. Purpose: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson01.md (edit)
+ Add an app Invite others to this channel
+
+Grigory Kislin [11:45 PM]
+joined #hw1.
+
+Grigory Kislin [11:46 PM]
+Доброй ночи!
+Выложил первое занятие стажировки: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson01.md
+Ссылка на уроки таже будет сверху, рядом с названием канала
+Внимательно читайте комментарии в начале и замечания к выполнению ДЗ.
+Успехов! Рассылка по почте будет днем. (edited) 
+
+Dmitry [11:52 PM]
+joined #hw1 along with 18 others.
+
+
+Alexander   [Feb 7th at 2:28 PM]
+подскажите, плиз, сколько времени занимает рассмотрение запроса для просмотра видео. Спасибо
+1 reply
+
+Grigory Kislin   [1 month ago]
+запросы на просмотр не рассматриваются. в письме выделено жирным шрифтом H2. в том числе по техническим причинам. доступ по регистрации из письма (edited)
+
+
+mpalii [3:18 PM]
+мне кажется это минута дела
+постучать Григорию в скайп и все
+
+John [3:26 PM]
+в письме с рассылкой к нулевому уроку или раньше было что-то об этом (если нету доступа к видео)
+
+Alexander [3:57 PM]
+все работает, всем спасибо
+
+
+Johnny115   [Feb 7th at 4:02 PM]
+патчи после apply patch удалять из корня проекта?
+2 replies
+
+Grigory Kislin   [1 month ago]
+как хотите. также можно пометить как ignore в idea или занести в .gitignore
+
+Johnny115   [1 month ago]
+спасибо за ответ У меня ignore в idea ignore почему-то не активное. Ignore есть, но оно не активное. Буду оставлять в корне, но додам *.patch в gitignore (edited)
+
+
+Grigory Kislin [4:13 PM]
+Всем привет. Сделал рассылку, там повторяю основные моменты. + дал ссылку присоединения к общей группе Java OPS: https://join.slack.com/t/javaops/shared_invite/enQtNTE3Mjc3NDg2NzA3LTc4ZWNmYzI3MGQ1ZDU0NDhmMjc3OWY5NjZmY2YzMGZjNGQ4OTcyYzhlNWM4MDk5ZWRhMDE3MGYzZTZkYTFjNjQ
+не путайте- это группа для ведения topjava16, общая- для прочих нужд (edited) 
+
+
+German_lbt   [Feb 8th at 1:05 AM]
+а геттеры в MealTo допилить низяяяяя?
+1 reply
+
+Tanya   [1 month ago]
+можно
+
+
+synya   [Feb 8th at 11:31 AM]
+Всем привет. Можно поподробнее объяснить что понимается под счётчиком?
+9 replies
+
+V_Gruzdev   [1 month ago]
+Привет. Полагаю тоже что и всегда - поле которое будет инкрементиться при создании сущности.
+
+synya   [1 month ago]
+Я не понимаю, связан он как-то с id, или нет
+
+V_Gruzdev   [1 month ago]
+Думаю, что в базе это поле будет как автоинкрементное. А в памяти скорее всего значение этого счетчика и будет ID.
+
+synya   [1 month ago]
+С базой понятно. А вот с коллекцией не очень-то, от этого и вопрос.
+
+Denis Volkov   [1 month ago]
+На сколько я могу судить, счётчик это sequence на основе которого назначается id.
+
+Bahis   [1 month ago]
+а что такое секвенс?
+
+Evgenii Brusnev   [1 month ago]
+@Bahis, Порядок. Типа - sequence number - порядковый номер
+
+Bahis   [1 month ago]
+Пасиб :slightly_smiling_face:
+
+Grigory Kislin   [1 month ago]
+да, это счетчик для id
+
+
+YuriiKlimenko [3:37 PM]
+после каждого патча делать коммит и пуш?
+
+Story [3:39 PM]
+коммит после каждого, а в конце один пуш
+
+YuriiKlimenko [3:39 PM]
+спасибо
+
+Yevhen Maksymovych [3:56 PM]
+КОММИТЬ@ПУШЬ
+
+Yevhen Maksymovych [5:12 PM]
+как-то тихо в последних паре топджав, вот, помню, в моё время, напишешь вопрос, смотришь через час, а там уже 40 комментариев :slightly_smiling_face:
+
+John [5:15 PM]
+Может потому что тут больше выпускников предыдущих наборов чем новичков? Все уже все знают.
+
+
+Bahis   [Feb 8th at 7:50 PM]
+в плане hw1, в пункте 5 не ссылки для "Настройка пропертей Maven: кодировка, java version, зависимости, maven-compiler-plugin"
+2 replies
+
+Grigory Kislin   [1 month ago]
+она тем не предполагалась. удалил, чтобы не путались
+
+Bahis   [1 month ago]
+спасибо )
+
+
+Story [7:55 PM]
+ваше присутствие тут пугает:grimacing: неужели так все сложно:face_with_raised_eyebrow:
+
+Grigory Kislin [8:04 PM]
+@here замечание про поводу HW1: с эксепшенами пока можно не заморачиваться. у нас будет их обработка в конце стажировки
+
+
+Олег   [Feb 9th at 11:03 AM]
+Подскажите MealServlet делать вместо UserServlet или их оставлять параллельно то же и с jsp?
+3 replies
+
+Ivan   [30 days ago]
+Оставлять. Нужно создать отдельный jsp
+
+ILYA   [29 days ago]
+Да, 1 jsp на юзеров, а другой jsp на еду
+
+makushatnik   [28 days ago]
+А они что мешают друг другу?=)
+
+
+pr1zrak [4:16 PM]
+всем привет
+<file>${TOPJAVA_ROOT}/log/topjava.log</file>
+у кого-нить на mac os mojave получилось переменную эту сделать?
+export TOPJAVA_ROOT=/Documents/GitHub/topjava
+в консоле набираю
+через printenv переменная появляется (до перезагрузки)
+но при запуске проекта ничего не происходит. если в конфиге логера прописать вместо TOPJAVA_ROOT путь /Documents/GitHub/topjava, проект критует с ошибкой, что нет такого файла topjava.log :confused: я думал он автоматом создается
+
+
+Jack Sparrow   [Feb 9th at 4:23 PM]
+Здравствуйте, смотрю видео по Tomcat.
+Там в файл tomcat-users надо прописать <user username="tomcat" password="tomcat" roles="tomcat,manager-gui,admin-gui"/>
+</tomcat-users>. У меня tomcat user выглядит совсем по-другому, чем в видео. Где именно этот текст прописать надо?
+4 replies
+
+Bahis   [29 days ago]
+папка conf
+
+Bahis   [29 days ago]
+файл tomcat-users.xml
+
+makushatnik   [28 days ago]
+Какая разница, как выглядит, в видео показали какую строку надо добавить. Отличаться может если только сам надобавлял там кучу ролей с разными настройками для них.
+
+makushatnik   [28 days ago]
+Строка эта в любом месте с новой строки.
+
+
+pr1zrak [4:23 PM]
+я прописывал недавно, вроде все ок
+
+Александр [4:24 PM]
+У меня вот так, всё работает.
+Pasted image at 2019-02-09, 5:24 PM 
+
+
+pr1zrak [4:24 PM]
+у меня так же
+
+Jack Sparrow [4:27 PM]
+Александр, спасибо! допустил ошибку. По невнимательности открыл файл XSD, а надо было файл xml.
+
+
+Bahis   [Feb 9th at 5:47 PM]
+Александр, очень нужна помощь. При деплое через manager том ката получаю http://localhost:8080/D:_DEVtopjavatargettopjava/
+1 reply
+
+makushatnik   [28 days ago]
+В pom'e что написано в projectName или в build? D:_DEVtopjavatargettopjava? Или прописал это в настройках деплоя в Томкат в applicationPath?
+
+
+Bahis [5:47 PM]
+Соответственно оно так не работает.
+Нужны еще какие-нибудь пути в патч кроме JAVA_HOME?
+
+Александр [5:48 PM]
+Очень интересно. Не сталкивался, да и с томкатом я привык встроенным в спринг работать. А из идеи нормально деплоится?
+
+Bahis [5:50 PM]
+Сейчас попробую.
+
+Bahis [5:56 PM]
+просто копированием вада получилось...
+а как из идеи - создавать конфигурацию?
+
+Bahis [7:25 PM]
+нашел
+
+
+Jack Sparrow   [Feb 9th at 8:38 PM]
+tomcat_remote на 8000 порту не работает. Error running 'Unnamed': Unable to open debugger port (localhost:8000): java.net.ConnectException "Connection refused: connect". Кто-то сталкивался с такой проблемой? (edited)
+16 replies
+
+TheMescaline   [29 days ago]
+Это потому что каталина запущена не в режиме дебага.  Запускай не просто start, а
+catalina.bat jpda start
+
+Jack Sparrow   [29 days ago]
+сейчас попытаюсь исправить. Спасибо!
+
+Jack Sparrow   [29 days ago]
+сделал через jpda
+
+Jack Sparrow   [29 days ago]
+Pasted image at 2019-02-09, 9:03 PM 
+
+Jack Sparrow   [29 days ago]
+но причина какая-то другая
+
+Jack Sparrow   [29 days ago]
+Pasted image at 2019-02-09, 9:04 PM 
+
+TheMescaline   [29 days ago]
+гаси каталину
+
+TheMescaline   [29 days ago]
+потом пиши
+
+TheMescaline   [29 days ago]
+set JPDA_ADDRESS=8000
+
+TheMescaline   [29 days ago]
+потом
+
+TheMescaline   [29 days ago]
+catalina.bat jpda start
+
+TheMescaline   [29 days ago]
+и попробуй еще раз
+
+John   [29 days ago]
+а на 8000 порту есть хоть что? может просто не там слушаешь.
+
+Jack Sparrow   [28 days ago]
+У меня получилось. Сделал, как писал TheMescaline
+
+Jack Sparrow   [28 days ago]
+Pasted image at 2019-02-10, 11:47 AM 
+
+Jack Sparrow   [28 days ago]
+мне удалось подключиться к порту. Спасибо!
+
+
+mpalii [10:39 PM]
+Друзья. При запуске Томката в командной строке проскакивает местами текст, который по всей видимости на каком-то из этапов неверно перекодируется:
+http://prntscr.com/miwrr5
+Lightshot
+Screenshot
+Captured with Lightshot
+
+
+mpalii   [Feb 9th at 10:40 PM]
+Подскажите, в каких местах искать проблему с кодировкой?
+3 replies
+
+Yuriy   [29 days ago]
+Путь к проекту какой? (edited)
+
+mpalii   [28 days ago]
+Путь без кириллицы:
+C:\Users\mpalii\IdeaProjects\topjava16
+
+mpalii   [28 days ago]
+и томкат сам лежит по нормальному пути (тоже без кириллицы)
+
+
+Valeriy   [Feb 9th at 11:25 PM]
+Объясните пожалуйста этот пункт из ДЗ:
+1.2.1 Список еды захардкодить (те проинициализировать в коде, желательно чтобы в проекте инициализация была только в одном месте)
+7 replies
+
+Tanya   [29 days ago]
+тот список, который в MealsUtil надо использовать в качестве тестовых данных, но не надо дублировать в др. классах
+
+Valeriy   [29 days ago]
+спасибо
+
+Oleg   [29 days ago]
+А как использовать список из MealsUtil если не выносить его в другой класс, ведь его область видимости ограничена функцией main?
+
+Tanya   [29 days ago]
+вынеси из main в стат переменную, но можно и в др класс перенести, главное не дублировать (edited)
+
+makushatnik   [28 days ago]
+Нда. Базовые вещи. Какой разраб геттер не умеет писать? Уволят сразу.
+
+Sergey   [28 days ago]
+Мне кажется что тут уже пахнет рефлексией((
+
+Tanya   [28 days ago]
+если сделаешь через рефлексию, то точно будет пахнуть :wink:
+
+
+German_lbt   [Feb 9th at 11:40 PM]
+при добавлении дискрипшин вводим чего вздумается? или выбор сделать? как поступить?
+1 reply
+
+Tanya   [29 days ago]
+пока, что хотим, валидацию позже прикрутим
+
+
+German_lbt   [Feb 9th at 11:44 PM]
+и еще вопрос...для операции добавить-изменить рисуем в новом окне или можно спрятать/показать рядышком?
+1 reply
+
+Tanya   [29 days ago]
+на твое усмотрение (edited)
+
+
+timdzha [1:19 AM]
+По поводу проверочного вопроса:
+Что нужно изменить в pom.xml, чтобы перейти с logback на log4j ? Кроме изменения в pom.xml стоит еще добавить log4j.xml ?
+
+
+Artyom   [Feb 10th at 9:00 AM]
+После 5-го патча в web-xml почти все стало красным, подсвечивается Element web-app must be declered;
+Pasted image at 2019-02-10, 5:00 PM 
+18 replies
+
+Игорь   [29 days ago]
+Проверь, что подтянулась dependency servlet
+
+Artyom   [29 days ago]
+присутствуют
+Pasted image at 2019-02-10, 5:38 PM 
+
+Oleg   [29 days ago]
+А что красным подчеркивает в pom.xml?
+
+Artyom   [29 days ago]
+В pom красного нет
+
+Artyom   [29 days ago]
+с java EE решилось
+
+German_lbt   [28 days ago]
+деплои не подтянулись...поэтому и импорта нет...там есть сверху в майвене обновить и подтянуть сорцы
+
+makushatnik   [28 days ago]
+Тоже самое. Правда работать не мешает:) Так вы говорите, нужно в мавене нажать подтянуть сорцы чтобы исправить?
+
+Grigory Kislin   [28 days ago]
+подтягивать зависимости можно ТОЛЬКО maven. в уроке специально написал (edited)
+
+Dmitry   [27 days ago]
+Аналогично - в pom всё в порядке, зависимости - через   "Reimport All Maven Projects" добавлены, исходники через "Download Sources". В UserSetvlet красное, в web.xml подчёркнута строка <servlet-class>ru.javawebinar.topjava.web.UserServlet</servlet-class>. При этом всё собирается и работает, отдаёт тестовые страницы в браузер. Накачен патч 1.5. Идею перезапускал. Как можно решить?
+userservlet_dep_err.png 
+
+makushatnik   [27 days ago]
+А действительно ли это проблема, которую нужно решать?
+
+Dmitry   [27 days ago]
+Желательно. Это не нормально, это не позволяет использовать Ctrl+O, это ломает автоимпорт зависимостей и прочее автодополнение  - как минимум. И создать новый servlet можно только копированием и переименованием старого, иначе при сборке cannot find symbol лезут.
+
+V_Gruzdev   [27 days ago]
+@Dmitry а в модули попала зависимость?
+
+Grigory Kislin   [27 days ago]
+в зависимостях должно еще быть slf4j и logback. что-то у тебя с проектом плохо. попробуй удалить .idea и .iml и заново проект сделать (edited)
+
+German_lbt   [27 days ago]
+та...у тебя задеплоились только сервлеты-апи...на скрине же видно
+
+Dmitry   [27 days ago]
+@Grigory Kislin не помогло. (после патча 1.6 в зависимостях, естественно, они есть. скрин дан для патча 1.5)
+
+Artyom   [26 days ago]
+подтягивание зависимостей не решают исходную проблему с web.xml
+
+Dmitry   [26 days ago]
+С чем было связано - так и не понял. Удаление .idea и файлов .iml с повторными New->Project from existing sources и очисткой локального репозитория Maven эффекта не давало, зависимости выкачивались и подсвечивались красным со всеми вытекающими. Проект при этом собирался и работал.
+Решение: помог push и последующий импорт проекта из репозитория с github (на всякий случай - импортировал в новую директорию).
+
+Grigory Kislin   [26 days ago]
+странно.. хорошо, что заработало
+когда совсем все плохо еще помогает в idea
+File-> Invalidate Caches/Restart...
+
+
+Игорь   [Feb 10th at 12:18 PM]
+Не понял как рассчитывать суточное превышение (excess)
+2 replies
+
+makushatnik   [28 days ago]
+Больше 2000 калорий в день в сумме - превышение. Хотя можешь поставить любую другую цифру, на свое усмотрение.
+
+Heorhii   [27 days ago]
+Суммируешь калории всех элементов списка за этот же день(вытаскиваешь из localDate день) потом сумму сравниваешь с последний параметром метода(caloriesPerDay)  превышает? excess = true : excess = false;
+
+
+Александр [12:27 PM]
+В смысле не понял, как это сделано в разборе ДЗ?
+У меня рассчет делается в первом стриме, когда создаем карту с приёмами пищи.
+getFilteredWithExceeded 
+Map<LocalDate, Integer> dateCalSumMap = mealList.stream().collect(Collectors.groupingBy(meal -> meal.getDateTime().toLocalDate(), Collectors.summingInt(Meal::getCalories)));
+
+Игорь [12:32 PM]
+Нет, как это сделать в MealServlet, т.к. суточная калорийность задаётся в другом классе
+
+Александр [12:34 PM]
+Так в MealServlet можно сразу работать с MealTo
+
+
+Александр   [Feb 10th at 12:35 PM]
+Получае его из MealUtils, где он пока что и будет инициализироваться.
+7 replies
+
+Игорь   [28 days ago]
+caloriesPerDay откуда взять?:slightly_smiling_face: Так понятнее
+
+Александр   [28 days ago]
+Задаётся пока хардкодом в методе.
+
+German_lbt   [28 days ago]
+они у тебя хардходжем попадают
+
+German_lbt   [28 days ago]
+упс...не успел )))
+
+Игорь   [28 days ago]
+понял, спс
+
+German_lbt   [28 days ago]
+чтобы не ковырять классы можно(даже думаю нужно) использовать декоратор...я делаю традиционно dao c интерфейсом
+
+makushatnik   [28 days ago]
+Да не. Число в константу выносится в отдельный класс.
+
+
+DmitrIY Stakhanov   [Feb 10th at 1:43 PM]
+Подскажите, пожалуйста, как дату форматировать в jsp, пробовал через jstl, но выдаёт ошибку, что в атрибуте не может быть выражения. Нужно свой тег писать?
+IMG_20190210_144148.jpg 
+11 replies
+
+Dmitry   [28 days ago]
+Можно регуляркой T менять на пробел
+
+Dmitry   [28 days ago]
+Или https://stackoverflow.com/questions/35606551/jstl-localdatetime-format
+Stack Overflow
+JSTL LocalDateTime format
+I want to format my java 8 LocalDateTime object in "dd.MM.yyyy" pattern. Is there any library to format ? I tried code below but got convertion exception. <fmt:parseDate value="${date}" pattern...
+
+DmitrIY Stakhanov   [28 days ago]
+Спасибо, проблема была в определении taglib prefix = "fmt", когда заменил его на строку из статьи - заработало
+
+makushatnik   [28 days ago]
+У меня работает со строкой из статьи, но я написал fmt:) Чудо?
+
+Roman   [28 days ago]
+Про какую строку из статьи Вы говорите ?
+
+Bahis   [28 days ago]
+А я в сервлете поле завел форматтер, и его передал в jsp
+
+Bahis   [28 days ago]
+<td>${mealto.getDateTime().format(formatter)}</td>
+
+Yuriy   [25 days ago]
+Подскажите, какую строку надо поставить из статьи? У меня такая строка <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %> и с ней не работает. (edited)
+
+Roman   [25 days ago]
+Это ты только подключил библиотеку, надо добавить еще две строки (edited)
+
+Roman   [25 days ago]
+<fmt:parseDate value="${mealto.getDateTime()}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+<fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${parsedDateTime}" />
+
+Yuriy   [24 days ago]
+оказалось, что эта строка, которая подставилась у меня по ALT+ENTER, неправильная... неправильный путь, не хватает jsp. Нужно <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> (edited)
+
+
+Story   [Feb 10th at 3:09 PM]
+Подскажите плз, если идея так подсвечивает jstl, может ли это означать что с ним что-то не так?
+Pasted image at 2019-02-10, 3:09 PM 
+9 replies
+
+Story   [28 days ago]
+почему-то не отображается таблица. исходный код страницы выглядит так
+<table>
+   <tr><th>DateTime</th><th>Description</th><th>Calories</th></tr>
+   <c:forEach var="meal" items="[MealTo{dateTime=2015-05-30T10:00, description='Завтрак', calories=500, excess=false}, MealTo{dateTime=2015-05-30T13:00, description='Обед', calories=1000, excess=false}, MealTo{dateTime=2015-05-30T20:00, description='Ужин', calories=500, excess=false}, MealTo{dateTime=2015-05-31T10:00, description='Завтрак', calories=1000, excess=true}, MealTo{dateTime=2015-05-31T13:00, description='Обед', calories=500, excess=true}, MealTo{dateTime=2015-05-31T20:00, description='Ужин', calories=510, excess=true}]" >
+   <tr>
+       <td><c:out value=""/></td>
+       <td><c:out value=""></td>
+       <td><c:out value=""></td>
+
+   </tr>
+   </c:forEach>
+
+</table>>
+
+Story   [28 days ago]
+в jsp так
+<--%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<table>
+   <tr><th>DateTime</th><th>Description</th><th>Calories</th></tr>
+   <c:forEach var="meal" items="${mealsTo}" >
+   <tr>
+       <td><c:out value="${meal.getDateTime}"/></td>
+       <td><c:out value="${meal.getDescription}"></td>
+       <td><c:out value="${meal.getCalories}"></td>
+
+   </tr>
+   </c:forEach>
+</table>>
+oracle.com
+Oracle Technology Network for Java Developers | Oracle Technology Network | Oracle
+Oracle Technology Network is the ultimate, complete, and authoritative source of technical information and learning about Java.
+
+Story   [28 days ago]
+не знаю куда рыть (edited)
+
+makushatnik   [28 days ago]
+1. jstl подсвечено красным? В этом случае оно не загрузилось в локальный репо.
+Если горит зеленым (как на скрине) или другим цветом, думаю значения не имеет.
+2. Параметр в Jsp передаешь?
+3. forEach делаешь по этому пар-ру и корректно прописал везде перем-ю?
+Если ничего не передаешь, либо ошибка в названии перем-й (либо ее отсутствие) - ничего выведено и не будет:)
+
+makushatnik   [28 days ago]
+Во 2м сообщении ошибка - данные в Jsp прописывать не надо. Они берутся из MealsUtil, передаются сервлету, сервлет в Jsp.
+
+makushatnik   [28 days ago]
+c:out - видимо, прошлый век. У меня без него прописаны перем-е. И работает.
+
+Grigory Kislin   [28 days ago]
+Pasted image at 2019-02-10, 6:04 PM 
+
+Grigory Kislin   [28 days ago]
+структуру html в хроме- правая мышка и inspect
+
+Story   [28 days ago]
+была закомментирована строка <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  :speak_no_evil: теперь полезли читаемые ошибки
+спасибо!
+oracle.com
+Oracle Technology Network for Java Developers | Oracle Technology Network | Oracle
+Oracle Technology Network is the ultimate, complete, and authoritative source of technical information and learning about Java.
+
+
+pr1zrak   [Feb 10th at 4:44 PM]
+Подскажите пожалуйста, мы должны захардкодить еду - ок, мы не фильтруем по дате - ок, а как мы вычисляем excess? В функцию, возвращающую List<MealTo> передавать что 2000? Или сразу вынести 2000 в константу, чтобы не было мэджик намберов?
+1 reply
+
+makushatnik   [28 days ago]
+На ваш вкус)
+
+
+Bahis   [Feb 10th at 4:51 PM]
+Помогите, пожалуйста.... Я что-то в первом задании на 3 гугл часа уже застрял. Не деплоится проект при добавлении второго сервлета.
+4 replies
+
+Oleg   [28 days ago]
+А какая ошибка?
+
+pr1zrak   [28 days ago]
+надо /meals
+
+pr1zrak   [28 days ago]
+в url-patterns
+
+Bahis   [28 days ago]
+Спасибо :+1:
+
+
+pr1zrak [4:52 PM]
+в web.xml добавили?
+
+Bahis [4:52 PM]
+Pasted image at 2019-02-10, 5:52 PM 
+
+да... может, ошибся в чем-то
+Pasted image at 2019-02-10, 5:53 PM 
+
+если из web-xml убираю строки связанные с новым сервлетом, то все хорошо
+но как можно ошибиться в 2х строчках? куда смотреть не понимаю.
+
+pr1zrak [4:56 PM]
+надо /meals
+
+
+Oleg   [Feb 10th at 4:56 PM]
+исправь /meals
+1 reply
+
+Игорь   [28 days ago]
+Мне не помогло. Кстати через аннотацию тоже
+1.png 
+
+
+Bahis [4:58 PM]
+))))))))))))))
+спасибо.... я просто сплю уже
+
+makushatnik [5:06 PM]
+Привет, хлопцы) Ну как ДЗ? Многие Optional сделали?
+
+Valeriy [5:07 PM]
+в процессе
+
+makushatnik [5:08 PM]
+Я обычное сделал быстро, а на Optional прям вспотел)
+
+Valeriy [5:08 PM]
+так же
+
+pr1zrak [5:09 PM]
+http://topjava.herokuapp.com/meals
+
+makushatnik [5:09 PM]
+Если бы не много всяких условий, уже было бы готово..
+
+
+pr1zrak   [Feb 10th at 5:09 PM]
+нам нужно сделать вот такое же?
+8 replies
+
+makushatnik   [28 days ago]
+Ну за 1 день мы такое не сделаем=)
+
+pr1zrak   [28 days ago]
+а когда таблицу выводили
+
+pr1zrak   [28 days ago]
+стили сами придумывали?
+
+makushatnik   [28 days ago]
+В данный момент стили не критичны и да, сами придумываем. В следующих ДЗ могут быть условия по стилям.
+
+pr1zrak   [28 days ago]
+просто я смотрю в итоговом проекте используется bootstrap
+
+pr1zrak   [28 days ago]
+на хероку который
+
+makushatnik   [28 days ago]
+Не осилишь бустрап за 1 день. Еще и со всеми остальными технологиями, что у нас будут до 11го урока:)
+
+makushatnik   [28 days ago]
+Вспоминается анекдот про 2х баранов старого и молодого)
+
+
+pr1zrak [5:09 PM]
+без верхнего блока?
+
+
+RamZet   [Feb 10th at 5:35 PM]
+А ответ на вопрос по поводу смены logback на log4j здесь можно обсудить или ждем занятия?
+7 replies
+
+makushatnik   [28 days ago]
+Григорий говорил, что log4j уже не актуален (года 2 назад на нем перестали писать), имеет ряд недостатков. Так что вряд ли есть смысл его юзать. Мы ж специально, чтобы уйти от него добавляем jcl-over-slf4j.
+
+Grigory Kislin   [28 days ago]
+мы будет с logback работать
+если и хочется поэксперементировать, то с log4j2
+а что хочешь обсудить? (edited)
+
+RamZet   [28 days ago]
+цитирую
+Проверочные вопросы:
+Что нужно изменить в pom.xml, чтобы перейти с logback на log4j ?
+
+Это и хочу обсудить. Хочу знать, правильно или нет я всё понял.
+
+RamZet   [28 days ago]
+убирать из dependency logback, добавить адаптер log4j-slf4j-impl и log4j-core
+
+Jack Sparrow   [28 days ago]
+сделайте patch 1_7 и все у вас получиться.
+
+RamZet   [28 days ago]
+Спасибо, у меня давным давно всё получилось. Но суть вопроса вы не поняли. я даже процитировал из лекции.
+Повторяю цитату
+"Проверочные вопросы:
+Что нужно изменить в pom.xml, чтобы перейти с logback на log4j ?"
+Такой вопрос написан в лекции. Я хочу знать, правильно ли я на него отвечаю. Ответ я выше написал
+
+Grigory Kislin   [27 days ago]
+@RamZet дак ты попробуй запуститься. если логирование идет- то все верно
+если не идет и не можешь решить- пиши проблему...
+вот подход программиста. а если сделал- можно написать как- может кто-то будет благодарен (edited)
+
+
+makushatnik   [Feb 10th at 6:50 PM]
+meals_list.jpg 
+1 reply
+
+makushatnik   [28 days ago]
+Исправил.
+
+
+makushatnik   [Feb 10th at 6:50 PM]
+Кракозябры какие-то. Непорядок. Похоже в сервлете надо UTF-8 вставлять.
+3 replies
+
+Valeriy   [28 days ago]
+Решил эту проблему? у меня такая же хрень
+
+Grigory Kislin   [27 days ago]
+https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson01.md#%D0%BF%D0%BE%D1%81%D0%BB%D0%B5-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B4%D0%B7-%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%8C%D1%82%D0%B5-%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8
+Проблемы с кодировкой в POST (кракозябры).
+
+Valeriy   [27 days ago]
+Спасибо
+
+
+Borris   [Feb 10th at 7:29 PM]
+Error:(3, 17) java: package org.slf4j does not exist - коллеги, подскажите, пожалуйста, в чем может быть проблема?
+12 replies
+
+makushatnik   [28 days ago]
+Интернет включи перед импортом в Мавене:)
+
+makushatnik   [28 days ago]
+Либо 2 - не знаешь, как запускается импорт)
+
+Elena Sheva   [28 days ago]
+судя по сообщению, надо прицепить зависимость в pom.xml, если есть там, то pom.xml -> click мышью ---> maven-> reimport
+
+Elena Sheva   [28 days ago]
+ну и в самом начале, clean + install (или clear + package) -> run
+
+makushatnik   [28 days ago]
+Ну и учитесь ходить в свой локальный репо и там смотреть) Когда по удаленке будете работать, за вас никто не придет и не посмотрит)
+
+Borris   [28 days ago]
+Нет, к сожалению, ничего не помогло((
+
+Grigory Kislin   [27 days ago]
+@Borris
+1. прверь, что maven у тебя не в оффлапйн режиме (Toggle Offline mode)
+2. попробуй вручную скачать https://search.maven.org/artifact/org.slf4j/slf4j-api/1.7.25/jar
+3. удали slf4j из локального maven репозитория если не помогло и снова импортни
+
+Heorhii   [27 days ago]
+Аналогичная проблема только что возникла, удалось пофиксить?) Я в процессе снес maven и скачал по новой, проглядел все глаза в настройках, Offline mode выключен, автоимпорт влючен, создал отдельную папку прямо в корне С:\ как локальный репозиторий maven, соответственно в настройках указал её же - как в видео. Зашел туда, лежит в org - slf4j, удалил, мавен перезагрузил её же, ии.... опять ошибка. Сейчас руками попробую скачать, но здравый смысл подсказывает что не поможет :disappointed_relieved:
+
+Heorhii   [27 days ago]
+Caused by: java.lang.ClassNotFoundException: org.slf4j.Logger
+
+Grigory Kislin   [27 days ago]
+@Heorhii, @Borris ну напишите в скайп. посмотрим (edited)
+
+Heorhii   [27 days ago]
+@Borris скачай\клонируй (https://github.com/JavaWebinar/topjava) проект, патчи там уже накатаны, ошибки там нет, я скопировал все из pom.xml, в этом проекте в свой и он тоже заработал без ошибок.
+
+Сложно сказать в чем конкретно была ошибка, но она был в xml (конфигурации?) для maven-a.
+JavaWebinar/topjava
+Stars
+1
+Language
+Java
+JavaWebinar/topjavaJan 23rdAdded by GitHub
+
+Borris   [26 days ago]
+@Heorhii Спасибо! Скопировал pom.xml и все заработало!
+
+
+YuriiKlimenko [8:16 PM]
+А что такое checkin?
+
+Александр [8:26 PM]
+Commit & push
+
+
+Valeriy   [Feb 10th at 8:30 PM]
+Подскажите, хочу в таблице сделать ссылку\кнопку для перехода на другую страницу, где будет форма для редактирования\добавления. Как передать id записи при нажатии кнопки\ссылки в сервлет? перепробывал разные способы, не получается id передать...
+8 replies
+
+Dmitry   [28 days ago]
+meals?action=update&id=${meal.id}
+
+Valeriy   [28 days ago]
+не получается, не могли бы подробней? страница с формой для редактирования edit называется, страница с таблицей meals
+
+John   [28 days ago]
+<a href="${pageContext.request.contextPath}/edit?id=${meal.id}">Edit Meal</a>
+
+Valeriy   [28 days ago]
+HTTP method GET is not supported by this URL
+
+это что то в сервлете не так?
+
+Valeriy   [28 days ago]
+вот так метод у меня начинается
+
+Valeriy   [28 days ago]
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       log.debug("redirect to edit");
+       String id = request.getParameter("id");
+
+Valeriy   [28 days ago]
+все, разобрался. Спасибо за помощь)
+
+German_lbt   [27 days ago]
+хотим get юзать, дергаем пост...ааааа...не работает )))
+
+
+tolik1106 [10:22 PM]
+Подскажите, как правильней делать ссылку :<a href="${pageContext.request.contextPath}/edit?id=${meal.id}">Edit Meal</a>
+или стучаться прямо к сервлету <a href="meals?action=edit?id=${meal.id}">Edit Meal</a>. И так и так работает.
+
+
+tolik1106   [Feb 10th at 10:26 PM]
+*<a href="${pageContext.request.contextPath}/meals?action=edit?id=${meal.id}">Edit Meal</a>
+3 replies
+
+John   [28 days ago]
+во втором случае больше логики надо в сервлете делать. в первом случае больше сервлетов, но чать логики решена диспетчером
+
+John   [28 days ago]
+В курсе торджава используется подход с многими сервлетами.
+Может быть реализация, где всего один сервлет на приложение, а параметрами запроса определяется какой метод использовать (патерн команда).
+
+tolik1106   [28 days ago]
+Спасибо
+
+
+RamZet   [Feb 10th at 10:40 PM]
+Вопрос, а то крыша едет. Опять цитирую
+"2.3 Добавить поле id в Meal/ MealTo и реализовать генерацию счетчика,"
+Окей. Теперь смотрим типичные ошибки
+"10 Не размещайте никакую логику (форматирование, счетчики) в бинах, где хранятся только данные (Meal, MealTo)
+11 Еще раз: детали реализации в памяти не должны быть никому видны. Те НЕ НАДО счетчик размещать в Meal или MealServlet или MealsUtil, в базе же он будет по другому генерится."
+Это же противоречит друг другу?
+6 replies
+
+John   [28 days ago]
+Что чему противоречит?
+Оба утверждения говорят не размещать логику определения счетчика в бинах.
+
+RamZet   [28 days ago]
+пока Вам отвечал, всё понял))))
+
+John   [28 days ago]
+И это хорошо )
+
+tolik1106   [28 days ago]
+А правильно ли размещать счётчик в реализации dao?
+
+John   [28 days ago]
+Ну к бизнес-логике это не относится, то кажется, что на уровне дао ему самое место.
+
+German_lbt   [27 days ago]
+вот вам и связи...ослабление...а ведь представьте что вам придется писать адаптеры в продакшене, где ничего низяяя прикрутить...придется через рефлексию извращаться...а шо делать
+
+
+Sergey   [Feb 11th at 1:02 AM]
+Короче жесть, надо было пораньше начинать. А то jstl tags конечно я не супер знающий. В общем кто тут гуру? Я значит получаю например список из шести записей, там 4 поля. Я нашел пока что только что берешь тупо поле（строка или число）, заносишь его в атрибут и получаешь. Я конечно могу пройтись по всем записям, но тогда останется только одна последняя. И ее закинуть в jsp. Но как сохранять коллекцию обьектов（с 4 мя полями） и вытаскивать ее с помошью тегов потом, чтоб пройтись по всем?
+7 replies
+
+Andrew   [28 days ago]
+Сетишь лист в jsp, через <c:forЕach(если память не изменяет) проходишь список (edited)
+
+Sergey   [28 days ago]
+https://metanit.com/java/javaee/3.12.php вот самое норм обьяснение которое нашел. Короче у меня выводятся только кавычки постоянно вместо записей（ (edited)
+metanit.com
+Java EE | Основные возможности JSTL
+Основные возможности JSTL в Java EE, использование циклов и условных выражений в страницах JSP
+
+tolik1106   [28 days ago]
+В этом примере есть то что тебе нужно https://danielniko.wordpress.com/2012/04/17/simple-crud-using-jsp-servlet-and-mysql/
+WordPress.comdanielniko
+Simple CRUD Using Jsp, Servlet and MySQL
+You can view and download the complete source code of this tutorial from my github account.
+In this tutorial, we will create a simple CRUD (Create Read Update Delete) User Management Web Application using Jsp, Servlet and MySQL.
+For this tutorial, we will need the following tools: (The older or newer version should also works). Moreover, basic Java knowledge is assumed.
+1. Eclipse IDE for Java EE Developers (Indigo – ver. 3.7)
+2. Apache Tomcat ver 7.0
+ Show more
+
+makushatnik   [28 days ago]
+Гуру здесь - Я)
+
+makushatnik   [28 days ago]
+Тупо брать поля не надо)
+
+Sergey   [28 days ago]
+Да я уже чутка разобрался, правда теперь набор каких то непонятных кавычек идет из jsp. Кинул список Mealto, до входа в jsp все норм, потом ппц в браузере (edited)
+
+makushatnik   [27 days ago]
+Ну это нормально)
+
+
+Yuriy   [Feb 11th at 3:17 AM]
+Ребят, я правильно понимаю, что удаление и добавление (PUT, DELETE) только с использованием jquery можно сделать? в противном случае в одном сервлете никак не реализовать (а хотелось бы) (edited)
+6 replies
+
+ILYA   [28 days ago]
+Можно но нужно будет подумать
+
+Andrey   [28 days ago]
+про jquery  ничего не знаю, сделал в одном сервлете :slightly_smiling_face:
+
+makushatnik   [28 days ago]
+Не надо. Вообще не надо изобретать велосипед. Сказали сделать на сервлетах и Jsp - знчт так и надо сделать. (у других почему-то работает без jquery:)
+
+makushatnik   [27 days ago]
+Запросы PUT и DELETE не нужны. Только GET и POST.
+
+German_lbt   [27 days ago]
+вы об чем... в контроллере встречаешь реквэст...дергаешь id...в дао отправляешь в топку...возвращаешься...все
+
+German_lbt   [27 days ago]
+хочешь гет, хочешь пост...пост на мой взгляд красявий...без всяких визуальных портачков
+
+
+makushatnik   [Feb 11th at 10:24 AM]
+Судя по тому, что сказала Катерина, надо не 1, а 2 сервлета написать. 1 - mealExcess (Common HW1), 2 - meal (Optional). Тогда все сходится - здесь создаем, там видим красно/зеленую таблицу.
+10 replies
+
+pr1zrak   [28 days ago]
+Добрый день! Тоесть Optional задание делаем второй сервлет?
+
+pr1zrak   [28 days ago]
+и вторую jsp страницу? (edited)
+
+Dmitry   [28 days ago]
+У меня 2 jsp страницы, но обработка еды в одном сервлете.
+На jsp странице форма <form method="post">, в MealServlet обработка запроса doPost() (edited)
+
+makushatnik   [27 days ago]
+В 1м и я поначалу делал. После проверки ДЗ понял, что правильней в 2х сделать. "Общее задание не должно противоречить Optional, оно его дополняет".
+
+makushatnik   [27 days ago]
+Ест-нно, 2 jsp.
+
+pr1zrak   [27 days ago]
+окей, спасиб
+
+Grigory Kislin   [27 days ago]
+сервлеты я сделал- 1 для users и 1 для meals
+редакатирование-вставку делал в отдельном jsp, но кто-то вместе со списком делает- дело вкуса
+
+German_lbt   [27 days ago]
+сначала я сделал три отдельных страницы...посмотрел...покрутил...в топку...по опыту знаю, что смена картинки сильно бесит пользователя, особенно бабушек ))) стараюсь все присобачить в одно окно но с разных jsp ако ангуляр...
+
+German_lbt   [27 days ago]
+вообще в идеале реализовать редактирование прям в таблице+множественное пометить/удалить по ctrl+клик... это на мой взгдяд вэри найс...
+
+Grigory Kislin   [26 days ago]
+@German_lbt мы сейчас не делаем ДЗ в идеале для бабушек. делаем максимально просто и удобно для программиста
+
+
+makushatnik [12:04 PM]
+При переходе на старый коммит и обратно, получил что никогда еще не видел "HEAD is detached") Пришлось ветку убить.
+
+
+YuriiKlimenko [5:20 PM]
+после накатки четвертого патча  все исправить как на видео а потом коммит и накатывать пятый патч или не чего неисправлять делать коммит а потом накатывать пятый патч?
+
+
+Nikita Krutov   [Feb 11th at 5:23 PM]
+странно, у меня в одну строку идёт вывод таблицы, как будто тэгов <tr><td> нет
+8 replies
+
+V_Gruzdev   [27 days ago]
+Посмотри в девтуле браузера на разметку. Лучше скин приложи, а то не понятна природа вопроса. Или это не вопрос?
+
+makushatnik   [27 days ago]
+Да. Учимся в своей разметке ковыряться.
+
+Nikita Krutov   [27 days ago]
+<c:forEach items="${meals}" var="element">
+   <tr>
+       <td>${element.dateTime}</td>
+       <td>${element.description}</td>
+       <td>${element.calories}</td>
+       <td>update delete</td>
+   </tr>
+</c:forEach>
+meals.jpg 
+
+Nikita Krutov   [27 days ago]
+такой вот кусок кода
+
+Grigory Kislin   [27 days ago]
+Ctrl+U в браузере - пользуй!
+
+Nikita Krutov   [27 days ago]
+ctrl+U.... Я наверно устал и не вижу какой-то простой косяк, да?
+222.png 
+
+TheMescaline   [27 days ago]
+может все это дело в <table></table> обернуть? Не пробовал?
+
+Nikita Krutov   [27 days ago]
+О да! Ну конечно же. Спасибо!
+
+
+YuriiKlimenko   [Feb 11th at 5:38 PM]
+или после четвертого патча просто накатить пятый патч?
+9 replies
+
+V_Gruzdev   [27 days ago]
+В ридми про накат патчей вроде ясно написано. Примени все патчи, которые относятся к уроку, потом пуш.
+
+YuriiKlimenko   [27 days ago]
+а как откатить к к последнему комиту до четвертого патча а то я начал изменять как в видео и теперь не хочет revert  делать?
+
+Sergey   [27 days ago]
+git push --force на удалённом делаешь (edited)
+
+YuriiKlimenko   [27 days ago]
+а на локальном?
+
+Sergey   [27 days ago]
+reset current branch to here HARD до нужного коммита (edited)
+
+V_Gruzdev   [27 days ago]
+@YuriiKlimenko  git checkout номер_коммита
+
+Sergey   [27 days ago]
+сначала на локальном, потом на удалённом
+
+YuriiKlimenko   [27 days ago]
+я не пушил после третьего патча я только закомитил а после четвертого патча начал все как на видео делать а надо было тупо на катить пятый патч.   Теперь пытаю все вернуть как до 4 патча все было))
+
+John   [27 days ago]
+откатить все измения можно в Идее:
+панель version control, вкладка local changes. выделяешь все файлы и жмешь revert
+
+
+makushatnik   [Feb 11th at 5:51 PM]
+Только datetime в html5 ни в какой календарь не превратился. Приходится текстом писать.
+3 replies
+
+V_Gruzdev   [27 days ago]
+В jstl фоматирование поддерживается.
+
+Mikhail_V   [27 days ago]
+datetime-local
+
+makushatnik   [26 days ago]
+Да, помогло)
+
+
+Sergey   [Feb 11th at 5:52 PM]
+Блин ппц не заходит никак, том норм, остальное либо пустота, либо кавычки. Цикл вообще пролетает( что не так то? (edited)
+111.PNG 
+4 replies
+
+Yevhen Maksymovych   [27 days ago]
+${variable} в forEach (edited)
+
+Sergey   [27 days ago]
+О, теперь лучше, но результат такой же пока)
+
+Yevhen Maksymovych   [27 days ago]
+и атрибуты клади не в контекст сервлета, а в реквест
+
+Sergey   [27 days ago]
+Работает!) спс ! ещё надо было pom править) (edited)
+
+
+YuriiKlimenko   [Feb 11th at 7:10 PM]
+а почему я четвертый патч откатил а измениния остались и на комит перешол преведущий изменения четвертого патча остались?
+Снимок1.JPG 
+2 replies
+
+V_Gruzdev   [27 days ago]
+Ну хотя бы гит статус покажи. Ты каждый патч коммитил? (edited)
+
+YuriiKlimenko   [27 days ago]
+та я уже все удалил и заново начал
+
+
+pr1zrak   [Feb 11th at 7:21 PM]
+дз нужно сдать завтра к вечеру ?
+1 reply
+
+Tanya   [27 days ago]
+да, дедлайн вт
+
+
+Story   [Feb 11th at 8:04 PM]
+подскажите плз, окно для редактирования/добавления jsp руками делать или для этого существуют какие-то вспомогательные средства?
+1 reply
+
+makushatnik   [27 days ago]
+Руками, дъ, руками:)
+
+
+This message was deleted.
+3 replies
+
+V_Gruzdev   [27 days ago]
+так вроде не нужон excess в таблице. Вместо него нужно  бэкграунд цвет поставить для записей.
+
+makushatnik   [27 days ago]
+похоже) хотя если проявить немного фантазии, можно не true/false писать, а что-то другое. да и цвета нет. в общем задании про цветную таблицу сказано.
+
+Sergey   [27 days ago]
+Это похоже на решение? Без оптионала?
+222.PNG 
+
+
+Александр [8:10 PM]
+Раскрасить забыл.
+
+Nikolai Dvinin [8:11 PM]
+и винду активировать
+
+Evgenii Brusnev [8:12 PM]
+:joy:
+
+YuriiKlimenko [8:13 PM]
+пират
+
+Sergey [8:21 PM]
+Пока комп через час не вырубается ее можно не активировать:slightly_smiling_face:
+
+
+YuriiKlimenko   [Feb 11th at 8:23 PM]
+а почему когда я запускаю приложение меня сразу кидает на index.html где это указываеться? или это по деф
+1 reply
+
+Grigory Kislin   [26 days ago]
+да, в tomcat настроен index по дефолту
+
+
+YuriiKlimenko   [Feb 11th at 8:23 PM]
+олту так должно быть?
+5 replies
+
+Story   [27 days ago]
+в index.html прописано куда идти сразу
+
+YuriiKlimenko   [27 days ago]
+а как мы вообще попадаем в index?
+
+YuriiKlimenko   [27 days ago]
+или tomcat сам по дефолту ищет  конкретно папку webapp и в ней intdex.html и делает ее стартовой?
+
+ILYA   [27 days ago]
+Да , по дефолту ищет
+
+YuriiKlimenko   [27 days ago]
+спасибо
+
+
+Heorhii   [Feb 11th at 9:17 PM]
+Ребята, у меня meals.jsp не видит данные которые я ему в контроллере скармливаю, лежит в корне, там же где и index.html в сервлете делаю таким образом:
+request.setAttribute("string", "Test");
+   request.getRequestDispatcher("/meals.jsp").forward(request, response);
+
+В jsp-хе пытаюсь достать ${string}, подсвечивает и ругается, в web.xml контроллер маппингом подвязан на /meals, я уже по разному пробовал писать, но ничего не помогает, есть идеи где ошибся?
+19 replies
+
+John   [27 days ago]
+${pageContext.request.contextPath} вставь в jsp куда-нибудь - покажет что?
+
+Heorhii   [27 days ago]
+редактор строку не подсвечивает в коде, если запустить - на странице тоже пусто (edited)
+
+John   [27 days ago]
+jstl подключен?
+
+Heorhii   [27 days ago]
+Ага,
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+oracle.com
+Oracle Technology Network for Java Developers | Oracle Technology Network | Oracle
+Oracle Technology Network is the ultimate, complete, and authoritative source of technical information and learning about Java.
+
+Heorhii   [27 days ago]
+Когда писал свой CRUD на спринге там он сам все подхватывал, а в сервлетах не очень понимаю как jsp должна узнать о сервлете, по идее ж через маппинг в web.xml может на правильно маплю ?
+
+Heorhii   [27 days ago]
+На страничку переходит, статические данные типа <h1>HelloWorld</h1> выводит, а вот данные с сервлета не видит
+
+John   [27 days ago]
+${pageContext.request.contextPath} не зависит от сервлета. должен контекст отображаться. что-то вроде /topjava
+
+TheMescaline   [27 days ago]
+слеш надо убрать
+
+TheMescaline   [27 days ago]
+оставить "meals.jsp"
+
+TheMescaline   [27 days ago]
+/ говорит о том, что надо искать путь от корневой директории, а если без слеша - от текущей
+
+John   [27 days ago]
+если в пути ошибка, то было бы 404
+
+Oleg   [27 days ago]
+получилось решить вопрос?
+
+Heorhii   [27 days ago]
+Понятия не имею как это работает, нашел в интернете пример сервлетов и jsp, менял-менял пути. В итоге IDEA все так же косит дурочку и говорит "я такой переменной не знаю", но на страницу все выводиться. Магия. Может где-то что-то надо включить? Используя Foreach и выводя таблицу она мне не предлагает вызывать у переменной методы ссылаясь на то что она не знает что это такое.
+
+Heorhii   [27 days ago]
+Проблема выходит свелась к тому, что контроллер про страницу знает, и все туда передает, и браузер перенаправляет. А вот страница jsp живет своей жизнью(если внаглую написать ей переменную то работает), и IDE ничего не этот счет не подсказывает, придется сделать вид что программирую в блокноте :))
+
+Oleg   [27 days ago]
+хм... у меня и "внаглую" не хочет ничего писать на страницу. то есть сам список с объектами MealTo отображается, но если пробовать каждое свойства отдельно заносить в таблицу, то шиш... столько времени на это ушло, а уверен, что все просто окажется с этой "проблемой"...
+
+makushatnik   [27 days ago]
+Если я правильно понял, ошибка в том, что в Jsp геттеры пишешь вместо самих полей - meal.id, meal.calories..
+
+Oleg   [27 days ago]
+да нет, оказалось еще смешнее. геттеры то я после отката не прописал опять и сидел ждал чего-то от jsp.. мда.
+
+Grigory Kislin   [26 days ago]
+@Heorhii
+jsp о сервлете ничего не знает. она просто компилируется в сервлет, который отрисовывает шаблон с атрибутами, которые положили в request. IDEA тоже может не знать о том, что положили в атрибуты request-а.
+в чем у тебя ошибка в результате была?
+
+Heorhii   [26 days ago]
+@Grigory Kislin в итоге IDEA в jsp подсвечивает переменные которые я передаю в контроллере и говорит "cannot resolve variable" хотя если задеплоить и запустить сервер - на страницу все выводиться. Так что программирую просто без подсказок относительно переменных и их полей, не удобно конечно, но дз сделаю. Гуглил на эту тему наверное час, но ничего не нашел все ответы про спринг, а у нас пока не спринг)
+
+Вопрос итоговый примерно такой, как сообщить IDE что конкретный контроллер соотноситься к конкретному jsp?) (edited)
+
+
+Bahis   [Feb 11th at 10:25 PM]
+Голова опухла.... в дополнительном задании получается лапша ( . Не хватает понимания в архитектуре. Есть ДАО и БД (мапа int id, Meal meal).  Дао работает с БД. Кто работает с ДАО? Из ДАО получаются Meal. А нужны MealTo в jsp. Как назвать этот дополнительный класс? Куда тогда сунуть текущий MealUtil? В каком классе инкрементить id? Точно сервлет должен заменить контроллер? Лягу ли я сегодня спать )) ?
+25 replies
+
+Tanya   [27 days ago]
+1) с дао работает сервлет
+2) MealTo в jsp нужны только для отображение всей табл, т.к. нужен excess для правильной раскраски
+3) MealUtil где был там пусть и остается
+4) id генерировать в дао, потом будет в БД
+5) сервлет не должен заменить контроллер, наоборот в след уроках сервлет на контроллер поменяем
+6) лучше выспись
+
+Bahis   [27 days ago]
+А можно, чтобы сервлет работал с дао через util? Зачем мне такая лапша в сервлете?
+
+Tanya   [27 days ago]
+лапша будет, если промежуточный класс util добавить между сервлетом и дао, см примеры в уроке, там все подробно расписано (edited)
+
+Tanya   [27 days ago]
+из util в сервлете нужен только один метод
+
+Bahis   [27 days ago]
+Попробую так. А зачем тогда в meal id?
+
+Bahis   [27 days ago]
+да и в mealTo не понял зачем... можно в мапе(бд) в id хранить и все?
+
+Story   [27 days ago]
+если в mealTo не будет id то как понять какой элемент удалять/редактировать?
+
+Tanya   [27 days ago]
+@Bahis внимательно изучи примеры в уроке, начни делать и ряд вопросов отпадет (хотя возможно новые появятся)
+
+German_lbt   [27 days ago]
+адаптер
+
+makushatnik   [27 days ago]
+id и правда дублируется - в мапе и в самом объекте. В объекте он нужен для отрисовки в jsp.
+
+makushatnik   [27 days ago]
+Все станет на свои места, когда дойдем до Спринга, после знакомства с Контроллерами, Репозиториями, Сервисами. Мы сейчас сервисы не пишем - меньше кода примерно на тоже.
+
+Sergey   [27 days ago]
+Вопрос года) вот получил я с 4 полями в сервлете list <MealTo>, дальше я его в Dao кидаю? Т. е. заполняю БД из сервлета? Или сервлет из БД? Или надо 5 полей уже? в MealTo (edited)
+
+Tanya   [27 days ago]
+@Sergey
+ДАО работает только с Meal
+> Хранить нужно Meal и конвертировать ее в MealTo когда отдаем список на отображение в JSP
+
+V_Gruzdev   [27 days ago]
+@Sergey а нафига вообще мапа нужна? Получил ты в сервлете  коллекцию <MealTo> и работай с ней (передавай атрибутом в jsp). (edited)
+
+V_Gruzdev   [27 days ago]
+@Tanya зачем id генерировать в дао? Он работает уже со сформированными сущностями, т.е. на вход он должен получить готовый Meal или ID. Мне кажется id должен назначаться в конструкторе Meal с использованием статического счетчика, расположенного там же. (edited)
+
+Max   [27 days ago]
+@V_Gruzdev Попробую ответить, если где не прав, поправьте. Дело в том, что потом будем использовать базу данных, а в ней id будет генерироваться по другому. Так что если сейчас добавить счетчик прямо в сущность, тогда потом, когда подключим бд, придется опять менять сущность и уже убирать оттуда счетчик. А если вдруг мы захотим, чтоб были обе реализации, чтоб было и в памяти и в базе данных. Идея в том, чтобы сущность вообще не зависела от того, каким образом все хранится, в памяти, в базе или еще как. Поэтому там и не должно быть никакой логики, только поля, конструкторы, геттеры и сеттеры, больше ничего.
+
+V_Gruzdev   [27 days ago]
+@Max Это всё понятно, но когда будем работать с базой Meal  будет не нужен. Будем работать только с MealDto.
+
+V_Gruzdev   [27 days ago]
+@Max Посмотри паттерн DAO и репозиторий.
+
+Tanya   [27 days ago]
+@V_Gruzdev
+>>>10 Не размещайте никакую логику (форматирование, счетчики) в бинах, где хранятся только данные (Meal, MealTo)
+11 Еще раз: детали реализации в памяти не должны быть никому видны. Те НЕ НАДО счетчик размещать в Meal или MealServlet или MealsUtil, в базе же он будет по другому генерится.
+
+" когда будем работать с базой Meal  будет не нужен. Будем работать только с MealDto."
+откуда такой вывод? MealTo нужно для отрисовки всей табл, к БД поле excess никакого отношения не имеет
+(edited)
+
+V_Gruzdev   [27 days ago]
+@Tanya получается какая-то избыточность из-за одного поля.
+
+makushatnik   [26 days ago]
+В Спринге вообще большая избыточность:) Ради малой связанности.
+
+V_Gruzdev   [26 days ago]
+@makushatnik например? Я со спрингом почти не знаком, просто интересуюсь. (edited)
+
+makushatnik   [26 days ago]
+"Спринг 4" в помощь. Там полностью описано, как устроен Спринг.
+
+V_Gruzdev   [26 days ago]
+@makushatnik не, ради примера избыточности я не буду сейчас за книгу браться.
+
+makushatnik   [25 days ago]
+Избыточность в Спринге в том, что Сервисы часто повторяют Репозитории. И иногда и контроллеры очень похожы на Сервисы. т.е. тоже самое можно сделать 1м-2мя классами.
+
+
+Story   [Feb 11th at 10:59 PM]
+в MealsUtil нельзя заводить статические переменные? кажется в первом задании было такое условие, или я путаю
+5 replies
+
+makushatnik   [27 days ago]
+Такое никто не запрещал=)
+
+German_lbt   [27 days ago]
+да не трогай ты его...этот утилс...в контроллере захэрдкодж...или вообще ресурсами )))
+
+ILYA   [27 days ago]
+Почему нельзя. У меня есть там статический список милс и калории за день
+
+Story   [27 days ago]
+да вот я тоже сначала туда засунула.. а потом засомневалась.  модуль называется utils что как бы не подразумевает. перенесла туда где идет все редактирование списка и тоже некрасиво
+
+Grigory Kislin   [26 days ago]
+MealsUtil, сервлеты, DAO работы с базой - все они обслуживают много запросов от всех пользователей.
+если мы храним в DAO мапе например, то это надо учитывать. и конечно же просто состояние одного пользователя хранить нельзя в этих классах. (edited)
+
+
+Roman   [Feb 12th at 12:55 PM]
+Народ интересно, кто как решил этот пункт "после операции delete в браузере должен быть url http:\\localhost:8080\topjava\meals" ?
+4 replies
+
+Oleg   [26 days ago]
+Поставил после delete в сервлете response.sendRedirect("meals");
+
+Roman   [26 days ago]
+А сервлет у тебя один (не считаем UserServlet) ?
+
+Oleg   [26 days ago]
+Да.
+
+Roman   [26 days ago]
+Че то я тупанул, начал уже в сторону фильтров смотреть )  Не додумался так сделать
+
+
+Nikita Krutov [3:13 PM]
+все optional сделали? :slightly_smiling_face:
+
+
+RamZet   [Feb 12th at 3:55 PM]
+я вчера сделал, но код ревью прислали большое.
+Вот вы мне скажите, я так и не пойму. id - просто как ключ мапы делать или и ключ мапы и внутри класса сделать поле? Моя личная логика подразумевает правильность обоих этих вариантов
+3 replies
+
+Oleg   [26 days ago]
+2.3 Добавить поле id в Meal/ MealTo ...
+
+Grigory Kislin   [26 days ago]
+id в Meal пригодится
+
+makushatnik   [26 days ago]
+На этот вопрос уже отвечал.
+
+
+pr1zrak   [Feb 12th at 6:10 PM]
+Добрый вечер! Скажите пож, вопрос появился. После delete нужно делать не форвард, а редирект, ок. А откуда данные на странице возьмутся при редиректе?
+4 replies
+
+pr1zrak   [26 days ago]
+нужно смотреть в сторону getAttribute()?
+
+Yevhen Maksymovych   [26 days ago]
+при редиректе у тебя выполнится обычный гет-запрос на сервер так, как если бы ты просто ввёл этот адрес в адресной строке браузера. При этом ты попадёшь в сервлет, который сможет обработать этот гет, и отдать данные
+
+pr1zrak   [26 days ago]
+мы это делаем, чтобы от сайд эффекта избавиться?
+
+pr1zrak   [26 days ago]
+все получилось)
+
+
+RamZet [6:43 PM]
+Знаете, что интересно? Я optional переписывал с приведенного примера, который дан в лекции. В итоге мне в код-ревью прислали ошибки, половина из которых изначально в этом примере.... Просто жалуюсь, такое
+
+pr1zrak [6:47 PM]
+который дан в статье?
+если вы про статью, то там есть ошибки да, править нужно самому
+
+RamZet [6:55 PM]
+Да, про статью
+
+
+dancelikefish   [Feb 12th at 7:16 PM]
+Всем привет, Ребят кто-нибудь понял как применять логику (тернарный оператор) к стилю, чтобы изменять закрашивание meal-а? Я сделал через <c:set> и вставил туда начало таблицы <tr> с нужным стайлом внутри и отображал в зависимости от excess. Но это не то. (edited)
+6 replies
+
+32xlevel   [26 days ago]
+tr class="${meal.excess ? 'excess' : 'normal'}"
+в классах описал color red/green
+
+dancelikefish   [26 days ago]
+Создал в css, но не применяется к тексту почему-то,
+переменные видит, но не закрашивает
+
+tr.\'redColor\' {
+   color: red;
+}
+tr.\'greenColor\' {
+   color: green;
+}
+
+ну и в jsp
+<tr class="${mealTo.excess ? 'redColor' : 'greenColor' }"> (edited)
+
+Yuriy Podobed   [26 days ago]
+<c:set var="color" value="${meal.excess ? 'red' : 'green'}" />
+
+Nikita Krutov   [26 days ago]
+<tr bgcolor="${element.excess ? 'red' : 'green'}" >
+
+dancelikefish   [26 days ago]
+всем спасибо!
+в итоге сделал так <tr style="color:${mealTo.excess ? 'red' : 'green'}">
+
+German_lbt   [26 days ago]
+обожаю тернарные штучки...везде их сую где надо и не надо )))
+
+
+Sergey   [Feb 12th at 9:20 PM]
+Пора сдавать уже, но есть ещё вопросы уже просто лить пора, теперь после разбираться) Optional уже нет времени доделывать, осталось 1,5 часа, а я только вернулся как всегда((
+1) Хардкорим в сервлет  import static ru.javawebinar.topjava.util.MealsUtil.meals; и MealsUtil изымаем из метода и ставим в класс
+или просто инициализируем добавлением 6 объектов по новому в самом сервлете?
+2) Там фильтрованные значения должны остаться или полный список? (edited)
+2 replies
+
+Story   [26 days ago]
+2) полный список
+
+ILYA   [26 days ago]
+1) если без optional делаешь то из метода достаешь и forward на jsp
+
+
+Nikita Ivanov [10:17 PM]
+Всем привет
+сегодня дедлайн по HW1?
+
+Bahis [10:46 PM]
+через 15 минут
+
+Nikita Ivanov [7:35 AM]
+друзья, привет. как вы оповешаете своих наставников, что можно сделать код ревью? в прошлый раз как-то все так быстро разрулилось, меня добавили в канал для проверки ДЗ0, но сейчас этого канала я не вижу. спасибо!
+
+pr1zrak [7:38 AM]
+я просто пишу в канале твой_ник_hw
+"я сделал ДЗ"
+и кидаю ссылку на гитхаб
+
+
+Nikita Ivanov   [Feb 13th at 7:49 AM]
+а в канал кого приглашаешь?
+1 reply
+
+Grigory Kislin   [26 days ago]
+сюда НЕ надо свои решения постить
+было письмо- проверка ДЗ. там все написано (edited)
+
+
+pr1zrak [7:50 AM]
+@Katherine @Tanya
+все по письму для проверки ДЗ делал
+
+
+RamZet   [Feb 13th at 11:10 AM]
+Не мне одному ревью не сделали?Отправил вчера в 20.45 по москве, тишина
+12 replies
+
+Oleg   [26 days ago]
+Есть такое.
+
+Oleg   [26 days ago]
+Может много людей вчера ДЗ сдали.
+
+RamZet   [26 days ago]
+Тогда не переживаю
+
+pr1zrak   [26 days ago]
+я отправлял в 19:37
+
+pr1zrak   [26 days ago]
+мне отревьювили ) так что половину переделывать нужно :slightly_smiling_face:
+
+RamZet   [25 days ago]
+Мне в первый раз тоже также
+
+RamZet   [25 days ago]
+Классная штука, не вижу смысла курса без ревью.
+А на джавараше валидатор вообще приводит к тому, что начинаешь мыслить "как  бы костылей понапихать, лишь бы приняло"
+
+Story   [25 days ago]
+я отправляла в 14:00, через 2.5 часа пришел ответ
+
+makushatnik   [25 days ago]
+3й раз на ревью не принимают.
+
+makushatnik   [25 days ago]
+1-2 раза посмотрят. Ревью в 1й раз было чрз 2 часа, что на мой взгляд очень быстро)
+
+makushatnik   [25 days ago]
+На JavaRush в неск-х задачах и правда неправильно настроен валидатор. А в основном он заставляет писать правильный код. Привыкли писать говнокод, что никому не нужен - так вас и на работу не возьмут, тогда для вас Java будет бесполезна.
+
+Story   [25 days ago]
+@makushatnik у меня каждый раз 3 ревью получается:upside_down_face: сначала основное, потом исправления по основному+дополнтельное, потом исправления по дополнительному
+
+
+LORREON [12:29 PM]
+Почему метод getFilteredWithExceededByCycle не работает если в UserMealWithExceed exceed тип boolen, а не AtomicBoolean, если  в методе createWithExceed сделать exceeded.get()?
+
+
+Nikolai Dvinin   [Feb 13th at 12:55 PM]
+всем привет, кто как реализовал потокобезопасность в приложении, что использовали? Потокобезопасная коллекция, синхронизированные методы в хранилище, волатильные/атомарные переменные? Всего поначитался, теперь винегрет в голове ) Если правильно понял, надо синхронизировать методы работы с хранилищем (edited)
+11 replies
+
+Story   [25 days ago]
+я использовала AtomicInteger для счетчика и ConcurrentHashMap для списка, всё
+
+Max   [25 days ago]
+@Story тоже так сделал. Интересно, этого достаточно? А то я в многопоточности вообще ни в зуб ногой
+
+Nikolai Dvinin   [25 days ago]
+id я через UUID реализовал, еще не знаю правильно или нет ) Коллекцию тоже эту использовал
+
+Story   [25 days ago]
+@Max, думаю да, в ревью ничего не написали по этому поводу :wink: значит, устроило, надеюсь))
+
+ILYA   [25 days ago]
+Вообще ConcurrentHashMap уже сделана потокобезопасной и тебе не нужно синхронизировать методы
+
+Nikolai Dvinin   [25 days ago]
+если мы в методе удаления делаем проверку наличия записи с искомым Meal в коллекции. А другой поток в это время тоже удаляет нашу запись и на момент проверки запись была а на момент удаления (remove) уже нет, т.к. метод не синхронизирован - получаем эксепшен. Такой вариант возможен при использовании ConcurrentHashMap?
+
+Story   [25 days ago]
+если делать проверку, то надо синхронизировать метод, я думаю
+я не проверяю, удалит если есть, если нет то и ладно
+тк писали что обработка ошибок будет позднее прикручиваться
+
+ILYA   [25 days ago]
+@Nikolai Dvinin значит другой поток будет ждать пока первый не удалит запись. Но этот вариант маловероятен так как у каждого юзера своя еда. И юзер не может удалить еду другого юзера.
+
+Nikolai Dvinin   [25 days ago]
+если будет не Meal а скажем User? )
+
+Nikolai Dvinin   [25 days ago]
+`будет ждать пока первый не удалит запись` это наверное в том случае если оба потока вызвали remove в одно время, а у нас первый поток еще не вызвал remove а только прошел проверку наличия )
+
+ILYA   [25 days ago]
+@Nikolai Dvinin В методе удаления, если я не ошибаюсь, внутри уже есть, по-моему , проверка наличия элемента. Поэтому тебе не надо проверять на наличие, так как это уже реализовано
+
+
+pr1zrak   [Feb 13th at 12:56 PM]
+синхронизированные блоки с захватом нужного монитора
+3 replies
+
+makushatnik   [25 days ago]
+Синхронизированные блоки - прошлый век. На работу быстрей всего не возьмут.
+
+pr1zrak   [25 days ago]
+странно, зашел в ConcurrentHashMap, а там в каждом методе synchronized блок
+
+makushatnik   [22 days ago]
+Имхо лучше писать ReentrantLock.
+
+
+YuriiKlimenko   [Feb 13th at 4:17 PM]
+а почему когда я  меняю что то в index,html например добавляю User11111111  и перезапускаю Tomcat то в браузере всеравно выводит просто Users?
+dddd.JPG 
+10 replies
+
+Nikolai Dvinin   [25 days ago]
+Ctrl+F5
+
+YuriiKlimenko   [25 days ago]
+не помогло тоже самое(
+
+YuriiKlimenko   [25 days ago]
+я даже комп перезагружал(
+
+Nikolai Dvinin   [25 days ago]
+хм, точно Ctrl+F5 в хроме нажал? )
+
+YuriiKlimenko   [25 days ago]
+а я в идеи нажимал спасибо)
+
+YuriiKlimenko   [25 days ago]
+а почему после ctrl + f5 заработало а после перезогрузки компа нет?
+
+Nikolai Dvinin   [25 days ago]
+хром из своего кэша страничку загружал
+
+YuriiKlimenko   [25 days ago]
+спасибо)
+
+Grigory Kislin   [25 days ago]
+в idea есть кнопка, чтобы изменения в jsp подтягивались.
+https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%94%D0%BB%D1%8F-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9-%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8-%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2-%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0-%D0%BD%D0%B0%D0%B6%D0%BC%D0%B8%D1%82%D0%B5-%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D1%83-update-resource-on-frame-deactivation
+
+Для динамической перегрузки ресурсов кнопка нажмите кнопку Update Resource on Frame Deactivation (edited)
+
+YuriiKlimenko   [25 days ago]
+спасибо)
+
+
+V_Gruzdev [8:42 AM]
+В первом патче к HW_01 работа с датами в jsp мне кажется усложнена. Есть же time formatter в jstl (раз уж мы его используем).
+Подключаем
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+Парсим
+<fmt:parseDate value="${meal.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" type="both" />
+Выводим
+<fmt:formatDate pattern="yyyy-MMM-dd HH:mm" value="${parsedDate}" />
+Подробнее тут можно прочитать - https://www.tutorialspoint.com/jsp/jstl_format_formatdate_tag.htm (edited) 
+
+
+IgorPetrov   [Feb 14th at 9:55 AM]
+Подскажите логику плз! передаю из сервлета   атрибут для форматирования даты request.setAttribute("localDateTimeFormat", DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm")); на странице пытаюсь создать объект(я правильно понимаю?)  <jsp:useBean id="localDateTimeFormat" type="java.time.format.DateTimeFormatter" /> scope оставляю по умолчанию что бы объект действовал только на этой странице, первый раз когда заходит на эту страницу отрабатывает нормально , после захода на удаление  = здесь получаю ошибку java.lang.InstantiationException: bean localDateTimeFormat not found within scope (получается что этот объект не найден) хотя передаю так же из сервлета на страницу. В чем тут может быть ошибка?
+4 replies
+
+ILYA   [24 days ago]
+Может быть потому что ты используешь редирект а при редиректе атрибуты теряются
+
+ILYA   [24 days ago]
+Ну это моё предположение. Может быть я не прав
+
+ILYA   [24 days ago]
+Я напрямую из jsp вызывал статический метод который дату форматировал
+
+IgorPetrov   [24 days ago]
+Точно ! Спасибо! sendRedirect был
+
+
+Artem   [Feb 14th at 4:40 PM]
+Что здесь происходит?
+Подскажите, пожалуйста!
+private int getId(HttpServletRequest request) {
+       String paramId = Objects.requireNonNull(request.getParameter(“id”));
+       return Integer.parseInt(paramId);
+   }
+Как эта штука вытаскивает id?
+Непонятное конфу(
+7 replies
+
+Andrey Dil   [24 days ago]
+Посмотри Вопросы по HW1 в разборе домашнего задания.
+
+Yevhen Maksymovych   [24 days ago]
+что ж тут непонятного?
+
+Yevhen Maksymovych   [24 days ago]
+у реквеста есть мапа параметров, мы по ключу достаём параметр
+
+Yevhen Maksymovych   [24 days ago]
+через утильный метод, который бросит NPE, если этот параметр не существует
+
+Grigory Kislin   [24 days ago]
+@Artem уточни, в каком месте непонятно...
+и возможно посмотри на Basejava...
+
+Artem   [24 days ago]
+все сообразил
+
+Artem   [24 days ago]
+спасибо всем
+
+
+Bahis   [Feb 14th at 6:19 PM]
+А я не понял метода  private static List<MealTo> getFilteredWithExcess(Collection<Meal> meals, int caloriesPerDay, Predicate<Meal> filter) в классе MealUtil
+8 replies
+
+ILYA   [24 days ago]
+А что именно не понял?
+
+Bahis   [24 days ago]
+логики метода, как он работает и зачем туда передаем предикат
+
+ILYA   [24 days ago]
+Ну тогда тебе лучше больше почитать про лямбды и функциональные интерфейсы.
+
+ILYA   [24 days ago]
+Предикат нужен для того чтобы определить превышает ли сумма калорий за день
+
+Bahis   [24 days ago]
+Спасибо. Этого ответа хватило для понимания.
+
+Grigory Kislin   [24 days ago]
+@ILYA @Bahis
+так... чтобы понять, зачем на `Predicate<Meal> filter` смотрим на строчку, где он используется:
+```.filter(filter)```
+и что как предикат передаем.
+- в случае `getWithExcess` пеердаем true, те ничего не фильтруется
+- в случае `getFilteredWithExcess` передаем фильтр по времени. те здесть происходить сравнение `isBetween(startTime, endTime)`
+вообще дебаг помогает, если код сложно понять. (edited)
+
+Grigory Kislin   [24 days ago]
+так сдалено чтобы не дублировать код, на паттерн стратегия есть ссылка в уроке
+
+Bahis   [24 days ago]
+спасибо. теперь совсем все понял.
+
+
+Heorhii   [Feb 14th at 8:27 PM]
+Народ, делаю Optional часть HW1, возник вопрос по архитектуре, нашел видео с примером CRUD на сервлетах, для каждого действия create/update/delete/отобразить свой сервлет, ну и соответственно jsp используя doPost перенаправляет на разные сервлеты, это корректно? Или можно как-то все сделать в одном сервлете? Пока только добавление новых пользователей сделал.
+4 replies
+
+Dmitry   [24 days ago]
+Можно в одном через передачу параметра, например, action=delete, action=create
+
+Dmitry   [24 days ago]
+а в сервлете получать значения action и делать соответствующее действие
+
+Heorhii   [24 days ago]
+Ага, а в doPost методе из контекста вытаскивать эти значения и делать что-то используя скажем switch?
+
+Dmitry   [24 days ago]
+да, switch или через if
+
+
+Sergey   [Feb 14th at 8:30 PM]
+А оптионал еще нужно делать по hw1？ или для себя. Прочитал crud, dao.
+2 replies
+
+Heorhii   [24 days ago]
+Для себя) у меня проверок дз нет)
+
+Sergey   [24 days ago]
+Не, ну так то полезно наверное) Выходные с крудом и спрингом будут
+
+
+andrei.rusu [3:51 PM]
+tomcat 8.5 или 9.0?
+
+pr1zrak [4:26 PM]
+Обновил зависимость до Servlet 4.0. Установите себе Tomcat 9.x
+(c) hw1
+
+andrei.rusu [5:49 PM]
+После 1_5 patch и 1_6 даёт ошибку:
+
+D:\tools\jdk8\bin\java.exe -Dmaven.multiModuleProjectDirectory=D:\projects\topjava16 -Dmaven.home=D:\tools\apache-maven-3.6.0 -Dclassworlds.conf=D:\tools\apache-maven-3.6.0\bin\m2.conf "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.3\lib\idea_rt.jar=59565:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.3\bin" -Dfile.encoding=UTF-8 -classpath D:\tools\apache-maven-3.6.0\boot\plexus-classworlds-2.5.2.jar org.codehaus.classworlds.Launcher -Didea.version=2018.3.3 -s D:\tools\apache-maven-3.6.0\conf\settings.xml -Dmaven.repo.local=D:\Maven_repo package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------------< ru.javawebinar:topjava >-----------------------
+[INFO] Building Calories Management 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ topjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\projects\topjava16\src\main\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ topjava ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ topjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\projects\topjava16\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ topjava ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ topjava ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ topjava ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [topjava] in [D:\projects\topjava16\target\topjava]
+[INFO] Processing war project
+[INFO] Webapp assembled in [40 msecs]
+[INFO] Building war: D:\projects\topjava16\target\topjava.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.412 s
+[INFO] Finished at: 2019-02-16T17:49:07+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project topjava: Error assembling WAR: webxml attribute is required (or pre-existing WEB-INF/web.xml if executing in update mode) -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+Process finished with exit code 1
+Решил... Спасибо.
+
+
+pr1zrak   [Feb 17th at 1:59 PM]
+return repository.computeIfPresent(meal.getId(), (id, oldMeal) -> meal);
+3 replies
+
+pr1zrak   [21 days ago]
+скажите пожалуйста, этой строчкой мы передали записали в meal oldMeal и id?
+
+tolik1106   [21 days ago]
+В этой строке oldMeal заменяем на meal (происходит update).
+
+pr1zrak   [21 days ago]
+спасибо ) что то я затупил )_
+
+
+YuriiKlimenko   [Feb 20th at 5:20 PM]
+что можно почить или посмотреть про эти конструкции?
+Снимок.JPG 
+6 replies
+
+German_lbt   [18 days ago]
+а чего смотреть? тэг td создаем ячейку в контейнере (tr), который в (table)...<a> устанавливаем ссылку...или якорь... если ты про это, то это html... http://htmlbook.ru/ (edited)
+
+YuriiKlimenko   [18 days ago]
+я не понимаю как это взаимодействует с сервлетом. и где вызов метода doPost и doGet и как работают actions
+4.JPG 
+
+German_lbt   [18 days ago]
+в диспетчере для вэбовских служб rest(web.xml) указываем контроллер(в диспетчере смотрим какие сервлеты) ...в контроллереобрабатываем и идентим URI (сдесь doPost, doGet)... определяем чего за ресурс...и обрабатываем GET,POST,PUT запросы...и заполняем модель данными для представления (в данном случае jsp)...
+
+блин...читаю и сам запутался...)))  получаем HTTP-запрос... DispatcherServlet обращается к интерфейсу HandlerMapping... определяет, какой Контроллер должен быть вызван...Контроллер получает запрос и вызывает метод, основанный на GET или POST. Вызванный метод определяет данные модели, основанные на определённой бизнес-логике и возвращает в DispatcherServlet имя (View)...ViewResolver DispatcherServlet определяет, какой Вид надо...создается Вид и отправляет данные Модели в виде атрибутов в Вид, который в конечном итоге отображается в браузере...как-то так (edited)
+
+YuriiKlimenko   [18 days ago]
+спасибо
+
+Grigory Kislin   [18 days ago]
+@YuriiKlimenko это обычная ссылка html
+https://www.w3schools.com/tags/tag_a.asp
+${meal.id} - это jsp из модели берет и заменяет на значение id
+action, id- это параметры запроса
+get запрос в сервлет попадает
+я бы порекомендовал basejava пройти, там делаем веб приложения - сервлеты, база данных и основы
+http://javaops.ru/view/basejava
+или про сервлеты и запросы html почитай основы (edited)
+
+YuriiKlimenko   [18 days ago]
+ок, спасибо
+
+
+Ирина   [Mar 4th at 1:20 PM]
+Всем привет! Смотрю видео разбора ДЗ1, есть такая фраза и я ее уже неоднократно где встречала, что объявлять переменные нужно ближе к месту их использования, это же относится только к локальным переменным?
+5 replies
+
+valera   [6 days ago]
+не только. переменные класса тоже лучше объявлять возле места первого использования. чтобы легче было читать код.
+
+Ирина   [6 days ago]
+спасибо :slightly_smiling_face:
+
+Tanya   [6 days ago]
+не согласна
+1) стат переменные
+2) нестат переменные
+3) кострукторы
+4) стат методы
+5) нестат методы
+6) геттеры/сеттеры/equals/hashcode/toString в конец
+
+Ирина   [6 days ago]
++ еще есть блоки инициализации...  Да, Таня, спасибо, так и думала, что при построении класса нужен именно такой порядок, чтобы легко и быстро можно было разобраться с кодом любого класса, т.к. есть общий шаблон написания кода ну и в таком порядке происходит инициализация членов класса
+
+Grigory Kislin   [5 days ago]
+>  переменные класса тоже лучше объявлять возле места первого использования. чтобы легче было читать код.
+редко я делаю. как исключение из правил. правила Татьяна написала (edited)
+
+
+Elena Sheva   [Mar 8th at 7:59 PM]
+Вопрос про логирование. Предположим, что в нашем проекте идёт переход с log4j на log4j2. И например, совсем чужая библиотека, используемая в нашем проекте, для своего логирования использует старую log4j. Какой наш алгоритм перехода?
+1 reply
+
+Grigory Kislin   [34 minutes ago]
+не в курсе.. думаю обе жить будут.. или не будут. не думаю, что надо грузиться такими вопросами, пока не столкнешься с проблемой в реальности
