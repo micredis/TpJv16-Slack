@@ -1016,3 +1016,43 @@ Alexander [1:02 PM]
 rutracker.org
 [OTUS] Разработчик на Spring Framework [2018, RUS] :: RuTracker.org
 [OTUS] Разработчик на Spring Framework [2018, RUS] » Программирование (видеоуроки) » Скачать торрент :: RuTracker.org
+
+
+Oleg   [Mar 11th at 3:49 PM]
+Вопрос возможно глупый, но все таки задам: В реальном проекте jdbc, jpa, datajpa одновременно используются?
+2 replies
+
+ILYA   [6 days ago]
+Я думаю что вряд-ли. Тут же мы чисто для обучения разные варианты пробуем
+
+Grigory Kislin   [6 days ago]
+jdbc + jpa/datajpa-  да, для скорости например или с jdbc проще иногда бывает
+jpa, datajpa - по легаси причинам может быть:)
+
+
+ILYA   [Mar 11th at 4:05 PM]
+KtcItm5Qz4M.jpg 
+2 replies
+
+Bahis   [6 days ago]
+А я делал так:
+
+Bahis   [6 days ago]
+Pasted image at 2019-03-11, 6:19 PM 
+
+
+Tanya   [Mar 12th at 11:22 PM]
+git.jpg 
+4 replies
+
+Story   [5 days ago]
+Забыли git add .  :grin:
+
+VladZn   [4 days ago]
+а почему building без артикля? :grinning:
+
+Tanya   [4 days ago]
+общая инструкция, а не только для опред здания
+
+ILYA   [3 days ago]
+ghf9V7hArTg.jpg 
