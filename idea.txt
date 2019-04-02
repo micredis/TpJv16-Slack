@@ -235,3 +235,151 @@ Solenoid [1:24 PM]
 Выделяю 3 строки, жму Ctrl + Shift + / и строки не становятся закомментироваными. Справа от номера строки появлается цифра 7 в квадратике и всё...
 
 В Settings -> Keymap стоит Default
+
+
+Grigory Kislin   [23 days ago]
+раскладка клавы - не русская включена:)? (edited)
+
+Solenoid   [22 days ago]
+Немецкая :blush:
+
+Grigory Kislin   [22 days ago]
+попробуй english:)
+
+
+Dmitry [10:52 AM]
+Может кто знает, есть какая настройка или плагин для подсветки неактивных остановов не только при запущеном дебагере, а постоянно. Т.е. если поставить останов, сделать Mute Breakpoints и запустить дебагер - точка будет белым подсвечена, а когда дебагер отработает - снова становится красной. Хотелось бы в режиму mute постоянно подсветки отличным от красного цветом.
+
+hoz [4:48 PM]
+У меня сервлет версии 4.0.1
+Для версии 4.0, как я понимаю, в web.xml в хедере прописывать необходимо так:
+```<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+</web-app>```
+А как будет для версии 4.0.1 ?
+Меня смущает строка:
+```xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"```
+Почему-то версия задаётся не через точку, а через нижнее подчёркивание. Я хотел добавить через подчёркивание ещё 1, что бы было так:
+```<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0_1.xsd"
+         version="4.0.1">
+</web-app>```
+Но идея сразу ругается:
+```element web-app must be declared```
+Как этот вопрос решается? (edited) 
+
+Grigory Kislin [6:09 PM]
+1. точно также, как и у нас (topjava). есть web.xml и версия 4.01 (edited) 
+2. см. 1
+3. это вопрос не по idea а по сервлетам... наверно в general в след. раз или в 1й урок, где у нас сервлеты
+
+hoz [9:33 PM]
+@Grigory Kislin что-то я не нашёл там этого. Как вообще поправить этот момент?
+
+hoz [10:31 PM]
+Да там точно этого нет. Версия 3 с чем-то.
+
+
+Sky   [Mar 19th at 9:21 PM]
+Ребят, у меня одного ключ больше не принимает?
+1 reply
+
+Grigory Kislin   [13 days ago]
+у одного. по инструкции делаешь? что пишет? была раньше бесплатная идея (от степика например)?
+
+
+Dmitry   [Mar 20th at 3:10 PM]
+Можно как-то идею заставить делать автоподстановку путей маппинга в относительном виде? По умолчанию ставит абсолютный путь и тут же ругается, что "Absolute paths not recommended in JSPs".
+3 replies
+
+Grigory Kislin   [13 days ago]
+да, есть ссылка в ДЗ про пути. Подсказки по HW06 3. (edited)
+
+Dmitry   [12 days ago]
+Я про автодополнение в идее. Пишу, например, `<form method="post" action="meals/filter">`, idea предлагает автоподстановку по абсолютному пути.
+Можно сделать "add dinamic prefix" и она подставит `${pageContext.request.contextPath}`, но зачем, если достаточно указать относительный путь в виде `meals/filter`. Так вот как бы ее заставить сразу без корневого слэша подставлять путь?
+idea_jsp_path.png 
+
+Grigory Kislin   [12 days ago]
+не знаю такого
+
+
+Aleksandr   [Mar 23rd at 7:22 PM]
+Почему не запускается томкат 8 или 9 из идеи, только томкат 7 запускается. Ошибка - Error running 'Tomcat': Cannot run program "D:\Apache\Tomcat_8\bin\catalina.bat" (in directory "D:\Apache\Tomcat_8\bin"): CreateProcess error=2, Не удается найти указанный файл
+11 replies
+
+Bahis   [10 days ago]
+А причины нет? Ну не удается.... Что-то еще пишет?
+
+Grigory Kislin   [10 days ago]
+какая версия idea?
+
+Grigory Kislin   [10 days ago]
+и какая jdk (edited)
+
+Aleksandr   [9 days ago]
+Catalina.bat присутствует, переменная CATALINA_HOME установлена , версия jdk 11.0.2, версия идеи 2018.3.5, когда пытаюсь запустить через командную строку пишет The CATALINA_HOME environment variable is not defined correctly This environment variable is needed to run this program, хотя переменная установлена
+
+Aleksandr   [9 days ago]
+Тесты работают
+
+Aleksandr   [9 days ago]
+Томкат стал запускаться из командной строки, из идеи нет
+
+Aleksandr   [9 days ago]
+всё таже ошибка
+
+Grigory Kislin   [9 days ago]
+ну, что-то с idea
+можно попробовать:
+0. перезапустить идея
+1. удалить-создать tomcat в идея
+2. File->Invalidate Caches
+3. переустановить ее (edited)
+
+Aleksandr   [8 days ago]
+Наконец-то разобрался, 2 дня потерял
+
+Aleksandr   [8 days ago]
+Для 9 томката startup script по умолчанию - catalina.bat run, так не работает. Надо вот такой, как в 7-ом - C:\Program Files\Java\jdk11.0.2\bin\java.exe -Dcatalina.base=C:\Users\Саша\.IntelliJIdea2018.3\system\tomcat\Unnamed_topjava_3 -Dcatalina.home=D:\Apache\apache-tomcat-9.0.17 -Djava.io.tmpdir=D:\Apache\apache-tomcat-9.0.17\temp -Dcom.sun.management.jmxremote= -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.password.file=C:\Users\Саша\.IntelliJIdea2018.3\system\tomcat\Unnamed_topjava_3\jmxremote.password -Dcom.sun.management.jmxremote.access.file=C:\Users\Саша\.IntelliJIdea2018.3\system\tomcat\Unnamed_topjava_3\jmxremote.access -Djava.rmi.server.hostname=127.0.0.1 -cp D:\Apache\apache-tomcat-9.0.17\bin\bootstrap.jar;D:\Apache\apache-tomcat-9.0.17\bin\tomcat-juli.jar org.apache.catalina.startup.Bootstrap start
+
+Grigory Kislin   [8 days ago]
+в idea все автоматически настраивается и работает. ей только home от tomcat надо при настройке дать (edited)
+
+
+Oleg K [12:00 PM]
+Добрый день, коллеги. А тема с ключом для Idea от stepik еще работает?
+
+Vladimir Glinskikh [12:06 PM]
+@Oleg K Работает.
+
+
+Solenoid   [Mar 25th at 4:39 PM]
+В окне ИДЕА по правому борту вкладки: 7:Structure , Maven Project , Database и т.д.
+Как настроить чтобы при запуске ИДЕА они всегда в определённом порядке (сверху вниз) , мной установленном, располагались?
+2 replies
+
+Grigory Kislin   [8 days ago]
+а мышкой таскать не пробовал? (edited)
+
+Solenoid   [7 days ago]
+Пробовал. Но после выключения компа при следующем включении ИДЕА их снова располагает в своём порядке...
+
+
+Solenoid   [Mar 27th at 6:47 PM]
+В 1 уроке, после 4 патча, в файле pom.xml, если туда внутрь зайти, то IDEA подчёркивает красным в строке
+<servlet-class>ru.javawebinar.topjava.web.UserServlet</servlet-class>
+слова "web.UserServlet"
+
+А вот если не заходить внутрь, то в дереве каталогов проекта никакой красной маркировки нет. Как это всегда бывает если в каком либо из Ява-классов что-то красное.
+
+Почему так? Это нормально?
+1 reply
+
+Grigory Kislin   [6 days ago]
+пока не зашла, idea не догоняет (edited)

@@ -1500,3 +1500,181 @@ nilon [4:00 PM]
 2) компиляция и загрузка jsp
 3) инициализация jsp
 Внимание вопрос: Это нормальная практика или я все-таки что-то делаю не так? Из-за чего это может быть? (edited) 
+
+
+
+Grigory Kislin   [15 days ago]
+это как- вызывается 3 раза? jsp при загрузке вообще не вызывается
+
+nilon   [14 days ago]
+я брекпоинт ставлю в jsp и до того момента как она загрузиться и покажется мне в браузере, брекпоинт срабатывает 3 раза на этой jsp
+
+Grigory Kislin   [13 days ago]
+поставил брекпойнт в users.jsp
+остановилмя только при вызове users
+ты на каком уроке-патче? и  в какой jsp ставишь брекпойнт? (edited)
+
+nilon   [12 days ago]
+Это я еще параллельно проект делаю Sprig MVC + Spring Security. Я думал, что это нормальная практика(несколько вызовов раз jsp вызывать перед показом), поэтому и спросил, а тут походу от проекта зависит( (edited)
+
+
+pr1zrak   [Mar 19th at 1:09 PM]
+Всем привет! Скажите, назрел вопрос) А как в приложении спринга мы управляем многопоточностью? Я ее сам реализую? Именно если я хочу вычисления какие то сделать, или еще что-нибудь? Тоесть если мне нужна многопоточность, не связаная с коннекцией (edited)
+4 replies
+
+Heorhii   [14 days ago]
+нашел такое:
+https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/concurrency.html
+
+https://stackoverflow.com/questions/13776728/how-does-spring-bean-handle-concurrency
+
+https://www.baeldung.com/java-concurrency
+
+Насколько я понимаю, если нужны какие-то вычисления связанные с логикой, спринг приплетать не нужно, можно пользоваться его функционалом, как IOC контейнера, но вроде как создание потоков и работа с ними в любом случае работа JVM.
+
+upd: http://www.cyberforum.ru/java-j2ee/thread1864911.html
+Есть некий ThreadPoolTaskExecutor погугли, вроде то что тебе нужно. (edited)
+
+poleg   [14 days ago]
+Если имеется в виду метод с долгим вычислением, можно посмотреть в сторону @Async, такой метод выполняется в отдельном потоке и возвращает Future<...>
+
+
+Grigory Kislin   [13 days ago]
+вот еще есть: https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#scheduling (edited)
+
+makushatnik   [12 days ago]
+Вообще, разраб пишет ее сам, чрз Executor'ы, или как-то иначе.. Spring только бины может выдать Singleton или Prototype.
+
+
+Evgenii   [Mar 23rd at 3:38 PM]
+7 занятие, этой недели приходили на почту? у меня ничего.
+1 reply
+
+Max   [10 days ago]
+https://topjava16.slack.com/archives/CGY6PL64C/p1552521277001700
+Grigory Kislin
+Привет! Можно приступать к занятию https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson06.md
+Начинаем изучать Spring-MVC и слой Web
+Занятие и домашнее задание относительно большие, следующее занятие будет 28.03 (расписание: https://github.com/JavaWebinar/topjava)
+Будет время подтянуть "хвосты" и занятся выпускным проектом.
+Posted in #hw6Mar 14thView message
+
+
+synya   [Mar 24th at 8:58 PM]
+Всем привет. Я не понимаю зачем мы 2 разных кэша подключили, spring и hibernate. Я не понимаю их отличия и когда какой применяется. Может кто в 2 словах прояснить их принципиальное отличие?
+4 replies
+
+ILYA   [9 days ago]
+В спринг мы кешируем на уровне сервисов. Не надо конектиться к базе. Например, у нас могут быть несколько запросов к бд, различная сложная логика и т д. А использование кеша в сервисах даёт определенные преимущества
+
+synya   [9 days ago]
+Ага. То есть hibernate-кэш применяется на уровне entity и репозитория, то есть играет роль кэша именно обращений к базе, а спринг-кэш, это более высокоуровневая система, которая кэширует объекты на уровне сервиса, то есть они могут содержать в себе комбинацию различных энтити и результатов запросов к базе. Так?
+
+Grigory Kislin   [9 days ago]
+@synya посмотри первое видео про кэш. там же все говорится
+во втором думаю тоже
+
+synya   [9 days ago]
+Вероятно, не отложилось в голове. Пересмотрю еще раз.
+
+
+Elena Sheva   [Mar 25th at 10:35 PM]
+Всем привет! Кто-то может посоветовать хорошую ссылку на spring basic authentication rest? Чтобы все с первого раза заработало :grinning:
+5 replies
+
+VladZn   [7 days ago]
+Выбирай https://www.baeldung.com/category/spring-security/tag/authentication/
+
+VladZn   [7 days ago]
+https://www.baeldung.com/securing-a-restful-web-service-with-spring-security
+Baeldung
+Spring Security for a REST API | Baeldung
+How to Secure a REST API with Spring Security - the XML Configuration, the web.xml, the HTTP status codes for authentication, etc.
+Jan 2nd, 2014
+
+Grigory Kislin   [7 days ago]
+авторизацию  на 8-9 занятии будем делать
+
+Elena Sheva   [7 days ago]
+Эх не дождалась 8го занятия :)
+Вполне сегодня все заработало, не нравится только, что окно с диалогом для авторизации выскакивает. Такое же как в конце https://o7planning.org/ru/11649/secure-spring-boot-restful-service-using-basic-authentication
+Может, кто-то знает, как от него отказаться? Моему WebService окно с авторизацией совсем ни к чему. А в хедере очень даже хорошо передаются параметры авторизации :+1:
+o7planning.org
+Защита Spring Boot RESTful Service используя Basic Authentication
+Защита Spring Boot RESTful Service используя Basic Authentication
+
+makushatnik   [6 days ago]
+Могу подсказать, как делать OAuth, если будет нужно.
+
+
+Vladimir Glinskikh [10:41 PM]
+@Elena Sheva Как вариант: https://o7planning.org/ru/11649/secure-spring-boot-restful-service-using-basic-authentication (edited) 
+
+Elena Sheva [10:55 PM]
+ООО вот он у меня пока не заработал. Первое, не понимаю, что делает вообще класс AuthenticationEntryPointImpl или даже скорее его второй метод afterPropertiesSet. Но вообще мне надо при каждом запросе передать логин/пароль...пусть и в зашифрованном виде. Главное, не токенами :sweat_smile: в любом случае, спасибо!
+
+VladZn [9:31 AM]
+логин с паролем при basic аутентификации передаются в заголовке ‘Authorization: Basic token’, где токен это строка вида логин:пароль, закодированная в base64
+
+Grigory Kislin [12:44 AM]
+@here
+*------------------------------------------   LESSON07 ----------------------------------------------*
+Добро пожаловать в долгожданный #hw7
+*--------------------------------------------------------------------------------------------------------*
+
+
+pr1zrak   [Yesterday at 12:31 PM]
+Всем привет! А кто-нибудь пробовал аспекты создавать для теста? У меня не работает, хотел спросить, может кто подсказать сможет
+13 replies
+
+pr1zrak   [1 day ago]
+сделал простенький аспект
+
+pr1zrak   [1 day ago]
+@Aspect
+public class Auditing
+{
+   @Before("execution(* ru.javawebinar.topjava.service.UserServiceImpl.getAll())")
+   public void validate()
+   {
+       System.out.println("Тестирование перед выполнением запроса");
+   }
+}
+
+pr1zrak   [1 day ago]
+просто который выводит текстовое сообщение перед выполнением метода getAll в UserService
+
+pr1zrak   [1 day ago]
+но не понимаю как правильно его настроить
+
+pr1zrak   [1 day ago]
+в spring-app.xml добавил
+
+pr1zrak   [1 day ago]
+<aop:aspectj-autoproxy/>
+
+   <bean id="userService" class="ru.javawebinar.topjava.service.UserServiceImpl"/>
+
+   <!-- Aspect -->
+   <bean id="auditing" class="ru.javawebinar.topjava.aspect.Auditing"/>
+
+pr1zrak   [1 day ago]
+но опять же не понимаю, нужно ли так связывать, потому что чуть выше у меня есть <context:component-scan base-package="ru.javawebinar.**.service"/>, который уже итак загрузит UserServiceImpl
+
+pr1zrak   [1 day ago]
+Pasted image at 2019-04-01, 4:35 PM 
+
+pr1zrak   [1 day ago]
+вот так выглядит
+
+pr1zrak   [1 day ago]
+но при запуске куча ошибок
+
+pr1zrak   [1 day ago]
+вообще с jcache связаная
+
+pr1zrak   [1 day ago]
+Pasted image at 2019-04-01, 4:36 PM 
+
+pr1zrak   [1 day ago]
+все, разобрался :slightly_smiling_face:

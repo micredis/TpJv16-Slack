@@ -1,0 +1,165 @@
+Grigory Kislin [4:33 PM]
+joined #project_change.
+
+Grigory Kislin [4:33 PM]
+set the channel purpose: Изменения в проекте
+
+GitHub APP [4:34 PM]
+was added to this conversation by Grigory Kislin.
+
+Grigory Kislin [4:36 PM]
+/github subscribe list
+
+GitHub APP [4:36 PM]
+Not subscribed to any repositories or accounts
+Subscribed to JavaWebinar/topjava
+
+Grigory Kislin [4:38 PM]
+/github subscribe list
+
+GitHub APP [4:38 PM]
+Subscribed to the following repositories
+JavaWebinar/topjava
+
+Andrey [5:56 PM]
+joined #project_change along with 6 others.
+
+GitHub APP [6:09 AM]
+Pull request opened by andrewSchukin
+andrewSchukin
+#4 Doc
+JavaWebinar/topjavaFeb 14th
+Pull request closed by andrewSchukin
+#4 Doc
+JavaWebinar/topjavaFeb 14th
+Pull request reopened by andrewSchukin
+#4 Doc
+JavaWebinar/topjavaFeb 14th
+
+
+GitHub APP [10:53 AM]
+JavaWebinar
+*7 new commits pushed to `master`*
+`cc1fae6f` - 2_1_HW1
+`cb247994` - 2_2_HW1_optional
+`00055a35` - 2_3_app_layers
+`68de2fe0` - 2_4_add_spring_context
+`b1e19d94` - 2_5_dependency_injection
+`d7497bcf` - 2_6_annotation_processing
+`22059c6a` - 2_7_constructor_injection
+Show less
+JavaWebinar/topjava
+
+Konstantin [8:34 PM]
+joined #project_change along with 3 others.
+
+
+GitHub APP [11:55 AM]
+JavaWebinar
+*13 new commits pushed to `master`*
+`ae376edf` - 3_01_HW2_repository
+`ba0c7a23` - 3_02_HW2_meal_layers
+`6c9c7ef8` - 3_03_HW2_optional_MealServlet
+`6518ab78` - 3_04_HW2_optional_filter
+`8a722d50` - 3_05_HW2_optional_select_user
+`a8ed84ee` - 3_06_bean_life_cycle
+`8090c96a` - 3_07_add_junit
+`20b7c672` - 3_08_add_spring_test
+`8006c079` - 3_09_add_postgresql
+`4eeababf` - 3_10_db_implementation
+`fe65b9ba` - 3_11_test_UserService
+`4238e517` - 3_12_test_logging
+`307c8560` - 3_13_fix_servlet
+Show less
+JavaWebinar/topjava
+
+IgorPetrov [11:59 AM]
+joined #project_change along with 7 others.
+
+Bahis [6:17 PM]
+Это что? :sweat_smile:
+
+Sambalinski [6:47 PM]
+Полагаю, история изменений проекта. (edited) 
+Хотя я обычно просматриваю её так:
+Pasted image at 2019-02-21, 7:50 PM 
+
+
+GitHub APP [2:50 PM]
+JavaWebinar
+*9 new commits pushed to `master`*
+`e83a79a1` - Add github tools integration
+`501d86f7` - 4_1_HW3
+`24b67244` - 4_2_HW3_optional
+`77df28d8` - 4_3_improve_code
+`ace73f62` - 4_4_init_and_populate_db
+`45159273` - 4_5_create_inmemory_test_ctx
+`2d379dbd` - 4_6_add_jpa
+`fbb580af` - 4_7_add_named_query_and_transaction
+`f07d093f` - 4_8_add_hsqldb
+Show less
+JavaWebinar/topjava
+
+
+GitHub APP [12:47 PM]
+JavaWebinar
+*9 new commits pushed to `master`*
+`d84e2681` - 5_0_jdk_11
+`ed3cfc1f` - 5_1_HW4
+`24bd63e9` - 5_2_fix_hibernate_issue
+`1ec14335` - 5_3_HW4_optional
+`a8a14956` - 5_4_log_colored
+`193de1bc` - 5_5_profiles_connection_pool
+`094393a0` - 5_6_profile_resolver
+`19d8fd1c` - 5_7_spring_data_jpa
+`7d850c51` - 5_8_spring_cache
+Show less
+JavaWebinar/topjava
+
+
+GitHub APP [11:07 PM]
+JavaWebinar
+*15 new commits pushed to `master`*
+`f9fdcb58` - 6_01_HW5_data_jpa
+`13d3dbd8` - 6_02_HW5_profile_test
+`e77f0661` - 6_03_extract_rules
+`34f86f35` - 6_04_HW5_optional_fix_jdbc_profiles
+`ca8901a0` - 6_05_update_hsqldb
+`af1b012f` - 6_06_HW5_optional_fetch_join
+`f4750356` - 6_07_HW5_graph_batch_size
+`4159c20a` - 6_08_add_test_validation
+`80287040` - 6_09_hibernate_cache
+`93b86271` - 6_10_cascade_ddl
+`d4357b28` - 6_11_spring_web
+`1ed436b8` - 6_12_jsp_jstl_i18n
+`58fd7d4b` - 6_13_tomcat_pool_jndi_cargo
+`300b9d0f` - 6_14_spring_webmvc
+`6a332847` - 6_15_spring_i18n
+Show less
+JavaWebinar/topjava
+
+JavaWebinar
+*1 new commit pushed to `master`*
+`3c6e25ed` - Fix readme schedule
+JavaWebinar/topjava
+
+
+GitHub APP [1:30 PM]
+JavaWebinar
+*14 new commits pushed to `master`*
+`8e1e369e` - 7_01_HW6_fix_tests
+`b9e058c1` - 7_02_HW6_meals
+`23dc59e3` - 7_03_HW6_fix_relative_url_utf8
+`51d08c43` - 7_04_HW6_optional_add_role
+`e6cae9b1` - 7_05_fix_hint_graph
+`fec3b5b3` - 7_06_HW6_optional_jdbc
+`9364f24d` - 7_07_controller_test
+`cdf785ae` - 7_08_JUnit5
+`d2cd3e3c` - 7_09_rest_controller
+`c97e5847` - 7_10_rest_test_jackson
+`5c96d4dc` - 7_11_jackson_object_mapper
+`6f506970` - 7_12_json_assert_tests
+`1e3e5b42` - 7_13_tests_refactoring
+`e73133ad` - 7_14_soapui_utf8_converter
+Show less
+JavaWebinar/topjava

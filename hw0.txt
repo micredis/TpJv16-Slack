@@ -1066,3 +1066,34 @@ valera   [29 days ago]
 
 Dmitry   [29 days ago]
 Читабельность > Скорость
+
+
+Solenoid   [Mar 20th at 2:27 PM]
+Смотрю видео разбора ДЗ HW0 --> 2. Работа с git в IDEA. Реализация через цикл.
+Там в методе getFilteredWithExcessByCycle() есть такая строка:
+meals.forEach(meal -> caloriesSumByDate.merge(meal.getDate(), meal.getCalories(), Integer::sum)
+
+Вопрос: Как написать Integer::sum средствами Java 7 (Без Method Reference из Java :sunglasses:
+4 replies
+
+Dima   [13 days ago]
+```(a, b) -> Integer.sum(a, b)```
+
+Solenoid   [13 days ago]
+Это вместо Method Reference с использованием лямбды?
+
+Dima   [13 days ago]
+да, но на 7 и такое не прокатит)
+
+Tanya   [12 days ago]
+```new BinaryOperator<Integer>() {
+       @Override
+        public Integer apply(Integer a, Integer b) {
+              return Integer.sum(a, b);
+        }
+}```
+но это не поможет, т.к. стримов и бинарных операторов в 7ой тоже не было (edited)
+
+
+Grigory Kislin [3:06 PM]
+никак

@@ -1,0 +1,416 @@
+Grigory Kislin [11:12 PM]
+joined #graduation.
+
+Grigory Kislin [11:12 PM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/graduation.md
+
+Grigory Kislin [11:15 PM]
+Начиная с 4го занятия начинаем делать выпускной проект: https://github.com/JavaWebinar/topjava/blob/doc/doc/graduation.md
+Выпускной проект делаете в паралели с нашим (прошли тему занятия - сделали ее в выпускном). *Не забегайте вперед и не отставайте!*
+Обсуждение здесь. Свои решения НЕ публиковать!
+Ревью проекта входит в участие с проверкой домашних заданий (*ревьюится один раз!*).
+Отдать на ревью нужно до 16.05 (если идешь на Masterjava, то срок до 16.08).
+Успехов! (edited) 
+
+Mikhail_V [11:33 PM]
+joined #graduation along with 15 others.
+
+
+Oleg   [Feb 28th at 1:25 PM]
+А сколько времени дается на выполнение такого тестового задания при трудоустройстве?
+1 reply
+
+Grigory Kislin   [1 month ago]
+а, этого... я недели 3 делал... а вообще - неделю-две. учитывается, что люди все занятые (edited)
+
+
+Marat   [Feb 28th at 2:26 PM]
+Admin can input a restaurant and it's lunch menu of the day (2-5 items usually, just a dish name and price)
+
+Админ один на все рестораны или у каждого ресторана свой?
+1 reply
+
+Grigory Kislin   [1 month ago]
+up to you. главное-
+Сначала сделай основной сценарий по ТЗ. Все остальное - потом.
+и чтобы код был понятный, без переусложнений
+
+
+poleg [3:01 PM]
+joined #graduation along with 2 others.
+
+
+Marat   [Mar 4th at 3:26 PM]
+что то народу в этом канале мало
+1 reply
+
+Artem   [29 days ago]
+все с домашкой воюют
+
+
+Igor'   [Mar 6th at 6:17 AM]
+Есть у кого-нибудь мысли, как быть с авторизацией пользователей, где их брать? Или наш бэкэнд вообще не должен об этом думать?
+7 replies
+
+Igor'   [27 days ago]
+Я склоняюсь к последнему варианту:)
+
+Marat   [27 days ago]
+Ну там же есть пользователи, их  2 вида - обычный и админ. Значит авторизация должна быть
+
+Marat   [27 days ago]
+Правда думаю что это уже в конце делать
+
+Igor'   [27 days ago]
+Может авторизацией фронт будет заниматься и нам будет только сообщать id user'а?
+
+Marat   [27 days ago]
+в задании сказано создать бэкенд так чтобы пользоваться будет фронтенд, Пока правда не знаю как это
+
+Grigory Kislin   [27 days ago]
+авторизация будет на 8 и 9м занятии. тогда и прикрутите к graduation
+
+Grigory Kislin   [27 days ago]
+https://github.com/JavaWebinar/topjava (edited)
+
+
+Олег   [Mar 6th at 2:06 PM]
+У кого какие предположения. Делать таблицы user, restaurant, dishes, vote?  Блюда можно не делать, если предположить, что админы их будут вводить вручную название и цена. Тогда просто добавлять в Ресторан в Map<String, Integer> menu. А если выбирать из списка - то надо наверно делать. И голоса vote наверное надо классом делать и  в таблицу, чтобы сравнивать по user_id и времени?
+1 reply
+
+Artem   [25 days ago]
+Вроде все так. Юзеру доступны все рестораны, их блюда и история голосования, чтобы посмотреть, кто за что голосовал. Админ может добавлять рестораны и блюда, голосовать сам (?), а блюда привязаны к ресторану. Историю голосования можно только пополнять, менять нельзя.
+Значит юзеру и админу доступно все посмотреть, но админ может еще и менять рестораны и блюда.
+При удалении ресторана удаляются все блюда (?), но я бы сделал так, чтобы рестораны вообще нельзя было удалять, в том числе чтобы корректно сохранялась история голосования.
+Ресторан к блюдам зависимость один-ко-многим.
+Голосование связано с пользователями многие-к-одному (?), т.к. пользователь один, а голосует несколько раз.
+Голосование к ресторану - многие к одному, чтобы можно было посмотреть, кто и сколько проголосовали за данный ресторан.
+Вроде все. (edited)
+
+
+Олег   [Mar 6th at 2:09 PM]
+Историю еды и голосований делать НУЖНО имеется в виду Логирование?
+1 reply
+
+Grigory Kislin   [27 days ago]
+история- имеется в виду ничего не удалять из базы данных
+и все хранить в ней же, никаких inmemory
+
+
+Marat   [Mar 13th at 6:02 PM]
+В topjava мы когда создаем еду то знаем id пользователя и указываем его при сохранении еды. Но для выпускного проекта еда относится к ресторану.
+То есть я должен заранее знать id ресторана и передавать его в контроллер?
+3 replies
+
+Marat   [20 days ago]
+мое видение - админ выбирает ресторан, на странице ресторана создает еду и отправляет на сохранение
+
+Grigory Kislin   [20 days ago]
+еда несомненно относится к ресторану
+
+Marat   [20 days ago]
+Еще не пойму как правильнее должно быть
+В контроллере ресторана вытаскивать еду
+```@GetMapping("/restaurants/{restaurantId}/meals")```
+или в контроллере еды
+```@GetMapping("/meals/{restaurantId}")```
+По логике если я ищу еду, то должен это делать в контроллере еды. С другой стороны ищу еду конкретного ресторана
+
+
+Story   [Mar 14th at 11:20 AM]
+Подскажите по хранению еды.
+Нужно ли хранить для ресторанов постоянное меню, из которого будет составляться ежедневное ланч меню?
+или достаточно таблицы с ежедневным ланч меню? если не достаточно, то цена на блюдо из "меню дня" может отличаться от цены этого же блюда из основного меню? или в постоянном меню просто блюда без цен
+1 reply
+
+Grigory Kislin   [19 days ago]
+вопрос хороший. можно сделать как хочешь, со справочником еды мне кажется красивее. цену тоже можно разместить в разных местах
+
+
+ILYA   [Mar 14th at 12:04 PM]
+Вопрос. Юзеру который голосует подборка еды должна выводиться с количеством голосов или можно без них?
+4 replies
+
+Grigory Kislin   [19 days ago]
+в ТЗ ничего про количество не сказано...
+
+ILYA   [19 days ago]
+@Grigory Kislin Спасибо. Просто я подумал что если юзер решает где пообедать, то он должен видеть сколько голосов в каждой подборке еды
+
+TheMescaline   [19 days ago]
+в практически любых опросах сначала голос, потом результат
+
+Grigory Kislin   [17 days ago]
+главное - не налажайте, если решите имплементить. ключевая фраза- юзеров ооочень много
+
+
+Marat   [Mar 14th at 2:19 PM]
+```20: ORM работает с объектами. В простейших случаях fk_id как поля допустимы, но при этом JPA их уже никак не обрабатывает и не используйте их вместе с объектами. Ссылка на stackoverwrflow в коде обязательна!```
+
+Я создавал структуру БД через sql скрипт и там же у меня создание FK.
+То есть в sql не нужно было создавать FK ? (edited)
+2 replies
+
+Dima   [19 days ago]
+тут имеется в виду, что не надо создавать, например, в классе еды поле
+```Long ReataurantId```
+
+Marat   [19 days ago]
+понял
+
+
+Marat   [Mar 14th at 7:22 PM]
+Как правильно разделить запросы в контроллере
+Например у меня есть
+```@RequestMapping("/dishes")```
+И есть два метода
+один возвращает конкретное блюдо
+```@GetMapping("/{id}")```
+а другой возвращает все блюда конкретного ресторана
+```@GetMapping("/{restaurantId}")```
+7 replies
+
+Marat   [19 days ago]
+у них получается один и тот же URL
+
+Marat   [19 days ago]
+например
+```/dishes/1```
+
+ILYA   [19 days ago]
+У меня например несколько контроллеров
+У меня бы это было так
+/{restaurantId}/dishes/{dishId}
+
+Marat   [18 days ago]
+@ILYA то есть у тебя количество контроллеров не равно количеству энтити?
+
+Grigory Kislin   [17 days ago]
+в общей группе вроде была ссыолка на so про иерархии в rest. общий смысл- неглубокие можно, но лучше без них
+`/dishes?restaurantId=1234` (edited)
+
+ILYA   [12 days ago]
+@Grigory Kislin где можно найти информацию как правильно выстраивать иерархию в rest? А то я  не уверен в правильности того что я делаю
+
+Grigory Kislin   [12 days ago]
+на stackoverflow я находил. по слову rest hierarchy
+если кратко: не надо делать иерархию
+
+
+Marat   [Mar 15th at 7:02 PM]
+Делаю создание голоса
+```@PostMapping("/{userId}/{restaurantId}")```
+Сам голос в БД выглядит так
+```{
+        "id": 1,
+        "dateTime": "2018-05-30T11:00:00",
+        "restaurant": {
+            "id": 1,
+            "description": "Golpas"
+        },
+        "user": {
+            "id": 2,
+            "username": "user1",
+            "password": "123",
+            "email": "user1@mail.ru",
+            "registered": "2019-03-15",
+            "active": true,
+            "roles": [
+                "ROLE_USER"
+            ]
+        }```
+Но что в теле запроса посылать, если Id голоса и время генерируются автоматически?
+9 replies
+
+Marat   [18 days ago]
+Пустое тело нельзя отправить
+
+Marat   [18 days ago]
+В контроллере я принимаю Vote
+```@PostMapping("/{userId}/{restaurantId}")
+    public ResponseEntity<Vote> createVote(
+            @RequestBody Vote vote,
+            @PathVariable ("userId") Long userId,
+            @PathVariable ("restaurantId") Long restaurantId)```
+
+Marat   [18 days ago]
+Хотя наверное неправильно. Я же должен создавать новый голос в контроллере
+
+Grigory Kislin   [17 days ago]
+а что за хрень  `/{userId}` в запросе??
+
+Grigory Kislin   [17 days ago]
+для того, чтобы проголосовать НЕОБХОДИМО и ДОСТАТОЧНО restaurantId. в ТЗ замечаниях специально написал (edited)
+
+Marat   [16 days ago]
+@Grigory Kislin понял.
+Но есть один вопрос. Судя по ссылкам о том как правильно создавать рест сервисы, у меня должно быть так
+```@PostMapping("/restaurants/{restaurantId}/votes")```
+- создание голоса в контроллере ресторана.
+Я же пытался создание сделать в контроллере голосов
+```@PostMapping("/votes/{restaurantId}")```
+- это совсем не правильно или допустимо?
+
+Grigory Kislin   [16 days ago]
+неправильно. по идеологии rest  это voteId
+
+ILYA   [13 days ago]
+@Grigory Kislin А если у меня например есть VotingController на уровне класса у меня маппинг "currentMenus" , a в методе добавления голоса @PostMapping("/{menuId}").
+Так правильно будет согласно rest?
+
+Grigory Kislin   [13 days ago]
+1. currentMenus не надо размещать в VotingController
+2. голосуем по ТЗ за рестораны
+3. юзер не знает, что у тебя в контроллере написано. для него это цифра. если это menuId, то это метод, который отдает меню по id
+для остально пользуй параметры (edited)
+
+
+Andrew   [Mar 21st at 9:42 AM]
+@Grigory Kislin Можно вопрос по graduation? сказано что администратор может обновлять меню ресторана, а меню ресторана должно хранится на каждый день (т.е. там должна быть дата составления меню?) ?
+id, restaurant_id, date, description ?
+и второй вопрос про голосование, хранить историю голосования нужно (дату голосования будем хранить) ?
+restaraunt_id, date, user_id (edited)
+
+1 reply
+
+Grigory Kislin   [12 days ago]
+дата в меню- окнечно. реализовывать можно по разному
+хранить историю голосования- да! нужно
+
+
+Andrew   [Mar 21st at 11:36 AM]
+@Grigory Kislin еще вопрос, концепцию https://spring.io/guides/gs/rest-hateoas/ применяем именно так?
+spring.io
+Building a Hypermedia-Driven RESTful Web Service
+this guide is designed to get you productive as quickly as possible and using the latest Spring project releases and techniques as recommended by the Spring team
+5 replies
+
+Grigory Kislin   [12 days ago]
+если интересно с hetaoas поиграть, посмотрите на spring-data-rest
+
+Andrew   [12 days ago]
+@Grigory Kislin как часто в проектах используют hetaoas? т.е. как часто прописывают линки в JSON ответах? (edited)
+
+Grigory Kislin   [12 days ago]
+я не встречал:)
+
+Grigory Kislin   [12 days ago]
+но по информации от Толкачева-Борисова spring-data-rest используется на проде
+
+Dima   [12 days ago]
+в книжке Spring in Action 5 подробно описывается hateos.
+
+
+ILYA   [Mar 22nd at 10:14 AM]
+@Grigory Kislin Нужна ли нам функциональность по менеджменту юзеров у администратора?
+По ТЗ сказано, что админ может только добавлять еду и рестораны
+1 reply
+
+Grigory Kislin   [11 days ago]
+да, в ТЗ нет. на усмотрение разработчика
+
+
+Vladimir Gorbatenko   [Mar 23rd at 9:38 AM]
+@Grigory Kislin привет! Решил я таки прикрутить десктоп к голосовалке, чтоб работал через рест. Десктоп использует классы ТО и сущностей те же самые что и сама голосовалка. Сначала в основном пректе создал новый пакет desktop, в нем собственно мэйн, форма (пока только одна) и события формы. Работает. Но встал вопрос "как мне только этот пакет запихнуть в jar файл?". 
+Тогда я создал Парент-модуль мавена, в нем создал модуль web, и положил туда голосовалку. И создал модуль desktop, в котором форма и события. Система затребовала чтоб в модуле web, package был JAR (если я правильно понял). Не очень понравилось. 
+Вернулся в начало и в самой голосовалке создал модуль desktop, но тогда проблема в том, что в родителе (web - основном модуле голосовалки) package должен быть POM, а не WAR (или JAR). 
+Подскажи пожалуйста как это правильно реализовать? (edited)
+2 replies
+
+Vladimir Gorbatenko   [10 days ago]
+И главное, не хотелось бы чтоб маленькое десктопное приложение тянуло за собой все зависимости основного вэб модуля.
+
+Grigory Kislin   [10 days ago]
+привет! многомодульный мавен делается практически на любом комерческом проекте. мы его в masterjava смотрим. будут модули:
+1. парент
+2. web (war)
+3. common (например to)
+4. deskctop (jar)
+
+
+ILYA   [Mar 26th at 4:34 PM]
+@Grigory Kislin есть образец как должен выглядеть read.me файл в выпускном?
+1 reply
+
+Grigory Kislin   [6 days ago]
+на ваш вкус. главное- чтобы читаемо было. наш curl.md  как простой вариант, только поместить его в read.me
+
+
+Andrew [7:47 AM]
+@Grigory Kislin помогите понять. при создании mockMvc
+`mockMvc = MockMvcBuilders` 
+               `.webAppContextSetup(webApplicationContext)` 
+               `.addFilter(CHARACTER_ENCODING_FILTER)`
+               `.build();`
+Возникает ошибка:
+Inferred type 'T' for type parameter 'T' is not within its bound; should extend 'org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder'
+Но когда подключаю зависимость
+   <dependency>
+           <groupId>org.apache.tomcat</groupId>
+           <artifactId>tomcat-servlet-api</artifactId>
+           <version>${tomcat.version}</version>
+           <scope>provided</scope>
+       </dependency>
+ошибка пропадает, в чем магия?
+
+Некоторые по такой ошибки пишут что нужно явно привести возвращаемый тип из webAppContextSetup к DefaultMockMvcBuilder, но это не помогло. (edited) 
+
+Grigory Kislin [1:00 PM]
+нигде в приведенном коде T не увидел.. смотри эксепшен полностью и ищи код (edited) 
+
+Alexandr [1:56 PM]
+addFilter содержит 'T'
+
+public final <T extends B> T addFilter(Filter filter, String... urlPatterns)
+.addFilter(CHARACTER_ENCODING_FILTER) - это не нравиться, если попробовать ввести .addFilter(""), т.е. явно вызвать ошибку - то получаем точно такую же ошибку.
+
+
+Story   [Today at 3:39 PM]
+Подскажите плз, как побороть ошибку  Driver for test database type [H2] is not available
+
+в *pom.xml* прописала
+      <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>${h2.version}</version>
+       </dependency>
+
+в *h2.properties*
+database.url=jdbc:h2:file:D:/Vika/projects/h2
+#database.url=jdbc:h2:mem:votes
+database.username=user
+database.password=password
+database.driverClassName=org.h2.jdbcDriver
+database.init=true
+jdbc.initLocation=initDB_hsql.sql
+jpa.showSql=true
+hibernate.format_sql=true
+hibernate.use_sql_comments=true
+
+в *spring-db.xml*
+   <jdbc:embedded-database id="dataSource" database-name="votes" type="H2">
+       <jdbc:script location="classpath:db/initDB.sql"/>
+       <jdbc:script location="classpath:db/populateDB.sql" />
+   </jdbc:embedded-database>
+
+   <tx:annotation-driven/>
+
+   <beans>
+       <context:property-placeholder location="classpath:db/h2.properties" system-properties-mode="OVERRIDE"/>
+....
+
+что я забыла, что еще можно проверить?
+в переменных окружения есть H2 = C:\Program Files (x86)\H2\bin\h2-1.4.198.jar
+спасибо
+2 replies
+
+Alexandr   [1 hour ago]
+Могу ошибаться, но у меня сомнения по этой строке
+database.driverClassName=org.h2.jdbcDriver
+org.h2.jdbcDriver - не нахожу такого драйвера.
+Я взял драйвер из того что Идея подсказывает spring.datasource.driverClassName=org.h2.Driver
+
+Story   [27 minutes ago]
+спасибо
+попробовала поменять
+к сожалению, ошибка осталась( (edited)
