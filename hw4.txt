@@ -1,0 +1,1161 @@
+Grigory Kislin [11:15 PM]
+joined #hw4.
+
+Grigory Kislin [11:16 PM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson04.md
+
+Viktor_lsi [11:17 PM]
+joined #hw4.
+
+Grigory Kislin [11:17 PM]
+Четвертое занятие: популирование данных через Spring, JPA,Hibernate, HSQLDB
+Материалов по ORM/JPA огромное количество. Чтобы не утонуть - *не надо пытаться освоить все сразу*.
+Пока достаточно того, что нужно для выполнения HW4.
+
+Sky [11:19 PM]
+joined #hw4 along with 17 others.
+
+
+Alexander   [Feb 28th at 12:40 PM]
+Comparison Preconditions in Java - ссылка битая
+3 replies
+
+Oleg   [1 month ago]
+https://www.sw-engineering-candies.com/blog-1/comparison-of-ways-to-check-preconditions-in-java (edited)
+
+Alexander   [1 month ago]
+@Oleg Спасибо!
+
+Grigory Kislin   [1 month ago]
+спасибо, поправил!
+
+
+tolik1106   [Feb 28th at 4:07 PM]
+Скажите а .travis.yml создавать нужно или он есть в патче?
+1 reply
+
+Grigory Kislin   [1 month ago]
+эээ... а разве не проще в патч посмотреть??
+
+
+Artem   [Feb 28th at 4:40 PM]
+У меня почему-то после применения патча с автозаполнением БД он отрабатывает initDB.sql, а populateDB.sql не обрабатывает. Никто не сталкивался с такой штукой?
+2 replies
+
+Grigory Kislin   [1 month ago]
+лог приложе при запуске
+
+Artem   [1 month ago]
+Так, потер все конфиги, дополнительно созданные файлы, maven clean сделал, удалил все лишнее, обновил идею, перезагрузился и все заработало. Что это было, в итоге не понятно.
+
+
+Vlad Darcula   [Feb 28th at 6:45 PM]
+В пункте *Методы улучшения качества кода* присутствует битая ссылка Comparison Preconditions in Java
+1 reply
+
+Bahis   [1 month ago]
+3мя постами выше... (edited)
+
+
+dancelikefish   [Mar 1st at 2:01 AM]
+Ребят подскажите, мб было у кого, после последнего патча, при подключении hqsldb, тесты падают с ошибкой ниже. При этом помник ругается на ту же зависимость, но проперти и driverclassname видит. AutoImport пробовал.
+
+Caused by: org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.hsqldb.jdbcDriver]
+4 replies
+
+Grigory Kislin   [1 month ago]
+при переключении на hsqldb надо spring-db раскоментить hsqldb строку/закоментить postgres и сделать mvn clean (edited)
+
+dancelikefish   [1 month ago]
+Так и делал, попробовал сейчас еще раз, ошибка та же
+
+dancelikefish   [1 month ago]
+dep.png 
+
+dancelikefish   [1 month ago]
+spring_db.png 
+
+
+synya   [Mar 1st at 12:30 PM]
+Привет. В задании сказано: "вывод сводки в конце класса: имя теста - время выполнения". Имеется в виду, вывод сводки после окончания всех тестов?
+3 replies
+
+Dmitry   [1 month ago]
+всех тестов по каждому классу в виде таблицы
+имя теста - время выполнения
+create() - 40 мс
+delete() - 10 мс
+
+и тд
+
+Dmitry   [1 month ago]
+Нужно для того, чтобы ты мог зайти в класс теста MealServiceTest и увидеть общую сводку по всем его тестам
+
+synya   [1 month ago]
+Понятно. Смутила просто формулировка "в конце класса"
+
+
+pr1zrak   [Mar 2nd at 6:16 AM]
+В Codacy Issues
+отключил в настройках (remove pattern) проверку assert в JUnit (проверяем через матчеры) и meta http-equiv=“content-type” в JSP
+сделал remove pattern на Cross Site Scripting (XSS), будем делать защиту на последнем занятии   Всем привет! Скажите, где это отключить? Не могу найти:( (edited)
+7 replies
+
+pr1zrak   [1 month ago]
+так и не получил ответа (
+
+tolik1106   [1 month ago]
+На xss у меня сразу были в jsp issue. Отключил в codacy issue справа кнопка settings и там пункт remove pattern
+
+tolik1106   [1 month ago]
+IMG_20190302_091213.jpg 
+
+pr1zrak   [1 month ago]
+спасибо )
+
+pr1zrak   [1 month ago]
+отключил в настройках (remove pattern) проверку assert в JUnit
+
+pr1zrak   [1 month ago]
+а это делали?
+
+tolik1106   [1 month ago]
+Ещё не смотрел
+
+
+pr1zrak   [Mar 2nd at 6:51 AM]
+трависи тоже не взлетела https://github.com/JavaWebinar/topjava/blob/master/.travis.yml отсюда брал файл) (edited)
+1 reply
+
+pr1zrak   [1 month ago]
+поменял ветку в травис файлике на свою hw3 и все норм заработало) собралось )
+
+
+Story   [Mar 2nd at 10:09 AM]
+а что делать с тестом updateNotFound ? так понимаю этот эксепшн никогда не возникнет потому что merge если не найдет запись, то вставит ее.  Добавить перед merge проверку существования еды?
+2 replies
+
+ILYA   [1 month ago]
+@Story все тесты должны работать. Но ты мыслишь в правильном направлении). Если у нас еда не новая, то мы должны проверить есть ли она у нас в базе
+
+Story   [1 month ago]
+спасибо!
+
+
+32xlevel   [Mar 2nd at 11:16 AM]
+Не проходит сравнение из-за разных хэшей у Листов. Подскажите, как это править..
+Pasted image at 2019-03-02, 2:16 PM 
+8 replies
+
+32xlevel   [1 month ago]
+Убрал из сравнений поле "user".
+
+tolik1106   [1 month ago]
+А почему так?
+
+32xlevel   [1 month ago]
+Как минимум потому, что у юзера lazy инициализация
+
+tolik1106   [1 month ago]
+Так примерно и догадывался
+
+Artem   [1 month ago]
+как убрать из сравнения поле здесь? написать свой компаратор? Или еще есть варианты?
+
+Artem   [1 month ago]
+Ага, есть специальный метод с ignoreFields
+
+V_Gruzdev   [22 days ago]
+@Artem в каком классе этот метод? (edited)
+
+V_Gruzdev   [22 days ago]
+Если ты про org.assertj.core.api.AbstractIterableAssert#usingElementComparatorIgnoringFields то и надо было прикрепить референс на него. А то  "ignoreFields" в заблуждение вводит.  ПО крайне мере для меня не очевидно было.
+
+
+IgorPetrov   [Mar 2nd at 12:28 PM]
+В уроке подлючения HSQLDB  сказано выбрать hsqldb и выбрать Enbedded (у меня нет Enbedded или другого из выпадающего списка) Далее Path: прописать D:/temp (так же нет в настройках ) Есть User Password Host(localhost) Это версия idea новая , или я что то упустил? (edited)
+6 replies
+
+ILYA   [1 month ago]
+Embedded есть , справа от URL
+
+ILYA   [1 month ago]
+В новой версии idea немного по другому , чем на видео
+
+IgorPetrov   [1 month ago]
+При запуске скрипта initDB_hsql.sql подлючается почему то к Connecting to postgres@heroku   и дальше ошибки синтаксиса 42601] ERROR: syntax error at or near "IF"   Хотя в Spring-db.xml контекст  <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/> (edited)
+
+ILYA   [1 month ago]
+А ты закоментировал postgres.properties ?
+
+IgorPetrov   [1 month ago]
+Да!
+
+IgorPetrov   [1 month ago]
+Получилось , что убрал вкладку, и запустил заново скрипт, то он правлиьно отработал без ошибок. Получается наверное что в Идее вкладка со скриптом как то была связана с hibernat. Глюк, или что то упустил.
+
+
+Artem   [Mar 2nd at 1:16 PM]
+У меня через раз такая штука:
+
+org.hibernate.LazyInitializationException: could not initialize proxy [ru.javawebinar.topjava.model.User#100000] - no Session
+10 replies
+
+Story   [1 month ago]
+у меня тоже так было. юзер не загружается (lazy инициализация), и при попытке обращения к объекту юзера валится
+
+Artem   [1 month ago]
+можно сделать юзера EAGER, но наверное это костыль) (edited)
+
+ILYA   [1 month ago]
+Не надо. Тебе не надо каждый раз доставать юзера из базы, когда ты достаешь еду. Ты ж юзер и ты уже залогинился
+
+Artem   [1 month ago]
+И как бороться с no Session тогда? Туплю что-то... (edited)
+
+ILYA   [1 month ago]
+Это у тебя так потому что ты в тестах ещё и юзера сравниваешь. Его сравнивать  не нужно
+
+Artem   [1 month ago]
+Все понял, просто убрал сравнение по юзеру и c lazy все прошло! Спасибо)
+
+Grigory Kislin   [1 month ago]
+почитай внимательно ДЗ и замечания. п.7
+
+Dmitry   [29 days ago]
+Тоже не пойму никак - как избавиться от этой ошибки? Что за сравнение юзера в тестах?
+
+ILYA   [29 days ago]
+@Dmitry попробуй по аналогии с юзер, только в meal убрать сравнение юзера
+
+Dmitry   [29 days ago]
+капец... так протупить - это надо было постараться.
+спасибо за подсказку.
+
+
+Bahis   [Mar 2nd at 9:58 PM]
+Элвис...
+20 replies
+
+Bahis   [1 month ago]
+Помогите, пожалуйста, с пониманием WHERE u.email=?1
+
+tolik1106   [1 month ago]
+Это значит использовать при создании NamedQuery метод setParameter(int position, Object object) а не setParameter(String name, Object object). После вопросительного знака указывается позиция для параметра
+
+tolik1106   [1 month ago]
+https://examples.javacodegeeks.com/enterprise-java/jpa-named-query-example/
+Examples Java Code Geeks
+JPA Named Query Example | Examples Java Code Geeks - 2019
+1. Introduction In this article you will learn how to use the JPA @NamedQuery and @NamedNativeQuery annotations. We will start by introducing some general
+
+Bahis   [1 month ago]
+Спасибо. Но тогда было бы WHERE u.email=1
+
+tolik1106   [1 month ago]
+Если бы было 1 то это хардкодное значение
+
+Bahis   [1 month ago]
+Я думал, что элвис - это проверка на null
+
+tolik1106   [1 month ago]
+к тому же для email нужна строка а не число
+
+Bahis   [1 month ago]
+1 - это первый параметр запроса или первая колонка в табоице?
+
+Bahis   [1 month ago]
+таблице*
+
+tolik1106   [1 month ago]
+первый параметр запроса
+
+tolik1106   [1 month ago]
+Ты с PreparedStatement работал?
+
+Bahis   [1 month ago]
+да
+
+Bahis   [1 month ago]
+спасибо
+
+tolik1106   [1 month ago]
+Ну это тип того. Только здесь ?цифра заменяется позицией параметра
+
+tolik1106   [1 month ago]
+Это не элвис
+
+Bahis   [1 month ago]
+u.email=? бы не смутило )
+
+Bahis   [1 month ago]
+а если бы было u.email=?2
+
+Bahis   [1 month ago]
+и ни где бы не было 1...
+
+tolik1106   [1 month ago]
+Э... не знаю. попробуй
+
+Bahis   [1 month ago]
+Спасибо. Все понятно.
+
+
+Bahis   [Mar 3rd at 9:10 AM]
+Помогите разобраться в транзакциях.
+9 replies
+
+Bahis   [1 month ago]
+Понятно почему мы используем аннотацию @Transactional на методах, которые изменяют данные и на методах которые данные просто читают через аннотацию на класс @Transactional(readOnly = true). Непонятно следующее: (edited)
+
+Bahis   [1 month ago]
+Если я правильно понял, то по умолчанию значение будет Propagation.REQUIRED.
+Получается можно было просто повесить на класс @Transactional и это было бы эквивалентно тому, что у нас сейчас? Почему мы записали именно так: Отдельно на каждый изменяющий данные метод и еще сверху на только читающие? (edited)
+
+ILYA   [1 month ago]
+@Transactional по умолчанию read/write. Если мы бы повесили на класс, то у всех методов был бы read/write
+
+ILYA   [1 month ago]
+Хотя, я не совсем понимаю зачем на читающие методы транзакции вешать. (edited)
+
+tolik1106   [1 month ago]
+Я видел реализации где на транзакционные методы вешали аннотацию, а на читающие readOnly
+
+Bahis   [1 month ago]
+т.е. если просто на класс повесить @Transactional это не тоже самое, что сейчас?
+
+Bahis   [1 month ago]
+@Grigory Kislin Помогите, пожалуйста.
+
+Grigory Kislin   [1 month ago]
+@Bahis ILYA же тебе верно ответил- по умолчанию read/write
+@ILYA в уроке есть ссылка, почему на чтение лучше явно транзакцию. вообще транзакция по любому откроется, если ее не объявлять. автоматическая. и уже в режиме read/write
+
+Ben   [1 month ago]
+На практике часто вешают @Transactional на класс и там, где есть только чтение - readOnly. Так проще избегать проблем с отдельными методами по невнимательности
+
+
+pr1zrak   [Mar 3rd at 1:12 PM]
+скажите, мы же используем сейчас hibernate, почему мы используем JpaTransactionManager, а не HibernateTransactionManager?
+5 replies
+
+flatura   [1 month ago]
+Чтобы иметь возможность поменять имплементацию JPA без серьезных вмешательств в код. На манер указания интерфейса в типе переменной
+
+pr1zrak   [1 month ago]
+Понятно, просто JpaTransactionsManager и HibernateTransactionManager являются имплементациями PlatformTransactionManager. JpaTransactionsManager более общая имплементация?
+
+Heorhii   [1 month ago]
+Нагуглил:
+
+Здесь мы используем 3 разные вещи:
+
+  1 JPA: API персистентности Java, который предоставляет спецификацию для сохранения, чтения, управления данными из вашего Java-объекта и отношений в базе данных.
+  2 Hibernate: Есть различные провайдеры, которые реализуют jpa. Hibernate является одним из них. Так что у нас есть и другой провайдер. Но если использовать jpa с пружиной, это позволит вам в будущем переключаться на разных провайдеров.
+3   Spring Data JPA: это еще один слой поверх jpa, который предоставляет Spring для облегчения вашей жизни.
+
+Bahis   [1 month ago]
+Как много абстракций... так все запутанно. Есть идея! Надо сделать новую единую абстракцию )
+
+Grigory Kislin   [1 month ago]
+потому что мы используем JPA- это и есть единая абстракция
+
+
+synya   [Mar 3rd at 3:40 PM]
+Привет. А у всех получилось подключиться к travis и добиться сборки проекта? У меня вот локально собирается без проблем и тесты проходят, а трэвис не собирает, пишет в тестах ошибки с БЭ. Я что-то упустил?
+11 replies
+
+pr1zrak   [1 month ago]
+возможно у тебя локальная бд, а не хероку?
+
+synya   [1 month ago]
+Да, локальная. Я думал он поднимет свою на время сборки.
+
+synya   [1 month ago]
+Кажется нашел. По дефолту у них на сервере юзер postgres с пустым паролем.
+
+synya   [1 month ago]
+https://docs.travis-ci.com/user/database-setup/#using-postgresql-in-your-builds
+
+synya   [1 month ago]
+Хотя, в конфиге то у нас все верно написано, в общем, непонятно.
+
+pr1zrak   [1 month ago]
+я скормил ему хероку базу нашу со скриптами автозаполнения
+
+pr1zrak   [1 month ago]
+https://github.com/przrak/topjava/tree/HW3
+
+pr1zrak   [1 month ago]
+HW3 на нем поднял )
+
+pr1zrak   [1 month ago]
+и значки прилепил )
+
+pr1zrak   [1 month ago]
+короче сделай базу хероку и все будет норм работать
+
+pr1zrak   [1 month ago]
+может и ин мемори прокатит ) которая с 4 урока
+
+
+timdzha   [Mar 3rd at 3:46 PM]
+Не могу понять в чем проблема "java.lang.IllegalArgumentException: Could not locate named parameter [user_id], expecting one of [userId]"?\ Передаю @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT m FROM Meal m WHERE m.user.id=:userId ORDER BY m.dateTime DESC").
+7 replies
+
+tolik1106   [1 month ago]
+setParametr делаешь?
+
+tolik1106   [1 month ago]
+после createNamedQuery?
+
+makushatnik   [1 month ago]
+В методе написал - setParameter("user_id", userId). А ожидается тот, что у тебя в ALL_SORTED.
+
+timdzha   [1 month ago]
+Т.е. в Set parameter я должен передать ("m. user.id", userId) ?
+
+tolik1106   [1 month ago]
+в setParameter ты должен писать то что идет после двоеточия в NamedQuery
+
+tolik1106   [1 month ago]
+Т. е. userId
+
+timdzha   [1 month ago]
+Понял, спасибо
+
+
+makushatnik   [Mar 3rd at 5:12 PM]
+Странно, не работает:
+User ref = em.getReference(User.class, userId);
+meal.setUser(ref);
+em.persist(meal);
+return meal;
+Выдает - PSQLException: ОШИБКА: нулевое значение в столбце "user_id" нарушает ограничение NOT NULL
+20 replies
+
+Story   [1 month ago]
+у меня работает такой код. а какие аннотации стоят над полем user в Meal ?
+
+vch   [1 month ago]
+Одна поправка - ref не будет равен null. Он создаётся без обращения к БД. Это нормальный объект с заполненным `Id` . Ошибка будет только в момент `persist`, т.к. в БД такое не сохранить (edited)
+
+makushatnik   [1 month ago]
+@Story @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name="user_id", nullable = false, insertable = false, updatable = false)
+
+Story   [1 month ago]
+пробовал убрать insertable = false, updatable = false ?
+
+makushatnik   [1 month ago]
+Раньше у меня было так, имхо вполне рабочий вариант:
+meal.setUser(new User(userId));
+em.persist(meal);
+return meal;
+Но итог тот же.
+
+makushatnik   [1 month ago]
+@Story эти св-ва юзаются в реальных проектах на Спринге. В них ошибки нет.
+
+ILYA   [1 month ago]
+А в каком тесте эта ошибка возникает?
+
+makushatnik   [1 month ago]
+В момент выхода из метода (закрытие транзакции).
+
+ILYA   [1 month ago]
+А тест какой ? UpdateNotFound?
+
+makushatnik   [1 month ago]
+Не. Create. пол-метода (на апдейт) работает.
+
+ILYA   [1 month ago]
+Скинь код который в тесте create
+
+makushatnik   [1 month ago]
+Он не менялся. Такой же, как в мастере.
+
+ILYA   [1 month ago]
+A ты  @transaction поставил над методом в репозитории?
+
+makushatnik   [1 month ago]
+Стоит. Если бы не стояло, ничего бы не изменилось. Просто по тихому бы не записывало, а так RollbackException. А проблема в том, как hibernate делает persist. (с почему-то не установленным user_id)
+
+Story   [1 month ago]
+а что будет если для эксперимента заменить getReference на find ?
+
+makushatnik   [1 month ago]
+Запрос к бд будет. А кроме этого ничего не изменится.
+
+Story   [1 month ago]
+у тебя в Meal случайно не объявлено поле user_id?
+
+makushatnik   [1 month ago]
+В реальном проекте видел, что для такого даже 2 поля вводят - user (@Lazy @ManyToOne..) и userId. Где-то удобнее просто ИД брать, а где-то объект...
+
+makushatnik   [1 month ago]
+Да не. Это было бы слишком просто, если бы я на таком завалился :slightly_smiling_face:
+
+makushatnik   [1 month ago]
+@Story Да, действительно, вот так работает:
+User user = em.find(User.class, userId);
+meal.setUser(user);
+em.persist(meal);
+return meal;
+
+
+Heorhii   [Mar 3rd at 5:49 PM]
+Может имеет смысл завести несколько spring-db.xml конфигураций для jdbc,jpa, etc. ? Я поменял component-scan base-package с jpa на jdbc обратно т.к. jpa userMeal еще не реализовывал, хотел проверить как тесты пройдут, а они все упали JDBC templete бина нет в конфигруации. (edited)
+2 replies
+
+Heorhii   [1 month ago]
+В плане, он то есть, закомментированный, но не логичнее было бы разделить на разные файлы?
+А то Каша манная, это закомментируй, это раскомментируй. (edited)
+
+Bahis   [1 month ago]
+Потерпи. На следующем уроке будут профили.
+
+
+pr1zrak   [Mar 3rd at 6:14 PM]
+а как в Meals задать констрейн, если в базе есть user_id, а в Meals у нас нет User_id ?
+5 replies
+
+pr1zrak   [1 month ago]
+@Table(name = “meals”, uniqueConstraints = {@UniqueConstraint(columnNames = “date_time, user_id”, name = “meals_unique_user_datetime_idx”)})
+
+pr1zrak   [1 month ago]
+так не дает
+
+pr1zrak   [1 month ago]
+или уже можно добавить поле user_id в meals?
+
+32xlevel   [1 month ago]
+columnNames = {"1", "2"}
+
+32xlevel   [1 month ago]
+И порядок поменяй
+
+
+Bahis   [Mar 3rd at 8:49 PM]
+А мы будем использовать мега удобную и простую вещь как JpaRepository?
+3 replies
+
+makushatnik   [1 month ago]
+Мы будем писать мега простые запросы без Sql, как findOne, findByPhoneAndAddressOrEmail.. :slightly_smiling_face:
+
+Bahis   [1 month ago]
+если методы-запросы пишутся в интерфейсе и они без имплементации, то это оно самое и есть
+
+makushatnik   [1 month ago]
+Да, прям в интерфейсах пишутся. А за ними - магия Спринга :slightly_smiling_face:
+
+
+Yuriy Podobed   [Mar 3rd at 10:36 PM]
+Подскажите почему IDE ругается на m.dateTime?!
+Type Missmatch.jpg 
+2 replies
+
+Max   [1 month ago]
+если я правильно понимаю, то подсказка к заданию №8 именно об этом: Старые версии IDEA тупят по поводу проверки BETWEEN. Обновитесь либо не обращайте внимания. Т.е. ничего страшного, а чтоб глаза не мозолило можно, например, аннотацию сверху повесить @SuppressWarnings("JpaQlInspection")
+
+Yuriy Podobed   [1 month ago]
+в том то и дело что idea Version: 2018.3.5
+Build: 183.5912.21
+Released: February 26, 2019
+поставлю @ thx
+
+
+pr1zrak   [Mar 4th at 7:17 AM]
+Всем привет! Подскажите пож по домашнему заданию. У нас теперь в Meal есть User, окей, здорово. При создание нового meal мне нужно Meal передать с user_id в базу. user_id возьмется из User, но user = null. Для добавления в базу решил это кодом "
+public Meal save(Meal meal, int userId) {
+       meal.setUser(em.find(User.class, userId));
+       if (meal.isNew()) {
+           em.persist(meal);"
+Но мне кажется что не так это должно делаться, потому что при таком подходе обновление meal не работает.
+3 replies
+
+ILYA   [1 month ago]
+Смотри п. 1 подсказок дз
+
+makushatnik   [1 month ago]
+Да вот только так не работает (чрз ref). Хотя в NamedQuery может отработать.
+
+makushatnik   [1 month ago]
+И еще, по твоему комменту, мы не можем проверить существование юзера. А можем только запросив его из БД чрз find.
+
+
+pr1zrak [10:30 AM]
+Добавил себе в логгирования в logback
+   <logger name="org.hibernate.SQL" level="debug"/>
+   <logger name="org.springframework.transaction" level="trace"/>
+Теперь наглядно видно, когда начинается транзакция и когда она заканчивается
+
+
+makushatnik   [Mar 4th at 11:03 AM]
+Вообще, по логике JPA Lazy, когда мы обращаемся к meal.getUser - получаем null, когда обращаемся к meal.getUser().getId - запрос ушел в бд и вернулся ИД. А получаем NPE. Выглядит так, что это только в самих запросах работает ("select m.user.id from Meal m")
+5 replies
+
+Grigory Kislin   [1 month ago]
+если ты про meal, которая из базы дотстатся, то
+meal.getUser - если стоит LAZY, то получаем прокси обертку. если к ней обращение не в транзакции то будет LazyInitializationException. Если это не из базы- то думаю что пояснения не требуются (edited)
+
+makushatnik   [1 month ago]
+И тут получается непонятно, как быть - получили meal, можем просто обновить, не глядя, а по хорошему надо проверить что userId = meal.getUser.getId, а юзера нет, из-за Lazy fetch. И доп.запросы вы говорите нельзя.
+
+makushatnik   [1 month ago]
+Вариант @pr1zrak - это как раз обновление не глядя, еще и без проверки на null.
+
+pr1zrak   [1 month ago]
+@makushatnik, я так сделал, потому что в подсказках по ДЗ4 не заметил, что нужно делать по другому ( и в моем случае не работает апдейт почему то
+
+pr1zrak   [1 month ago]
+но я не понял, как
+User ref = em.getReference(User.class, userId);
+meal.setUser(ref);
+помогает нам получить объект User, все равно, чтобы получить объект, должен сделаться запрос в базу?
+
+
+Igor'   [Mar 4th at 12:36 PM]
+Привет всем! Делаю опциональную часть и никак не могу сообразить, как логирование в файл настроить. Сделал, как мы делали в контроллерах - после тестов в файл ничего не пишется. Время собираю через стандартный Rule timewatcher. Направьте в нужную сторону:)
+8 replies
+
+Story   [30 days ago]
+не пишется только в файл, или в принципе ничего не пишется даже в консоль?
+
+Igor'   [30 days ago]
+В консоль все выводится.
+
+Oleg   [30 days ago]
+А что в файле logback.xml? и переменная TOPJAVA_ROOT определена в системе?
+
+Igor'   [30 days ago]
+Xml файл не менял, переменную по-моему прописывал, чуть позже проверю
+
+Oleg   [30 days ago]
+Для тестов есть отдельный logback, он настроен только на вывод в консоль.
+
+Igor'   [30 days ago]
+Олег, получается для тестов нужно отдельный logback.xml сделать?
+
+Oleg   [30 days ago]
+Он уже есть.
+
+Oleg   [30 days ago]
+test->resources
+
+
+Heorhii   [Mar 4th at 3:22 PM]
+Вопрос возник по-поводу Id-шников. В нашей реализации мы подразумеваем что id еды не уникально, поэтому постоянно сверяем еще и с id user-a которому еда принадлежит, первичный ключ в таком случае это комбинации двух ID ? В чем приимущество такого подхода над реализацией когда мы гарантируем каждому экземпляру еды уникальный id? (edited)
+9 replies
+
+Yehor   [30 days ago]
+тут мы скорее это делаем для того чтобы, пользователь мог редактировать только свою еду, т.е берем еду по id и проверяем его ли это еда, если не проверять по user_id , то будет возможность редактировать чужую еду
+
+valera   [30 days ago]
+вощем то айди еды уникальный. есть еще колонка с айди юзеров чтобы определить какому юзеру принадлежит еда. Как раз это поле неуникально т.к. одному и тому же юзеру может принадлежать несколько экземпляров еды.
+
+valera   [30 days ago]
+Pasted image at 2019-03-04, 5:34 PM 
+
+Heorhii   [30 days ago]
+Мне кажеться странным выносить логику приложения на уровень базы.
+Проще вытаскивать из базы по двум id-шникам, чем на уровне сервисов  фильтровать попытки модифицировать чужую еду? Насколько это распространенная практика?
+P.s. почему-то думал что id user-a служит дополнением для гаранта уникальности. (edited)
+
+valera   [30 days ago]
+придумай другой способ как в базе идентифицировать какому юзеру принадлежит еда. я пока более простого способа не наблюдал. (edited)
+
+Heorhii   [30 days ago]
+@valera Я вообще-то не предлагал ничего подобного, зачем это придумывать?
+
+valera   [30 days ago]
+ну ты же говоришь что есть более простой способ. что ты имеешь в виду когда говоришь что можно вытащить по двум айдишникам? я не очень понял
+
+Heorhii   [30 days ago]
+Это был вопрос, а не утверждение, там же знак стоит))
+Перефрезирую:
+
+Разве проще/правильнее в базе вытаскивать по двум айдишникам таким образом избегая ситуации когда пользователь редактирует не свою еду ЧЕМ ограничить пользователя на слое сервисов(бизнес-логики) от подобных попыток ? Мы логику прямо в базе реализуем как бы, я не знаю, может это нормальная и распространенная практика, но с моей колокольни  - это выглядит странно.
+
+valera   [30 days ago]
+да, не заметил знак.  В принципе наверное можно просто взять еду по айдишнику и в сервисе отфильтровать если еда чужая.  Но все таки думаю лучше что если еда чужая из базы ничего не брать. т.к. передача ненужных объектов это более затратная операция чем чуть более сложный запрос.
+
+
+Oleg   [Mar 4th at 3:52 PM]
+Не проходит тест updateNotFound выбивает Exception: java.lang.AssertionError: Expected exception: ru.javawebinar.topjava.util.exception.NotFoundException. Так и должно быть? 11 ночи, туплю немного)))
+3 replies
+
+valera   [30 days ago]
+Тест ждет что будет NotFoundException а выкидывает другой эксепшен. Без кода сложно сказать. У меня этот тест проходит
+
+Oleg   [30 days ago]
+Ошибся в логике. В методе save присваивал еде юзера при любом раскладе.
+
+Igor'   [30 days ago]
+Тоже на этом не один час убил)
+
+
+pr1zrak   [Mar 4th at 4:11 PM]
+Объясните пожалуйста, как через em.getReference(User.class, userId) мы получаем User (прокси), а потом нормального юзера? Поглядел по логу, запрос к таблице users не делался
+16 replies
+
+pr1zrak   [30 days ago]
+или он взял User из кэша? Потому что при логине уже получал пользователей?
+
+Heorhii   [30 days ago]
+Из какого кеша?) Ты же обращешься к EntityManager который суть интерфейс JPA и работает с базой, логично предположить что все таки из базы тащит, может этот кусок не логируется просто?
+
+Было бы странно если бы интерфейс по работе с базой вытягивал данные не из базы.
+
+pr1zrak   [30 days ago]
+тогда непонятно, если запрос был, почему он не логируется
+
+Igor'   [30 days ago]
+Вроде в видео было, что hibernate делает свой контекст с бинами, примерно как spring. Наверное, getReference вытаскивает ссылку на один из бинов
+
+Heorhii   [30 days ago]
+@Igor' используя em.getReference(User.class, userId)
+мы хотим получить конкретную сущность. Бины в спринге по дефолту синлтоны, а тут нам нужен один конкретный объект из многих, он полюбому из базы берет его. мы же просто даем ему id и говорим какую сущность мы хотим на выходе.
+
+Он по ссылке на класс найдет у себя(в контексте?) соответствие объекта и таблицы в базе, а потом пойдет в базу вынимать по id этот объект. (edited)
+
+makushatnik   [30 days ago]
+Товарищи, вы не поняли суть Reference? Работали когда-нибудь с WeakReference, StrongReference, WeakHashMap? Или указателями в C++? Подобный reference (по русски - ссылка) создает и Hibernate, если я правильно понял. Туда можно вставить любой ИД. Запроса к бд при работе с ним не делается. Проверок никаких не выполняется.
+
+Heorhii   [30 days ago]
+Значит во всем вышенаписанном я не прав) пойду почитаю документацию по этим методам - разберусь - отпишу)
+
+Heorhii   [30 days ago]
+Документация к выше обсуждаемому методу:
+
+Get an instance, whose state may be lazily fetched. If the requested instance does not exist in the database, the EntityNotFoundException is thrown when the instance state is first accessed. (The persistence provider runtime is permitted to throw the EntityNotFoundException when getReference is called.) The application should not expect that the instance state will be available upon detachment, unless it was accessed by the application while the entity manager was open. (edited)
+
+Heorhii   [30 days ago]
+Вот собственно ответ на вопрос:
+
+Unlike find, the getReference only returns an entity Proxy which only has the identifier set. If you access the Proxy, the associated SQL statement will be triggered as long as the EntityManager is still open.
+
+However, in this case, we don’t need to access the entity Proxy. We only want to propagate the Foreign Key to the underlying table record so loading a Proxy is sufficient for this use case.
+
+When loading a Proxy, you need to be aware that a LazyInitializationException can be thrown if you try to access the Proxy reference after the EntityManager is closed.
+
+pr1zrak   [30 days ago]
+тоесть у прокси есть только айдишник?
+
+Heorhii   [30 days ago]
+Угу
+
+Heorhii   [30 days ago]
+А остальное подтянеться если EM еще живой и мы попытаемся  использовать этот прокси
+
+pr1zrak   [30 days ago]
+но так как мы не запрашиваем ничего остального, то запроса не происходит, так?
+
+Heorhii   [30 days ago]
+Так
+
+pr1zrak   [29 days ago]
+У JPA есть понятие EntityManager, как вы знаете. Во время вашей работы в диспетчере объектов некоторые объекты загружаются из базы данных, могут быть изменены и впоследствии сброшены в базу данных.
+
+find() должен вернуть инициализированный экземпляр вашего объекта. Если он еще не загружен в EntityManager, он извлекается из базы данных.
+
+getReference() разрешено возвращать прокси вместо инициализированного экземпляра, если объект ранее не был загружен в EntityManager. В этом прокси инициализируется только атрибут первичного ключа. Прокси могут быть созданы без попадания в базу данных, поскольку только инициализированный атрибут уже передан функции getReference().
+
+pr1zrak   [29 days ago]
+вот тоже нашел кстати )
+
+
+makushatnik   [Mar 4th at 5:27 PM]
+Т.к. мое решение все равно код ревью не проходит, могу выложить его здесь:
+(@pr1zrak я раскритиковал твою update-часть метода, а про create сказал, что опытным путем пришел к тому же)
+7 replies
+
+makushatnik   [30 days ago]
+public Meal save(Meal meal, int userId) {
+       if (meal.isNew()) {
+           User user = em.find(User.class, userId);
+           if (user == null) throw new IllegalArgumentException("Такой userId не существует!");
+           meal.setUser(user);
+           em.persist(meal);
+           return meal;
+       } else {
+           //check if meal belongs to user
+           Meal that = get(meal.getId(), userId);
+           Meal exists = get(meal.getId());
+           if (that != null) {
+               meal.setUser(that.getUser());
+               return em.merge(meal);
+           } else if (exists != null) {
+               throw new AccessDeniedException("Вам не разрешено изменять эту еду!");
+           } else throw new NotFoundException("Запрашиваемая еда не существует!");
+       }
+   }
+
+makushatnik   [30 days ago]
+Примерно так и нужно писать в реальном проекте. Только я бы еще добавил 1ю строку:
+if (userId <= 0) throw new IllegalArgumentException("Неверный userId!");
+А в этом учебном проекте надо сделать без лишних запросов к бд.
+
+ILYA   [30 days ago]
+@makushatnik только это в разы проще можно сделать
+
+Bahis   [30 days ago]
+у меня хоть find() хоть getReference() - user = null, а дебажить хибернэйт с 100м уровнем вложенности...
+
+makushatnik   [30 days ago]
+@ILYA кто-то настолько опытен, что и мыслит и пишет сразу stream'ами) я до такой стадии еще не дошел.
+
+makushatnik   [30 days ago]
+@Bahis См. книгу в general. Reference не может быть null.
+
+ILYA   [30 days ago]
+@makushatnik причем здесь стримы
+
+
+pr1zrak   [Mar 4th at 5:35 PM]
+а MealServiceTest у нас должен работать?
+2 replies
+
+pr1zrak   [30 days ago]
+пришлось вернуться к компараторам с игнорированием полей :confused:
+
+Story   [30 days ago]
+должен
+
+
+Bahis   [Mar 4th at 11:00 PM]
+Проверку можно делать так:
+Meal meal = em.find(Meal.class, id);
+       if (meal.getUser().getId() != userId){
+           return null;
+       }
+11 replies
+
+Bahis   [30 days ago]
+Или надо через запрос к базе?
+
+Heorhii   [30 days ago]
+find это и есть запрос к базе
+
+Bahis   [30 days ago]
+я имел ввиду NamedQuerry
+
+Bahis   [30 days ago]
+List<Meal> meals = em.createNamedQuery(Meal.BY_ID, Meal.class)
+               .setParameter("id", id)
+               .setParameter("userid", userId)
+               .getResultList();
+       return DataAccessUtils.singleResult(meals);
+
+Bahis   [30 days ago]
+Думаю,  что так лучше )
+
+Heorhii   [29 days ago]
+Вообще не понимаю че это ты делаешь такое)
+
+Есть у em есть метод для одной сущности, зачем вытягивать целый список а потом из списка тащить единственный результат - большая загадка)
+
+Heorhii   [29 days ago]
+Еще и DataAccessUtils - первый раз вижу такое)
+
+Bahis   [29 days ago]
+Ну в users было так же...
+
+Heorhii   [29 days ago]
+Действительно. А может кто-нибудь пояснить зачем так делать если у EntityManager-a есть метод getSingleResult()  ?
+
+TheMescaline   [29 days ago]
+Затем, что метод getSingleResult() кидается эксепшнами в любой ситуации, если мы не получаем единственный ожидаемый результат. А мы ждем или результат, или null.
+
+TheMescaline   [29 days ago]
+Метод singleResult класса DataAccessUtils покрывает как раз все наши ожидания
+
+
+pr1zrak   [Mar 5th at 6:47 AM]
+Всем привет! А есть те, кто сделал рулсы? интересует, как в рулс передать имя метода :confused:
+9 replies
+
+Max   [29 days ago]
+Я использовал *JUnit Stopwatch* с методом *finished(long nanos, Description description)*. Для получения имени метода *description.getMethodName()*
+
+Oleg   [29 days ago]
+А как его записать в лог-файл?
+
+pr1zrak   [29 days ago]
+просто я прочитал что там есть testName который имя метода передает ок
+
+pr1zrak   [29 days ago]
+запилил свой рулс, который запускает таймер, выполняет тест, останавливает таймер
+
+pr1zrak   [29 days ago]
+но тогда имени хрен там
+
+pr1zrak   [29 days ago]
+в лог файл я так понимаю просто нужно указать, что этот класс может писать в лог файл с таким то уровнем
+
+Oleg   [29 days ago]
+А какой у него уровень?
+
+pr1zrak   [29 days ago]
+этого я не знаю, дебаг может
+
+Story   [29 days ago]
+@pr1zrak я тоже сначала сама считала время в testName, ревью не прошло, делай через Stopwatch)
+
+
+Heorhii   [Mar 5th at 3:48 PM]
+Если в Meal FetchType поставить lazy то при прохождении тестов падаю по:
+
+org.hibernate.LazyInitializationException: could not initialize proxy [ru.javawebinar.topjava.model.User#100001] - no Session
+
+Это нормально? EntityManager закрывается и по этому не может потом подгрузить данные юзера из базы?
+(У меня в toString user есть, вписал потому что одинаковые, на первый взгляд, коллекции в тестах не сходились, мол, метод отработал, но assert выдает восклицательный знак, данные не равны. (edited)
+10 replies
+
+Heorhii   [29 days ago]
+Я думал надо переопределить Equals и Hashcode чтобы arrayList-ы данных были одинаковыми и тесты проходили, но тесты падают потому что юзеры не одинаковые, может кто подсказать в каком направлении двигаться?
+
+Heorhii   [29 days ago]
+Pasted image at 2019-03-05, 3:51 PM 
+
+32xlevel   [29 days ago]
+Юзера не нужно сравнивать. Я уже писал об этом выше
+
+32xlevel   [29 days ago]
+И почему для еды с id=100002 у тебя разные юзеры в ожидаемых и актуальных данных (из твоего скрина)?
+
+Heorhii   [29 days ago]
+А Equals и Hashcode в принципе переопределять нужно?
+А вопрос сложный, я не менял ни тесты ни тестовые данные, все из master ветки. По идее у еды с  id=100002 user должен быть null как и у всех других, т.к. это объекты созданные конструктором без присваивания user-a (edited)
+
+32xlevel   [29 days ago]
+equals и hashcode уже переопределены в BaseEntity
+
+Heorhii   [29 days ago]
+@32xlevel нашел тот тред, но там суть не раскрыта, как его убирать не ясно :disappointed_relieved:
+
+Artem   [29 days ago]
+Есть метод с ignoreFields
+
+32xlevel   [29 days ago]
+Мы убираем некоторые поля из сравнения для юзера, сделай по аналогии)
+
+Heorhii   [29 days ago]
+Я почему-то зациклился на Entity, Repository классах, все искал там искал, а оказывается в тестах надо было смотреть. Спасибо парни.
+
+
+Heorhii   [Mar 5th at 5:58 PM]
+Не понимаю о чем он вообще
+Pasted image at 2019-03-05, 5:58 PM 
+3 replies
+
+Heorhii   [29 days ago]
+Pasted image at 2019-03-05, 5:58 PM 
+
+Heorhii   [29 days ago]
+Pasted image at 2019-03-05, 5:59 PM 
+
+vch   [29 days ago]
+в запросе перед `startDate` забыл двоеточие
+
+
+Bahis   [Mar 5th at 7:15 PM]
+Все-таки принципиальный вопрос: update лучше делать через em.merge или @NamedQuery (UPDATE ... ) ?
+13 replies
+
+TheMescaline   [29 days ago]
+а у тебя работает и так и так?
+
+Bahis   [29 days ago]
+@TheMescaline em.merge работает... для UPDATE очень сложный запрос.... воюю
+
+Bahis   [29 days ago]
+остальные запросы победил
+
+Bahis   [29 days ago]
+@NamedQuery(name = Meal.UPDATE, query = "UPDATE Meal m SET m=:meal, m.user = User u WHERE m.id=:id AND u=(SELECT u FROM User u WHERE u.id=:userid)"),
+
+Bahis   [29 days ago]
+пока не подходит...
+
+German_lbt   [29 days ago]
+AND m.user.id =: userId
+
+Grigory Kislin   [29 days ago]
+да нет такого- что лучше. все от контекста зависит
+скорость выполнения или простота написания например (edited)
+
+Heorhii   [29 days ago]
+Вышло что-нибудь с update-ом? У меня em.mergе, как я понял, если не находит сущность в базе, просто запихивает туда новую, и не бросает Exc который ожидаем в тесте.
+
+Написал sql вручную, получил в подарок:
+Caused by: java.lang.IllegalArgumentException: Update/delete queries cannot be typed
+
+:sweat_smile:
+
+Grigory Kislin   [29 days ago]
+делайте как в User при сохранении. не надо своего изобретать (edited)
+
+Bahis   [29 days ago]
+@Heorhii
+User user = em.find(User.class, userId);
+       meal.setUser(user);
+       if (meal.isNew()) {
+           em.persist(meal);
+           return meal;
+       } else {
+           if (get(meal.getId(), userId) == null) {
+               return null;
+           }
+           return em.merge(meal);
+       } (edited)
+
+Bahis   [29 days ago]
+ну чуть костыльно, но работает...
+
+Grigory Kislin   [29 days ago]
++ см. Подсказки по HW4 п.1
+
+Grigory Kislin   [29 days ago]
+ну и условия можно красивее сделать else if
+
+
+German_lbt   [Mar 5th at 7:38 PM]
+нда.. Stopwatch дает по времени в 3 раза больше затраченного времени...какой показатель следует считать более точным?
+1 reply
+
+Grigory Kislin   [29 days ago]
+я не парился сравнением...
+
+
+RamZet   [Mar 5th at 7:51 PM]
+Кто может уточнить? По тестам. Выводить время в наносекундах или миллисекундах? В конце всех тестов выводить информацию просто в консоль или в лог?
+1 reply
+
+Grigory Kislin   [29 days ago]
+выводится все в лог в лог. в наносекундах не думаю что у нас такие точности
+
+
+DmitrIY Stakhanov   [Mar 6th at 6:10 AM]
+Подскажите, как пункт 3.3 ДЗ сделать, какой @Rule нужен?
+2 replies
+
+Dmitry   [28 days ago]
+Я сделал класс-наследник от Stopwatch и в него запихал сбор статистики (имя теста, время и т.д.). В @Rule, соответственно, прописано создание экземпляра.
+`@Rule public final TestStatistic testStatistic = new TestStatistic();
+Вывод по всем тестам - через @AfterClass
+Можно и в тестовый класс запихать это всё через аннотацию `@Rule TestRule xxx = new TestWatcher и внутрь сбор статистики.
+Короче говоря, просто подключением нового @Rule тут не обойтись.
+Поиск по junit external resources, junit rule testrule, junit test statistic test times
+Ну или если искать лень - вот ссыль: https://stackoverflow.com/questions/17552779/record-time-it-takes-junit-tests-to-run
+Stack Overflow
+Record time it takes JUnit tests to run
+I would like to record how long it takes my JUnit test to run programmatically. I have a large number of tests in various test classes, and I would like to find out how long each individual test m...
+
+DmitrIY Stakhanov   [28 days ago]
+Спасибо, я класс наследник StopWatch для пункта 3.2 делал, просто думал есть  другой, более простой способ вывода статистики - так чтобы указал рул и все заработало, все таки это часто требуется.
+
+
+pr1zrak   [Mar 6th at 1:24 PM]
+Подскажите пожалуйста, уже запутался по поводу User user в Meal
+   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @JoinColumn(name="user_id")
+   private User user;
+Почитал в интернете статьи, не особо понял пример :confused: У нас есть таблица Users, есть таблица Meals, таблица Users поидее главная, поэтому штуки типа cascadeType.ALL я бы писал в Users, если бы там была коллекция еды. Нужно ли нам @JoinTable? Или достаточно @JoinColumn?
+2 replies
+
+Heorhii   [28 days ago]
+https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/JoinColumn.html
+
+Heorhii   [28 days ago]
+Ты хибернейту говоришь просто какой ключ у тебя в таблице является FK(ставя аннотацию над объектом), а он сам разберется JoinColumn достаточно.
+
+Это ORM - надо мыслить объектами. Есть Meal, есть User, единственное что нужно из SQL-а это название FK в данном случае user_id. Т.к. в hibernate сущности сопоставлены с таблицами, у него что-то вроде мапы внутри, он знает что юзер соответствует этой таблице, а еда - этой. Так что единственное что остается подсказать ему чем именно они связанны между собой.
+
+На счет главной таблицы - не понял вообще. Кто определяет главенство?) У них просто зависимости определенные, организовано так что Meal подвязано к юзерам, а юзерам на еду вообще чхать, в их таблице ничего связанного с едой нет. Но ради целостности данных DBMS запрещает удалять юзеров пока есть объекты на них ссылающиеся, так что именно в еде прописывая ON DELETE CASCADE мы говорим базе - "Все окей, еда без юзера нам не нужна, удаляй в случае удаления объекта зависимости" (edited)
+
+
+Heorhii   [Mar 6th at 5:28 PM]
+Может кто-нибудь осветить тему логирования? Я видимо пропустил мимо и сейчас не вполне понимаю как это работает в нашем приложении. Есть 2 xml файла, а-ля файлы конфигурации, но что конкретно там описывается и как это работает мне не понятно, хотелось бы иметь понимание выше поверхностного.
+Куда читать?)
+3 replies
+
+Yehor   [28 days ago]
+https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson01.md#apply-1_7_loggingpatch
+
+Igor'   [28 days ago]
+Добавлю от себя вопрос. Как файлы конфигурации подхватываются логгером? Где это прописывается?
+
+Grigory Kislin   [28 days ago]
+https://logback.qos.ch/manual/configuration.html
+
+
+Heorhii   [Mar 6th at 6:28 PM]
+Через @Rules сделал тесты, забавные вещи происходят.
+2 replies
+
+Heorhii   [28 days ago]
+В самом Run при прочих равных все тесты светятся зеленым и все красиво, а вот в логах при стандартной реализации через
+@Test(expected = NotFoundException.class)
+Получаем:
+Test deleteNotFound succeeded, spent 48174 microseconds
+Test deleteNotFound finished, spent 48174 microseconds
+
+А если через @Rule:
+   public ExpectedException thrown = ExpectedException.none();
+и соответственно :
+thrown.expect(NotFoundException.class);
+
+Test deleteNotFound failed, spent 179140 microseconds
+Test deleteNotFound finished, spent 179140 microseconds
+
+Как так то?)
+
+German_lbt   [28 days ago]
+Григорий уже отвечал - не заморачивайся )))
+
+
+Story   [Mar 7th at 11:13 PM]
+объясните плиз, почему:
+в User registered  нет nullable=false
+а в Meal dateTime есть
+думала, потому что в registered есть columnDefinition, значит и так не будет null
+но в поле enabled Usera есть и nullable и columnDefinition
+2 replies
+
+ILYA   [26 days ago]
+@Story @Grigory Kislin  Хороший вопрос я тоже об этом думал. В registered у нас по дефолту now по этому нулл не будет. Но с другой стороны, почему в enabled есть nullable там и по дефолту значение есть и это вообще примитив и nullable вроде как  не нужен
+
+Grigory Kislin   [24 days ago]
+спасибо. это зависит от того- допустимы ли в базе нулевые поля. думаю на можно поставить , nullable = false
+
+
+Dmitry   [Mar 12th at 10:23 AM]
+Смотрю в разборе ДЗ - в string builder подаётся отформатированная строка (`String.format`). И newline там проставлен, как `\n`, хотя `printf` имеет шаблон `%n`. И вот любопытно стало - есть ли разница и какой подход верней? Возможно, `%n` делает платформо-зависимый перевод строки (`\n`, `\r\n` и т.п.) по типу `$/` в перле? И тогда логичней, вроде бы, использовать именно шаблон `%n`.
+5 replies
+
+V_Gruzdev   [22 days ago]
+@Dmitry По традиции обратимся к документации (оракловому туториалу) - https://docs.oracle.com/javase/tutorial/java/data/numberformat.html. Т.е ваше рассуждение верно. (edited)
+docs.oracle.com
+Formatting Numeric Print Output (The Java™ Tutorials >                     Learning the Java Language > Numbers and Strings)
+This beginner Java tutorial describes fundamentals of programming in the Java programming language
+
+V_Gruzdev   [22 days ago]
+PS: A new line character appropriate to the platform running the application. You should always use %n, rather than \n.
+
+Dmitry   [22 days ago]
+Ишь ты, даже "You should always use". Требуется экспертиза эталонного образца учебного проекта! ))
+Спасибо!
+
+Grigory Kislin   [22 days ago]
+интересно. в проектах ни разу не встречал %т, везде \n
+да, пишут про %n
+https://stackoverflow.com/questions/1883345/whats-up-with-javas-n-in-printf
+Stack Overflow
+What's up with Java's "%n" in printf?
+I'm reading Effective Java and it uses %n for the newline character everywhere. I have used \n rather successfully for newline in Java programs. Which is the 'correct' one? What's wrong with \n ? ...
+
+Dmitry   [22 days ago]
+Там ссылка на ту же доку. В общем, остановлюсь на варианте, что раз нормативка регулирует этот вопрос - делать стоит по нормативке при печати в консоль/текcтовик (если вдруг `\n` поломается в интерпретаторе, или решат убрать "умное" распознавание `\n`, или ещё чего).
+Остается решить с ручным формированием http (там `\n`, ЕМНИП). Если это вообще когда-нибудь понадобится.

@@ -1,0 +1,1715 @@
+Grigory Kislin [2:07 AM]
+joined #hw3.
+
+Grigory Kislin [2:10 AM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson03.md
+
+Grigory Kislin [2:13 AM]
+Добро пожаловать на 3е занятие: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson03.md
+Успехов!  PS: скорректировал в профиле цену на проверку ДЗ с HW3. (edited) 
+
+Dmitry [2:20 AM]
+joined #hw3 along with 18 others.
+
+
+Story   [Feb 22nd at 10:17 AM]
+В условиях говорилось, что у юзера может быть одна роль. Почему тогда у нас нет просто таблицы с ролями а в таблице юзеров ссылки на эту роль?
+Или мы потенциально оставляем возможность задавать несколько ролей юзеру? тогда почему не сделать таблицу с ролями (id, role) и отдельно таблицу связей, ведь в user_roles в случае нескольких ролей у юзеров будут повторяться поля role, например может быть так: user_id, role: [1,admin][1,user][2,Admin][2,user]
+2 replies
+
+Grigory Kislin   [1 month ago]
+> В условиях говорилось, что у юзера может быть одна роль
+это где такое условие? обычно ролей может быть много. собственно у нас 2 будет у админа (edited)
+
+Story   [1 month ago]
+Да, не было такого условия, извиняюсь, перепутала. Но вопроса это не отменяет, почему у нас таблица с дублированием названий ролей. Для уменьшения кол-ва таблиц?
+
+
+IgorPetrov [2:28 PM]
+подскажите! а версия любая postgresql подойдет а то не могу установить 10 тую
+
+Александр [2:44 PM]
+У меня на 11 завелось, но может потом траблы начнутся. Пока менять не буду.
+
+IgorPetrov [2:48 PM]
+Ок! у меня32 винда а там нет установки
+А вообще у всех версий одна ошибка при установки Problem running post-install step.Installation may not complete correctly
+Falled to start the datavase server Не могу ни как решить
+и папка после установки data пустая
+
+Александр [3:51 PM]
+Запускай от админа установку. И ставь в корень диска.
+
+IgorPetrov [4:15 PM]
+да вроде пробовал . и в корень и от админа и создавал нового пользователя posgres на компе. и от него устанавливал. Еще такая ошибка возникает когда службу запускаю posgres пишет :служба была запущена потом остановленна т.к не используется никем.
+
+Александр [4:16 PM]
+Ну и как крайняя мера - 64вин поставить.
+
+Yehor [4:21 PM]
+вот это пробовал сделать? https://webkul.com/blog/postgresql-windows-installation-problem-running-post-install-step-installation-may-not-complete-correctly/
+Webkul Blog
+PostgreSQL Windows Installation Problem running post-install step. Installation may not complete correctly. - Webkul Blog
+Yesterday, when I install PostgreSQL on Windows 7, it always report the following error: [stextbox id=”alert”]Problem running the post-install step. Installation may not complete correctly.[/stextbox] … when the installation progress bar reached the end. After doing a bit searching, I found the solution. Solution: Uninstall PostgreSQL Run command: net user postgres /delete Click: Control Panel -> User Accounts -> Configure advanced user [...]
+Jun 22nd, 2013
+
+IgorPetrov [4:29 PM]
+ок! сечас посмотрю
+
+
+Yuriy Podobed   [Feb 22nd at 4:43 PM]
+Добрый день в чем может быть проблема при запуске UserServiceTest выводит
+UserServiceTest.jpg 
+4 replies
+
+Yuriy Podobed   [1 month ago]
+остальные тесты запускаются
+
+Grigory Kislin   [1 month ago]
+класс то- есть?
+
+Yuriy Podobed   [1 month ago]
+есть, все нормально, оказалось косяк происходит при переносе на другую машину в архивированном виде. Скорее всего проблема в git
+
+V_Gruzdev   [1 month ago]
+класс в class path не попал же
+
+
+Grigory Kislin   [Feb 22nd at 6:54 PM]
+@IgorPetrov если не получится- пользуйся пока креденшелами в heroku (они закоментарены наверху в postgres.properties)
+а на след. занятии мы hsqldb еще подключим, она встроенная
+8 replies
+
+IgorPetrov   [1 month ago]
+ок! Понял!
+
+IgorPetrov   [1 month ago]
+@Grigory Kislin  При тесте конекта к базе ошибка                                             08006] Невозможно создать SSLSocketFactory с помощью указанного класса org.postgresql.ssl.NonValidatingFactory datab                             Все прописал как в уроке.
+*
+
+Grigory Kislin   [1 month ago]
+возьми готовый url из postgres.properties
+там уже все прописано
+
+IgorPetrov   [1 month ago]
+Взял все от туда!
+
+IgorPetrov   [1 month ago]
+Все данные сами прописались . когда ввел этот url и sslfactory    org.postgresql.ssl.NonValidatingFactory datab сам поставилься, (edited)
+
+IgorPetrov   [1 month ago]
+@Grigory Kislin  Убрал из utl ?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory Теперь появляется при тесте окно где запрашивается пароль, ввожу пароль и опять появляется окно и запрашивает пароль. (edited)
+
+IgorPetrov   [1 month ago]
+@Grigory Kislin  При создании базы фалом initDB  выскакивает сообщение The specified database user/password combination is rejected: [28000] FATAL: no pg_hba.conf entry for host "178.133.87.88", user "anbxkjtzukqacj", database "de4fjsqhdvl7ld", SSL off ввожу пароль  из postgres.properties === da1f25b2a38784fb0d46858e5b8fc168e08c9e1e9c72faea5bbac9c0e1f9c24f        === СООБЩЕНИЕ ПОЯВЛЯЕТСЯ СНОВА (edited)
+
+IgorPetrov   [1 month ago]
+Подключился!!!:+1:
+
+
+German_lbt   [Feb 22nd at 8:37 PM]
+не пойму... у меня после всех патчей пакет ru.javawebinar.topjava.repository.inmemory - пустой... криво пропатчил? или правильной дорогой идете товарищи?
+в teste то я пакет вижу...а разве не копии должны быть? (edited)
+6 replies
+
+Grigory Kislin   [1 month ago]
+в immomory в main классы были раньше. перенесли в test. пакет в main можно удалить
+
+German_lbt   [1 month ago]
+мы их перенесли на время тестирования? так?
+попробую сам ответить ))) мы переносим потому как если тесты будут неудачными, то с большей степенью вероятности будем вносить изменения, и следовательно сорцы потеряют актуальность... так? (edited)
+
+Grigory Kislin   [1 month ago]
+эти классы не нужно приложению/в продакшене (main) (edited)
+
+German_lbt   [1 month ago]
+спасибо...уже понял...перенес куда надо...заработало
+
+German_lbt   [1 month ago]
+я с юниттестами на вы...кстати сказать, в политехе петра нас уважаемый преподаватель настоятельно просил игнорировать тестирование...говорил, что вы не должны есть хлеб тестировщиков...я чувствовал, что он в этом не уверен )))
+
+Grigory Kislin   [1 month ago]
+:slightly_smiling_face: спасибо, интересное замечание. в копилку мне
+
+
+Heorhii   [Feb 22nd at 8:57 PM]
+Есть вопрос вот про эту форму:
+Pasted image at 2019-02-22, 8:57 PM 
+13 replies
+
+Heorhii   [1 month ago]
+Я так понимаю мы присваиваем значения, чтобы в контроллере не падать по NullPointerEx если пользователь не заполнил все значения формы, но я не понимаю что это за значения и откуда мы их вынимаем, можно детали узнать?
+
+German_lbt   [1 month ago]
+а не факт...тут можешь ведь и пустые отправить...
+
+Heorhii   [1 month ago]
+Я когда дз делал, такая же форма была, но у меня контроллер постоянно по nullpointer-у падал, пришлось извращаться, мол, if !=null тогда фильтруем, и т.п.
+А тут магия прям какая-то, внутри формы какие-то дефолтные значения присваиваем, которые вроде и не null, а вроде и ничего не фильтруют. (edited)
+
+German_lbt   [1 month ago]
+так перед тэгом формы бин юзится...
+
+Heorhii   [1 month ago]
+О_о где?
+Pasted image at 2019-02-22, 9:20 PM 
+
+German_lbt   [1 month ago]
+ага...не беда...посмотри в сервлете...там где сеттится атрибут
+
+German_lbt   [1 month ago]
+а вообще откуда у тебя эта версия...у тебя импорт функций...там посмотри, наверняка есть обработчики евентов
+
+German_lbt   [1 month ago]
+functions.tld вот тут посмотри
+
+Story   [1 month ago]
+насколько я понимаю , param.startdate и тп используются для того чтобы не стирались параметры фильтрации после выполнения Post . сначала они пустые, при заполнении и выполнении фильтрации, после форварда они сохраняются, и мы их возвращаем на форму
+
+Heorhii   [1 month ago]
+Продебажил, нет там никакой защиты от null, просто по хитрому обрабатывается в слое util это дело, 2 метода, один для нормальных значений, другой для null, если null то есть дефолтные значения которые собственно включают в себя все, потому ничего не фильтруется. Хитро.
+А param, насколько я понял, это мапа которая хранит все что было получено как сервером так и от сервера в течении сессии. Так что по идее Story права.
+
+Grigory Kislin   [1 month ago]
+@Heorhii в уроке же ссылка есть, что такое ${param.xxx}
+смотрел? (edited)
+
+Heorhii   [1 month ago]
+@Grigory Kislin там не совсем точные формулировки, но то что я написал выше почерпнул оттуда. Там сказано просто что это "неявный объект" который сопоставляет имя запроса с одним параметром, но чтобы понять суть надо еще гуглить Implicit Objects in JSP.
+
+Grigory Kislin   [1 month ago]
+это параметры запроса. то что в get приходит
+
+
+GitHub APP [10:16 PM]
+was added to this conversation by IgorPetrov.
+
+German_lbt [1:14 AM]
+не врублюсь...почему когда InMemoryAdminRest.....тесты проходят, то UserServiceTest сваливается...низя дудочку и кувшинчик сразу?)))
+
+
+German_lbt   [Feb 23rd at 1:15 AM]
+Кстати Парни!!! с Праздником ВСЕХ!!! чтобы не было войны!!!
+3 replies
+
+Grigory Kislin   [1 month ago]
+в этом и суть ДЗ- и то и другео
+для тестирования можно другой контекст использовать например
+
+German_lbt   [1 month ago]
+нужно ли добиваться чтобы работали оба варианта? или это нарушение парадигмы )))
+
+Grigory Kislin   [1 month ago]
+какой парадигмы?
+должны быть и тесты inmemory и тесты jdbc
+
+
+pr1zrak   [Feb 23rd at 2:19 PM]
+в видео про базы показывается, что мы будет подключаться к postgersql на heroku, это нужно делать?
+5 replies
+
+Heorhii   [1 month ago]
+В дз об этом не сказано, да и ссылки на host не прилагается, значит, видимо, не нужно.
+
+ILYA   [1 month ago]
+@Heorhii при подключении удаленно у каждого будет свой host. Поэтому ссылки нет
+
+ILYA   [1 month ago]
+@pr1zrak Если не хочешь ставить postgresql на комп, то ты можешь подключиться к базе удаленно. Но это будет медленнее работать. Мы будем подключаться к базе удаленно , когда будем деплоить проект на хироку в конце курса
+
+Heorhii   [1 month ago]
+@ILYA Что-то я не врубаюсь как могут быть у каждого свой хост, если речь идет об одном  удаленном сервере(heroku) для всех желающих? Или вернее сказать не желающих ставить postgreSQL на свой пк.
+p.s.
+В моем понимании это должно работать по аналогичной схеме с http и сервером, сервер то один, откликается на определенном адресе, значит и адресс един, нет? (edited)
+
+John   [1 month ago]
+Говоря о Heroku, вероятно предполагается, что у каждого будет свой аккаунт со своей базой и своим приложением.
+
+
+IgorPetrov   [Feb 23rd at 8:10 PM]
+А кто подключался к удаленному heruku , получилось? У меня не проходит авторизация.
+4 replies
+
+Heorhii   [1 month ago]
+Подключился:
+
+Host:
+ec2-54-247-74-197.eu-west-1.compute.amazonaws.com
+Database: de4fjsqhdvl7ld
+User: anbxkjtzukqacj
+Password:
+da1f25b2a38784fb0d46858e5b8fc168e08c9e1e9c72faea5bbac9c0e1f9c24f
+
+TestConnection проходит, ну еще надо ssl настроить, как в видео, разберешься думаю.
+
+IgorPetrov   [1 month ago]
+Не понятно! все это прописал но не авторизовывается предлагает все время ввести пароль. Ввожу и все заново.
+
+IgorPetrov   [1 month ago]
+The specified database user/password combination is rejected: [28000] FATAL: no pg_hba.conf entry for host "178.133.87.88", user "anbxkjtzukqacj", database "de4fjsqhdvl7ld", SSL off
+
+IgorPetrov   [1 month ago]
+Подконектился ! Изменений ни каких не делал заново ввел строчку урла, и заработало. Может гдето пробел лишний был.
+
+
+makushatnik   [Feb 23rd at 10:39 PM]
+Привет. Все сделал, у меня загвоздка только с 1м InMemory тестом.
+Думаю убрать контроллер оттуда и оставить репо, либо добавить сервис и как-то впихнуть ему другую реализацию..
+Кто реализации как меняет? Самое очевидное - чрз @Qualifier, похоже заводит в тупик с InMemory тестом, можно @Profile добавить, но ведущие скажут, что их добавлять рано.
+Похоже есть не очевидные решения. Например, отключить component-scan и записать все бины с constructor-arg - этому бину подсунуть так, этому так.
+Может есть еще какое-то решение?
+5 replies
+
+ILYA   [1 month ago]
+Можно добавить ещё один xml файл спринг )
+
+makushatnik   [1 month ago]
+Имхо не принципиально. Для бд отдельный файл есть, и мы его не трогаем. А spring-app переписывай как хочешь. Хочешь включай component scan, хочешь отключай и все описывай отдельно. Новый xml не поможет. Тут надо архитектуру понять, или средство, кот-е забыл (или не знал).
+
+John   [1 month ago]
+Переписывать конфиги для запуска тестов, а потом откатывать обратно?
+
+John   [1 month ago]
+Вот как раз иметь отдельный конфиг для тестов - идея вполне разумная.
+
+makushatnik   [1 month ago]
+Да, не подумал, спасибо)
+
+
+Vlad Darcula   [Feb 24th at 1:02 AM]
+Всем привет! Не понимаю, что должен делать метод init(), который вызывается у поля repository в методе setUp() (который проанотирован @Before). Он ожидаемо подчеркивается красным потому что в классе InMemoryUserRepositoryImpl такого метода нет. Кто-нибудь сталкивался с этим? Если да, то plz help!!!
+1 reply
+
+Tanya   [1 month ago]
+https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson03.md#%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4-%D0%BD%D0%B0%D0%BA%D0%B0%D1%82%D0%BA%D0%BE%D0%B9-%D0%BF%D0%B0%D1%82%D1%87%D0%B0-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B9%D1%82%D0%B5-%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-test-%D0%B8%D0%B7-%D0%BA%D0%BE%D1%80%D0%BD%D1%8F-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0-%D0%BF%D1%83%D1%82%D1%8C-srctest-%D0%B8%D0%BD%D0%B0%D1%87%D0%B5-%D1%87%D0%B0%D1%81%D1%82%D1%8C-%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2-%D0%BF%D0%BE%D0%BF%D0%B0%D0%B4%D0%B5%D1%82-%D0%B2-srcmain
+
+
+pr1zrak [7:53 AM]
+Подскажите пожалуйста, у нас в main и test пакетах должны лежать классы в одинаковых пакетах
+но имплементации репозитория в тесте лежат в пакете inmemory, а в main в jdbc
+
+
+pr1zrak   [Feb 24th at 7:55 AM]
+поэтому в классе InMemoryAdminRestControllerSpringTest repository подчеркивается красным, чтобы на него не ругался спринг, нужно его добавить в конфиг, но в конфиг спринга, который в майне я его добавить не могу, потому что он не видит пакет inmemory, в итоге создал в test/resources/spring/spring-app.xml - тоесть по сути продублировал этот конфиг, что в майн лежит, но для репозитория прописал     <context:component-scan base-package=“ru.javawebinar.**.repository.inmemory”/> Это правильно? Или есть какие то другие варианты?
+1 reply
+
+Tanya   [1 month ago]
+> 6 Почнинить SpringMain, InMemory*Test. InMemory тесты должны использовать реализацию в памяти
+для них должно быть inmemory, так что правильно
+но дублировать неправильно (edited)
+
+
+pr1zrak   [Feb 24th at 11:17 AM]
+то, что UserServiceTest не работает это норм? Нужно будет что то допиливать в нем?
+59 replies
+
+ILYA   [1 month ago]
+Все тесты должны работать. В этом и смысл optional дз , починить тесты
+
+pr1zrak   [1 month ago]
+я когда смотрю видео, я дз даже не видел, откуда мне знать, что что то нужно чинить?(
+
+pr1zrak   [1 month ago]
+я смотрю видео, в видео все работает
+
+pr1zrak   [1 month ago]
+единственное, что там было сказано, что нужно будет тоже самое сделать для meal
+
+pr1zrak   [1 month ago]
+или нужно сначала читать дз, а потом уже видео смотреть? (edited)
+
+ILYA   [1 month ago]
+Что именно не работает в UserServiceTest?
+Мы же его не трогаем, он должен работать
+
+pr1zrak   [1 month ago]
+Tests failed 7
+
+pr1zrak   [1 month ago]
+:slightly_smiling_face:
+
+pr1zrak   [1 month ago]
+сами тесты запускаются без проблем
+
+pr1zrak   [1 month ago]
+просто не проходятся
+
+Bahis   [1 month ago]
+посмотри логи: там либо нет такого бина, либо два бина
+
+Bahis   [1 month ago]
+если нет такого, то одбавляй в контекст, если два, то укажи аннотацией какой использовать
+
+pr1zrak   [1 month ago]
+assertMatch(service.getAll(), ADMIN, newUser, USER);
+
+pr1zrak   [1 month ago]
+в методе create (edited)
+
+pr1zrak   [1 month ago]
+в UserServiceTest
+
+pr1zrak   [1 month ago]
+getAll возвращает только 1 элемент, который мы сами туда и засунули
+
+pr1zrak   [1 month ago]
+где мы туда заносим админа и юзера, я не нашел
+
+pr1zrak   [1 month ago]
+в тестах контроллеров мы вызываем     @Before
+   public void setUp() throws Exception {
+       repository.init();
+   }
+
+pr1zrak   [1 month ago]
+который заполняет репозиторий тестовыми данными
+
+Bahis   [1 month ago]
+используй inmemory для этого теста
+
+Bahis   [1 month ago]
+там заполняется
+
+pr1zrak   [1 month ago]
+public void init() {
+       entryMap.clear();
+       entryMap.put(UserTestData.USER_ID, USER);
+       entryMap.put(UserTestData.ADMIN_ID, ADMIN);
+   }
+
+pr1zrak   [1 month ago]
+пока этот метод не вызовешь - врятли там что то заполнился )
+
+Bahis   [1 month ago]
+тьфу
+
+Bahis   [1 month ago]
+еще раз вопрос, пожалуйста
+
+Bahis   [1 month ago]
+я думал у тебя как у меня ошибки были
+
+pr1zrak   [1 month ago]
+я применил все патчи, последовательно
+
+pr1zrak   [1 month ago]
+сравнил араксисом даже, что у меня проект такой же, как в мастер ветке преподавателя
+
+pr1zrak   [1 month ago]
+смотрю видео Тестирование UserService через AssertJ.
+
+Bahis   [1 month ago]
+все равно не понял )
+
+Bahis   [1 month ago]
+отвечу как понял
+
+Bahis   [1 month ago]
+@Autowired
+   public UserServiceImpl(@Qualifier("jdbcUserRepositoryImpl") UserRepository repository) {
+       this.repository = repository;
+   }
+
+Bahis   [1 month ago]
+в юзерсервис
+
+Bahis   [1 month ago]
+ты же тетируешь из памяти
+
+pr1zrak   [1 month ago]
+да из памяти )
+
+pr1zrak   [1 month ago]
+у меня все норм работает
+
+pr1zrak   [1 month ago]
+берется из памяти
+
+Bahis   [1 month ago]
+//    @Autowired
+//    public UserServiceImpl(@Qualifier("inMemoryUserRepositoryImpl") UserRepository repository) {
+//        this.repository = repository;
+//    }
+
+Bahis   [1 month ago]
+тогда так
+
+pr1zrak   [1 month ago]
+а как репозиторий значениями заполнился у вас?
+
+Bahis   [1 month ago]
+тебе надо указать какой бин использовать в контексте
+
+pr1zrak   [1 month ago]
+если не вызвать метод init
+
+pr1zrak   [1 month ago]
+репозиторий будет пустой
+
+pr1zrak   [1 month ago]
+в нем не будет никаких данных
+
+Bahis   [1 month ago]
+да
+
+Bahis   [1 month ago]
+а зачем его убирать?
+
+pr1zrak   [1 month ago]
+в UserServiceTest не вызывается метод init
+
+pr1zrak   [1 month ago]
+вот я и спрашиваю, откуда в репозитории возьмутся данные )
+
+Bahis   [1 month ago]
+понял, что надо )
+
+Bahis   [1 month ago]
+сейчас посмотрю
+
+Bahis   [1 month ago]
+у меня работает
+
+Bahis   [1 month ago]
+он с базы )
+
+Bahis   [1 month ago]
+у меня так
+
+pr1zrak   [1 month ago]
+нашел косяк, когда я “фиксил” чтобы у нас брались данные не из базы, а моки
+
+pr1zrak   [1 month ago]
+я прописал второй конфиг спринга в тестовых ресурсах
+
+pr1zrak   [1 month ago]
+это все и развалило :slightly_smiling_face:
+
+pr1zrak   [1 month ago]
+извините, что вынес всем мозг :slightly_smiling_face:
+
+Bahis   [1 month ago]
+:slightly_smiling_face:
+
+Bahis   [1 month ago]
+замечательно )) моя очередь
+
+
+pr1zrak [11:18 AM]
+в нем же нет инициализации юзеров для теста, init не вызывается
+
+Bahis [12:14 PM]
+Вопрос поинтереснее, почему ели даже в таблице есть время, то при сождании meal дата-время = null. В примере с пользователями обошли хитро: сразу иннициализация новой датой ). В еде так нельзя (превышение не посчитать). Прошу подсказки.
+
+
+Bahis   [Feb 24th at 12:49 PM]
+Почему нул в меал если в бд есть дата-время?
+88 replies
+
+Yehor   [1 month ago]
+А что в логе? что-то такое есть no property found for column mapped to field ? И скажи как называется поле для даты-времени в бд ? (edited)
+
+Bahis   [1 month ago]
+24-Feb-2019 13:47:58.945 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [mealServlet] in context with path [/topjava] threw exception
+java.lang.NullPointerException
+    at ru.javawebinar.topjava.util.MealsUtil.lambda$getFilteredWithExcess$2(MealsUtil.java:43)
+
+Bahis   [1 month ago]
+все остальные поля возвращает со значениями
+
+Bahis   [1 month ago]
+а именно дату не хочет
+
+Bahis   [1 month ago]
+public List<Meal> getAll() {
+       return jdbcTemplate.query("SELECT * FROM meals ORDER BY registered", MEAL_ROW_MAPPER);
+   }
+
+Bahis   [1 month ago]
+Возвращает лист, в листе все с пустыми датами
+
+Yehor   [1 month ago]
+в таблице meal в поле для дыты тоже registered ?
+
+Bahis   [1 month ago]
+да
+
+Yehor   [1 month ago]
+в getAll() для meal user_id передаем же
+
+Bahis   [1 month ago]
+пока хоть без него
+
+Bahis   [1 month ago]
+это потом легко доделать
+
+Yehor   [1 month ago]
+в запрос думаю стоит добавть where user_id = ?
+
+Bahis   [1 month ago]
+я пока простую таблицу без связки с таблцей userId не могу доделать
+
+Bahis   [1 month ago]
+у меня в балице ПОКА нет такой колонки
+
+Bahis   [1 month ago]
+даты побежу - добавлю
+
+Bahis   [1 month ago]
+проблемы проще по одной побеждать )
+
+Bahis   [1 month ago]
+так какого поле с датой null?
+
+Bahis   [1 month ago]
+переименовать название колонки? в этом дело?
+
+Yehor   [1 month ago]
+думаю нет, у меня вчера было, но я там с колонками накосячил, тут что-то другое сожет быть...
+
+Bahis   [1 month ago]
+а у тебя дата берется из колонок?
+
+Yehor   [1 month ago]
+да, берется
+
+Bahis   [1 month ago]
+ни чего не менял в полях meal или сеттерах/геттерах?
+
+Yehor   [1 month ago]
+в meal должны быть сеттеры и конструктор по умолчанию
+
+Bahis   [1 month ago]
+это все есть
+
+ILYA   [1 month ago]
+@Bahis а покажи как ты инициализировал таблицу meal в бд
+
+Bahis   [1 month ago]
+CREATE TABLE meals
+(
+ id              INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+ registered      TIMESTAMP DEFAULT now()   NOT NULL,
+ description     VARCHAR                   NOT NULL,
+ calories        INTEGER                   NOT NULL
+);
+
+Bahis   [1 month ago]
+@ILYA как-то так
+
+Bahis   [1 month ago]
+помогите, плиз
+
+Bahis   [1 month ago]
+Meal{id=100002, dateTime=null, description='Завтрак', calories=500}
+
+Bahis   [1 month ago]
+выводит пользователя из БД, но там  есть данные блин!!!!
+
+Bahis   [1 month ago]
+какого null
+
+Bahis   [1 month ago]
+в Date переделать?
+
+ILYA   [1 month ago]
+@Bahis зачем тебе default now()
+Посмотри как в базе сохраняются значения. Тебе неважно во сколько секунд ты ел еду
+
+Bahis   [1 month ago]
+default нужен при создании...
+
+Bahis   [1 month ago]
+когда нового создаешь, пусть живет
+
+Bahis   [1 month ago]
+когда в таблице уже есть значение, почему при запросе получаю еду с полем даты null
+
+Bahis   [1 month ago]
+?
+
+ILYA   [1 month ago]
+При создании ты можешь вручную дату в бд поместить и время там будет без этих микросекунд (edited)
+
+Bahis   [1 month ago]
+мне кажется это ни при чем
+
+Bahis   [1 month ago]
+сейчас проверю
+
+ILYA   [1 month ago]
+Я сделал вручную и у меня все работает
+
+ILYA   [1 month ago]
+Я думаю что из-за этих микросекунд у тебя не хочет в localdatetime парсится
+
+Bahis   [1 month ago]
+тоже самое!
+
+Bahis   [1 month ago]
+INSERT INTO meals (registered, description, calories) VALUES
+ ('2018-02-24 10:01:35','Завтрак', '500');
+
+Bahis   [1 month ago]
+я делаю вставку без микросекунд
+
+Bahis   [1 month ago]
+но они там появляются сами )
+
+Bahis   [1 month ago]
+а когда запрашиваю, то поле dateTime = null
+
+ILYA   [1 month ago]
+Ты убрал default now ()?
+
+Bahis   [1 month ago]
+да
+
+Bahis   [1 month ago]
+CREATE TABLE meals
+(
+ id              INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+ registered      TIMESTAMP                 NOT NULL,
+ description     VARCHAR                   NOT NULL,
+ calories        INTEGER                   NOT NULL
+);
+
+Bahis   [1 month ago]
+грохнул базу
+
+Bahis   [1 month ago]
+и пересоздал
+
+Bahis   [1 month ago]
+если дело в микросекундах, то они там сами...
+
+Bahis   [1 month ago]
+timestamp так хранит после save
+
+Bahis   [1 month ago]
+после insert
+
+Bahis   [1 month ago]
+прошу прощения
+
+Bahis   [1 month ago]
+INSERT INTO meals (registered, description, calories) VALUES
+ ('2018-02-24 10:01:35','Завтрак', '500');
+
+Bahis   [1 month ago]
+100002    2018-02-24 10:01:35.000000    Завтрак    500
+
+Bahis   [1 month ago]
+это в БД так
+
+ILYA   [1 month ago]
+А зачем тебе секунды у тебя же фильтр по времени только часы и минуты
+
+ILYA   [1 month ago]
+@Bahis я понял в чем у тебя ошибка
+
+Bahis   [1 month ago]
+давай
+
+ILYA   [1 month ago]
+Секунды не причем
+
+Bahis   [1 month ago]
+интрига)
+
+ILYA   [1 month ago]
+У тебя в Meal поле с датой называется dateTime?
+
+Bahis   [1 month ago]
+да
+
+ILYA   [1 month ago]
+А в бд registered
+
+Bahis   [1 month ago]
+и
+
+Bahis   [1 month ago]
+мапперу от этого плохо?
+
+ILYA   [1 month ago]
+Поменяй на date_time в бд
+
+Bahis   [1 month ago]
+попробую
+
+Bahis   [1 month ago]
+спасибо
+
+Bahis   [1 month ago]
+а у тебя работает?
+
+ILYA   [1 month ago]
+Да
+
+Bahis   [1 month ago]
+пробую
+
+Bahis   [1 month ago]
+Я в это не верил, но...
+
+Bahis   [1 month ago]
+Оно работает )))
+
+Bahis   [1 month ago]
+Спасибо
+
+Bahis   [1 month ago]
+А почему так? Какая разница, как оно зовется если я в маппинге прописал
+
+Bahis   [1 month ago]
+"registred" = meal.getDateTime()
+
+ILYA   [1 month ago]
+Я просто попробовал как у тебя у себя проекте назвал registered и у меня тоже нулл выдавало
+
+ILYA   [1 month ago]
+Наверное для row_mapper важно название полей у бина и в бд
+
+Bahis   [1 month ago]
+Огромное спасибо :+1:
+
+Bahis   [1 month ago]
+Ты порядок обратный запросом делал или потом еще раз через стрим фильтровал?
+
+Bahis   [1 month ago]
+а все
+
+Bahis   [1 month ago]
+разобрался )
+
+Bahis   [1 month ago]
+(Column values are mapped based on matching the column name as obtained from result set metadata to public setters for the corresponding properties. The names are matched either directly or by transforming a name separating the parts with underscores to the same name using "camel" case).
+
+Bahis   [1 month ago]
+Попался на фразу (сначала сделайте самостоятельно!) :smile::smile::smile:
+
+
+Bahis   [Feb 24th at 3:39 PM]
+Вопрос по задаче. Как в таблицу meals вставить idпользователя: через связанную таблицу через FOREIGN KEY или просто id колонку?
+5 replies
+
+Denis Volkov   [1 month ago]
+Думаю FK нужен, чтобы при удалении пользователя, еда не оставалась.
+
+Bahis   [1 month ago]
++
+
+Nikita Krutov   [1 month ago]
+я через FK сделал
+
+Bahis   [1 month ago]
+Пытаюсь въехать в фк
+
+Bahis   [1 month ago]
+вроде зашло
+
+
+Heorhii   [Feb 24th at 7:14 PM]
+Надо как-то spring-app.xml дать знать про spring-db.xml? На первом же пункте ДЗ сижу битый час уже. SpringMain в тестах вылетает потому что говорит "не определен бин" хотя бин определен, просто в другом xml-e, гуглил ошибку, искал, везде код с конфигурациями java-кодом, но суть вроде такая же как и в spring-db.xml .
+
+Есть DataSourse, который для подключения к базе используется, и используя его хотим получить jdbcTemplate, все это в db xml-не описано, вроде все норм, а ошибка вылетает. Намекните хоть куда смотреть :disappointed_relieved:
+21 replies
+
+Bahis   [1 month ago]
+Есть такое решение:
+
+Heorhii   [1 month ago]
+И вообще я не понимаю почему он на 20 строчке вылетает где мы просто определяем ConfigurableApplicationContext
+
+Зачем ему там org.springframework.jdbc.core.JdbcTemplate? он по идее о нем даже знать не должен..
+
+Bahis   [1 month ago]
+сделай папку в ru.javawebinar.topjava.repository.inmemory;
+
+Bahis   [1 month ago]
+даже пустую
+
+Bahis   [1 month ago]
+в spring-app.xml
+
+Bahis   [1 month ago]
+<context:component-scan base-package="ru.javawebinar.**.repository.inmemory"/>
+
+   <context:component-scan base-package="ru.javawebinar.**.service"/>
+
+   <context:component-scan base-package="ru.javawebinar.**.web"/>
+
+Bahis   [1 month ago]
+в spring-db.xml
+
+Bahis   [1 month ago]
+<bean id="dataSource"
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="org.postgresql.Driver"/>
+       <property name="url" value="${database.url}"/>
+       <property name="username" value="${database.username}"/>
+       <property name="password" value="${database.password}"/>
+   </bean>
+
+   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+       <constructor-arg ref="dataSource"/>
+   </bean>
+
+   <bean id="namedJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+       <constructor-arg ref="jdbcTemplate"/>
+   </bean>
+
+   <context:component-scan base-package="ru.javawebinar.**.repository.jdbc"/>
+
+   <context:component-scan base-package="ru.javawebinar.**.service"/>
+
+   <context:component-scan base-package="ru.javawebinar.**.web"/>
+
+Bahis   [1 month ago]
+все )
+
+Bahis   [1 month ago]
+теперь в тестах на мемори @ContextConfiguration(
+       "classpath:spring/spring-app.xml"
+)
+@RunWith(SpringRunner.class)
+
+Bahis   [1 month ago]
+а в тестах на дб
+
+Bahis   [1 month ago]
+@ContextConfiguration(
+       "classpath:spring/spring-db.xml"
+       )
+@RunWith(SpringRunner.class)
+
+Bahis   [1 month ago]
+и все пофэн-шую
+
+Bahis   [1 month ago]
+ставь лайк если помог )
+
+Heorhii   [1 month ago]
+так это ж дублирование кода, заработало когда компонент сканы добавил в db.xml, но это те же сканы что и в spring-app. Работает, но не элегантно как-то, я кстати понял почему JdbcTemplate просило, оно компонент сканом находит RestController а там Autowired сервис, а сервис тянет репозиторий, А тот требует JdbcTemplate который не определен бином в spring-app.xml
+
+tolik1106   [1 month ago]
+а почему бы в spring-app не добавить импорт spring-db?
+
+Heorhii   [1 month ago]
+Это решает проблему, но тогда теряется смысл в разделении на разные xml, суть вроде такая что в db.xml мы храним только бины связанные с базой, чтобы все было по полочкам и красиво.
+
+Можно все в одном spring.xml хранить, но если проект здоровый - там можно потеряться и никогда не найтись.
+
+tolik1106   [1 month ago]
+Так и есть. Это сделано для лучшей читаемости. Но что бы все заработало нужен импорт.
+
+Heorhii   [1 month ago]
+Пустая папка не нужна кстати, и db.xml мы не видим, он достает бины прямо из папки тестов, Пойду гляну в книжке по спрингу как одни xml к другому подрубить.
+
+tolik1106   [1 month ago]
+xml подключается через тег <import resource="your_file.xml"/>
+
+Nikolai Dvinin   [1 month ago]
+есть у кого другое решение, не через импорт?
+
+
+Heorhii   [Feb 24th at 7:30 PM]
+Мне не понятно, почему spring не может сканировать аннотации согласно строкам app.xml, а бины если их в app.xml нет искать в db.xml, spring же согласно настройкам проекта видит оба файла. И еще, почему добавление <context:component-scan ... bla-bla-bla/> в db.xml решило проблему ? Выходит, что он видит и использует db.xml хотя я в SpringMain его вообще не вызываю, а бины из него не видит. Понимания нет :slightly_frowning_face:
+4 replies
+
+Heorhii   [1 month ago]
+Все, я понял как это работает)
+Спасибо за толчок)
+
+Bahis   [1 month ago]
+а какое дублирование? ты же не используешь одновременно две конфигурации.
+
+Heorhii   [1 month ago]
+@Bahis Суть не в том что ты используешь, а в том что существует. Если строчки кода с одной и той же функциональностью находятся всюду это очень плохо, представь что у тебя метод который, не знаю, сортирует числа, но вместо того чтобы вызывать метод в нужных местах ты просто код из него вставляешь в любой класс в место где нужна сортировка, тут тоже самое.
+
+Bahis   [1 month ago]
+В коде да. Это просто два разных файла конфигурации.
+
+
+Vlad Darcula   [Feb 24th at 7:56 PM]
+Вопрос по JdbcMealRepositoryImp. После применения всех патчей в данном классе мы имеем заглушку. Во всех методах этой заглушки сейчас фигурирует 'int mealId'. Правильно ли я понимаю, что это опечатка и на самом деле там имеется в виду 'int userId'?
+3 replies
+
+Mikhail_V   [1 month ago]
+У меня в этом классе фигурирует 'int userId'. Или я что-то упустил...
+
+Story   [1 month ago]
+у меня нет mealid после всех патчей
+@Repository
+public class JdbcMealRepositoryImpl implements MealRepository {
+
+   @Override
+   public Meal save(Meal meal, int userId) {
+       return null;
+   }
+
+   @Override
+   public boolean delete(int id, int userId) {
+       return false;
+   }
+
+   @Override
+   public Meal get(int id, int userId) {
+       return null;
+   }
+
+   @Override
+   public List<Meal> getAll(int userId) {
+       return null;
+   }
+
+   @Override
+   public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
+       return null;
+   }
+}
+
+Vlad Darcula   [1 month ago]
+Спасибо! Видимо я что-то автозаменил)
+
+
+SergRiabkin   [Feb 24th at 9:15 PM]
+подскажите, пожалуйста, что нужно "подсунуть" в InMemoryAdminRestControllerTest вместо InMemoryUserRepositoryImpl ?
+2 replies
+
+Story   [1 month ago]
+вроде ничего не надо там менять, только файл контекста (edited)
+
+Artem   [1 month ago]
+У меня в итоге получилась отдельная конфигурация на inmemory тесты, на тесты с прикрученной БД и на саму программу. (edited)
+
+
+valera   [Feb 25th at 4:19 PM]
+кто-то может объяснить почему после 7-го патча классы из repository/inmemory переместились в папку с тестами.? Приложение перестало работать естественно. Я подумал  что у меня идеяы глючит, но в самом файле патча явно написано :
+---src/main/java/ru/javawebinar/topjava/repository/inmemory/InMemoryBaseRepositoryImpl.java    
++++ src/test/java/ru/javawebinar/topjava/repository/inmemory/InMemoryBaseRepositoryImpl.java (edited)
+6 replies
+
+ILYA   [1 month ago]
+Потому что этр реализация в памяти и ее мы используем только для тестов
+
+ILYA   [1 month ago]
+А в проекте будут реализации которые хранят в бд
+
+John   [1 month ago]
+А не должны ли в тестах быть только тесты? Какой смысл тестировать то, чего нету в исходниках?
+
+ILYA   [1 month ago]
+@John я думаю это исключительно для примера.
+
+DmitrIY Stakhanov   [1 month ago]
+Мне тоже не понятно - зачем тестировать не используемый код?
+
+valera   [1 month ago]
+Я понял. Нужно было видео пересмотреть. Это мок репозитория. С его помощью мы тестируем контроллеры и сервисы. Просто когда смотришь на коммит видишь что класс переместился в тесты. Это выглядит странно. Моки наверное стоит помечать словом мок - MockMealRepository, MockUserRepository. Так как сейчас сбивает с толку (edited)
+
+
+Jack Sparrow [5:24 PM]
+Здравствуйте, при загрузке сервера получаю 500
+Pasted image at 2019-02-25, 5:24 PM 
+
+на тестах вот такое
+
+pr1zrak [5:24 PM]
+чтобы ее не получать, нужно реализовать mealrepository (edited) 
+
+TheMescaline [6:47 PM]
+после всех патчей UserServiceTest тоже должен не работать, верно?
+
+pr1zrak [6:56 PM]
+хотя нет, он должен работать
+он же берет из базы данные
+вы же выполнили скрипты инициализации базы и заполнили значениями?
+
+
+TheMescaline   [Feb 25th at 6:58 PM]
+да. У меня падает на вызове populateDB в @Before. Наверно что-то не так настроил
+2 replies
+
+ILYA   [1 month ago]
+А что пишет?
+
+TheMescaline   [1 month ago]
+да я ошибся с настройкой БД в идее. Уже разобрался)
+
+
+makushatnik [10:33 PM]
+Хотя вообще такая сортировка может работать:
+(a,b) -> b.getDateTime().compareTo(a.getDateTime()) ,
+в этом методе она не сработала:
+@Test
+public void getBetween() {
+    List<Meal> all = repository.getBetween(
+            LocalDateTime.of(2015, Month.MAY, 30, 10, 0),
+            LocalDateTime.of(2015, Month.MAY, 30, 13, 0), USER_ID);
+    assertMatch(all, MealsUtil.getSortedDatetimeDesc(Arrays.asList(MEAL0, MEAL1)));
+}
+К тому же почему-то есть разница с запуском тестов в Идее и в консоли. В Идее MealServiceTest отработал, а в консоли сборка на нем упала.
+
+
+makushatnik   [Feb 25th at 11:08 PM]
+И тесты в сборку попадают. Все что нашел по теме это:
+https://ru.stackoverflow.com/questions/567253/maven-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2-%D0%BF%D1%80%D0%B8-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-jar-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0
+Но не помогло.
+Stack Overflow на русском
+maven запуск тестов при сборке jar файла
+Есть проект maven , при сборке создается jar файл который успешно выводит нужное сообщение. Нужно что бы при сборке проходили тесты, что надо добавить в xml файл для этого? Вот мой xml <project...
+1 reply
+
+makushatnik   [1 month ago]
+build.jpg 
+
+
+IgorPetrov [10:50 AM]
+Как UserTestData  попадает в UserServiceTest , что от туда берутся значения для сравнения ,  ведь спринговскими анотациями он не определен, и в папках сканируемых спрингом не находится? А мы как то имеем возможность сравнивать USER,  ADMIN которые не инсталированы и не определены в UserServiceTest, не пойму.
+
+pr1zrak [10:51 AM]
+мы же его заимпортили
+в самом верху
+в UserServiceTest'e
+
+IgorPetrov [10:53 AM]
+а можно поточнее а то я что то не вижу.
+какой строчкой
+а все увидел сори
+искал внутри класса.
+
+
+Nikolai Dvinin   [Feb 26th at 10:59 AM]
+@IgorPetrov @pr1zrak коллеги пользуйтесь тредами "Start a thread", потом удобнее читать канал )
+2 replies
+
+pr1zrak   [1 month ago]
+хорошо ) все никак не привыкну к ним, на работе скайп :confused:
+
+IgorPetrov   [1 month ago]
+ок понял
+
+
+IgorPetrov   [Feb 26th at 11:24 AM]
+Прописываю     @Qualifier("JdbcUserRepositoryImpl") использовать перед конструктором (какую реализацию использовать)
+   public UserServiceImpl(UserRepository repository) {
+       this.repository = repository;
+   } но почему то горит красным. идея предлагает только remove (edited)
+3 replies
+
+IgorPetrov   [1 month ago]
+Все понял не применимо к  конструктору
+
+makushatnik   [1 month ago]
+А у меня на конструкторе работает:)
+
+German_lbt   [1 month ago]
+куалифир не нужен...используйте конфиги...меня уже поправили смотрящие )))
+
+
+IgorPetrov   [Feb 26th at 12:13 PM]
+Как устранить ошибку имя хоста не может быть проверено? Caused by: org.postgresql.util.PSQLException: The hostname ec2-54-247-74-197.eu-west-1.compute.amazonaws.com could not be verified by hostnameverifier PgjdbcHostnameVerifier.
+11 replies
+
+pr1zrak   [1 month ago]
+а вы там зарегестрировались и все настроили?)
+
+pr1zrak   [1 month ago]
+вроде нужно свой sql использовать
+
+IgorPetrov   [1 month ago]
+да база подключена  и таблицы залиты
+
+pr1zrak   [1 month ago]
+видимо нужно ssl включить
+
+pr1zrak   [1 month ago]
+или еще какие настройки
+
+pr1zrak   [1 month ago]
+проверил у себя, org.postgresql.ssl.NonValidatingFactory выставил в тру в sslfactory + ssl true
+
+pr1zrak   [1 month ago]
+и все заработало)
+
+pr1zrak   [1 month ago]
+https://stackoverflow.com/questions/11832361/how-to-setup-spring-heroku-postgres-ssl-datasource
+Stack Overflow
+How to setup Spring/Heroku/postgres SSL datasource
+I'm trying to create a datasource from my Heroku/Spring application to postgres.heroku.com postgres database. Here is my applicationContext.xml snippet. <bean id="securityDataSource" class="org.
+
+pr1zrak   [1 month ago]
+правда не знаю у кого как, но автотесты никак не цеплялись к базе с ssl = true, выставил в false и все ок
+
+pr1zrak   [1 month ago]
+?ssl=false&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+
+IgorPetrov   [1 month ago]
+выставил  ssl=false та же ошибка
+
+
+Heorhii [3:58 PM]
+Есть еще предложение описывать проблему покороче, в 2-3 строчки, а скриншоты и детальное описание прилагать в треде, так будет вообще красиво, а то у нас тут лапша страшная, проверить задавали ли такой вопрос - проблематично. (edited) 
+
+
+Jack Sparrow   [Feb 26th at 5:19 PM]
+Здравствуйте, с Idea Доступ к базе есть
+Pasted image at 2019-02-26, 5:19 PM 
+11 replies
+
+Heorhii   [1 month ago]
+Юзер не тот, почитай что написано в postgres.properties, DataSourse оттуда берет данные. (edited)
+
+Jack Sparrow   [1 month ago]
+Сейчас посмотрю
+
+Jack Sparrow   [1 month ago]
+одна буква неправильная. Спасибо (edited)
+
+Jack Sparrow   [1 month ago]
+но теперь новая проблема
+
+Jack Sparrow   [1 month ago]
+Pasted image at 2019-02-26, 5:26 PM 
+
+Jack Sparrow   [1 month ago]
+ERROR: relation "meals" does not exist
+
+Heorhii   [1 month ago]
+Ну, а таблица у тебя есть такая?) С вторичным ключом и всей прочей лабудой?)
+
+Jack Sparrow   [1 month ago]
+еще нет. пишу
+
+Heorhii   [1 month ago]
+Оттуда и ошибка) успехов)
+
+Jack Sparrow   [1 month ago]
+спасибо большое!!!
+
+Jack Sparrow   [1 month ago]
+У меня получилось. Сделал таблицу и код заработал
+
+
+Heorhii   [Feb 26th at 5:27 PM]
+Кто как решал проблему с датой в тестах? В случае с юзером есть 2 константы, и мы их используем в методе getAll, попробовал так же с Meal, но не ясно как синхронизировать дату у данных которые создаются в базе, и у локальных puplic static final переменных.
+6 replies
+
+Heorhii   [1 month ago]
+Можно прямо из базы через get достать по очереди, но это костыль явный, есть идеи?
+
+pr1zrak   [1 month ago]
+добавил две переменные с датой сам, какие захотел
+
+pr1zrak   [1 month ago]
+наша задача проверить, что работает фильтрация
+
+pr1zrak   [1 month ago]
+но на проверку я еще не сдавал :slightly_smiling_face:
+
+Heorhii   [1 month ago]
+Ты имеешь ввиду что ты не пользовался populateDB.sql скриптом, а прямо в тестовом getAll() методе сервису скормил пару переменных потом их же вытащил и сравнил что они это они?)
+
+Heorhii   [1 month ago]
+У меня были там разные id-шники и тест на это ругался, а то что даты чуть-чуть по миллисекундам не совпадают он пропустил)
+Мда))
+Вопрос снят) LocalDateTime.now() канает, не нужна никакая синхронизация. (edited)
+
+
+Vlad Darcula   [Feb 26th at 5:47 PM]
+Здрасьте, кто-нибудь понял для чего нам в классе InMemoryMealRepositoryImpl методы postConstruct() и preDestroy()?
+1 reply
+
+Story   [1 month ago]
+мне кажется, просто для демонстрации что так можно)
+
+
+RamZet   [Feb 26th at 6:53 PM]
+Вопрос. Наполнять таблицу meals тестовыми данными нужно в том же файле populateDB.sql или создать отдельный файл? По логике названия файла populateDB - файл должен наполнять базу данных, и таблица meals относится к базе. Но в условии написано "Сделать тестовые данные MealTestData (точно такие же, как вставляем в populateDB.sql)". Особенно в скобках беспокоит меня. Так написано, как будто нужен отдельный файл (edited)
+8 replies
+
+pr1zrak   [1 month ago]
+я сделал в том же файле
+
+pr1zrak   [1 month ago]
+в инит бд сбрасываются \ создаются ВСЕ таблицы
+
+pr1zrak   [1 month ago]
+в популейт они заполняются данными
+
+Story   [1 month ago]
+так наоборот, то что в скобках, подразумевает, что в populateDB.sql все вставляется и юзеры  и еда. не нужен отдельный файл.
+А в MealTestData такие же данные но в виде констант (edited)
+
+RamZet   [1 month ago]
+Да, понятно теперь, спасибо. Просто большую часть условия пишут как будто продавцы на алиэкспресс, а потом через переводчик переводят. В половине случаев приходится догадываться, и мозги устают
+
+Story   [1 month ago]
+да я тоже по 5 раз перечитываю :face_with_monocle:
+
+pr1zrak   [1 month ago]
+это специально, чтобы мы мозг подключали )
+
+dzmitry_liashenka   [1 month ago]
+вот вот, тестовое задание к реальному проекту тоже нужно будет уметь между строк читать
+
+
+Dmitry [7:14 PM]
+Если сделать автоформат (Ctrl+Alt+L) на скриптах для создания/заполнения тестовой БД - там не только подравняет всё, но и добивает умолчальными значениями кое-где. Надо это делать?
+
+
+Dmitry   [Feb 26th at 7:38 PM]
+И где правильнее фильтровать для getBetween - в базе или в репозитории?
+16 replies
+
+Story   [1 month ago]
+это разве не одно и то же? база и репозиторий
+
+Story   [1 month ago]
+из базы select c условием нужен
+
+Dmitry   [1 month ago]
+я про слой. можно фильтр по дате-времени сразу в SQL запрос сунуть. ну да, логично. нафиг всю портянку тянуть из базы.
+
+Petr Kreslin   [1 month ago]
+фильтровать и сортировать в базе, прямо в sql-запросе, ибо тащить всю транзакшнл дейту в лист, а потом фильтровать, это запредел)) (edited)
+
+Petr Kreslin   [1 month ago]
+вообще, последний раз я кодил в далёком 2012м году на с#, очень нужно было по работе, и я понятия не имел ни о каких слоях, MVC и прочей мути потому что всю бизнес логику спокойно реализовывал в t-sql. СУБД для того и существуют
+
+John   [1 month ago]
+По дате фильтрация в запросе, но не по времени. Иначе превышение нормы некорректно будет считать
+
+Petr Kreslin   [1 month ago]
+ахаха ещё бы, мы же не зря HW0 делали ))) на самом деле это тоже можно было одним запросом получить - фильтр по дате, времени и превышение нормы
+
+John   [1 month ago]
+@Petr Kreslin, ну-ка продемонстрируй такой запрос )
+
+Dmitry   [1 month ago]
+Почему по дате только? Там же 2 метода есть в сервисе - по дате и по дате-времени. Разве не оба надо протестировать?
+
+German_lbt   [1 month ago]
+парни вы о разных вещах говорите...оба надо тестить и дату и время
+
+German_lbt   [1 month ago]
+а запрос одним проходом - не выйдет...задача была без вложенных запросах...в разборе же все пожевали с расстановкой
+
+John   [1 month ago]
+Никто не говорил о тестах, речь о фильтрации только.
+
+German_lbt   [1 month ago]
+ну и фильтр по дате и по норме за раз...никак не выйдет, даже у каспарова
+
+German_lbt   [1 month ago]
+раньше был язык clipper...еще до войны )))...можно было создать индексные файлы к базам...и вкривь, и вкось...потом получай шо хош в любом порядке...))) тут тоже можно было что-то сделать, но задачи такой не стояло...все равно - итог - псевдо одиночный запрос
+
+Petr Kreslin   [1 month ago]
+хир ю гоу
+select meals.*, calories.excess
+from meals
+join     
+  (select datetime::TIMESTAMP::DATE as date
+        , case when sum(calories)>2000 then true else false end as excess
+    from meals
+    where user_id=100000
+    and datetime::TIMESTAMP::DATE>='2015-05-30 13:00:00'::TIMESTAMP::DATE
+    and datetime::TIMESTAMP::DATE<='2015-05-31 10:00:00'::TIMESTAMP::DATE
+    group by datetime::TIMESTAMP::DATE) as calories on calories.date=meals.datetime::TIMESTAMP::DATE    
+where user_id=100000
+and meals.datetime::TIMESTAMP::TIME>='2015-05-30 13:00:00'::TIMESTAMP::TIME
+and meals.datetime::TIMESTAMP::TIME<='2015-05-31 20:00:00'::TIMESTAMP::TIME
+с хевингом была фиговая идея ) (edited)
+
+Petr Kreslin   [1 month ago]
+это если на коленке, а если можно было бы оформить  всё в тейбл вельюд просидже, то такой порнографии datetime::TIMESTAMP::DATE<='2015-05-31 10:00:00'::TIMESTAMP::DATE  можно было бы частично избежать
+
+
+IgorPetrov   [Feb 26th at 8:00 PM]
+Устанавливаю брекпоинт в сервлете UserServlet  на строку редиректа  response.sendRedirect("meals"); в doPost запросе    (Запускаю приложение ) далее на странице index нажимаю переход на страницу юзера, после этого дебагером прохожу пошагово дальше. (много шагов но по коду невидно перемещений КАК УВИДЕТЬ ПЕРЕМЕЩЕНИЯ КУДА ИДУТ?) Далее происходит ошибка на странице org.postgresql.util.PSQLException: The hostname ec2-54-247-74-197.eu-west-1.compute.amazonaws.com could not be verified by hostnameverifier PgjdbcHostnameVerifier. В ДЕБАГЕРЕ (логах) ОСТАНАВЛИВАЕТСЯ НА СТРОКЕ 26-Feb-2019 19:53:47.353 SEVERE [http-nio-8080-exec-9] org.postgresql.ssl.PGjdbcHostnameVerifier.verify Server name validation failed: hostname ec2-54-247-74-197.eu-west-1.compute.amazonaws.com does not match common name ip-10-41 В ЛОГАХ ТОМКАТА Ошибка Caused by: org.postgresql.util.PSQLException: The hostname ec2-54-247-74-197.eu-west-1.compute.amazonaws.com could not be verified by hostnameverifier PgjdbcHostnameVerifier. СИНИХ ССЫЛОК НЕТ Я так понимаю что какая то ошибка с базой данных , пока разобраться не могу. Может не ясно описал задайте вопрос, допишу. (edited)
+8 replies
+
+German_lbt   [1 month ago]
+Игорек, не паникуй так ))) скажи а чего ты сам хочешь и ожидаешь? ставишь брэйкпоинт и идешь к нему по шагам по всем библиотекам...какой смысл? брэйкпоинт должен сработать единожды...а куда идет? вот если словил брэйкпоинт - знамо сюда и идет...там все просто...в сервлеты заходит лишь текст...потом применяешь волшебные скилы и вытаскиваешь из кучи текста то что тебе нужно...дальше обрабатывай-посмотри и брось обратно...все
+
+German_lbt   [1 month ago]
+кстати по всем твоим скринам тоже ничего нет... может компьютер того?...барахлит...)))
+добавляю...никакие это не скрины вовсе...чего-то перехватывает у тебя...возможно локалхост кто-то маскарадит и отправляет на амазон...посмотри хосты для начала...В firefox сидят хорошие дядечки и до сих пор оставляют вам возможность выбора, хотя с каждым релизом прячут возможность отключения дерьма вс глубже. Во-первых, при первом включении ФФ без спросу лезет и устанавливает H264 плагин, которые на самом деле имеет очень косвенное отношение к проигрыванию песен и плясок, а представляет из себя WebRTC дырку. (отключайте автоматическое обновление плагинов, выкидывайте сайты из списка доверенных исключений в preferences, которые добрые дядечки из ФФ включили по умолчанию) Во-вторых, эту вебртц фишку надо отключить в about:config (какие пункты за нее отвечают - лень искать, что-то *.media.*) В-третьих, помедитируйте над каждым пунктом в about:config и вы удивитесь, сколько всяких отчетов(?) ФФ отправляет не только по мозилловским адресам, но и по гугловским. Задайтесь вопросом - нахрена они это делают, нахрена надо это лично вам и если ответа не найдете - выкидывайте половину конфига в false или в 127.0.0.1 (edited)
+
+Heorhii   [1 month ago]
+Эти стенки текста это жесть)
+Надо всего-то ошибку прогуглить, я сам раза 3 начинал расписывать проблему, а потом в ходе описания приходила светлая идея по её решению. По-поводу ошибки, пересмотри видео про подключение к базе. Вот, загулил, пользуйся)
+
+https://stackoverflow.com/questions/50151476/hostname-not-verified-error-message-on-ssl-connection-in-postgresql
+Stack Overflow
+"HostName not verified error message" on SSL connection in postgresql
+I created server.crt, server.key and root.crt files on Centos 7 and put the same onto the C:\Users\xxxx\AppData\Roaming\postgresql folder in windows as i am running the postgresql server on windows...
+
+German_lbt   [1 month ago]
+чего это за колдовство? постгри криво встал? нормально так допиливать с бубном...какого на амазон редиректит?
+
+Katherine   [1 month ago]
+@IgorPetrov попробуй в pom.xml поменять версию postgresql: `<postgresql.version>42.2.2</postgresql.version>`
+
+IgorPetrov   [1 month ago]
+Поменял версию с 42.2.5 на 42.2.2, теперь другая ошибка аунтефикация не удалась org.postgresql.util.PSQLException: FATAL: password authentication failed for user "anbxkjtzukqacj"
+
+IgorPetrov   [1 month ago]
+Может чего то не так описал, то извиняюсь. База настроена нормально в настройках подлючение работает. Насчет брекпоинта я имею ввиду что после брекпоинта, пошагово должно идди покоду(я может чего то еще не знаю) но по коду в идее после редиректа из сервлета  response.sendRedirect("meals"); перехода не происходит в консоле движение идет(меняются данные). А увидеть хочу где именно происходит ошибка.
+
+IgorPetrov   [1 month ago]
+Какжется разобрался, возможно,  что не коректный запрос к базе данных.
+
+
+makushatnik   [Feb 26th at 10:12 PM]
+А кто как избавился от Assert и assertThat().isEqualTo ? Заменить на equals несложно, но не понятно что потом. Разве что возвращаемое значение методов менять.
+1 reply
+
+Story   [1 month ago]
+посмотри как в UserTestData  и сделай так же но без игнорирования полей
+
+
+Yuriy [1:10 AM]
+Ребят, мб пропустил в обсуждениях выше, но такое положение классов после всех патчей - это норм? (edited) 
+Pasted image at 2019-02-27, 2:10 AM 
+
+
+Tanya   [Feb 27th at 1:15 AM]
+>>>video 4. Тестирование через JUnit.
+ВНИМАНИЕ!! Перед накаткой патча создайте каталог test (из корня проекта путь \src\test), иначе часть файлов попадет в src\main.
+1 reply
+
+Yuriy   [1 month ago]
+))
+извиняюсь, проглядел
+спасибо!
+
+
+Pavel   [Feb 27th at 6:16 AM]
+Умные люди, объясните пожалуйста, может я что-то пропустил... Почему у нас в spring-app.xml
+```<context:component-scan base-package="ru.javawebinar.**.repository.jdbc"/>
+
+    <context:component-scan base-package="ru.javawebinar.**.service"/>
+
+    <context:component-scan base-package="ru.javawebinar.**.web"/>```
+Разве нельзя это сделать одной строкой <context:component-scan base-package="ru.javawebinar"/>? Или как то по-другому, чтобы объединить их в одну строку? (edited)
+9 replies
+
+Dmitry   [1 month ago]
+А как потом контекст разделить? Между тестами и рабочими каталогами, например. Кроме того - зачем туда пихать не относящиеся к spring пакеты, что это даст?
+Ну и чисто читабельность одной портянки, кмк, ниже, чем нескольких четких строк.
+
+John   [1 month ago]
+Не важно одной строкой или тремя - контекст все равно один.
+
+John   [1 month ago]
+И добавит спринг в контейнер только классы с аннотациями Component. Так что можно ru.javawebinar передавать - лишнего он сам не добавит.
+
+Pavel   [1 month ago]
+То есть, если я правильно понял это чисто для эстетического восприятия, чем для практического применения.
+
+John   [1 month ago]
+Аналогично и с импортами обычных классов - можно дать ссылку на весь пакет (java.util.*), или каждый класс отдельно указывать.
+
+Pavel   [1 month ago]
+Спасибо!
+
+Dmitry   [1 month ago]
+Я просто не пойму смысла в сканировании лишнего. Что добавит только аннотированные - понятно, но зачем заставлять всё сканировать в поисках аннотаций?
+
+V_Gruzdev   [1 month ago]
+@Pavel нет, это не для эстетики. Кмк Григорий хотел показать,  что необходимо включать в контекст только те компоненты, которые будут непосредственно использоваться (во избежание разрастания контекста).  ru.javawebinar может содержать десятки пакетов и сотни компонентов. Зачем тянуть всё в контекст, если нам необходимы некоторые из них. Та же история и с импортами (вообще рекомендую отключить wildcards).
+
+ILYA   [1 month ago]
+@Pavel ты не сможешь сделать optional дз если будешь сразу все сканировать
+
+
+Bahis   [Feb 27th at 7:09 PM]
+Кто понял эту строчку? (edited)
+18 replies
+
+Bahis   [1 month ago]
+Еще раз: в тестах проверять через JUnit Assert или использовать assertThat().isEqualTo нельзя: сравнение будет происходить через equals, который сравнивает объекты только по id. Мы не можем переопределять equals для объектов модели, тк будем использовать JPA (см. The JPA hashCode() / equals() dilemma)
+
+Bahis   [1 month ago]
+Если использовать isEqualTo, то будет использоваться переопределенный метод в AbstractBasedEntity и это плохо... ?
+
+Bahis   [1 month ago]
+Вот тут я не понял. Как и то, через что тогда сравнивать?
+
+32xlevel   [1 month ago]
+Сравнить так же, как и в UserTD
+
+32xlevel   [1 month ago]
+Только не передавать поля никакие
+
+Bahis   [1 month ago]
+assertThat(actual).isEqualTo(expected)?
+
+Bahis   [1 month ago]
+в тестах проверять через JUnit Assert или использовать assertThat().isEqualTo нельзя
+
+Bahis   [1 month ago]
+Так нельзя...
+
+32xlevel   [1 month ago]
+assertThat(actual).isEqualToIgnoringGivenFields(expected);
+
+Bahis   [1 month ago]
+а объяснение есть, или это гипотеза? почему нельзя assertThat().isEqualTo?
+
+Bahis   [1 month ago]
+в assertThat(actual).isEqualToIgnoringGivenFields(expected) есть is... Он тоже использует переопределенный equals?
+
+Story   [1 month ago]
+isEquals использует переопределенный метод isEquals объекта, он у нас сравнивает только id объекта, а нам нужно сравнить все поля объекта (edited)
+
+Bahis   [1 month ago]
+понял. спасибо
+
+Bahis   [1 month ago]
+тогда assertThat(actual).isEqualToComparingFieldByField(expected) лучше
+
+Story   [1 month ago]
+да
+
+John   [1 month ago]
+Зачем сравнивать все поля? Id гарантирует уникальность. Предполагается, что может быть два объекта одного класса с одинаковым Id? Каким образом?
+
+Story   [1 month ago]
+а как иначе протестировать что апдейт напр правильно работает
+
+Bahis   [1 month ago]
+@John не могу ответить. Сам ищу ответ. В пункте 8 ссылка на делему, но я пока не понял чем это может грозить потом и почему нельзя сравнивать просто по id. Если поймёшь, то поделись )
+
+
+Yuriy   [Feb 28th at 1:04 AM]
+Ребят, с этим как быть?
+Pasted image at 2019-02-28, 2:03 AM 
+2 replies
+
+Vladimir Sh   [1 month ago]
+image.png 
+
+Vladimir Sh   [1 month ago]
+Maven reimport пробовал?
+
+
+IgorPetrov   [Feb 28th at 10:14 AM]
+Напомните плиз. не могу разобраться в теме. где посмотреть подробнее?  Как работают Классы в репозитории JdbcMealRepositoryImpl === RowMapper . JdbcTemplate, NamedParameterJdbcTemplate, SimpleJdbcInsert
+5 replies
+
+pr1zrak   [1 month ago]
+PDF 
+Spring._Все_паттерны_проектирования.pdf
+8 MB PDF — Click to view
+
+pr1zrak   [1 month ago]
+я по этой книге поиском искал, в принципе на вопросы ответы получил
+
+pr1zrak   [1 month ago]
+есть правило, что вместо десятков статей лучше прочитать одну книгу :slightly_smiling_face:
+
+IgorPetrov   [1 month ago]
+ок! Спасибо
+
+tolik1106   [1 month ago]
+Огромное спасибо за книгу:+1:
+
+
+Pavel   [Feb 28th at 12:53 PM]
+java.lang.IllegalStateException: Failed to execute SQL scripts for test context
+у кого-нибудь была такая ошибка?
+Ругается на эту строчку в тестах:
+@Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8")) (edited)
+27 replies
+
+ILYA   [1 month ago]
+А ты скрипты отдельно пробовал запускать?
+
+Pavel   [1 month ago]
+да, отдельно всё норм.
+
+Pavel   [1 month ago]
+Там на самом деле ошибка немного длиньше чем я написал
+```Failed to execute SQL scripts for test context [DefaultTestContext@6e6d5d29 testClass = MealServiceTest, testInstance = ru.javawebinar.topjava.service.MealServiceTest@5c530d1e, testMethod = get@MealServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6c25e6c4 testClass = MealServiceTest, locations = '{classpath:spring/mock.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map[[empty]]]: supply at least a DataSource or PlatformTransactionManager.```
+
+Pavel   [1 month ago]
+Не понятно при чем здесь DataSource и PlatformTransactionManager
+
+ILYA   [1 month ago]
+А какая конфигурация спринг прописана сверху?
+
+Pavel   [1 month ago]
+@ContextConfiguration("classpath:spring/mock.xml")
+
+Pavel   [1 month ago]
+Контекст сделан отдельно в ресурсах теста.
+
+Pavel   [1 month ago]
+```<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+     <context:component-scan base-package="ru.javawebinar.**.repository.inmemory"/>
+    
+     <context:component-scan base-package="ru.javawebinar.**.service"/>
+
+</beans>```
+
+ILYA   [1 month ago]
+Ну так ты же mock сканируешь
+
+ILYA   [1 month ago]
+Mock используем только для реализации в памяти
+
+ILYA   [1 month ago]
+Для базы есть spring-db.xml))
+
+Pavel   [1 month ago]
+а как же делать MealServiceTest. Там же нужен бин MealServiceImpl. В spring-db.xml сканирует только Repository.
+
+ILYA   [1 month ago]
+Ну сделай как в UserServiceTest , какие проблемы
+
+Pavel   [1 month ago]
+у меня UserServiceTest не работает)
+
+Pavel   [1 month ago]
+```Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mealServiceImpl' defined in file [E:\Topjava16\target\classes\ru\javawebinar\topjava\service\MealServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'ru.javawebinar.topjava.repository.MealRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}```
+
+Pavel   [1 month ago]
+причем ругается на MealRepository...
+
+Pavel   [1 month ago]
+```@ContextConfiguration({
+        "classpath:spring/spring-app.xml"
+})```
+
+Pavel   [1 month ago]
+это в UserServiceTest
+
+Pavel   [1 month ago]
+А может знаешь, как контекст отлаживать, то есть посмотреть какие бины кто сканирует.
+
+ILYA   [1 month ago]
+@ContextConfiguration({
+       "classpath:spring/spring-app.xml",
+       "classpath:spring/spring-db.xml"
+})
+@RunWith(SpringRunner.class)
+@Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
+
+ILYA   [1 month ago]
+Вот это должно быть и в юзер и в мил
+
+Pavel   [1 month ago]
+да, спасибо, всё заработало)
+
+Pavel   [1 month ago]
+а вообще странно как контекст связан с @Sql? я про ошибку, которая у меня в самом начале была
+
+Pavel   [1 month ago]
+причем, если я закомментировал @Sql то всё отлично работало.
+
+ILYA   [1 month ago]
+@Pavel у тебя не работало потому что у тебя в @СontextConfiguration был mock.xml. (edited)
+
+ILYA   [1 month ago]
+mock.xml сканирует пакеты где используется реализация в памяти
+
+ILYA   [1 month ago]
+А в Spring-db.xml уже используется Коннект к бд
+
+
+Sambalinski   [Feb 28th at 3:05 PM]
+У кого-нибудь была проблема при накате патча 3_07_add_junit.patch?
+18 replies
+
+Pavel   [1 month ago]
+у меня 2 файла появились в папке main. Хотя папка test была создана. Пришлось вручную перекидывать эти файлы.
+
+Sambalinski   [1 month ago]
+Я боюсь вручную править, чтобы патчи накатывались потом нормально.
+
+Grigory Kislin   [1 month ago]
+вот тут как раз боятся не следует. по максимуму шишек набей. боятся на работе уже будешь
+
+Sambalinski   [1 month ago]
+Тяжело в учении - легко в бою. Суворов. (edited)
+
+Grigory Kislin   [1 month ago]
+Pasted image at 2019-02-28, 4:18 PM 
+
+Grigory Kislin   [1 month ago]
+делал??
+
+Sambalinski   [1 month ago]
+Да, и не раз
+
+Sambalinski   [1 month ago]
+А как мы можем импортировать класс, который перенесли в пакет test, если импорт начинается с import ru.javawebinar.topjava.repository.inmemory.InMemoryUserRepositoryImpl;
+
+Sambalinski   [1 month ago]
+тут даже не указан путь импорта src или test
+
+Pavel   [1 month ago]
+если что-то сомневаешься, советую сверяться с исходниками, который лежат у Григория на гитхабе. (edited)
+
+Sambalinski   [1 month ago]
+Вот клонировал проекс, сейчас буду разбираться.
+
+Sambalinski   [1 month ago]
+Разобрался. Этот класс, который подсвечивал импорт красным цветом в репозитории Григория был перенесён в пакет тест, чего не сделал патч. Возможно, нужно доработать патч.
+
+Sambalinski   [1 month ago]
+Нашёл строку в патче
+--- src/main/java/ru/javawebinar/topjava/repository/inmemory/InMemoryMealRepositoryImpl.java    (date 1550653385000)
++++ src/test/java/ru/javawebinar/topjava/repository/inmemory/InMemoryMealRepositoryImpl.java    (date 1550653725836)
+Вроде она и должна переносить файл.
+
+Sambalinski   [1 month ago]
+Так не же переносится файл UserTestData пакета package ru.javawebinar.topjava;
+и не удаляется пакет ru.javawebinar.topjava.repository/inmemory
+
+Heorhii   [1 month ago]
+"Возможно нужно доработать патч" плохое направление мысли, по опыту скажу, что чаще всего верным будет утверждение "Я ошибся" или "Я не понимаю", а не с внешним фактором что-то не так.
+Хотя процентах в 10 случаев что-то таки будет не так именно с объектом,а не субъектом.
+
+P.s. у меня, и как я понимаю у большинства проблем с накаткой не возникло, наверное версия IDE имеет вес в этом вопросе, но это не проблема патча как мне видится. (edited)
+
+Grigory Kislin   [1 month ago]
+я в другой ветке ответил- все что в test не видится в mail
+откатись и еще раз накати патч (главное чтобы test или test/java каталоги были)
+
+Sambalinski   [1 month ago]
+В поисках ответить на сообщение что-то нажал и вызвал слак бота :slightly_smiling_face:
+
+Sambalinski   [1 month ago]
+Да, я тоже ответил тебе в той другой ветке. Спасибо! -)
+
+
+V_Gruzdev   [Mar 1st at 9:16 AM]
+Всем привет! Как работаете с таймстэмпом в БД? Конкретно интересует запрос на выборку еды по временному интервалу. В метод приходит LocalDateTime. в запрос как его передаете? Форматируя под "yyyy-mm-dd HH:mm:ss" и делая явное приведение :timestamp или как-то иначе?
+3 replies
+
+Dmitry   [1 month ago]
+В базе поле timestamp, в запрос так и идёт LocalDateTime и там `BETWEEN ? AND ?` Полагаю, что конвертация (если она нужна) - забота шаблонизатора из jdbc или драйвера БД. А у Вас не работает передача LocalDateTime или в чём причина необходимости форматировать во что-то его?
+
+V_Gruzdev   [1 month ago]
+я не пробовал LocalDateTime  в запрос передавать. Сразу посмотрел в документации постгреса, что с датой и временем работают как со строкой и если нужно, делая явное приведение.
+
+Grigory Kislin   [1 month ago]
+а ты попробуй:)
+
+
+DenisPavlov1989   [Mar 4th at 7:00 AM]
+@Grigory Kislin Как думешь, нормальная ли практика обращаться к контексту спринга в юнит тестах? Просто есть мнение, что в юнит тестах не дожен фигурировать контекст, а тестируемый класс должен обращаться к мокам. А контекст должен использоваться в интеграциооном тестировании.
+1 reply
+
+Grigory Kislin   [1 month ago]
+по тестам большое количество и практики и вариантов и мнений как должно быть. то что я даю- одна из практик

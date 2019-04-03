@@ -1,0 +1,1103 @@
+Grigory Kislin [10:58 PM]
+joined #hw5.
+
+Grigory Kislin [10:58 PM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson05.md
+
+Grigory Kislin [11:04 PM]
+5е занятие: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson05.md
+Заканчиваем с базой данных, на следующем уроке перейдем к слою web.
+И-  переходим на JDK 11! Я рекомендую переходить (скоро уже 12 выйдет). Если очень не хочется, можно остаться на JDK8.
+Изменения небольшие, но возможные небольшие конфликты, если останетесь, придется решать руками. (edited) 
+
+Yehor [11:12 PM]
+joined #hw5 along with 18 others.
+
+
+Bahis   [Mar 7th at 1:30 PM]
+Жаль после видеоролика про переход на 11 джаву нет ссылок как в ролике о изменениях.
+2 replies
+
+Bahis   [27 days ago]
+Оно там есть. Просто не в уроке, а под видео.
+
+Sambalinski   [26 days ago]
+Приятно поговорить с умным человеком :wink:
+
+
+Vlad Darcula   [Mar 7th at 5:48 PM]
+Всем привет. Поставил openjdk 11, внёс соответствующие изменения в PATH и JAVA_HOME. Но команда java -version по-прежнему выдает версию 1.8. У кого-нибудь была такая проблема? Как решали? (Сижу под виндой)
+7 replies
+
+Heorhii   [27 days ago]
+Стало интересно, прописал в cmd - тоже самое выдает. А в чем проблема то?) Компилятор дает использовать фишки 11-ой и в проекте цифра 11 стоит, порядок же. Главное функциональность.
+
+RamZet   [27 days ago]
+Вот я тоже не пойму)))
+
+Bahis   [27 days ago]
+А если запустите на выполнения с конфигурацией томкат, то он покажет 11 )
+
+Vlad Darcula   [27 days ago]
+Просто непонятно теперь как работают переменные окружения, и почему при их изменении версия java по умолчанию не меняется... Но на проекте это действительно пока не сказывается)
+
+Max   [26 days ago]
+А у меня вообще что-то странное творится. Вчера, когда поставил 11 и поменял все переменные, java -version показывало openjdk 11. Сегодня утром увидел это сообщение, решил у себя еще раз проверить, теперь уже java -version показывало jdk 10 (у меня 10 стояла а не 8 ). Ну да и ладно думаю. Потом вроде ничего особенного не делал, ну там в проекте копался, ну идею новую поставил (а то моя старая в 11 версию языка не умела) и вдруг решил зачем-то еще раз глянуть версию. И уже опять показывает openjdk 11. Что за чертовщина происходит? :sweat_smile:
+
+Aleksandr   [20 days ago]
+Тоже проблема с подключением openJDK11. Надо ли обновлять IDEA для подключения JDK?
+
+Ivan Senchukov   [5 days ago]
+Вероятно у вас в переменной path перед путём непосредственно к джаве есть ещё какая-то запись с вхождением слова "java". Нужно передвинуть путь к джаве на самый верх.
+https://stackoverflow.com/questions/52690937/install-java-11-openjdk-on-windows-a-system-path-issue
+Stack Overflow
+Install Java 11 OpenJDK on Windows (a system path issue)
+Java 11 had recently arrived and, as everybody knows, this version has no installation file. To install Java without installer I, of course, had set my system settings PATH and JAVA HOME to the ad...
+
+
+Story   [Mar 7th at 10:37 PM]
+кто-нибудь понимает, зачем в тестах перед каждым методом очищать кэш? в методах меняющих базу стоит аннотация @CacheEvict(value = "users", allEntries = true), ее не достаточно для того чтоб при обращении в базу кэш сам чистился? или класс для тестирования не видит этих аннотаций?
+3 replies
+
+ILYA   [26 days ago]
+@Story А ты попробуй закомментируй метод setUp в тестах и посмотри что будет
+
+ILYA   [26 days ago]
+Мы вызываем метод delete в тестах. В методе delete стоит @CacheEvict следовательно кеш очищается. Потом мы в методе delete в тестах вызываем getAll чтобы проверить. И данные попадают в кеш. И потом, когда мы тестируем уже метод getAll в тестах , то данные берутся из кеша, а в кеше будет 1 юзер а не 2 потому что в прошлом тесте мы удалили юзера
+
+Story   [26 days ago]
+спасибо
+
+
+Bahis   [Mar 8th at 12:09 PM]
+У меня лог после разбора ДЗ не цветной. Так и должно быть?
+2 replies
+
+Artem   [26 days ago]
+Патч примени и будет цветной
+
+Bahis   [26 days ago]
+Точно ) (edited)
+
+
+Sambalinski   [Mar 8th at 1:35 PM]
+Есть разница какую JDK ставить, от Oracle или Open?
+8 replies
+
+Heorhii   [26 days ago]
+Бывают JDK не от Oracle?)
+
+Sambalinski   [26 days ago]
+Open JDK
+
+Heorhii   [26 days ago]
+Мне кажется разницы никакой.
+
+Both OpenJDK and Oracle JDK are created and maintained currently by Oracle only. (edited)
+Pasted image at 2019-03-08, 1:55 PM 
+
+Heorhii   [26 days ago]
+https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk
+Stack Overflow
+Differences between Oracle JDK and OpenJDK
+NOTE: This question is from 2014. As of Java 11 OpenJDK and Oracle JDK are converging. Are there any crucial differences between Oracle and OpenJDK? For example, are the garbage collection and
+
+Sambalinski   [26 days ago]
+Не, я имею в виду в нашем проекте. Там-то разницы почти нет, одна платная, другая бесплатная.
+
+Heorhii   [26 days ago]
+C официального сайта Oracle.com, качай и не парься)
+Все едино.
+Pasted image at 2019-03-08, 2:08 PM 
+
+shomnest   [24 days ago]
+Есть ещё и ibm реализация jdk
+
+Grigory Kislin   [24 days ago]
+1. бери какая нравится. у меня OpenJDK
+2. для нас обе бесплатны, тк не прод (edited)
+
+
+Ivan   [Mar 8th at 3:05 PM]
+Всем привет!
+Возникло несколько вопросов:
+•    В пункте 7.2 домашнего задания требуется создать и протестировать метод, который достаёт по id еду вместе с пользователем. Разве метод service.get() в MealService не удовлетворяет этим условиям?
+•    Пункт 7.1. Для реализации в подсказке написано, что для User можно добавить List<Meal> meals. Но как протестировать правильную ли еду для пользователя возвращает созданный метод? При попытке сравнить юзеров, не игнорируя поле meals, тест не проходит, потому что он не может корректно сравнить список еды, даже если в тестовую еду добавить юзера.
+•    В пункте 6 написано попробуйте поднять Spring контекст без использования spring.profiles.active. А чем плох такой подход?
+Не совсем понимаю зачем в принципе нужен метод setActiveProfiles(), который не работает, когда контекст уже инициализирован. А пока контекст не инициализирован этот метод нельзя применить, потому что контекста ещё нет. (edited)
+18 replies
+
+ILYA   [26 days ago]
+1) не удовлетворяет так как тип пользователя у нас lazy. При обращении создаётся прокси обертка. Но при обращении к юзеру вне сессии кинется ексепшен (edited)
+
+ILYA   [26 days ago]
+3) первая ссылка в поиске Гугл
+https://stackoverflow.com/questions/40268574/how-to-set-the-active-profile-when-creating-spring-context-programmatically (edited)
+Stack Overflow
+How to set the active profile when creating Spring context programmatically?
+tl;dr: how to create a Spring context based on an annotation-based configuration class, while supplying active profiles? I am trying to create a Spring context using a class with the configuration
+
+ILYA   [26 days ago]
+2) что конкретно не проходит? Попробуй в тестах получить список еды у юзера и сравнить через MealTestData (edited)
+
+Ivan   [26 days ago]
+1) Можно же скорректировать сам метод get, добавив в запрос fetch или сделать поле user - eager. Зачем создавать новый метод?
+2)  Да, я так и делаю сравниваю полученный список со список еды юзера из MealTestData. По полям всё одинаково, но тест не проходит.
+3) По этой ссылке я заходил ранее. И добавил System.setProperty("spring.profiles.active", "myProfile"). Так работает. Но в задании предлагают найти другое решение. По setActiveProfiles как раз там и пишут, что он не может быть вызван. (edited)
+
+ILYA   [26 days ago]
+1) тебе не нужно каждый ходить в базу за юзером когда достаешь еду это лишний запрос. Мы это делаем только для дз.
+
+ILYA   [26 days ago]
+3) читай внимательно дз и подсказки там не это пишут
+
+Ivan   [26 days ago]
+That won't work since instantiating the application context causes the exception so I can never get to the .getEnvironment() call
+Что значит не то пишут? Как это интерпретировать?
+
+ILYA   [26 days ago]
+2) скинь что пишет
+
+Ivan   [26 days ago]
+Обычное несоответствие ожидаемого и получаемого результата
+1.jpg 
+
+ILYA   [26 days ago]
+3) смотри п. 3 подсказок
+
+Ivan   [26 days ago]
+Я читал этот пункт. Чтобы вызвать метод setActiveProfiles() необходимо у контекста вызвать метод getEnvironment(), но если контекст не инициализирован, метод  getEnvironment() бросает NPE (edited)
+
+ILYA   [26 days ago]
+Согласно той ссылке я сделал и никаких ексепшенов нет у меня (edited)
+
+Ivan   [26 days ago]
+Ок. Здесь я не прав. Исключение не вылетело. Видать в первый раз не в этом было дело. Спасибо! Утро вечера мудреней:)
+
+ILYA   [26 days ago]
+Пункт 2 я знаю твою ошибку .
+
+ILYA   [26 days ago]
+Если ты сравниваешь не игнорируя поле meals то все остальные тесты у тебя упадут. Потому что ты достаешь вместе едой только в datajpa. Даже в datajpa не пройдет потому что сам list который в mealTestData и который ты получил благодаря hibernate они разные не смотря на то что еда внутри них хранится одинаковая. Тебе нужно исключить поле meals из сравнения и сравнить через mealTestData отдельно
+
+synya   [25 days ago]
+Я нагуглил вон чего:
+http://www.captaindebug.com/2012/08/using-spring-profiles-in-xml-config.html
+Я объявил контекст как GenericXml, спокойно у него беру environment, устанавливаю профили, потом вызываю context.load(наши xml файлы) и refresh(). Всё как по ссылке.. Не знаю, насколько это правильное решение, но всё заработало
+captaindebug.com
+Using Spring Profiles in XML Config
+Java tips, observations, bugs and problems from the world of Spring, Weblogic, Oracle, MySQL and many other technologies...
+
+German_lbt   [24 days ago]
+получается обертка EntityManager это прокси обертка над хибернэйтом и креатится при транзакции, а сессии в ней новые на каждую транзакцию?
+
+Grigory Kislin   [24 days ago]
+@German_lbt да. только не пиши свои вопросы в ответах на чужой вопрос
+
+
+Heorhii   [Mar 8th at 5:53 PM]
+По-поводу HSQLDB понял кто что происходит?) Видео посмотрел, и нет уверенного понимания. База у нас создается а-ля кеш, пока программа работает, но в самой IDEA мы никак это проследить не можем. И если руками создать новый DataSource вида HSQLDB то это ничего нам не дает, и видеть изменение данных как в postgres мы не сможем,  верно? Если все так, то какой смысл в создании такой(созданной руками) БД ? (edited)
+6 replies
+
+Bahis   [26 days ago]
+В нашем проекте, чтобы продемонстрировать профили, а вообще... наверное, чтобы протестировать работу кода на ошибки если нет особой надобности смотреть, что за данные в базе
+
+ILYA   [26 days ago]
+Мы можем увидеть если проперти сделаем чтобы сохранялось на диск а не в памяти.
+
+Heorhii   [26 days ago]
+@ILYA Это надо понимать речь идет о Embedded? А  тот вид который в видео показан HSQLDB In-memory ?
+
+Bahis   [26 days ago]
+В памяти быстро. Тесты проходить быстрее. Если мы точно знаем, что в тестовой БД все хорошо, то что-то меняя не в тестовых данных, в методах и т.д. гораздо интереснее БД в памяти.
+
+Heorhii   [26 days ago]
+Зачем in-memory база нужна я понимаю, не понимаю зачем есть возможность создавать её руками. В видео сказано что они не связываются автоматически, и это другой инстанс, типа, 2 инмемори базы по итогу.
+
+Bahis   [26 days ago]
+Я понял, что просто показать: Смотрите - в тот инстанс не попасть... тут другой. И все.
+
+
+Олег   [Mar 9th at 7:52 AM]
+Что делать в JDK 11 тому у кого Винда 7 32 битная и ноут x64 явно не потянет? :disappointed_relieved:
+2 replies
+
+Story   [25 days ago]
+в видео вроде бы говорилось, что это не обязательно. будут просто отличия небольшие
+
+Grigory Kislin   [24 days ago]
+@Олег если планируешь таки с Java дальше работать-озаботься x64. минимум 8Gb оперативки, лучше 16
+
+
+Bahis   [Mar 10th at 1:53 PM]
+@Grigory Kislin Почему мы использовали слово get в User getByEmail(String email)? В основном используется слово find. Есть ли разница в data jpa между использованием get и find? Не смог найти эту информацию.
+6 replies
+
+Dima   [24 days ago]
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation
+
+Bahis   [24 days ago]
+Спасибо. Подскажи, пожалуйста, где именно говорится о разнице использования между get и find. В абзаце https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.nullability описывается разница с использованием @Nullable. Или все-таки get бросает exception, а find может вернуть null и @Nullable не при чем?
+
+Dima   [24 days ago]
+По той ссылке, что я кинул, говорится о том, что при парсинге, названия метода find, get, read просто опускается и анализируются уже критерии, которые после "By". Разницы никакой нет между ними. А по твоей ссылке описывается чисто аннотация @Nullable. То, что ее написали над методом "find..." это ни о чем не говорит. (edited)
+
+Dima   [24 days ago]
+попробуй написать нечто такое: "getSomeInterstingFromThisDataBaseByEmail" и увидишь, что как бы все работает) так как пофиг)
+
+Bahis   [24 days ago]
+) спасибо
+
+Grigory Kislin   [24 days ago]
+про отличия get и find- попробуй на so поискать. может и есть какая-то логика и best practice
+
+
+Bahis   [Mar 10th at 3:07 PM]
+Кто-нибудь понял как юзера засетить при сохранении(обновлении) еды?
+11 replies
+
+ILYA   [24 days ago]
+Также как и в реализации jpa, только используется метод save в конце
+
+pr1zrak   [24 days ago]
+а можно подробнее? в подсказках написано, что нужно в jpa у нас em.getReference, а в spring data jpa - метод getOne, но crudMealRepository.getOne возвращает Meal…
+
+Oleg   [24 days ago]
+crudUserRepository.getOne возвращает User
+
+Max   [24 days ago]
+Ну можно ж создать там CrudUserRepository и вызвать метода у него (edited)
+
+pr1zrak   [24 days ago]
+В DataJpaMealRepository создать CrudUserRepository?
+
+pr1zrak   [24 days ago]
+понятно, что можно ) я думал, что какое то получше решение есть, чем ради одного метода репозиторий инжектить (edited)
+
+ILYA   [24 days ago]
+Да приходится репозиторий инжектить ради одного метода, но видимо это самый эффективный вариант
+
+pr1zrak   [24 days ago]
+просто в обычном jpa мы же так не делаем
+
+pr1zrak   [24 days ago]
+неужели не придумали в спринг дата жпа ничего лучше :confused:
+
+Dima   [24 days ago]
+как бы inject уже круто) взял из коробки обьект и пользуешься.
+
+Grigory Kislin   [24 days ago]
+> Ну можно ж создать там CrudUserRepository и вызвать метода у него
+создать нельзя- это синглетон. инжектить- да
+
+
+TheMescaline   [Mar 10th at 7:02 PM]
+ни у кого не возникло проблем с накаткой патча 5_5_profiles_connection_pool?
+3 replies
+
+German_lbt   [24 days ago]
+у мну постояно чего-то криво встает...я уже привык ))) ручками допиливаю...постоянно создается пустой пакет репозитори.инмемори...или меалсервертест не в тест попадает...)))
+
+TheMescaline   [24 days ago]
+просто странно, что в патче четко написано, какие строки удалить, а при применении идея игнорирует эти указания. Первый раз такое у меня
+
+Grigory Kislin   [24 days ago]
+@German_lbt @TheMescaline пробуйте разобраться. чтото не то сделали и разобраться счас чем на реальном проекте уже получать. есть же
+https://github.com/JavaOPs/topjava/wiki/Git#patch-не-накатывается-предлагает-merge (edited)
+
+
+TheMescaline [7:03 PM]
+после apply некорректно меняется spring-db.xml, а точнее не удаляются некоторые строки
+
+
+Bahis   [Mar 10th at 8:25 PM]
+Получается в помнике зависимости не надо разносить по профилям? Там аннотации сразу начинают ломаться... Красным-красно
+3 replies
+
+Bahis   [24 days ago]
+Только в xml?
+
+ILYA   [24 days ago]
+pom.xml не надо трогать по профилям только в spring-db нужно разносить
+
+Bahis   [24 days ago]
+Спасибо. Тоже так подумал. (edited)
+
+
+Bahis   [Mar 10th at 10:38 PM]
+Нашел баг. HSQLDB + JDBC. Методы использующие localdatetime тесты не проходят. Получается если заменить на Timestamp.valueOf(LocalDateTime ldt)
+4 replies
+
+ILYA   [24 days ago]
+В optional дз надо это все починить
+
+Bahis   [24 days ago]
+Когда я начну читать вперед )
+
+pr1zrak   [23 days ago]
+Забавно, если обернуть Timestamp.valueOf(meal.getDateTime()) и в between по такому же принципу
+
+pr1zrak   [23 days ago]
+то выполняются тесты и для jdbc и для jpa
+
+
+Oleg   [Mar 11th at 12:09 PM]
+Разделил по профилям spring-db.xml. Теперь выпадает ошибка No qualifying bean of type 'ru.javawebinar.topjava.repository.MealRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}. Подскажите куда копать, третий день ума дать не могу. (edited)
+15 replies
+
+ILYA   [23 days ago]
+А ты в тестах указывал какой профиль использовать?
+
+Oleg   [23 days ago]
+Нет. Такая же ошибка и при запуске Tomcat.
+
+Alexander Seichirino   [23 days ago]
+Надо указать какой профиль использовать, например @ActiveProfiles({"postgres","jdbc"})
+
+Oleg   [23 days ago]
+Тесты прошли. Спасибо.
+
+Oleg   [23 days ago]
+А где указать активные профили для приложения?
+
+ILYA   [23 days ago]
+Чтобы запустился томкат в сервлете тоже надо профили указать
+
+Oleg   [23 days ago]
+С помощью springContext.getEnvironment().setActiveProfiles?
+
+ILYA   [23 days ago]
+https://stackoverflow.com/questions/40268574/how-to-set-the-active-profile-when-creating-spring-context-programmatically
+Stack Overflow
+How to set the active profile when creating Spring context programmatically?
+tl;dr: how to create a Spring context based on an annotation-based configuration class, while supplying active profiles? I am trying to create a Spring context using a class with the configuration
+
+Oleg   [23 days ago]
+Все равно не получается. (edited)
+
+Oleg   [23 days ago]
+NPE в строке springContext.getEnvironment().setActiveProfiles("datajpa", "postgres");
+
+Alexander Seichirino   [23 days ago]
+Использовал System.setProperty("spring.profiles.active", "datajpa,postgres"); хотя в Optional:6 предлагают без него
+
+Oleg   [23 days ago]
+Получилось. Спасибо.
+
+TheMescaline   [23 days ago]
+@Bahis здесь
+
+Bahis   [23 days ago]
+@TheMescaline Спасибо. Получается можно только выбирать один из...
+
+TheMescaline   [23 days ago]
+ну для прода - да. Тестируешь все реализации, а при разворачивании на сервере выбираешь что-то конкретное (пару DbType/RepositoryType)
+
+
+Alexander   [Mar 11th at 6:40 PM]
+вопрос, подскажите, плиз, как деплоить в томкат? я так понял, что он воспринимает Java 8 и ниже...
+7 replies
+
+Grigory Kislin   [23 days ago]
+какая версия?
+
+Alexander   [23 days ago]
+9,0,141
+
+Alexander   [23 days ago]
+http://tomcat.apache.org/whichversion.html
+
+Grigory Kislin   [23 days ago]
+ага. и - какой java запускаешь?
+
+Alexander   [23 days ago]
+11 :slightly_smiling_face:
+
+Grigory Kislin   [23 days ago]
+тогда ... и выше
+
+Alexander   [23 days ago]
+ок, спасибо,
+
+
+Heorhii   [Mar 11th at 6:53 PM]
+Только сел делать, после видео Борисова идея SpringDataJPA понятна, но не понимаю как работать с сложными полями, в данном случае User. Пробовал писать что-то вроде findByIdAndUserId но пока что все тесты падают по ошибкам. В случае с дефолтной реализацией save там один параметр - Meal, а наш интерфейс MealRepository предполагает что при сохранении еще и UserId передается. Не ясно куда его лепить, в JPA были прокси которые мы в Meal ложили, а тут как выкручиваться?
+7 replies
+
+Max   [23 days ago]
+https://topjava16.slack.com/archives/CGSJ18NPQ/p1552223235050100
+Bahis
+Кто-нибудь понял как юзера засетить при сохранении(обновлении) еды?
+Thread in #hw5Mar 10thView message
+
+Bahis   [23 days ago]
+делал просто стандартным save не переопределяя... просто сначала засетил ему юзера... отдельным гетом с юзерского репа
+
+Heorhii   [23 days ago]
+Вот эта штука:
+
+findByUserIdWhenBetween(startDate,endDate,userId)
+(моя жалкая попытка реализации getBetween метода)
+
+как должна работать?) Через Query сделать просто, или можно ухитриться с названием?
+
+Story   [23 days ago]
+ухитряйся, только параметр с юзером передвинь в начало
+
+Story   [23 days ago]
+если название будет начинаться так как сейчас)
+
+Heorhii   [23 days ago]
+Поменял местами параметры, написал Query - работает :slightly_smiling_face:
+Все тесты проходит :smiley:
+
+makushatnik   [19 days ago]
+Магия))
+
+
+pr1zrak   [Mar 11th at 6:56 PM]
+Подскажите по опционал заданию плиз. Я сделал абстрактый класс AbstractJdbcMealRepository, сделал два класса JdbcMealRepositoryPostrgresImpl и JdbcMealRepositoryHSQLDBImpl, в них переопределил create и getBetween. Разнес их в подпакеты postgres и hsqldb, в спринг-дб.хмл прописал
+   <beans profile=“jdbc, hsqldb”>
+       <context:component-scan base-package=“ru.javawebinar.**.repository.jdbc.hsqldb”/>
+   <beans>
+В тестах так же разделил на 2 класса, профили задал @ActiveProfiles({JDBC, HSQL_DB}) по такому принципу и не работает… java.lang.IllegalStateException: Failed to load ApplicationContext. Что я упустил?
+34 replies
+
+Bahis   [23 days ago]
+У меня полярное горе. Я совсем не понял идеи и сделал как-то не так ). Не делал двойных названий в xml и почему-то работает.
+
+pr1zrak   [23 days ago]
+ну идея была заюзать шаблонный метод, вынести не изменяемые части в абстрактный класс, изменяемые методы - переопределить в наследниках
+
+pr1zrak   [23 days ago]
+если я правильно понял
+
+pr1zrak   [23 days ago]
+кто сделал опционал, поделитесь мудростью плиз
+
+Bahis   [23 days ago]
+могу поделиться... но у меня только глупость )
+
+Bahis   [23 days ago]
+я даже не делал абстрактного класса, а отнаследовал дополнительный для hsql где обернул localdatetime в timestamp
+
+pr1zrak   [23 days ago]
+для hsql я тоже обернул
+
+pr1zrak   [23 days ago]
+я не понял как выбрать нужный профиль в тестах
+
+pr1zrak   [23 days ago]
+прописал через запятую, толку 0
+
+Bahis   [23 days ago]
+я не менял и там мистика началась
+
+Bahis   [23 days ago]
+перестали падать тесты с hsql, но по времени они быстрее чем postgres
+
+Bahis   [23 days ago]
+т.е. судя по всему через hsql идет и почему-то не падает
+
+pr1zrak   [23 days ago]
+нужен знающий человек :slightly_smiling_face:
+
+Bahis   [23 days ago]
+ну хоть сервлет получилось сломать... чтобы починить )
+
+Max   [23 days ago]
+У меня все гораздо хуже, у меня все работает, но я не знаю как :sweat_smile: Вообще ничего не понял с этими профилями, потихоньку что-то сделал, думал ща запущу, все по вылетает с ошибками и по ним, м.б. как-нибудь разберусь что к чему. И вот же неувязочка, ничего не вылетело, все тесты с лету прошли. Ну вот и как мне теперь понять, как я это сделал :sweat_smile:
+
+Story   [23 days ago]
+я использовала @Profile в классах новых для посттгрес и hsqldb
+
+pr1zrak   [23 days ago]
+и все работает?
+
+Story   [23 days ago]
+а в тестах @ActiveProfile
+не знаю только можно ли сделать так чтобы все тесты одновременно работали. сейчас для того чтобы прошел тест для hsqldb надо в идее в мавене галочку на профиле менять, и для постгреса соответственно
+
+pr1zrak   [23 days ago]
+а в хмл разделяли конфиги? и в тестах делали два класса?
+
+Story   [23 days ago]
+в тестах да, в xml такого как ты не делала.
+не знаю провильно ли, жду ревью только
+
+pr1zrak   [23 days ago]
+тоесть в xml у вас просто profile=“jdbc” и все?
+
+Story   [23 days ago]
+да
+
+Story   [23 days ago]
+ну и остальные профили
+
+pr1zrak   [23 days ago]
+аминь
+
+pr1zrak   [23 days ago]
+заработало :slightly_smiling_face:
+
+pr1zrak   [23 days ago]
+отдельный тест на hsqldb -> отдельная имплементация репо
+
+pr1zrak   [23 days ago]
+тоже самое для postgres
+
+pr1zrak   [23 days ago]
+в xml ниче не трогаем
+
+pr1zrak   [23 days ago]
+но в мавене нужно переключать да, postgres или hsqldb
+
+Bahis   [23 days ago]
+это то да.
+
+Bahis   [23 days ago]
+у меня так же
+
+Bahis   [23 days ago]
+Сейчас посыпется сервлет
+
+German_lbt   [23 days ago]
+в spring-db дергайте change profiles и будет вам счастье )))
+
+tolik1106   [21 days ago]
+В spring-db change profiles кроме визуализации не зачто не отвечает(даже не заморачиваюсь) вроде бы. Меняю профили только в @ActiveProfiles и всё работает.
+
+
+Bahis   [Mar 11th at 8:51 PM]
+Что-то не реанимируется сервлет. Два бина. Начинаешь разносить по профилям - сыпятся тесты. Есть кто победил?
+2 replies
+
+TheMescaline   [23 days ago]
+подсказка по решению в сегодняшнем треде, который стартовал Олег
+
+Bahis   [23 days ago]
+Спасибо!
+
+
+tolik1106   [Mar 11th at 10:47 PM]
+Написал в репозитории метод findByDateTimeBetweenAndUserIdOrderedByDateTimeDesc с соответствующими параметрами. Но в логах читаю что он делает join доставая при этом из базы и юзера. Подскажите как можно без джоина (с namedQuery join не выполняется)
+2 replies
+
+TheMescaline   [22 days ago]
+за один запрос достать из двух таблиц данные без джойна невозможно, как мне кажется. А чем так страшен джойн, почему он тебе не нравится?
+
+tolik1106   [22 days ago]
+Просто с namedQuery с jpa repository мы просто достаем строку с БД, а используя methodQuery делаим join с users, разве это не доп. нагрузка на базу?
+
+
+This message was deleted.
+4 replies
+
+Artem   [22 days ago]
+Проверь в импортах может где-то не то импортируется, у меня такое было (ну не прям один в один, но с типами) - там одинаковые названия классов в разных пакетов и конфликтовало. (edited)
+
+TheMescaline   [22 days ago]
+не, там все в порядке
+
+ILYA   [22 days ago]
+А остальные тесты проходят?
+
+TheMescaline   [22 days ago]
+Да. Проблема пропала ввиду того, что надо было реализовать задание по-другому, поэтому вопрос снимается (edited)
+
+
+Bahis   [Mar 12th at 2:04 PM]
+Смотрю логи. Тест get. Еда. Jpa делает select один раз. Datajpa два раза. Дополнительно ищет пользователя хотя в модели lazy. Получается datajpa медленнее?
+1 reply
+
+Artem   [22 days ago]
+Получается да.
+
+
+Heorhii [3:53 PM]
+Какая разница в этих двух строчках в db.xml ?
+
+       <jpa:repositories base-package="ru.javawebinar.**.repository.datajpa"/>
+       <context:component-scan base-package="ru.javawebinar.**.repository.datajpa"/>
+
+Первый неймспейс находит 2 бина - интерфейса, второй(контекст) находит их же + реализацию. Может кто просветить для чего оба нужны в конфигурации?
+
+
+Heorhii   [Mar 12th at 5:09 PM]
+Сделал профили и тесты на каждый профиль, с postgres все работает, hsql я до этого вообще не пробовал, щас решил раз уж есть тесты на все виды доступа к DBMS, попробую все сразу. Вроде как необходимые строки имеются:
+
+@ActiveProfiles({"hsqldb","jdbc"})
+@Sql(scripts = "classpath:db/initDB_hsql.sql", config = @SqlConfig(encoding = "UTF-8"))
+
+А при запуске тестов имею следующее, подскажите где искать?
+Pasted image at 2019-03-12, 5:09 PM 
+9 replies
+
+Story   [22 days ago]
+это ты в spring-db галочку не поднял для hsqldb, думаю
+
+Heorhii   [22 days ago]
+Насколько я понял тесты сами эти галочки выставляют прежде чем запуститься, но так-то я и в ручную менял - не помогло)
+
+Heorhii   [22 days ago]
+Тут вроде порядок, и в properties не менял ничего.
+Pasted image at 2019-03-12, 5:12 PM 
+
+Story   [22 days ago]
+насколько я поняла тесты не умеют эти галочки сами менять. они запускаются или для одной базы все вместе, или для другой. в зависимости от галочки
+
+Heorhii   [22 days ago]
+в конфигурации у меня сейчас hsqldb и jdbc стоят галочки, запускаю вот такой тест - проходит все прекрасно. А вот с hsqldb в тесте нулями бросается :disappointed:
+Pasted image at 2019-03-12, 5:17 PM 
+
+Dmitry   [22 days ago]
+может, в настройках maven профили не меняются?
+
+TheMescaline   [22 days ago]
+Вот тут надо поменять руками. И в этом месте автоматически не меняется ничего, только руками
+
+TheMescaline   [22 days ago]
+Pasted image at 2019-03-12, 6:29 PM 
+
+Heorhii   [22 days ago]
+Всем спасибо :slightly_smiling_face:
+
+
+Alexander   [Mar 12th at 6:57 PM]
+Всем привет, не понимаю как реализовать default метод в Repository интерфейсе... "5: Для уменьшения количества кода при реализации Optional (п. 7, только DataJpa) попробуйте сделать default метод в интерфейсе." если делать ссылку на UserRepository.get, то meals все равно будут null... Тогда надо получать ссылку на CrudRepository для того, чтобы сделать запрос с fetch с Meals, но тогда нам надо впрыснуть CrudRepository  в UserRepository... в Общем что-то я в ступоре тут... Подскажите, плиз, куда двигаться (edited)
+4 replies
+
+Max   [22 days ago]
+В подсказках было.                                                                         4: Если у метода нет реализации, то стандартно бросается UnsupportedOperationException                                                   Т.е. в интерфейсе в дефолтном методе просто бросаешь исключение, а в DataJpa уже реализуешь как надо (edited)
+
+Alexander   [22 days ago]
+спасибо большое
+
+Bahis   [22 days ago]
+Спасибо. Не посмотрел - null-ами кидался )
+
+Alexander   [22 days ago]
+тоже так сделал, на проверке завернули...
+
+
+Bahis   [Mar 12th at 7:02 PM]
+Как победить этот lazy? Беру еду. Прошу пользователя и фиг тебе. Убирать lazy или ставить в реализации метода вызов метода по id полученного пользователя?
+7 replies
+
+pr1zrak   [22 days ago]
+или смотреть в сторону fetch в query
+
+Bahis   [22 days ago]
+Точно... это только через query... а я datajpa метод прицепил и не могу понять куда тут fetch можно запихать!
+
+Story   [22 days ago]
+я еще через @EntityGraph сделала
+
+Bahis   [22 days ago]
+@Story это как?
+
+Bahis   [22 days ago]
+Сделал через query = работает, Через граф показалось сложнее (edited)
+
+Story   [22 days ago]
+гуглила примеры и по аналогии сделала
+
+Story   [22 days ago]
+но на ревью сказали оставить только одно что-то )
+
+
+Max   [Mar 12th at 7:19 PM]
+Объясните пожалуйста по поводу пункта 6 Optional:
+_Починить MealServlet и использовать в SpringMain реализацию DB: добавить профили. Попробуйте поднять Spring контекст без использования spring.profiles.active_
+А то я даже не понял, где там что сломано было. (edited)
+8 replies
+
+Alexander   [22 days ago]
+оно
+
+Alexander   [22 days ago]
+убери решение :slightly_smiling_face: другим будет не интересно
+
+Max   [22 days ago]
+Убрал :slightly_smiling_face:
+
+Max   [22 days ago]
+Но я все равно не понял, что там было сломано. Как эта поломка проявлялась? Т.е. как это вообще увидеть, что мол ага, тут что-то поломано. А то я о поломке узнал только потому, что в задании сказано, что она есть. Хочется ж самому ее увидеть, а то вдруг обманули, а я повелся :grin:
+
+Alexander   [22 days ago]
+ну ты убери применение профиля - будет тебе красота :slightly_smiling_face: я 3 часа с этой красотой парился (edited)
+
+ILYA   [22 days ago]
+Пока мы в сервлете не засетали профили, то тогда спрингу будет не известно какой профиль использовать, какой репозиторий инжектить. В этом была и проблема
+
+Max   [22 days ago]
+А, блин, дурья моя голова. Я все время тесты и SpringMain запускаю, а само приложение на этом этапе запустить я так ни разу и не догадался :sweat_smile:. Вот тут то исключения и вылетают. Правда в таком случае вот этот вариант просто всунуть
+`appCtx.getEnvironment().setActiveProfiles(Profiles.getActiveDbProfile(), Profiles.REPOSITORY_IMPLEMENTATION);`
+            `appCtx.refresh();`
+что-то не работает. Ладно, буду думать дальше, теперь хоть ясно куда смотреть.
+
+Max   [22 days ago]
+Фух, победил наконец-то. Использовал *_GenericXmlApplicationContext_* как в https://dzone.com/articles/using-spring-profiles-xml
+dzone.com
+Using Spring Profiles in XML Config - DZone Java
+Learn how to use spring profiles in an XML config with this great tutorial.
+
+
+RamZet   [Mar 12th at 8:47 PM]
+3.1 сделать один базовый класс для MealServiceTest и UserServiceTest.
+Вопрос. Сделать для mealservice свой абстрактный класс и для userservice тоже ще один абстрактный, или вообще один для всех абстрактный?
+6 replies
+
+Story   [22 days ago]
+один на всех
+
+tolik1106   [22 days ago]
+Я сделал один для всех. Общие методы сделал абстрактными как и сам класс
+
+Max   [22 days ago]
+Я сделал один базовый, в котором все общее, т.е. рулы, логгер, указание контекста и т.д. Потом от него унаследовал еще 2 абстрактных, т.е. для Meal и для User, в которых реализации методов, а уже от них унаследовал для каждого случая, т.е. DataJpa, Jpa. Jdbc, и в них уже вообще ничего нет, только объявление класса и аннотация @ActiveProfiles сверху
+
+Bahis   [22 days ago]
+и дополнительные методы: вся еда юзера и весь юзер еды )
+
+Max   [22 days ago]
+ну это уже если с учетом опциональной части))
+
+Grigory Kislin   [21 days ago]
+1. нужно, чтобы в тестах для users не было тестов для еды и наоборот.
+2. не было дублирования кода
+3. пробуй:)
+
+
+Bahis   [Mar 12th at 9:21 PM]
+Кто-нибудь задумывался как оставить сайт работоспособным после отката транзакции? Попробуйте в поле количество калорий указать число больше максимального... к примеру 10000. У меня падает сайт с ошибкой - откат транзакции.
+2 replies
+
+makushatnik   [22 days ago]
+Если я правильно понимаю проблему - ловить исключение и как-то его обрабатывать. Чаще всего упаковывать в нужный ResponseBody с нужным кодом ответа.
+
+Grigory Kislin   [21 days ago]
+обрабатывать исключения будем на последнем занятии. см. расписание
+
+
+tolik1106 [10:28 PM]
+Вот что пишут про db: postgres 9.4.1208, HSQLDB 2.4.0 etc understand Java 8 Time API without any conversations!
+
+
+tolik1106   [Mar 12th at 10:28 PM]
+https://stackoverflow.com/questions/8992282/convert-localdate-to-localdatetime-or-java-sql-timestamp
+Stack Overflow
+Convert LocalDate to LocalDateTime or java.sql.Timestamp
+I am using JodaTime 1.6.2. I have a LocalDate that I need to convert to either a (Joda) LocalDateTime, or a java.sqlTimestamp for ormapping. The reason for this is I have figured out how to convert
+1 reply
+
+tolik1106   [22 days ago]
+Проверил. Все работает
+
+
+Pavel [8:42 AM]
+org.hibernate.QueryException: Named parameter not bound.... мало ли у кого то проблема такая будет.. где-то час не мог понять в чем дело. Всё думал, что где-то отличается имя при запросе и в базе данных. В итоге просто оказалось надо внимательно запрос посмотреть. Важно чтобы перед параметром двоеточие стояло, то есть: SELECT m FROM Meal m WHERE m.user.id = :userId и SELECT m FROM Meal m WHERE m.user.id = : userId не одно и то же.
+
+
+Milan Kotykov   [Mar 13th at 10:47 AM]
+Когда в JpaRepository написал метод findAllByUserIdOrderByDateTimeDesc то datajpa сгенерил запрос с лишним join к таблице users. Нельзя переписать название метода чтобы не было лишнего join?
+2 replies
+
+Milan Kotykov   [21 days ago]
+Магией получается запрос:
+Hibernate:
+   /* select
+       generatedAlias0
+   from
+       Meal as generatedAlias0
+   left join
+       generatedAlias0.user as generatedAlias1
+   where
+       generatedAlias1.id=:userId
+   order by
+       generatedAlias0.dateTime desc */
+А когда прописываю запрос руками в аннотации Query получается запрос как и должен быть, без лишнего join:
+Hibernate:
+   /* SELECT
+       m
+   FROM
+       Meal m
+   WHERE
+       m.user.id=:userId
+   ORDER BY
+       m.dateTime DESC */
+
+Artem   [21 days ago]
+Пропиши запрос вручную через @Query. Мне кажется это наилучшее решение. У меня подобрать магический запрос без join не получилось. Ну и опять же, смотря сколько еды будет в конечном приложении. (edited)
+
+
+makushatnik   [Mar 13th at 12:03 PM]
+Windows 7 64, Idea не понимает больше 9ки, установил Oracle JDK, поменял JAVA_HOME  - в cmd пишет 1.8, в Идее - это не каталог с JDK.
+24 replies
+
+tolik1106   [21 days ago]
+Попробуй консоль запустить от имени админа
+
+Oleg   [21 days ago]
+В переменной path добавил путь к jdk-11\bin. В cmd пишет 11.0.1
+
+makushatnik   [21 days ago]
+Не первый день кодингом занимаюсь. У меня там - %JAVA_HOME%\bin, %MAVEN%\bin..
+
+Oleg   [21 days ago]
+Ну тогда незнаю.
+javaversion.jpg 
+
+Oleg   [21 days ago]
+¯\_(ツ)_/¯
+
+makushatnik   [21 days ago]
+Есть ток подозрит-й путь: C:\ProgramData\Oracle\Java\javapath, там exe-шники от 8ки.
+
+Oleg   [21 days ago]
+А что стоит первым в path? Этот путь или JAVA_HOME?
+
+makushatnik   [21 days ago]
+именно этот.
+
+Oleg   [21 days ago]
+А если поменять?
+
+makushatnik   [21 days ago]
+Да, помогло)
+
+makushatnik   [21 days ago]
+И с Идеей видно ничего не сделаешь. Пока чрз полгода не выйдет кряк на осеннюю версию.
+
+Oleg   [21 days ago]
+А что с ней не так?
+
+makushatnik   [21 days ago]
+Везде выбор 9ки. 11й - нет опции. А в настр-х проекта при выборе каталога SDK - "некорректный каталог".
+
+Oleg   [21 days ago]
+Idea.jpg 
+
+Oleg   [21 days ago]
+Вроде нормально все.
+
+Oleg   [21 days ago]
+Idea 2.jpg 
+
+Oleg   [21 days ago]
+Или я ошибаюсь и мы не про это говорим?
+
+V_Gruzdev   [21 days ago]
+В чем вопрос то?
+
+makushatnik   [19 days ago]
+incorrect_jdk.jpg 
+
+Oleg   [19 days ago]
+А какая версия IDEA?
+
+
+Grigory Kislin   [18 days ago]
++ проверь- точно ли там у тебя JDK (edited)
+
+makushatnik   [17 days ago]
+2017.2 Build July 15, 2017.
+
+Grigory Kislin   [16 days ago]
+@makushatnik :slightly_smiling_face: нет никаких мыслей?
+
+makushatnik   [13 days ago]
+Да есть, но кряки выходят после выхода офверсии программы чрз полгода) Время нужно на хороший кряк.
+
+
+Bahis   [Mar 13th at 10:11 PM]
+Кто-нибудб победил setActiveProfiles без использования System.setProperty?
+7 replies
+
+Story   [21 days ago]
+в сервлете? кидали ссылку
+
+Story   [21 days ago]
+вот она https://stackoverflow.com/questions/40268574/how-to-set-the-active-profile-when-creating-spring-context-programmatically
+Stack Overflow
+How to set the active profile when creating Spring context programmatically?
+tl;dr: how to create a Spring context based on an annotation-based configuration class, while supplying active profiles? I am trying to create a Spring context using a class with the configuration
+
+Bahis   [21 days ago]
+Спасибо!
+
+Bahis   [21 days ago]
+Только там через system
+
+Story   [21 days ago]
+вот https://stackoverflow.com/questions/36611252/spring-spel-when-using-a-genericxmlapplicationcontext
+Stack Overflow
+Spring SpEL when using a GenericXmlApplicationContext?
+I'm having a problem getting SpEL to work when loading some Spring XML configuration explicitly into a GenericXmlApplicationContext object. Any help you can give would be greatly appreciated. He...
+
+Story   [21 days ago]
+тебе нужен GenericXmlApplicationContext
+
+Bahis   [21 days ago]
+Попробую. Спасибо.
+
+
+Story   [Mar 14th at 7:43 PM]
+запушила изменения по 6му уроку, codacy прислал письмо)
+src/main/webapp/WEB-INF/jsp/fragments/bodyHeader.jsp
+*Using unsanitized JSP expression can lead to Cross Site Scripting (XSS) attacks*
+<a href="${pageContext.request.contextPath}"><spring:message code="app.home"/></a>&nbsp;|&nbsp;<a href="meals"><spring:message code="app.title"/></a>
+
+это что значит))
+6 replies
+
+Bahis   [20 days ago]
+Кодаси не нравится уязвимость в jsp файле.
+
+Bahis   [20 days ago]
+Можно добавить в исключения эту проверку. Было в уроке.
+
+Story   [20 days ago]
+спасибо, пойду пересмотрю урок, видимо упустила
+
+Bahis   [20 days ago]
+Занятие 4. Видео 2.
+
+ILYA   [20 days ago]
+Codacy не любит jsp)
+
+Grigory Kislin   [18 days ago]
+мы будет делать защиту от xss на последнем уроке. и на стороне сервера. что значит xss, если очень любопытно до урока, можно в википедии почитать:) шаблон- да, удаляй (edited)
+
+
+Nikita Ivanov   [Mar 18th at 7:45 AM]
+Добрый день. Разбираюсь в Fetch и LAZY инициализации и транзакциях, разбираюсь с домашним заданием HW5. Подскажите пожалуйста, почему получается ошибка - Can't find any field or property with name '$$_hibernate_interceptor при попытке в тесте сравнить User-ов в дз п.7.2. Несколько часов уже потратил, не могу понять проблему.
+20 replies
+
+pr1zrak   [16 days ago]
+а они загрузились из базы?
+
+pr1zrak   [16 days ago]
+может у тебя там просто прокси создался для User
+
+pr1zrak   [16 days ago]
+и данных User там нет
+
+Nikita Ivanov   [16 days ago]
+да похоже данных User действительно нет, но как их подгрузить из базы, когда транзакция закрыта - не понятно. Вот что я сделал: 1DataJpamealRepositoryImpl добавил новый метод getMealWithUser(int id, int userId) для поиска еды. В этом же классе добавил ссылку на второй репозиторий: crudUserRepository. Теперь чтобы вытащить еду с пользователем сначала из репозитория с едой вытаскиваю еду, затем из репозитория с пользователем вытаскиваю пользователя, а в конце сетю еде пользователя
+
+Nikita Ivanov   [16 days ago]
+2. В сервис MealServiceImpl добавил новый метод для получения еды вместе с пользователем. Обращается в DataJpaMealRepository репозиторий к методу getMealWithUser, проверяет на нули и возвращает результат
+
+Nikita Ivanov   [16 days ago]
+3. Метод getMealWithUser() для тестирования в классе DataJpaMealServiceTest. Сравнивает сначала еду, затем пользователя. И если Ок - тест пройден. И в этом методе как раз возникает исключение, при попытке достать пользователя у еды
+
+Nikita Ivanov   [16 days ago]
+assertMatch(actual.getUser(), ADMIN)
+
+Nikita Ivanov   [16 days ago]
+actual.getUser() не хочет доставать
+
+Nikita Ivanov   [16 days ago]
+говорит Can't find any field or property with name '$$_hibernate_interceptor
+
+Nikita Ivanov   [16 days ago]
+помогите плиз
+
+pr1zrak   [16 days ago]
+ты должен через FETCH JOIN запрос делать
+
+pr1zrak   [16 days ago]
+насколько я помню
+
+pr1zrak   [16 days ago]
+когда запрашиваешь meal
+
+pr1zrak   [16 days ago]
+с юзером
+
+Nikita Ivanov   [16 days ago]
+Спасибо
+
+pr1zrak   [16 days ago]
+помогло?)
+
+Nikita Ivanov   [16 days ago]
+неа
+
+Nikita Ivanov   [16 days ago]
+работает!
+
+Nikita Ivanov   [16 days ago]
+разобрался
+
+Nikita Ivanov   [16 days ago]
+спасибо)
+
+
+IgorPetrov   [Mar 18th at 9:15 AM]
+Напомните плиз. Как вкладку Persistense Подключить?
+2 replies
+
+ilya   [16 days ago]
+project structure -> facets-> + -> jpa -> внизу default jpa provider - hibernate
+
+IgorPetrov   [16 days ago]
+Большое Сенкс!
+
+
+Nikita Ivanov   [Mar 18th at 10:17 PM]
+7.1 в HW5 кто-нибудь сделал?
+4 replies
+
+Nikita Ivanov   [16 days ago]
+У меня список еды пустой из базы прилетает..
+
+ILYA   [15 days ago]
+Потому что он lazy. Почитай про fetch join например в нете (edited)
+
+Nikita Ivanov   [15 days ago]
+разобрался. проблема была не в FETCH JOIN, это я сделал. а в двух вещах: 1. нужно апдейтить список еды у пользователя, когда добавляешь пользователю еду 2. в тестовых данных MealTestData
+
+Nikita Ivanov   [15 days ago]
+@ILYA, спасибо
+
+
+V_Gruzdev   [Mar 21st at 10:02 AM]
+Всем привет! У меня вопрос: зачем делать наследование для тестов если мы всё равно используем профили? Я правильно понимаю, что это только лишь для того, чтоб одновременно все тесты прогонялись?
+7 replies
+
+pr1zrak   [13 days ago]
+привет! это, чтобы код не дублировать
+
+pr1zrak   [13 days ago]
+общие части вынесли в абстрактный класс
+
+V_Gruzdev   [13 days ago]
+@pr1zrak нет, мне кажется не для этого. Дублирования и так не было. Мы же могли просто в тесте профили менять для каждой реализации и всё.
+
+pr1zrak   [13 days ago]
+да, но один и тот же код написан все равно 3 рааз
+
+pr1zrak   [13 days ago]
+был бы
+
+pr1zrak   [13 days ago]
+профили от дублирования кода не помогают же
+
+V_Gruzdev   [13 days ago]
+ок. ясно. ответ был во второй части моего вопроса)
+
+
+V_Gruzdev   [Mar 21st at 10:11 AM]
+@Grigory Kislin Почему не используется магия именования методов в круд репозиториях? Можно же обойтись без SQL запросов.
+3 replies
+
+V_Gruzdev   [13 days ago]
+я понимаю, что это для соблюдения именования методов в разных реализациях, но можно было показать такой подход, используя приватные методы.
+
+ILYA   [13 days ago]
+Ну @query быстрее
+
+Grigory Kislin   [13 days ago]
+в видео я же говорю про этоx

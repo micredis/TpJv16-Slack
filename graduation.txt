@@ -414,3 +414,11 @@ Story   [27 minutes ago]
 спасибо
 попробовала поменять
 к сожалению, ошибка осталась( (edited)
+
+
+Story   [17 hours ago]
+если вызвать Class.forName("org.h2.Driver"); тоже ругается java.lang.ClassNotFoundException: org.h2.Driver
+но во вкладке Database в Idea , таблицы создаются, просматриваются
+
+Story   [16 hours ago]
+добавила руками в libraries из maven библиотеку, работает
