@@ -1,0 +1,1505 @@
+Grigory Kislin [1:51 AM]
+joined #hw6.
+
+Grigory Kislin [1:51 AM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson06.md
+
+Grigory Kislin [1:54 AM]
+Привет! Можно приступать к занятию https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson06.md
+Начинаем изучать Spring-MVC и слой Web
+Занятие и домашнее задание относительно большие, следующее занятие будет 28.03 (расписание: https://github.com/JavaWebinar/topjava)
+Будет время подтянуть "хвосты" и занятся выпускным проектом. (edited) 
+
+Mikhail_V [2:02 AM]
+joined #hw6 along with 18 others.
+
+Story   [Mar 14th at 2:12 PM]
+в app_ru.properties почему-то у меня русские буквы отображаются нормально и без установки transparent native-toascii
+все равно делать эту настройку?
+2 replies
+
+Grigory Kislin   [21 days ago]
+посмотри на файл любым просмотрщиком-редактором. что там? (edited)
+
+Story   [21 days ago]
+а :-)) думала там такие же коды как на видео
+
+
+Igor'   [Mar 15th at 5:34 AM]
+Коллеги, объясните на пальцах, для чего в патче 6_08 добавлено test validation:)
+7 replies
+
+32xlevel   [20 days ago]
+Чтобы проверять корректность валидации в бинах:
+@NotNull/@NotBlank/@NotEmply/@Email
+
+Heorhii   [20 days ago]
+Посмотри какие данные в конструкторы поступают, мы нарочно вкидываем некорректные данные и ждем ошибки. Есть схожесть с тестами expected = NotFoundException.class и т.п.
+
+Bahis   [20 days ago]
+А их не надо было по одному проверять, а не пачкой? Если один выкинет, то тест пройден или оно как-то проверяет, чтобы в каждом вызове был эксепшн и без этого тест не пройдется?
+
+Heorhii   [20 days ago]
+Ну а мы когда из базы тянули GetAll если хоть один Meal или User не совпадал - тест не проходился, так в чем проблема?)
+
+Bahis   [20 days ago]
+Вот и я об этом. ) Если катч один раз поймал, то тест положительно пройден, а то, что остальные прошли- не помеха?
+
+Heorhii   [20 days ago]
+Там в тесте, вызываем метод validateRootCause() он каждый отдельно анализирует. Тут обычное сопоставление, тут же логика что-то вроде 1==1& 2==2 & 3==3 и т.п. так что если в одном из сравнений Throwable не будет того же типа что и Exception который мы ожидаем - тест не пройдет)
+
+Bahis   [20 days ago]
+дебаг с тобой согласен )
+
+
+Story   [Mar 16th at 12:24 AM]
+Подскажите пожалуйста. Почему, когда я делаю второй @Controller и в нем завожу метод с аннотацией @GetMapping("/meals") , то я в этот метод не попадаю после редиректа из RootController а получаю 404 "The origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
+А если я копирую тот же самый метод в RootController, то тогда все работает ..
+думала, что диспетчер выбирает контроллер на основании аннотаций @*Mapping
+намекните, что я упускаю?)
+6 replies
+
+Ivan   [19 days ago]
+Класс контролера не помечала как абстрактный?
+
+Dima   [19 days ago]
+каким образом делаешь редирект?
+```return "redirect:/meals";```
+?
+
+Story   [19 days ago]
+нет не помечала
+return "redirect:meals"
+
+Story   [19 days ago]
+вопрос снимается, заработало, ему мешала аннотация про мэппинг на классе
+
+Story   [19 days ago]
+спасибо
+
+makushatnik   [19 days ago]
+Ну вот. Прочитав вопрос, я сразу подумал о том же)
+
+
+pr1zrak   [Mar 16th at 9:38 AM]
+Скажите пож, а зачем в CrudMealRepository мы заоверрайдели save с transactional, если у нас в SimpleJpaRepository save с @transactional и в видео об этом же говорится, а в патче в итоге есть?
+2 replies
+
+makushatnik   [19 days ago]
+Там обычный save, который не учитывает обработку нашего userId.
+
+Grigory Kislin   [18 days ago]
+вообще save() можно не писать сюда, он наследуется
+без transactional я у себя на проекте багу словил- не сохранялось. копать не стал почему
+
+
+pr1zrak   [Mar 16th at 10:36 AM]
+кто-нибудь разобрался хорошо в вопросе “JPA JoinColumn vs mappedBy”? ЧТо когда использовать?
+3 replies
+
+Bahis   [19 days ago]
+Я думаю, что если отношения двусторонние(1 к м, м к 1), то mappedBy
+
+makushatnik   [19 days ago]
+JoinColumn - когда нужно больше настроек, а mappedBy - указываем таблицу и берем дефолтные настройки. В частности, JoinColumn дает указать поля с обеих таблиц, и неск-ко других настроек.
+
+ILYA   [19 days ago]
+https://stackoverflow.com/questions/11938253/whats-the-difference-between-joincolumn-and-mappedby-when-using-a-jpa-onetoma
+Stack Overflow
+What's the difference between @JoinColumn and mappedBy when using a JPA @OneToMany association
+What is the difference between: @Entity public class Company { @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY) @JoinColumn(name = "companyIdRef", referencedColumnName = "
+
+
+pr1zrak   [Mar 16th at 10:52 AM]
+и еще непонятно, в видео мы в User в шапке класса пишем
+@NamedEntityGraph(name = User.GRAPH_WITH_MEALS, attributeNodes = {@NamedAttributeNode(“meals”)}), а в патчах ничего подобного нет, и в CrudRepository теперь пишется @EntityGraph(attributePaths = {“meals”, “roles”}), вместо @EntityGraph(value = User.GRAPH_WITH_MEALS). Теперь достаточно только EntityGraph задавать получается?
+3 replies
+
+Grigory Kislin   [18 days ago]
+@pr1zrak под патчем комментарий смотрел? (edited)
+
+pr1zrak   [18 days ago]
+да, но бегло ) пошел по ссылке прочитал
+
+pr1zrak   [18 days ago]
+The Gosling release now takes our JPA 2.1 story one step forward, extending it to ad-hoc fetch graph definitions. By explicitly specifying properties via @EntityGraph(attributePaths = …) on the query method you don’t need to have the NamedEntityGraph annotation on your entity.
+
+
+Anton   [Mar 16th at 3:34 PM]
+Коллеги, подскажите, кто знает. В примере мое решение HW5 по CrudMealRepository. Григорий в решении использует для методов delete и get... @Query с запросом. Есть ли разница какой способ использовать, и если есть то в чем и какой способ лучше?
+Untitled 
+public interface CrudMealRepository extends JpaRepository<Meal, Integer> {
+  @Transactional
+  @Modifying
+//  @Query("DELETE FROM Meal m WHERE m.id=:id AND m.user.id=:userId")
+  int deleteByIdAndUserId(int id, int userId);
+	
+  @Transactional
+  @Modifying
+  Meal save(Meal meal);
+​
+  Optional<Meal> findByIdAndUserId(Integer id, Integer userId);
+​
+  List<Meal> getAllByUserId(int userId, Sort sort);
+​
+  List<Meal> getByUserIdAndDateTimeBetween(int userId, LocalDateTime startDate, LocalDateTime endDate, Sort sort);
+}
+Collapse
+3 replies
+
+Bahis   [19 days ago]
+Не уверен на счет разницы, но, кажется, аннотация @Modifying ставится только @Query и только если меняются данные в БД.
+
+ILYA   [19 days ago]
+@guery быстрее чем магические запросы, потому что spring пока распарсит строку сформирует запрос
+
+pr1zrak   [19 days ago]
+но используя query не забудьте, что кэш не всегда работает с query:
+Когда работает кэш?
+
+Когда вы вызываете методы session.get() или session.load() для объекта, который до этого размещен в кэше. Кэш это хранилище, в котором ID это ключ и свойства сущности являются значением. Так что получить сущность из кэша возможно только по его ID.
+Когда Ваши ассоциации загружаются lazy (или eager с селектами вместо joins)
+Не работает когда:
+
+Если Вы делаете выборку не по ID. Если Вы делаете запрос как: from Authors where name = :name, то тогда запрос не попадет в кэш.
+Когда вы используете HQL (даже если задавать where id = ?).
+Если в маппинге проставлено fetch=“join”, это означает что надо выгружать ассоциацию с помощью джойнов везде, вместо отдельных запросов селекта. Кэш работает, только если используется fetch=“select”.
+
+
+pr1zrak [3:54 PM]
+Ассоциации так же могут быть закэшированы кэшем второго уровня, но по умолчанию это не включено. Для кэширования ассоциаций нам нужно установить аннотацию @Cache к самой ассоциации:
+
+@Entity
+public class SomeEntity {
+@OneToMany
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region=“yourCollectionRegion”)
+private Set<OtherEntity> other;
+}
+тоесть нужно еще дополнительно @cache проставлять, если хотим закэшировать meals у User?
+
+
+pr1zrak   [Mar 16th at 3:55 PM]
+И интересно, почему мы кэш запросов не используем?
+1 reply
+
+Grigory Kislin   [18 days ago]
+ну, не используем без всякой идеологии:) just because. можно подумать о включении в курс (edited)
+
+
+Bahis   [Mar 16th at 6:06 PM]
+Не запускается через cargo:run
+3 replies
+
+Bahis   [19 days ago]
+[ERROR] Failed to execute goal org.codehaus.cargo:cargo-maven2-plugin:1.7.3:run (default-cli) on project topjava: Execution default-cli of goal org.codehaus.cargo:cargo-maven2-plugin:1.7.3:run failed: Failed to create deployable with implementation class org.codehaus.cargo.container.tomcat.TomcatWAR for the parameters (container [id = [tomcat9x]], deployable type [war]). InvocationTargetException: Failed to parse Tomcat WAR file in [D:\_DEV\topjava\topjava\target\topjava.war]: Failed to find file [D:\_DEV\topjava\topjava\target\topjava.war]: D:\_DEV\topjava\topjava\target\topjava.war (Не удается найти указанный файл) -> [Help 1]
+
+Oleg   [19 days ago]
+1. clean
+2. package
+
+Bahis   [19 days ago]
+Спасибо
+
+
+IgorPetrov   [Mar 16th at 6:06 PM]
+У кого нибудь была ошибка в классе USER В анотациях @NamedQuery(name = User.BY_EMAIL, query = "SELECT u FROM User u LEFT JOIN FETCH u.roles WHERE u.email=?1"),    ВСЕ - USER -> ПОДЧЕРКНУТЫ КРАСНЫМ  Подскаска говорит что не удается разрешить символ USER и Inspection info: This inspection controls whether the Persistence QL Queries are error-checked  т.е  Я так понимаю что Запрос проверятся на ошибку а в чем ошибка не пойму. Клас тайкой же как и на TOPJAVA оригинал (edited)
+3 replies
+
+ILYA   [19 days ago]
+Может idea тупит
+
+IgorPetrov   [18 days ago]
+Возможно! Отлючил проверку , не знаю как это повлияет.
+
+Konstantin Shishin   [8 days ago]
+@IgorPetrov Если я не ошибаюсь, нужно добавить интеграцию JPA в IDEA. Видео 4_5_orm_jpa.mp4 с 00:51:40
+
+
+Artem   [Mar 17th at 11:28 AM]
+Товарищи, ни у кого не было ошибки:
+
+org.apache.jasper.JasperException: An exception occurred processing [/WEB-INF/jsp/fragments/headTag.jsp] at line [8]
+
+5: <head>
+6:     <meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8">
+7:     <title><spring:message code=“app.title”/></title>
+8:     <link rel=“stylesheet” href=“resources/css/style.css”>
+9: </head>
+
+javax.servlet.ServletException: javax.servlet.jsp.JspTagException: No message found under code ‘app.title’ for locale ‘en_US’.
+4 replies
+
+vch   [18 days ago]
+В 99% случаев - это неверная настройка переменной окружения, которая требуется нашему проекту (TOPJAVA_ROOT) (edited)
+
+makushatnik   [18 days ago]
+Ага. И перезапуск Идеи вдобавок нужен.
+
+Nikolai Dvinin   [13 days ago]
+может кому пригодится, на маке победил создав в папке юзера .bash_profile
+
+Nikolai Dvinin   [13 days ago]
+export PATH=$PATH:/usr/local/git/bin
+
+TOPJAVA_ROOT=/Users/xxx/xxx/xxx/topjava
+export TOPJAVA_ROOT
+
+
+Max   [Mar 17th at 2:08 PM]
+Намекните пожалуйста как можно лучше всего Jdbc тесты пофиксить
+27 replies
+
+Max   [18 days ago]
+Проблема ведь в том, что в родительском классе есть JpaUtil с @Autowired, а в Jdbc профиле у нас нечего туда подставить. Значит, на сколько я понимаю, для исправления нужно просто убрать JpaUtil для Jdbc тестов. Вот собственно и вопрос, как это можно сделать, ведь оно у нас в классе-родителе?
+
+Единственное, что я смог придумать, это изменить родителя. Т.е. добавил промежуточный абстрактный класс AbstractJpaUtilUserServiceTest, в который вынес JpaUtil, и наследование DataJpa и Jpa тестов сделал уже от него.
+
+Т.е. получается для починки Jdbc тестов я вообще их не трогал, а вместо этого переделал все остальные. Видимо получше способ должен быть, но я никак его найти не могу.
+
+Story   [18 days ago]
+ты про первую часть домашки говоришь?
+
+Story   [18 days ago]
+там где нужно исключить валидацию?
+
+Max   [18 days ago]
+да
+
+Story   [18 days ago]
+смотри там ссылки прямо под заданием о том как исключать тесты
+
+Story   [18 days ago]
+нужно просто чтобы при запуске jdbc мавен и junit их игнорировали, пропускали
+
+makushatnik   [18 days ago]
+Можно:
+1. просто не запускать тесты для профиля Jdbc. Это просто реализовать. Но, возможно, не правильно.
+2. запускать, но без JpaUtil. поставил у него null, а для Jpa создаю new JpaUtil. т.к. пока не придумал способ дернуть контекст из тестов.
+
+Max   [18 days ago]
+@Story как исключить тесты это понятно, а вот как эту нашу JpaUtil исключить из рассмотрения, вот в чем вопрос.
+
+Max   [18 days ago]
+@makushatnik я тоже сначала думал просто в null поставить, но тоже как то это не так. Да к тому же тогда все равно в Jpa и DataJpa менять, а хочется такое решение, которое их вообще не затронет
+
+Story   [18 days ago]
+не знаю, я просто исключила и все. посмотрим что на ревью скажут
+
+makushatnik   [18 days ago]
+У меня вот так пока:
+//@Autowired
+protected JpaUtil jpaUtil;
+
+@BeforeClass
+public void checkJpa() throws Exception {
+    for (String profile : env.getActiveProfiles()) {
+        if ("jpa".equals(profile) || "datajpa".equals(profile)) {
+            jpaUtil = new JpaUtil();
+        }
+    }
+}
+
+@Before
+public void setUp() throws Exception {
+    if (jpaUtil != null) {
+        cacheManager.getCache("users").clear();
+        jpaUtil.clear2ndLevelHibernateCache();
+    }
+}
+
+Oleg   [18 days ago]
+А остальные тесты при таком раскладе проходят?
+
+makushatnik   [18 days ago]
+Надо переделать. 1 тест упал - checkJpa should be static, 2 тест - ConstraintViolationException. Это Jdbc кот-е. (edited)
+
+ILYA   [18 days ago]
+Самый нормальный способ это как написал @Max вначале
+
+tolik1106   [18 days ago]
+А я сделал Autowired(required = false) и загрузка контеклна не падает
+
+tolik1106   [18 days ago]
+А можно переопределить тест валидации и указать аннотацию @Ignored?
+
+Max   [18 days ago]
+@tolik1106 Спасибо. А то я по невнимательности как то не просек, что там required = false можно установить. Так вроде действительно удобнее, чем как я дополнительный класс делал
+
+Grigory Kislin   [17 days ago]
+@tolik1106 а что за анотация @Ignored для тестов?
+
+pr1zrak   [17 days ago]
+проще на нул проверить в одном месте, чем промежуточный класс городить по-моему
+
+tolik1106   [17 days ago]
+@Grigory Kislin http://junit.sourceforge.net/javadoc/org/junit/Ignore.html
+
+Grigory Kislin   [17 days ago]
+так, но тогда же мы для всех его заигнорим... а нам надо для jpa/data-jpa пускать
+
+tolik1106   [17 days ago]
+@Grigory Kislin я переопределил в jdbc и заигнорил... Не уверен что правильно, но как то так)
+
+Bahis   [17 days ago]
+я просто добавил в начало валидационного теста Assume.assumeFalse(checkProfile());
+
+Bahis   [17 days ago]
+а в дополнительном методе проверка - есть ли такой профиль в активных
+
+tolik1106   [17 days ago]
+а когда assumeFalse не проходит то и тест не выполняется?
+
+tolik1106   [17 days ago]
+Мда. Как-то и не подумал.
+
+Bahis   [17 days ago]
+да.. он игнорится
+
+
+makushatnik   [Mar 17th at 3:10 PM]
+Кто как параметры передает на Jsp? Через Model? Например в Post-методе /filter нужно список передавать
+6 replies
+
+Story   [18 days ago]
+туда через Model обратно через HttpServletRequest
+
+makushatnik   [18 days ago]
+Да, уже понял)
+
+Bahis   [18 days ago]
+Все так быстро читаю... ( Я один до сих пор читаю материал по 9му пункту? Кстати... кто знает? В этот раз дедлайн по ДЗ тоже до конца вторника?
+
+makushatnik   [18 days ago]
+Да не. 2 недели теперь есть.
+
+Grigory Kislin   [17 days ago]
+если параметры запроса- они доступны в jsp через param.xx
+
+Grigory Kislin   [17 days ago]
+дедлайн - до 26.03
+
+
+makushatnik [3:35 PM]
+Странно. На классе - "/meals", на методе - GetMapping("/") и не работает. Пока скобки совсем не убрать. Пишет - нет такого ресурса.
+
+
+Bahis   [Mar 17th at 3:50 PM]
+Вопрос. А у кого настройки spring в проекте не такие как тут:
+Pasted image at 2019-03-17, 4:50 PM 
+7 replies
+
+Bahis   [18 days ago]
+а, например, такие:
+Pasted image at 2019-03-17, 4:51 PM 
+
+makushatnik   [18 days ago]
+У кого не такие - надо подогнать под те, как тебе в уроке показали:)
+
+makushatnik   [18 days ago]
+Idea тебе автоматом нагенерила контекстов, причем 2шт. Теперь у тебя 3 контекста. А нам 2 надо. Кнопки сверху тебе для чего даны?
+
+Bahis   [18 days ago]
+А может пусть живет?
+
+Bahis   [18 days ago]
+Переделал. Даже работает.
+
+Oleg   [18 days ago]
+Удивлен?
+
+Bahis   [18 days ago]
+приятно
+
+
+makushatnik   [Mar 17th at 6:34 PM]
+@GKislin Стили не накладывались на meals.jsp, пока не сделал вставку фрагмента headTag (просто по пути не находится).
+Также не понятно, зачем писать tr[data-mealExcess="true"] ? когда можно просто класс ставить - 'excess' или 'normal'.
+Так пишут, если только собираются в JS писать код, что будет менять цвет (/любые св-ва) : $("#tr1").data('mealExcess') , а не имея пока сложного JS - это не нужно.
+Кроме того, браузеры data-mealExcess приводят к нижней строке, так что есть подозрение, что так и не заработает.
+4 replies
+
+makushatnik   [18 days ago]
+<html>
+<!--head>
+   <title>Calories management</title>
+   <link rel="stylesheet" href="resources/css/style.css">
+</head-->
+<jsp:include page="fragments/headTag.jsp"/>
+<body>
+
+makushatnik   [18 days ago]
+Хотя работает, если headTag использовать.
+
+Grigory Kislin   [17 days ago]
+ссылка на меня делается так: @Grigory Kislin
+
+Grigory Kislin   [17 days ago]
+> можно просто класс ставить - 'excess' или 'normal'
+ну, не просто, а по условию.. так - гибче на мой взгляд (edited)
+
+
+Bahis   [Mar 17th at 6:38 PM]
+Не работает ссылка в пункте 10:
+2 replies
+
+Bahis   [18 days ago]
+http://forum.spring.io/forum/spring-projects/web/1077-differences-between-spring-message-and-fmt-message?p=451622#post451622
+
+makushatnik   [18 days ago]
+Да, там написали что форум закрывается)
+
+
+makushatnik   [Mar 17th at 8:43 PM]
+Кто что думает про 415 - Unsupported Media Type? Это при сохранении - Post /meals/
+4 replies
+
+makushatnik   [17 days ago]
+Короче, у меня вот так:
+@PostMapping(value = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE)
+   public String createMeal(@RequestBody Meal meal) {
+
+А еще добавил в pom - com.fasterxml. И не работает.
+
+Grigory Kislin   [17 days ago]
+запрос c json типом делаешь? (edited)
+
+makushatnik   [14 days ago]
+В смысле? Spring всегда конвертит форму в то, что мне нужно (Entity). Думаю, конвертится в него.
+
+makushatnik   [14 days ago]
+Либо я настолько привык к RESTу, что по-другому и не знаю как делать.
+
+
+Andrew   [Mar 18th at 3:51 PM]
+Коллеги объясните пожалуйста почему при localhost:8080/users при старте все поднимается а при localhost:8080/ говорит нет маппинга на / хотя вроде index замаплен
+2 replies
+
+Denis Volkov   [17 days ago]
+Привет. Как раз непонятно почему отзывается localhost:8080/users т.к. должно быть localhost:8080/topjava/users :wink:
+
+Andrew   [17 days ago]
+@Denis Volkov о точно, я совсем забыл приписать имя приложения при отладке  ))) спасибо
+
+
+Heorhii   [Mar 18th at 5:00 PM]
+Запутался ужасно, в jpa,datajpa тесты проходят, jdbc поправил как советовали выше, все тесты проходят за исключением двух, getAll() и testValidation(). Пытался дебажить, но это просто невозможно, ставлю точку в начало теста, и получаю огромный стек вызовов - создается какой-то прокси, потом через ReflectionUtils какие-то сравнения чего-то с чем-то, а я точку просто на
+ List<User> all = service.getAll();
+поставил, хотел увидеть почему данные не совпадают, как вообще можно тесты дебажить, это ж тихий ужас.
+JDBC реализация getAll практически не отличается от Jpa, мы там NamedQuerry используем по сути такой же, только на HSQL instead of SQL. А тест не проходит, данные не совпадают, как так то?
+Pasted image at 2019-03-18, 5:00 PM 
+15 replies
+
+Milan Kotykov   [17 days ago]
+Если повторно запустишь непрошедшие тесты и getAll() пройдёт, то это значит что ты не почистил кэш юзеров. Для jdbc тоже нужно чистить спринговый кэш юзеров.
+
+Milan Kotykov   [17 days ago]
+А валидацию в задании сказано что надо пропускать для jdbc тестов.
+
+Heorhii   [17 days ago]
+Очень объемное дз, я даже не знал что у нас есть спринговый кеш помимо хибернейтовского, в каком смысле валидацию пропускать, в Jdbc реализации теста переопределить все методы и повесить @Ignore?
+
+Story   [17 days ago]
+не совсем, посмотри под пунктом 1.2 две ссылки о том, как пропустить тест по условию
+
+Heorhii   [17 days ago]
+теперь Null Pointer-ом бросается в строке где пытаюсь использовать env-t
+Pasted image at 2019-03-18, 5:28 PM 
+
+Milan Kotykov   [17 days ago]
+попробуй сделать env-t не статикой
+
+Heorhii   [17 days ago]
+Нельзя использовать нестатические переменные и методы в статических методах этого же класса, а метод помеченный @BeforeClass обязательно должен быть статическим, выходит, и все остальное тоже. :disappointed_relieved:
+
+Story   [17 days ago]
+сделай класс не статическим
+
+Milan Kotykov   [17 days ago]
+зачем весь класс с тестами исключать? нужно же только один метод валидации пропустить
+
+Heorhii   [17 days ago]
+Убрал всю статичность, проставил assum-ы только в методах в которых JDBC ломался, теперь все корректно. Спасибо
+
+Heorhii   [17 days ago]
+По-поводу спрингового кеша, где почитать? Что-то я такого не нашел совсем
+
+Grigory Kislin   [17 days ago]
+в занятии- нет?
+
+Heorhii   [17 days ago]
+Искал через ctrl+F на странице отдельно "cache" и "spring" везде речь только про hibernate cache, рядом с spring ни на английском ни на сленге кеш не нашел. (edited)
+
+Heorhii   [17 days ago]
+По существу вопроса, надо полагать, что это суть одно и тоже, но не ясно мне все равно почему говорят spring cache, hibernate допустим реализует, а интерфейсом является spring, а не какая-нибудь еще более высокая абстракция как в случае с jpa?
+
+Grigory Kislin   [17 days ago]
+https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson05.md#-7-spring-кэш
+
+
+Story   [Mar 18th at 6:09 PM]
+делая домашку наткнулась на полезный сайт с кучей примеров по разным библиотекам, может кто не знает https://www.javaguides.net/p/jdbc-tutorial.html
+javaguides.net
+JDBC 4.2 Tutorial
+This is complete beginners to expert up-to-date JDBC 4.2 Tutorial. In this tutorial, we will learn the latest features added to JDBC 4,4.1 and 4.2 release. All the source code examples in this tutorial are developed using JDK 8 with JDBC 4.2.
+2 replies
+
+Heorhii   [16 days ago]
+If you don't see above web page then please disable your adblock for our site Java Guides .This site is supported by the advertisement. Please disable your ad blocker to support us!!!
+
+Сталкивался кто-нибудь? adblock отключил, в исключения для kaspersky добавил, даже в исключения для firefox добавил, разрешил и трекеры и куки и все на свете) сайт все равно ругается =(
+
+Heorhii   [16 days ago]
+Через Tor кое-как обманул его, но очень странный сайт с агрессивной политикой) на всю страницу красным текстом кричит отключи adblock который даже не включен)
+
+
+Bahis   [Mar 18th at 8:37 PM]
+UserServlet точно можно удалить? Посмотрел, что он больше ни на что не влияет... Или пусть висит?
+6 replies
+
+Story   [17 days ago]
+я удалила оба
+
+Bahis   [17 days ago]
+@Story Спасибо. А у тебя SpringMain работает? :wink:
+
+Story   [17 days ago]
+сейчас попробую
+
+Story   [17 days ago]
+неа, ругается что не может найти AdminRestController
+
+Bahis   [17 days ago]
+Если
+<context:component-scan base-package="ru.javawebinar.topjava.**.web"/>
+в spring-app.xml вернуть, а не в inmemory.xml, то работает...
+
+Bahis   [17 days ago]
+НО в задании намекают, что надо именно туда... может он уже нам не нужен...
+
+
+Evgen [11:14 PM]
+Всем здравствуйте. Из-за чего при запуске tomcat может вылетать ошибка: Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#454102b1' defined in class path resource [spring/spring-db.xml]: Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'boolean' for property 'showSql'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${jpa.showSql}]
+хотя тесты работают и бин инициализируется
+
+
+Bahis   [Mar 19th at 10:19 AM]
+Пересел на другой компьютер. Почему может ругаться, что не найдено style.css?
+6 replies
+
+Grigory Kislin   [16 days ago]
+причин - множество. как ты поисследовал проблему?
+
+tolik1106   [16 days ago]
+Попробуй в jsp link к ресурсам прописать ${pageContext.request.contextPath}/
+
+Bahis   [16 days ago]
+Проверил переменные среды. Topjava_root ссылается на корень проекта.
+
+tolik1106   [16 days ago]
+У меня маппинг к ресурсам  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+Bahis   [16 days ago]
+Даже так не хочет.
+
+Bahis   [16 days ago]
+Нашел ответ. У меня дома win7, на работе win10. Для 10ки критично, чтобы переменная среда проекта добавлялась в Системные переменные, а не в Переменные пользователя.
+
+
+Ivan   [Mar 19th at 2:02 PM]
+Всем привет! Какая есть альтернатива использования params = "action=" в аннотации? С помощью каких средств можно разделить запросы по разным методам? (edited)
+4 replies
+
+Igor   [16 days ago]
+в url добавить?
+
+synya   [16 days ago]
+Я сделал как в оф мануале показано
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestmapping-uri-templates
+
+makushatnik   [14 days ago]
+Вообще их порядка 8. Из них 4-6 мы будем использовать регулярно:
+OPTIONS
+GET
+POST
+PATCH
+PUT
+DELETE
+И они составляют основу REST.
+
+makushatnik   [14 days ago]
+Но я так понимаю, что в этом задании DELETE, PUT/PATCH не подходят. Только 2 запроса используем пока. Тогда разруливаем только адресами.
+
+
+tolik1106 [2:55 PM]
+Подскажите как реализовать опшинал кроме ResultSetExtractor
+
+
+pr1zrak   [Mar 19th at 6:43 PM]
+Добрый вечер всем! Подскажите пожалуйста или поправьте. Разбираюсь с кэшами, Spring Cache & Hibernate Cache, из того, что я понял, Spring Cache используется на более высоком уровне, на уровне сервиса, тоесть если у нас сущность наполняется из разных репозиториев, она закэшируется. Hibernate Cache используется на уровне репозитория и кэширует данные из базы. Если у нас на уровне сервиса данные такие же, как и на уровне репозитория, например getAll, то у нас данные дублируются в обоих кэшах.
+Почему мы не используем @Cacheable(“users”) для getByEmail, get, getWithMeals? Если бы использовали, нужно было бы хранить их в @Cacheable(“users”) или @Cacheable(“user”)? Почему в видео, в spring-tools у нас все о ecache, даже id бина ehCacheManager, а создаем мы в итоге JCacheCacheManager?? Почему не создали EhCacheCacheManager? Сорри, если вопрос глупый, но может не мне одному непонятно. (edited)
+2 replies
+
+Grigory Kislin   [15 days ago]
+1. да, так. только кэшируются по разному: в хибернайте все юзеры по id, в приложение- весь список
+> Почему мы не используем @Cacheable(“users”) для getByEmail, get, getWithMeals?
+кэшируются обычно запросы
+1 часто выполняемые
+2 редко изменяемые
+предполагается, что еда у нас часто изменяется, юзеры - редко
+
+Grigory Kislin   [15 days ago]
+3. под видео есть ссылки- мигрировали на 3.0
+до 3.0 был ehCacheCacheManager, а на 3.0+ уже используется JCacheCacheManager (edited)
+
+
+Heorhii   [Mar 19th at 6:47 PM]
+Не понимаю как починить InMemory тесты, и правда достаточно что-то поправить только в inmemory.xml чтобы все заработало?
+Понял что есть отдельный WebAppCtx который будет искать бины сервисов и репозиториев в основном контексте приложения, и соответственно делегировать им работу когда того требует контроллер, но совсем не понимаю что надо такого написать чтобы inmemory тесты работали. В InMemoryAdminRestControllerSpringTest изменил ContextConfiguration чтобы был доступ к контроллерам, но как из web.xml данные достать не понимаю, это уже не контекст спринга по идее т.к. заимпортить как остальные конфиги его нельзя.
+
+Вылетает ошибка мол контекст не тот, WebApplicationContext нужен а имеется только GenericApplicationContext, и я даже не могу понять в каком классе или строке не тот контекст т.к. ошибка указывается в кишках спринга, а не в конкретной строке приложения.
+
+Замкнутый круг какой-то, я явно в каком-то не том направлении мыслю потому что если сделать так:
+<import resource="spring-mvc.xml"/>
+то выходит что через web.xml станут видны реализации репозиториев в БД и будет переизбыток бинов, хотя такой проблемы нет, или не вижу никаких бинов, или ошибка по контексту. В голове каша. (edited)
+14 replies
+
+Bahis   [16 days ago]
+Не меняй вид контекста. Просто добавь сканирование в spring-mvc.xml директории web. Тогда он найдет контроллер.
+
+Heorhii   [16 days ago]
+Так там и так есть сканирование директории web:
+
+<context:component-scan base-package="ru.javawebinar.**.web"/>
+
+Проблема не в том что контроллеры не вижу, а в том, что такое счастье получаю.
+Pasted image at 2019-03-19, 6:59 PM 
+
+Bahis   [16 days ago]
+Не юзай WebApplicationContext и не будещь получать.
+
+Heorhii   [16 days ago]
+Всмысле не юзать? Единственное место где я нашел WebAppCont - это сервлеты, которые вообще не учавствуют в этом тестировании, и мы их потом удалим, в контроллерах вообще никаких бинов контекста не создается там просто сервис, и все. Целиком ошибка выглядит так, может это внесет больше ясности (edited)
+This file was deleted.
+
+Heorhii   [16 days ago]
+Pasted image at 2019-03-19, 7:11 PM 
+
+Bahis   [16 days ago]
+У меня  appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/inmemory.xml"); в InMemoryAdminRestControllerTest
+
+Bahis   [16 days ago]
+Если поставить web, то он начинает требовать ресурс
+
+Heorhii   [16 days ago]
+У меня все так же, не менял ничего после накатки патчей, но как-только пытаюсь тестам дать знать где находятся тестируемые бины(контроллеры) - получаю ошибку выше, и не понимаю где я должен изменить контекст. (edited)
+
+Heorhii   [16 days ago]
+Пробовал импортить <import resource="spring-mvc.xml"/> в inmemory,
+прописывать     <context:component-scan base-package="ru.javawebinar.**.web"/> в inmemory и добавлять вот так в сам тест:
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/inmemory.xml","classpath:spring/spring-mvc.xml"})
+
+каждый раз, когда тест узнает где взять контроллер, он начинает кричать на меня, что контекст у меня не такой, а где он ни такой я не понимаю
+
+Bahis   [16 days ago]
+посмотрел ВНИМАТЕЛЬНО лог
+
+Bahis   [16 days ago]
+все что я сделал - добавил в inmemory.xml
+<context:component-scan base-package="ru.javawebinar.topjava.**.web"/>
+
+Bahis   [16 days ago]
+больше ни чего не трогал!
+
+Heorhii   [16 days ago]
+Откатил все возможные изменения, сделал как ты написал - помогло.
+
+Bahis   [15 days ago]
+:+1:
+
+
+Max   [Mar 19th at 7:08 PM]
+Помогите пожалуйста разобраться с маппингом в JspMealController. Уже крыша едет, 2 дня головой об стену бьюсь, не могу понять где я туплю. Сейчас в треде распишу суть проблемы.
+63 replies
+
+Bahis   [16 days ago]
+Давай. У меня тоже 2 дня из стены только ноги торчат )
+
+Max   [16 days ago]
+Я воспользовался советом из пункта 1.3.2 и сделал абстрактный класс AbstractMealController. В него перенес весь код из MealRestController. Потом от этого абстрактного класса унаследовал MealRestController и JspMealController. В JspMealController перенес всю функциональность из MealServlet и реализовал по аналогии, ну т.е. вместо request.setAttribute в сервлете – model.addAttribute, вместо вызова методов mealController в сервлете – вызов методов супер-класса, ну и т.д. Ну в общем вот так оно у меня сейчас выглядит:
+```@Controller
+@RequestMapping("/meals")
+public class JspMealController extends AbstractMealController {
+    @GetMapping
+    public String meals(Model model) {
+        model.addAttribute("meals", super.getAll());
+        return "meals";
+    }
+    @GetMapping("/create")
+    public String create(Model model) {
+        Meal meal = new Meal(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES), "", 1000);
+        model.addAttribute("meal", meal);
+        return "mealForm";
+    }
+    // + other methods
+}```
+
+При вызове метода meals все нормально. А вот с остальными методами, у которых в GetMapping установлено какое-то значение (/create, /delete, /update и т.д.) уже проблемы. Вот, например, что выводит в лог при вызове метода create:
+```20:06:23.219 DEBUG org.springframework.core.log.LogFormatUtils.traceDebug:90 - GET "/topjava/meals/create", parameters={}
+20:06:23.220 DEBUG o.s.web.servlet.handler.AbstractHandlerMapping.getHandler:420 - Mapped to public java.lang.String ru.javawebinar.topjava.web.meal.JspMealController.create(org.springframework.ui.Model)
+20:06:23.242 DEBUG org.springframework.web.servlet.view.AbstractView.render:309 - View name 'mealForm', model {meal=Meal{id=null, dateTime=2019-03-19T20:06, description='', calories=1000}, org.springframework.validation.BindingResult.meal=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+20:06:23.242 DEBUG o.s.web.servlet.view.InternalResourceView.renderMergedOutputModel:168 - Forwarding to [/WEB-INF/jsp/mealForm.jsp]
+20:06:23.470 DEBUG org.springframework.web.servlet.FrameworkServlet.logResult:1130 - Completed 200 OK
+20:06:23.526 DEBUG org.springframework.core.log.LogFormatUtils.traceDebug:90 - GET "/topjava/meals/resources/css/style.css", parameters={}
+20:06:23.533 WARN  org.springframework.web.servlet.DispatcherServlet.noHandlerFound:1248 - No mapping for GET /topjava/meals/resources/css/style.css
+20:06:23.534 DEBUG org.springframework.web.servlet.FrameworkServlet.logResult:1130 - Completed 404 NOT_FOUND```
+
+Страница mealForm выводится, но без css стиля. Дальше, если после этого, например, перейти по ссылке "Подсчет калорий" то оно еще одно /meals в адрес добавляет:
+```http://localhost:8080/topjava/meals/meals```
+И вот что в лог пишет:
+```20:13:39.035 DEBUG org.springframework.core.log.LogFormatUtils.traceDebug:90 - GET "/topjava/meals/meals", parameters={}
+20:13:39.036 WARN  org.springframework.web.servlet.DispatcherServlet.noHandlerFound:1248 - No mapping for GET /topjava/meals/meals
+20:13:39.036 DEBUG org.springframework.web.servlet.FrameworkServlet.logResult:1130 - Completed 404 NOT_FOUND```
+
+В общем я и так и сяк пытался, убирал маппинг с класса, ставил, убирал слеши, параметры пробовал брать через HttpServletRequest, через @PathVariable, через @RequestParam. Ничего лучше не получилось, все какая-то ерунда.
+
+После патчей менял только тесты, meal контроллеры и jsp страницы, ну и в app.properties добавил остальное. Больше ничего не менял нигде. (edited)
+
+pr1zrak   [16 days ago]
+что за колбаса
+
+pr1zrak   [16 days ago]
+сделай метод
+
+pr1zrak   [16 days ago]
+@GetMapping(“/delete”)
+   public String delete(@RequestParam int id)
+
+pr1zrak   [16 days ago]
+вот так в jsp
+
+pr1zrak   [16 days ago]
+<td><a href=“delete?&id=${meal.id}“>Delete</a></td> (edited)
+
+pr1zrak   [16 days ago]
+и будет тебе счастье )
+
+pr1zrak   [16 days ago]
+ну точнее
+
+pr1zrak   [16 days ago]
+либо второй вариант
+
+pr1zrak   [16 days ago]
+вот второй вариант
+
+pr1zrak   [16 days ago]
+<td><a href=“update/${meal.id}“>Update</a></td>
+
+pr1zrak   [16 days ago]
+в jsp
+
+pr1zrak   [16 days ago]
+в контроллере ловишь
+   @GetMapping(“/update/{id}“)
+   public String update(@PathVariable int id)
+
+pr1zrak   [16 days ago]
+айди передается и там и там, корректно, может кто подскажет, какой из этих вариантов предпочтительнее
+
+pr1zrak   [16 days ago]
+в документации показан вариант2
+
+Bahis   [16 days ago]
+я в другом месте застрял... для mealForm свой контроллер нужен?
+
+pr1zrak   [16 days ago]
+нет
+
+Bahis   [16 days ago]
+а как ловить? у меня ругается, что не может поймать, хотя проверял по путям - совпадает
+
+pr1zrak   [16 days ago]
+я так понимаю нам нужно передать экшн в форме
+
+Bahis   [16 days ago]
+путь получается http://localhost:8080/meals/save
+
+pr1zrak   [16 days ago]
+в зависимости от того создать или обновить, он будет разный
+
+Bahis   [16 days ago]
+а в jsp <form method="post" action="/meals/save">
+
+pr1zrak   [16 days ago]
+а просто /save
+
+pr1zrak   [16 days ago]
+если
+
+Bahis   [16 days ago]
+тогда путь будет http://localhost:8080/save
+
+pr1zrak   [16 days ago]
+ага
+
+Bahis   [16 days ago]
+но я то его ловлю в /meals/save
+
+pr1zrak   [16 days ago]
+по этому пути поймай save
+
+Bahis   [16 days ago]
+если я захочу потом поймать /user/save
+
+Bahis   [16 days ago]
+менять пути не вариант
+
+Bahis   [16 days ago]
+как ты ловишь?
+
+Bahis   [16 days ago]
+The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+
+Bahis   [16 days ago]
+путь совпадает с маппингом в сервлете.... что ему еще надо?
+
+pr1zrak   [16 days ago]
+так
+
+pr1zrak   [16 days ago]
+у меня ловится
+
+pr1zrak   [16 days ago]
+@PostMapping(“/update/meals”)
+   public String postUpdate()
+
+pr1zrak   [16 days ago]
+<form method=“post” action=“meals/${param.action}“>
+
+pr1zrak   [16 days ago]
+в браузере http://localhost:8080/topjava/update/meals/
+
+pr1zrak   [16 days ago]
+сделал, что нужно
+
+Bahis   [16 days ago]
+как-то странно...
+
+pr1zrak   [16 days ago]
+и потом         return “redirect:/meals”;
+
+pr1zrak   [16 days ago]
+и все работает
+
+Bahis   [16 days ago]
+а как ты в методе собираешь данные из формы?
+
+Dima   [16 days ago]
+в mealForm.jsp в форме можно сделать так
+```<form method="post" action="meals">```
+, потом в JspMealController, который у тебя в самом начале
+```@RequestMapping("/meals")```
+сделай просто метод
+```@PostMapping  public String someMethod(HttpServletRequest request) { здесь создаешь еду ; return "redirect:/meals";}```
+
+Bahis   [16 days ago]
+Супер. Тут все понятно. Непонятно только почему с методом не маппится
+
+Bahis   [16 days ago]
+Может нужно использовать стандартные ключи: update, create... а у меня save
+
+Dima   [16 days ago]
+ну делай
+```<form method="post" action="meals/save">```только потом в ```@PostMapping("/save")```
+в JspMealController (edited)
+
+Max   [16 days ago]
+У меня например если над классом стоит
+```@RequestMapping("/meals")```
+то по адресу http://localhost:8080/topjava/meals/create
+выводит форму добавления, но без css стиля.
+
+Если @RequestMapping("/meals") с класса убрать, то
+
+Если в методе create
+```@GetMapping("/create")```
+по адресу http://localhost:8080/topjava/create выводит страницу как положено, со стилем
+Если сделать
+```@GetMapping("/meals/create")```
+то по адресу http://localhost:8080/topjava/meals/create
+уже опять WARN и выводит страницу без стиля
+
+Как это работает??
+
+Bahis   [16 days ago]
+@Dima и не работает
+
+Dima   [16 days ago]
+попробуй в форме
+```action="${pageContext.request.contextPath}/meals/save"```
+
+Bahis   [16 days ago]
+сейчас
+
+Bahis   [16 days ago]
+а так работает...
+
+Bahis   [16 days ago]
+интересно почему не работает без полного пути...
+
+Max   [16 days ago]
+Я тут подумал, а может моя проблема (которую я вверху описал, до того, как вы мне тут все зафлудили:slightly_smiling_face:) быть связана с кэшем, может я там где-то накосячил. Просто вижу в логах мне при запуске приложения еще вот такое предупреждение выдает:
+
+```21:02:43.398 WARN  o.h.cache.jcache.internal.JCacheRegionFactory.createCache:108 - HHH90001006: Missing cache[ru.javawebinar.topjava.model.User.roles] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+21:02:43.413 INFO  org.ehcache.core.EhcacheManager.createCache:307 - Cache 'ru.javawebinar.topjava.model.User.roles' created in EhcacheManager.
+21:02:43.421 WARN  o.h.cache.jcache.internal.JCacheRegionFactory.createCache:108 - HHH90001006: Missing cache[ru.javawebinar.topjava.model.User] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.```
+
+tolik1106   [15 days ago]
+Эти Warn не мешают сборке и работе проекта. Я их убрал добавив в spring-db.xml строку <entry key="#{T(org.hibernate.cache.jcache.ConfigSettings).MISSING_CACHE_STRATEGY}" value="create"/> в мапу jpaPropertyMap
+
+Bahis   [15 days ago]
+@Max у меня такая же проблема была.
+
+Bahis   [15 days ago]
+Заменил во всех jsp ссылки. Добавил явно. ....="${pageContext.request.contextPath}/meals/save" и т.д
+
+Igor   [15 days ago]
+@Bahis зачем во всех jsp? Была же ссылка в уроке(подсказка 3): https://stackoverflow.com/questions/4764405/how-to-use-relative-paths-without-including-the-context-root-name (edited)
+
+Grigory Kislin   [15 days ago]
+проблемы с путями видны в браузере во вкладке Network
+если / - то путь абсолютный считается
+внимательнее в уроке смотрите ссылки про пути
+по поводу warn кэша- почитайте и поймите, о чем это (edited)
+
+Max   [15 days ago]
+Да уж, 2 дня адских мучений и полнейшего непонимания, что вообще происходит, а нужно то было всего то на всего добавить одну единственную строчку в headTag. Ну когда ж я уже научусь полностью вникать в то, что написано в подсказках :sweat_smile:
+
+makushatnik   [14 days ago]
+1. Стили сами не подключатся) Я так понял, что 1.3.3 ДЗ - и есть решение проблемы со стилями
+2. Для работы с формой всегда нужно 2 запроса:
+ а) на отрисовку формы (getForm),
+ б) на обработку формы (create | sendForm | saveMeal)
+Если нет понимания п.2, то AbstractMealController не поможет:)
+Есть еще мелкие ньюансы - например, что вы делаете если бд не доступна, либо запрос упал, либо еда в бд уже не существует в момент обн-я? Или просто "redirect:/meals" ?
+
+makushatnik   [14 days ago]
+Да. Вы на форме вводите дату (или другой чел), а потом затираете ее в контроллере текущим временем?) К тому же сущность нигде не сохраняете) Тогда можете переименовать метод create в get.
+
+
+roma [12:32 PM]
+Pasted image at 2019-03-20, 1:32 PM 
+
+
+Grigory Kislin [12:36 PM]
+ага. а в группе https://vk.com/javawebinar целая статья к картинке
+
+
+makushatnik   [Mar 21st at 12:33 AM]
+Сделал основное задание, кроме jpaUtil) С ним пока не понятно.
+1 reply
+
+Story   [14 days ago]
+выше же есть обсуждение как делать
+
+
+Igor'   [Mar 21st at 5:24 AM]
+Не могу не поделиться полезнейшей статьёй по поводу аннотаций в Spring MVC: https://springframework.guru/spring-requestmapping-annotation/ @Grigory Kislin, думаю можно такое в урок добавить.
+Spring Framework Guru
+Using the Spring @RequestMapping Annotation - Spring Framework Guru
+In this post, I show you how to use the Spring MVC @RequestMapping annotation to configure how Spring MVC maps web requests to controller methods.
+Sep 6th, 2017
+1 reply
+
+Grigory Kislin   [14 days ago]
+У нас в ДЗ: Можно по аналогии с RootController#setUser принимать HttpServletRequest request (аннотации на параметры и адаптеры для LocalDate/Time мы введем позже)
+те мы их позже будем вводить...
+
+
+Igor' [5:27 AM]
+Полезное расширение для Firefox, позволяющее менять запрашиваемый язык прямо в браузере: https://addons.mozilla.org/ru/firefox/addon/quick-accept-language-switc/
+addons.mozilla.org
+Quick Accept-Language Switcher – Загрузите это расширение для :fox_face: Firefox (ru)
+Загрузить Quick Accept-Language Switcher для Firefox. Provides a quick way of changing the HTTP Accept-Language header so you can view and test websites with a different locale.
+
+
+Dmitry   [Mar 21st at 3:44 PM]
+А с ошибкой `HTTP Status 500 – Internal Server Error` надо/имеет смысл что-то делать (сообщение о неуникальной дате выдавать или ещё чего вместо вываливания лога)?
+>>>org.postgresql.util.PSQLException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "meals_unique_user_datetime_idx"
+ Подробности: Ключ "(user_id, date_time)=(100000, 2019-03-20 16:10:00)" уже существует.
+>
+3 replies
+
+makushatnik   [14 days ago]
+Дальше по курсу будет. Торопитесь сильно:)
+
+makushatnik   [14 days ago]
+Обработка Exception'ов называется. А на той стороне JQuery будет уже прикручен, с компонентами типа MessageBox в С++.
+Например такой:
+https://getbootstrap.com/docs/4.3/components/toasts/
+getbootstrap.com
+Toasts
+Push notifications to your visitors with a toast, a lightweight and easily customizable alert message.
+
+Grigory Kislin   [14 days ago]
+обработку эксепшенов будем делать на последнем уроке
+
+
+Heorhii   [Mar 21st at 6:43 PM]
+Вставил CharacterEncodingFilter в web.xml и в настройках проекта везде так же стоит UTF-8 отчего же такая вот красота на страничках?
+Pasted image at 2019-03-21, 6:43 PM 
+11 replies
+
+Heorhii   [14 days ago]
+В самих jsp так же имеется строчка с установкой кодировки:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+Story   [14 days ago]
+app_ru.properties тоже в utf-8 ?
+
+Heorhii   [14 days ago]
+Хм, у меня такого файла даже нет, посмотрел, в последнем патче он добавляется, патч накатан, в последующих изменениях я файлы никакие не удалял, а нет таких properties, буду разбираться. Спасибо
+
+Max   [14 days ago]
+Возможно не нашел просто, я тоже не сразу сообразил где лежат эти проперти, искал в ресурсах или в webapp. А они в корне проекта в директории *config* (edited)
+
+Heorhii   [14 days ago]
+Хм, да, там и лежат)
+Index: src/main/resources/messages/app_ru.properties
+вот эта строчка с толку сбила) раньше там лежали видимо)
+
+Heorhii   [14 days ago]
+Default encoding for prop. files: пришлось поставить windows-1251, если ставить как в видео то кракозябры только уже другие.
+Вроде как подключил в index.jsp:
+<fmt:setBundle basename="messages.app"/>
+Оно не находило папку конфиг, искало в ресурсах. запихнул ему в ресурсы ту самую папаку messages. По итогу - те же грабли. Кракозябры всюду.
+
+Heorhii   [14 days ago]
+Pasted image at 2019-03-21, 7:45 PM 
+
+Story   [13 days ago]
+не надо в ресурсы ничего перемещать
+пересмотри последнее видео урока
+сетбандл там удаляют
+спринг сам все делает (edited)
+
+makushatnik   [13 days ago]
+В самих файлах может быть нужно поменять. Только не все редакторы показывают кодировку файла и дают поменять.
+
+Heorhii   [13 days ago]
+Сделал ctrl+c, убрал галочку, поменял кодировку обратно на utf-8, выделалил все ctrl+v.
+Помогло, но выглядит как костыль. И еще не понятно зачем в 6-ом видео учат ставить эту галку если в 10 её надо убрать.. в чем смысл то ?
+
+Story   [13 days ago]
+Так нам показали 2 способа как прикрутить локализацию,  в одном нужна была галочка, в другом нет
+
+
+Bahis   [Mar 21st at 8:32 PM]
+Запрос
+List<User> users = jdbcTemplate.query("SELECT *, (SELECT role FROM user_roles WHERE user_id = id) FROM users WHERE id=?", ROW_MAPPER, id);
+выдает несколько строк. Как ему слепить роли в одного пользователя?
+8 replies
+
+Story   [14 days ago]
+используй ResultSetExtractor<List<User>>
+
+Story   [14 days ago]
+вместо мэпера
+
+Bahis   [14 days ago]
+Спасибо. Осталось понять что это. Ушел гуглить.
+Кстати, так тоже 2 строки возвращает.
+List<User> users = jdbcTemplate.query("SELECT users.*, user_roles.role FROM users INNER JOIN user_roles ON (users.id = user_roles.user_id) WHERE id=?", ROW_MAPPER, id);
+
+tolik1106   [14 days ago]
+Я про ResultSetExtractor нашел в Spring 4 для профессионалов
+
+tolik1106   [13 days ago]
+PDF 
+Shefer_k_kho_k_kharrop_r_SPRING_4_dlya_professionalov.pdf
+110 MB PDF — Click to open original
+
+Bahis   [13 days ago]
+Спасибо. Вроде оно.
+
+Dima   [13 days ago]
+можно просто двумя запросами обойтись, без join
+
+makushatnik   [13 days ago]
+Да, пока делал обычное ДЗ, тоже пришлось смотреть эту книгу.
+
+
+timdzha   [Mar 21st at 9:41 PM]
+Кто-нибудь сталкивался при maven-package [INFO] --- maven-war-plugin:2.2:war (default-war) @ topjava ---
+WARNING: An illegal reflective access operation has occurred
+4 replies
+
+timdzha   [13 days ago]
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ topjava ---
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.thoughtworks.xstream.core.util.Fields (file:/E:/repositories/maven/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar) to field java.util.Properties.defaults
+WARNING: Please consider reporting this to the maintainers of com.thoughtworks.xstream.core.util.Fields
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+timdzha   [13 days ago]
+Нашел решение https://ru.stackoverflow.com/questions/806599/%D0%9E%D1%88%D0%B8%D0%B1%D0%BA%D0%B0-%D0%BF%D1%80%D0%B8-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-maven
+Stack Overflow на русском
+Ошибка при сборке maven
+Подскажите как убрать это предупреждение и как повлияет это на проект? WARNING: An illegal reflective access operation has occurred WARNING: Illegal reflective access by com.thoughtworks.xstream.c...
+
+timdzha   [13 days ago]
+Но у нас в pom.xml нет dependencies с maven-war-plugin
+
+timdzha   [13 days ago]
+добавил - предупреждения ушли
+
+
+dancelikefish   [Mar 22nd at 1:19 AM]
+Ребят может вопрос глупый, но чет не пойму, подскажите кто понял)
+"2.2 Добавить еще одну роль к юзеру Admin (будет 2 роли: ROLE_USER, ROLE_ADMIN)"
+У нас же и так уже 2 роли: ROLE_USER, ROLE_ADMIN
+2 replies
+
+Ivan   [13 days ago]
+У админа изначально есть только ROLE_ADMIN, нужно для него ещё добавить роль юзера
+
+dancelikefish   [13 days ago]
+@Ivan спасибо
+
+
+Dmitry   [Mar 22nd at 11:16 AM]
+Кто-нибудь победил `getWithMeals` в `DataJpaUserServiceTest` для админа (две роли)? Вытягивает 2 строки из базы, собирает один объект, но список еды - дублируется. Не соображу, в какую сторону копать - то ли делать список еды уникальным (типа Set), то ли какой-то аналог `getSingleResult()` из JPA существует? Намекните, пожалуйста, что искать.
+8 replies
+
+Story   [13 days ago]
+у меня не дублировалось. а как ты достаешь еду ?
+
+makushatnik   [13 days ago]
+У getSingleResult есть аналог - DataAccessUtils.singleResult
+
+makushatnik   [13 days ago]
+Запросы смотрел? Проверял их в SQL?
+
+Ivan   [12 days ago]
+Если убрать @EntityGraph и добавить в запрос LEFT JOIN FETCH u.meals, то тест проходит
+
+Dmitry   [12 days ago]
+Достаю - как в оригинале, ничего не менялось
+```@EntityGraph(attributePaths = {"meals", "roles"})
+    @Query("SELECT u FROM User u WHERE u.id=?1")
+    User getWithMeals(int id);```
+
+`DataAccessUtils.singleResult` не подходит, там же не коллекция возвращается.
+
+Запрос смотрел, если я правильно перевёл его из сгенерированного hibernate, то там получается такое:
+```select u, m, ur
+from users u left outer join meals m on u.id=m.user_id
+               left outer join user_roles ur on u.id = ur.user_id```
+и для админа (с двумя ролями) он выдаёт 4 строки на выходе (т.е. дублируется).
+
+Dmitry   [12 days ago]
+@Ivan, спасибо, работает. Правда - теперь 2 запроса делаются. Хотя, для JDBC подобный подход был указан, как один из возможных.
+
+makushatnik   [11 days ago]
+У меня дублирований нет)
+
+Dmitry   [10 days ago]
+UPD `DISTINCT` для select в случае с DataJpa не помогает.
+
+
+pr1zrak   [Mar 23rd at 5:36 AM]
+Подскажите пожалуйста, что то уже подбешивает^
+Cверху класса вынес JspMealController вынес @RequestMapping(“/meals”)
+ловлю filter :
+   @PostMapping(“/filter”)
+   public String filter(Model model, HttpServletRequest request)
+   {
+…
+return “meals”;
+}
+в meals.jsp у меня
+   <h3>Meals</h3>
+   <form method=“post” action=“meals/filter”>
+Жму кнопку filter первый раз, получаю http://localhost:8080/topjava/meals/filter
+Жму кнопку filter второй раз, получаю
+http://localhost:8080/topjava/meals/meals/filter
+Ссылки и подсказки из дз смотрел, видимо не доходит :disappointed:
+15 replies
+
+Dmitry   [12 days ago]
+А model в filter зачем? У меня так же сделано (но без передачи model), работает нормально. Ты в `<head>` устанавливал `<base href=...`? Без `<base`, помню, были проблемы как раз с путями.
+
+pr1zrak   [12 days ago]
+я для css  прописывал
+
+pr1zrak   [12 days ago]
+<link rel=“stylesheet” href=“${pageContext.request.contextPath}/resources/css/style.css”>
+
+pr1zrak   [12 days ago]
+а model в фильтре чтобы засунуть в нее отфильтрованные данные
+
+pr1zrak   [12 days ago]
+final List<Meal> mealsDateFiltered = service.getBetweenDates(startDate, endDate, userId);
+       model.addAttribute(“meals”,
+               MealsUtil.getFilteredWithExcess(mealsDateFiltered, SecurityUtil.authUserCaloriesPerDay(), startTime, endTime));
+
+Dmitry   [12 days ago]
+Так попробуй с `<base`, в подсказках ссылка же есть. Мне помогло.
+
+Dmitry   [12 days ago]
+Подсказки, п. 3, ссылка на SO
+
+pr1zrak   [12 days ago]
+в headTag.jsp вставил
+<head>
+   <meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8">
+   <title><spring:message code=“app.title”/></title>
+   <link rel=“stylesheet” href=“${pageContext.request.contextPath}/resources/css/style.css”>
+   <c:set var=“url”>${pageContext.request.requestURL}</c:set>
+   <base href=“${fn:substring(url, 0, fn:length(url) - fn:length(pageContext.request.requestURI))}${pageContext.request.contextPath}/” />
+   <script>var base = document.getElementsByTagName(“base”)[0].href;</script>
+</head>
+
+pr1zrak   [12 days ago]
+так все работает
+
+pr1zrak   [12 days ago]
+правда не особо понял эту штуку
+
+pr1zrak   [12 days ago]
+других альтернатив, чтобы нормально работало - нет?
+
+Dmitry   [12 days ago]
+Да всё-то нет смысла пихать, `<base` ссылки на `stylesheet` достаточно. Про `<base` легко нагуглить: http://htmlbook.ru/html/base
+А что здесь не нормально?
+
+Dmitry   [12 days ago]
+Вот так нормально работает:
+```<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><spring:message code="app.title"/></title>
+    <base href="${fn:substring(url, 0, fn:length(url) - fn:length(pageContext.request.requestURI))}${pageContext.request.contextPath}/" />
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>```
+(edited)
+
+makushatnik   [11 days ago]
+@pr1zrak Пиши в личку, завтра выберу время и тебе помогу.
+
+makushatnik   [11 days ago]
+А вообще там проблема в том, что нужно в jsp'хах везде contextPath писать + правильно адресацию в контроллере проставить.
+
+
+Bahis   [Mar 23rd at 8:00 AM]
+Не получается использовать тернарный оператор с локализацией. Если превратить тег в строку, то так и выводит на экран <spring:message code="mealForm.createMeal"/></h2> :slightly_smiling_face:
+Если оставить тегом, то ругается идея. Не дает использовать теги внутри <% %> или ${ }
+4 replies
+
+Story   [12 days ago]
+Ох я тоже с этим намучалась. С третьего ревью сделала красиво:))  Тернарный используй после code="
+И ещё подсказка, внутри двойных, можно использовать одинарные кавычки
+
+Dmitry   [12 days ago]
+А можно экранировать `\"` (если дело в этом, конечно).
+
+Bahis   [12 days ago]
+Спасибо!
+
+makushatnik   [11 days ago]
+Большой опыт уже с этим) Могу во всех стилях писать (jsp). Так что, что конкретно не получается - пиши, помогу.
+
+
+roma   [Mar 23rd at 8:05 AM]
+Народ кто-нибудь может кинуть содеражаниие классов AbstractMealServiceTest на момент после установки всех патчей? (edited)
+3 replies
+
+Dmitry   [12 days ago]
+Переключиться на master и посмотреть на коммит после соотв. патча - не помогает что ли?
+
+pr1zrak   [12 days ago]
+пойти в гитхаб topjava и скачать оттуда )
+
+Grigory Kislin   [11 days ago]
+@roma кпопка raw сверху:
+https://raw.githubusercontent.com/JavaWebinar/topjava/master/src/test/java/ru/javawebinar/topjava/service/AbstractMealServiceTest.java (edite
+
+
+Aleksandr [2:42 PM]
+Может кто подсказать почему томкат не запускается
+
+
+Aleksandr   [Mar 23rd at 2:42 PM]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/spring-db.xml]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+4 replies
+
+Grigory Kislin   [11 days ago]
+смотри верх самого последнего в портянке эксепшена
+
+Aleksandr   [11 days ago]
+Это и есть верх последнего
+
+Grigory Kislin   [10 days ago]
+тогда дай весть последний эксепшен
+
+Aleksandr   [10 days ago]
+это все из-за того что томкат 7 был. с 9-м все нормально.
+
+
+makushatnik   [Mar 23rd at 9:53 PM]
+Похоже, ResultSetExtractor не обязательно писать, можно просто дописать distinct.
+4 replies
+
+Story   [11 days ago]
+А роли как достанешь?
+
+tolik1106   [11 days ago]
+RowMapper вроде бы можно использовать только в отношении один к одному.
+
+makushatnik   [11 days ago]
+@tolik1106 так я ж ни слова не сказал про RowMapper.
+
+makushatnik   [11 days ago]
+@Story Да, не сработало. А в Jpa реализации distinct достаточно. (edited)
+
+
+Max   [Mar 24th at 3:58 PM]
+Кто осилил Optional помогите пожалуйста разобраться Jdbc тестами
+12 replies
+
+Max   [11 days ago]
+Не проходит тест метода create:
+```Expecting:
+ <[User{id=100001, email=admin@gmail.com, name=Admin, enabled=true, roles=[ROLE_USER, ROLE_ADMIN], caloriesPerDay=2000},
+    User{id=100000, email=user@yandex.ru, name=User, enabled=true, roles=[ROLE_USER], caloriesPerDay=2000},
+    User{id=100010, email=new@gmail.com, name=New, enabled=false, roles=[ROLE_USER], caloriesPerDay=1555}]>
+to be equal to:
+ <[User{id=100001, email=admin@gmail.com, name=Admin, enabled=true, roles=[ROLE_USER, ROLE_ADMIN], caloriesPerDay=2000},
+    User{id=100010, email=new@gmail.com, name=New, enabled=false, roles=[ROLE_USER], caloriesPerDay=1555},
+    User{id=100000, email=user@yandex.ru, name=User, enabled=true, roles=[ROLE_USER], caloriesPerDay=2000}]>```
+Судя по всему, проблема тут в методе getAll, который используется в тесте create. И, если я все правильно понимаю, дело в том, что не работает сортировка. Вот метод:
+```public List<User> getAll() {
+        return jdbcTemplate.query("SELECT * FROM users u LEFT JOIN user_roles ur ON u.id=ur.user_id ORDER BY name, email",
+                new ResultSetExtractor<ArrayList<User>>() {
+            ...
+        });
+    }```
+Вот собственно и вопрос. Если я все верно понял и проблема в сортировке, то как ее решить и почему order by не работает. А если это не при чем, то в чем еще может быть проблема.
+
+tolik1106   [11 days ago]
+Я сортировал в ResultSetExtractor
+
+Max   [11 days ago]
+@tolik1106 мне вот как раз спустя 10 минут после написания вопроса и пришла в голову мысль, что можно ж в экстракторе отсортировать :sweat_smile:.
+
+Забавно. Я 2 дня головой об стену бился из-за этой проблемы, сотни раз всматривался в эти строчки, гуглил, искал, пробовал что-то, ничего не получалось. Решил в итоге признать поражение и пойти спрашивать. И вот как только я начала писать вопрос до меня вдруг дошло, что метод в порядке, только сортировка не работает. А спустя еще несколько минут уже нашел решение:laughing:.
+
+С ума сойти, как так постоянно происходит. Днями мучаешься над какой-то проблемой, ни как не можешь ее решить. А стоит только открыть рот, чтобы задать вопрос, он сам в голову приходит...
+
+ILYA   [11 days ago]
+Странно  я в экстракторе ничего не сортировал, у меня все работает
+
+ILYA   [11 days ago]
+@Max а ты в extractData юзеров в Мапу кладёшь?
+
+tolik1106   [11 days ago]
+а ты в TreeMap с ключем name?
+
+tolik1106   [11 days ago]
+или с компаратором (name then email)?
+
+Max   [11 days ago]
+Ну я вот сейчас сделал в обычную мапу а потом values сортирую с компаратором
+
+ILYA   [11 days ago]
+@Max вот поэтому и неотсортировано было. Ты из бд достаешь юзеров отсортированных. Кладёшь в мапу, а когда получаешь values () то данные уже неотсортированые.
+
+ILYA   [11 days ago]
+@tolik1106 я в обычной list кладу без мапы. И не надо сортировать в extractData, так как порядок сохраняется
+
+Max   [11 days ago]
+@ILYA Действительно, спасибо, я постоянно забываю что мапе порядок элементов не зависит от очередности их вставки
+
+Grigory Kislin   [10 days ago]
+формулировка проблемы сильно помогает. еще есть метод резинового утенка- ему рассказать проблему
+
+
+This message was deleted.
+2 replies
+
+Max   [9 days ago]
+Попробуй фильтр добавить в web.xml
+Первая подсказка к HW06
+
+Grigory Kislin   [9 days ago]
+к 6му уроку уже можно запомнить...
+
+
+Heorhii   [Mar 26th at 8:58 PM]
+Из-за того что сигнатура метода одинаковая в jspMealController и AbstractMealController компилятор ругается что возвращаемый тип String вместо void, есть какой-то изящный выход из этой ситуации или просто переименовать метод?
+Pasted image at 2019-03-26, 8:58 PM 
+1 reply
+
+ILYA   [9 days ago]
+Ну переименуй просто , чтобы не переопределялся метод. У меня например remove
+
+
+German_lbt   [Mar 26th at 10:38 PM]
+с кракозяблами ничего не выходит... как победить уже и не знаю...
+Pasted image at 2019-03-26, 11:38 PM 
+7 replies
+
+German_lbt   [8 days ago]
+в базе все ровно...в jsp все ок...фильтр поставил...кодирка файлов utf-8...
+
+German_lbt   [8 days ago]
+в topjava.log все пучком...а в окне - лажа
+
+ILYA   [8 days ago]
+Подсказки смотрел к дз?
+
+German_lbt   [8 days ago]
+Катя сказала что норм...неужели не лечится...понятное дело что не архи-важно, но тем не менее...
+
+German_lbt   [8 days ago]
+Победил!!! в lockback.xml в appender name="console" нужно прибить charset... все...логи и консоль с кириллицей
+
+Grigory Kislin   [8 days ago]
+1. а у нас резве не стояло UTF-8 ?
+2. проблема в idea логах обыно так лечится: https://github.com/JavaOPs/topjava/wiki/IDEA#Выставить-кодировку-utf-8-в-консоли
+
+German_lbt   [8 days ago]
+-Dfile.encoding=UTF-8 - стоит...в том то и дело...все лекарства перебрал... пока в lockback не убрал...видимо дважды энкодится...
+
+
+pr1zrak   [Mar 27th at 11:08 AM]
+Всем привет! Кто может подсказать
+В general ветке написали про собеседование, типа вопрос задали про jdbcTemplate с опциональными параметрами, я нагуглил решение, но что то оно у меня у самого не запускается
+6 replies
+
+pr1zrak   [8 days ago]
+Pasted image at 2019-03-27, 4:08 PM 
+
+pr1zrak   [8 days ago]
+вот так выглядит
+
+pr1zrak   [8 days ago]
+просто раз на собеседовании спрашивают, неплохо было бы разобрать :slightly_smiling_face:
+
+makushatnik   [8 days ago]
+@pr1zrak Вопрос жутко специфический. На другом собес-ии могут спросить, сколько режимов команды Explain в MongoDB, или папку для деплоя в Wildfly.. (Ответ - всего знать невозможно:) Я бы сказал - у меня есть компилятор, доки, сорцы, я могу быстро посмотреть и ответить, по памяти не помню, да и не нужно.
+
+makushatnik   [8 days ago]
+Кстати, из твоей постановки вопроса (или их) не понятно, имеется ввиду jdbcTemplate.query с его пар-ми, либо пар-ры констр-ра jdbcTemplate? Либо это пар-ры каких-то аннотаций для jdbcTemplate?
+
+Grigory Kislin   [7 days ago]
+вопрос не читал, но возможно это про метод, у которого опциональные параметры после матчера идут
+
+
+makushatnik   [Mar 27th at 8:02 PM]
+Что-то у меня css перестал подгружаться. Может его в WEB-INF перенести? в Томкате он находится не в resources, а просто в css/
+1 reply
+
+Grigory Kislin   [7 days ago]
+1. Ctrl+F5 часто помогает
+2.  делай как в topjava
