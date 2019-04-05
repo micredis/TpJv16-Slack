@@ -1,0 +1,479 @@
+Grigory Kislin [12:42 AM]
+joined #hw7.
+
+Grigory Kislin [12:42 AM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson07.md
+
+Grigory Kislin [12:42 AM]
+Добро пожаловать на 7е занятие: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson07.md
+Успехов в изучении (edited) 
+
+Roman [12:45 AM]
+joined #hw7 along with 18 others.
+
+
+ILYA   [Mar 28th at 3:36 PM]
+А зачем нам в тестах юзера service.create(new User(newUser))?
+Это ж мы 2 раза юзера создаём
+2 replies
+
+Oleg   [8 days ago]
+Рискну предположить что не два раза одного и того же юзера а двух одинаковых.
+
+Grigory Kislin   [8 days ago]
+вообще это редкий случай- человек в реализации jdbc так newUser у себя модифицировал, что реализация неверная, а тесты проходили
+
+
+ILYA   [Mar 28th at 3:52 PM]
+И ещё, что лучше ResultSetExtractor или эта реализация?
+Ведь в ResultSetExtractor мы все одним запросом достаем и роли и юзеры, а здесь 2 запроса.
+2 replies
+
+Grigory Kislin   [8 days ago]
+ну, если у нас 1000 узеров и у каждого будет 10 ролей, то данные каждого юзера 10 раз задублирубтся в результах. что лучше- опять нет такого. все нужно соотносить с данными, которыми работаешь
+
+Grigory Kislin   [8 days ago]
+2 запроса в базу (если не нагруженные)- это ерунда
+
+
+Artem   [Mar 31st at 2:04 PM]
+Почему не отражается JSON с юзерами по ссылке http://localhost:8080/topjava/rest/admin/users ? Никто не сталкивался? 404. При этом все тесты проходит. Также с meals. Делаю тесты и они проходятся, но по ссылке http://localhost:8080/topjava/rest/profile/meals не отражается ничего... Туплю чего-то... (edited)
+8 replies
+
+Oleg   [5 days ago]
+У меня еда отображается по ссылке http://localhost:8080/topjava/rest/meals
+
+Artem   [5 days ago]
+404 у меня по этой ссылке (edited)
+
+makushatnik   [5 days ago]
+Метод реализовать и нужно) Как там говорят водители - прокладку нужно поменять между рулем и педалями:)
+
+makushatnik   [5 days ago]
+Кроме того, profile имеет отношение к user'ам, но никак не к еде. Хотя вам никто и не запрещает настроить такой адрес в своем контроллере. Ни и 1ю ссылку подтверждаю, что она работает) даже в браузере) т.к. вчекинено нормально.
+
+Grigory Kislin   [5 days ago]
+@Artem
+http://localhost:8080/topjava/rest/profile/meals -
+это HW7 п. 2
+http://localhost:8080/topjava/rest/admin/users-
+после 7го урока работает
+можешь проект вычекать в стороне и проверить
+проверь еще, что деплоишься с appContext topjava (edited)
+
+Artem   [3 days ago]
+<!doctype html><html lang=“en”><head><title>HTTP Status 404 – Not Found</title><style type=“text/css”>h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class=“line” /><p><b>Type</b> Status Report</p><p><b>Message</b> Not found</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class=“line” /><h3>Apache Tomcat/9.0.13</h3></body></html>
+
+Artem   [3 days ago]
+продолжаются проблемы
+
+Artem   [3 days ago]
+HW7 сделал работают тесты
+
+
+Heorhii   [Mar 31st at 2:24 PM]
+Накатил в главную ветку все патчи с ДЗ, запускаю, страница /meals открывается, но при попытке поюзать функционал delete/update/create падает по 405, погуглил, все пишут что это не соответствие типа запроса GET/POST на странице(jsp) и в контроллере.. но нет никакого не соответствия, проверил и jsp и контроллеры, гипотетически должно работать, help! (edited)
+Pasted image at 2019-03-31, 2:24 PM 
+5 replies
+
+Heorhii   [5 days ago]
+Pasted image at 2019-03-31, 2:26 PM 
+
+Heorhii   [5 days ago]
+Переподгрузил импорты, пересобрал проект в Maven-е и отпустило.
+Но такие штуки пугают, когда тебе предъявляют ошибку которой нет, и не понимаешь в чем проблема. Словно результат работы программы -1, и короче сам пойми что это значит)
+
+makushatnik   [5 days ago]
+Ну так у тебя там POST наверняка) Странно, что ты пытаешься сделать Get на этот адрес. И что update у тебя по GET, а не PUT.
+
+Heorhii   [5 days ago]
+В том и соль что все что по ссылкам идет это запрос типа GET и в контроллере GET, то что в формах по дефолту проде POST. Да и после накатки патчей ничего я там не менял, потому так и удивился.
+
+Grigory Kislin   [4 days ago]
+обычно clean помогает проекта и убить все java процессы (edited)
+
+
+Bahis   [Mar 31st at 7:27 PM]
+Не понял как оттестировать style.css (пункт 1.2)... Подскажите, что требуется, пожалуйста.
+6 replies
+
+Bahis   [5 days ago]
+или на самом деле проверить ТОЛЬКО status и ContentType?
+
+Story   [5 days ago]
+думаю да
+
+Bahis   [5 days ago]
+а ContentType какой будет?
+
+Bahis   [5 days ago]
+TEXT_HTML не подходит...
+
+Bahis   [5 days ago]
+разобрался - в кавычки просто без констант
+
+Story   [5 days ago]
+я проверяю на text/css
+
+
+makushatnik   [Mar 31st at 11:06 PM]
+Перерыл много чего, пока не понял, что JUnit 5 на Idea 17.2 не работает)
+1 reply
+
+Grigory Kislin   [4 days ago]
+если что-то в idea не работает первым делом запускаешь без нее
+
+
+makushatnik   [Apr 1st at 12:33 AM]
+Кто-нибудь нашел, как конвертор подключить? Просто бин добавить в mvc:message-converters - мало.
+2 replies
+
+Igor   [4 days ago]
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-conversion
+
+makushatnik   [4 days ago]
+Да, что то такое я видел. И подумал - неужто чрз этот сервис надо подключать.. Что может быть способ проще. Ладно, попробуем так.
+
+
+IgorPetrov   [Apr 1st at 10:35 AM]
+@Grigory Kislin У меня вылетает ошибка Вызвано: java.lang.IllegalArgumentException: Не удалось разрешить заполнитель «jdbc.initLocation» в значении «classpath: db / $ {jdbc.initLocation}» при запуске "class RootControllerTest".  В spring-mvc.xml  Не могу понять ! советов приемлимых не нашел. (edited)
+8 replies
+
+Grigory Kislin   [4 days ago]
+для этого проперти должен попадать один из context:property-placeholder
+а для этого должен быть один из профилей hsqldb/postgres
+у тебя он активируется в тестах? (edited)
+
+IgorPetrov   [4 days ago]
+@Grigory Kislin Да это  я понимаю. Я не пойму как проверить активируется или нет? Профили вроде на месте в папке resources/db. При запуске тестов Ошибка недопустимое определение компонента Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'org.springframework.jdbc.datasource.init.DataSourceInitializer#0' defined in null: (edited)
+
+IgorPetrov   [4 days ago]
+Какой ролик пересмотреть?
+
+Grigory Kislin   [4 days ago]
+@IgorPetrov
+> Профили вроде на месте
+профили в тестах активируются. через @ActiveProfiles
+ты там либо константы, либо resolver
+смотрим активированы ли определенные профили мы например в ru.javawebinar.topjava.service.AbstractServiceTest#isJpaBased (edited)
+
+IgorPetrov   [4 days ago]
+@Grigory Kislin Ок! Понял спасибо! но там вроде все в порядке (Сверял с оригиналом )==========@ActiveProfiles(resolver=ActiveDbProfileResolver.class)======= и в и @ActiveProfiles(resolver = AllActiveProfileResolver.class)
+abstract public class AbstractControllerTest {
+
+Grigory Kislin   [4 days ago]
+а в мавене какой профиль поставлен? и еще clean /refresh
+
+IgorPetrov   [4 days ago]
+@Grigory Kislin Поставил hsqldb! Сейчас ошибка ОШИБКА СОЗДАНИЯ БИНА Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/spring-db.xml]: Invocation of init method failed; nested exception is java.lang.NoSuchMethodError: javax.persistence.JoinColumn.foreignKey()Ljavax/persistence/ForeignKey;
+
+Grigory Kislin   [4 days ago]
+hsqldb-если tomcat запускаешь, нужно web.xml профиль поменять (11 строчка)
+в уроке есть
+
+
+pr1zrak   [Apr 1st at 11:07 AM]
+кто-нибудь через curl пробовал добавить юзера?
+25 replies
+
+Igor   [4 days ago]
+да. в чем трудности?
+
+pr1zrak   [4 days ago]
+да что то не понял, пробовал так:
+$ curl -d "name=New2&email=new2@yandex.ru&password=passwordNew" localhost:8080/topjava/rest/admin/users
+Вылазит ошибка 415 про заголовок, окей, передал еще заголовок, curl -d "name=New2&email=new2@yandex.ru&password=passwordNew" -H "Content-Type: application/json" localhost:8080/topjava/rest/admin/users
+
+pr1zrak   [4 days ago]
+теперь возвращается bad request 400
+
+pr1zrak   [4 days ago]
+для создания юзеров у нас вообще ждет
+
+pr1zrak   [4 days ago]
+public ResponseEntity<User> createWithLocation(@RequestBody User user)
+
+pr1zrak   [4 days ago]
+User
+
+pr1zrak   [4 days ago]
+вот что то я не понял, как я должен передать юзера
+
+Igor   [4 days ago]
+@pr1zrak попробуй добавить {} и метод - POST (edited)
+
+pr1zrak   [4 days ago]
+curl -d '{"name":"Vasya","email":"test1@gmail.com","password":"pass","roles":["ROLE_USER"]}' -H "Content-Type: application/json" localhost:8080/topjava/rest/admin/users (edited)
+
+pr1zrak   [4 days ago]
+вот так норм получилось ) спасиб)
+
+pr1zrak   [4 days ago]
+единственное, что не понятно
+
+pr1zrak   [4 days ago]
+когда всех юзеров запрашиваю, ответ в каше приходит, без форматирования
+
+pr1zrak   [4 days ago]
+Pasted image at 2019-04-01, 3:34 PM 
+
+pr1zrak   [4 days ago]
+вот так метод getAll выглядит
+
+pr1zrak   [4 days ago]
+единственный норм вариант это -o tmp.json добавить и в файл выводить?
+
+Igor   [4 days ago]
+Я так понял, что curl не может форматировать. Нужно что-то дополнительно. Я использую postman. Для задач проекта достаточно + есть вывод для curl.
+
+Igor   [4 days ago]
+Pasted image at 2019-04-01, 11:44 AM 
+
+pr1zrak   [4 days ago]
+да я просто прочитал в выпускном проекте, что нужно предоставить скрипты курла для голосования, вывода результатов
+
+pr1zrak   [4 days ago]
+решил поиграться с курлом на нашем проекте
+
+pr1zrak   [4 days ago]
+а так я в браузере плагин поставил, он тоже json выводит отформатированный )
+
+Igor   [4 days ago]
+postman позволяет генерировать curl команды
+Pasted image at 2019-04-01, 11:48 AM 
+
+pr1zrak   [4 days ago]
+м, надо попробовать )
+
+Bahis   [3 days ago]
+Я руками написал :flushed:
+Пойду попробую postman
+
+Bahis   [3 days ago]
+Что-то он после установки запускается как реактивный самолет (пол часа на разогрев)
+До сих пор стартует...
+
+Bahis   [3 days ago]
+У кого такая же проблема, то эта зараза при установке ярлык кидает на update.exe
+Меняем C:\Users\*******\AppData\Local\Postman\app-7.0.7\Postman.exe --disable-gpu
+Ключ в конце устраняет тормоза
+https://stackoverflow.com/questions/43911792/postman-wont-start-on-windows-7 (edited)
+Stack Overflow
+Postman won't start on Windows 7
+I've been using Postman for a while now. Suddenly though it has stopped working. When trying to open it I get a loading spinner then nothing. No error. Nothing in Event Viewer. Nothing. Although th...
+
+
+Bahis   [Apr 1st at 3:56 PM]
+Кто как понял задание 2.2?
+4 replies
+
+Bahis   [4 days ago]
+Надо принимать два параметра гетом в LocalDateTime, а потом конвертировать в четыре и передавать в супер?
+
+Max   [4 days ago]
+Да, по идее
+
+Bahis   [4 days ago]
+Спасибо.
+
+makushatnik   [4 days ago]
+Такой форматтер как там встроить легко:) Я вроде такой вставил в HW6.
+
+
+Bahis   [Apr 2nd at 1:16 AM]
+Кто как сделал optional?
+8 replies
+
+Bahis   [4 days ago]
+Через post или get?
+
+makushatnik   [4 days ago]
+У меня post. Все-тки там может быть отправка формы post'ом.
+
+Igor   [3 days ago]
+В смысле вы getBeetwen() сделали post запросом? Причем тут отправка формы? Это же rest контроллер.. Для UI в проекте другой контроллер.. В уроке была ссылка (там первая табличка может объяснить как использовать методы http для операций над ресурсами): https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+
+Igor   [3 days ago]
+Pasted image at 2019-04-02, 8:54 AM 
+
+makushatnik   [3 days ago]
+Никогда не подключал Rest контроллер к UI? Тогда на след-м занятии покажут, как это сделать с JQuery.
+
+makushatnik   [3 days ago]
+Вообще разница между Get и Post в безопасной передаче парам-в.
+
+Bahis   [3 days ago]
+Я тоже из таблицы сделал вывод, что get
+
+TheMescaline   [2 days ago]
+@makushatnik и тем не менее, в демо приложения фильтрация делается через get
+
+
+Юлия   [Apr 2nd at 9:19 AM]
+Всем привет. Возникает ошибка "JSON parse error: Unexpected character (''' (code 39)): expected a valid value (number, String, array, object, 'true', 'false' or 'null');" при выполнении curl запросов POST/PUT и для пользователей и для еды. При том что у учителей мои POST/PUT запросы выполняются правильно, без ошибок. ОС Windows, выполняю запросы в командной строке. Может быть у кого то тоже так было, как починили?
+6 replies
+
+Igor   [3 days ago]
+Скинь запрос, который не выполняется
+
+Юлия   [3 days ago]
+curl -X PUT -H "Content-Type: application/json" -d '{"calories":"80"}' http://localhost:8080/topjava/rest/meals/100003
+
+Igor   [3 days ago]
+Попробуй в строке заменить одинарные кавычки на двойные, а внутренние экранировать
+```'{"calories":"80"}'``` 
+
+вот так:  `"[{\"id\":100003,\"dateTime\":\"2015-05-30T10:00:01\",\"description\":\"New\",\"calories\":200}]"` (edited)
+
+Юлия   [3 days ago]
+Большое спасибо :slightly_smiling_face:
+
+ILYA   [3 days ago]
+@Юлия у меня тоже было когда в командной строке запускал, но в git bash не надо экранировать кавычки
+
+Юлия   [3 days ago]
+Да, точно, попробовала в git bash, получилось. Спасибо за помощь :slightly_smiling_face:
+
+
+tolik1106   [Apr 2nd at 12:02 PM]
+Нормально ли на getBetween делать такой GET запрос http://localhost:8080/topjava/rest/meals/between?startDate=2015-05-31T12:00&endDate=2015-05-31T19:00?
+3 replies
+
+tolik1106   [3 days ago]
+https://stackoverflow.com/questions/40274353/how-to-use-localdatetime-requestparam-in-spring-i-get-failed-to-convert-string
+Stack Overflow
+How to use LocalDateTime RequestParam in Spring? I get "Failed to convert String to LocalDateTime"
+I use Spring Boot and included jackson-datatype-jsr310 with Maven: <dependency> <groupId>com.fasterxml.jackson.datatype</groupId> <artifactId>jackson-datatype-jsr31...
+
+Grigory Kislin   [3 days ago]
+а почему сомнения?
+
+tolik1106   [3 days ago]
+В демо этого нет)
+
+
+makushatnik   [Apr 2nd at 12:45 PM]
+Насчет тестов - Skipped: 2 - это норм?
+2 replies
+
+makushatnik   [3 days ago]
+Вспомнил, там же для jdbc 2 теста мы пропускаем.
+
+Bahis   [3 days ago]
+У меня 1 (edited)
+
+
+Artem   [Apr 2nd at 4:52 PM]
+Никто не сталкивался с такой штукой?
+Screen Shot 2019-04-02 at 16.51.48.png 
+3 replies
+
+pr1zrak   [3 days ago]
+я сталкивался
+
+pr1zrak   [3 days ago]
+когда переменная среды была не настроена
+
+dzmitry_liashenka   [3 days ago]
+ага, TOPJAVA_ROOT
+
+
+Bahis   [Apr 2nd at 9:09 PM]
+Интересный факт - через soap если используешь русские символы в json - ругается.
+1 reply
+
+Алексей   [1 day ago]
+есть два решения:
+1. открыть в блокноте файл SoapUI-(№версии).vmoptions, который лежит в каталоге с экзешником, добавить строку:
+-Dfile.encoding=UTF8
+сохранить, перезапустить.
+2. В конкретном запросе через Properties (есть кнопка внизу слева родительского окна (v 5.4.0))/Request Properties установить значение UTF-8 для поля Encoding. (edited)
+
+
+Олег   [Apr 2nd at 9:43 PM]
+Добрый вечер всем. Что надо возвращать в MealRestController в методах getAll getBetween - Meal  или MealTo. Соответственно по чем сравнивать или дополнительные методы сравнения по MealTo  добавить в MealsTestData или возвращать Meal по нем и сравнивать?
+8 replies
+
+ILYA   [3 days ago]
+MealTo, я дополнительные методы делал
+
+Bahis   [3 days ago]
+MealTo, можно ипользовать конвертер в utils
+
+Igor   [2 days ago]
+Наружу отдаем MealTo поскольку он содержит дополнительный признак excess, который нужен клиенту. Ну и в тестах соответственно нужно добавить проверку, что возвращаются валидные MealTo.
+
+tolik1106   [2 days ago]
+А json нужно десериализовать в MealTo или Meal? Для первого случая пришлось добавить сеттеры и дефолт конструктор в TO.
+
+Igor   [2 days ago]
+В To нельзя размещать логику, а конструктор никто не запрещает.
+
+tolik1106   [2 days ago]
+так я только конструктор и сеттеры добавил, потому что не мог дессериализовать
+
+tolik1106   [2 days ago]
+Убрал сеттеры. Достаточно дефолтного конструктора в MealTo
+
+tolik1106   [1 day ago]
+Используя эту подсказку не нужно даже дефолтного конструктора https://urvanov.ru/2016/12/03/jackson-%D0%B8-%D0%BD%D0%B5%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B/
+
+
+Олег   [Apr 3rd at 2:28 PM]
+Какой то косяк с MealTo. Не хочет десериализовываться. Пока получал Meal все было в порядке. MealTestData подредактировал для MealTo. Выдает java.lang.IllegalArgumentException: Invalid read array from JSON:
+'[{"id":100009,"dateTime":"2015-06-01T21:00:00","description":"Админ ужин","calories":1500,"excess":true},{"id":100008,"dateTime":"2015-06-01T14:00:00","description":"Админ ланч","calories":510,"excess":true}]'
+
+    at ru.javawebinar.topjava.web.json.JsonUtil.readValues(JsonUtil.java:19)
+    at ru.javawebinar.topjava.TestUtil.readListFromJsonMvcResult(TestUtil.java:24)
+2 replies
+
+ILYA   [2 days ago]
+Нужен дефолтный конструктор в MealTo.
+
+Grigory Kislin   [2 days ago]
+а еще- смотреть верх последнего эксепшена
+
+
+tolik1106   [Apr 3rd at 4:55 PM]
+В опшинал нормально будет если делать запрос без параметров для метода between и возвращать всю еду пользователя?
+3 replies
+
+Story   [2 days ago]
+нужны параметры. всю-неоптимально (edited)
+
+tolik1106   [2 days ago]
+Но если без них то можно вернуть всю еду(у меня на getBetween URL rest/meals/between + parameters(required = false)
+
+Story   [2 days ago]
+если без них то да!
+
+
+Heorhii   [Apr 3rd at 11:07 PM]
+С таким кто-нибудь сталкивался? Это вроде не критично, потому что в Tomcat проект запускается, и я толком не понял происходит ли сборка в war-ик каждый раз перед запуском сервера или нет, по идее да, но тогда не ясно как же он вообще стартует если сборка проекта при запуске Maven-а происходит с ошибкой. (Ошибка при site и deploy) (edited)
+Pasted image at 2019-04-03, 11:06 PM 
+3 replies
+
+Heorhii   [1 day ago]
+Ошибку я погуглил, люди пишут что в pom.xml должен быть <distributionManagement>
+   <repository>
+раздел, в котором описывается maven Repository по идее. Но зачем это нужно суть не ясно, одни догадки на эту тему.
+
+Heorhii   [1 day ago]
+Сказалось непонимание фундаментальных вещей в Maven;
+install: install the package to a local repository
+deploy: copy the package to the remote repository
+а package сборка в war-ик проходит без ошибок, потому все и работает.
+
+P.s. в голове доминировало поверхностное представление о том что в процессе сборки по очереди запускаются все фазы lifecycle, а получается что некоторые весьма специфичны и не всегда нужны. (edited)
+
+Grigory Kislin   [1 day ago]
+deploy на работе обычно когда делают корпоративный репозиторий и ты свой артифакт туда деплоишь
+но при разработке это нечасто. обычно уже когда прод собирают специальные люди
+
+
+tolik1106   [Apr 3rd at 11:16 PM]
+В Idea .md файл отображается норм, а залил на GitHub и там вместо заголовка ####AdminRestController. Почему так?
+1 reply
+
+Grigory Kislin   [1 day ago]
+пробел попробуй после #
