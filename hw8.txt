@@ -57,5 +57,339 @@ Story   [9 hours ago]
 
 Max5:03 PM
 Возможно глупый вопрос, но что-то я на этом уроке вообще не догоняю. Объясните пожалуйста, как страницы формируются. Ну, т.е. вот у нас есть jsp страница c таблицей <table id="datatable">. А если запустить и посмотреть ее код в браузере, то там она уже обернута в несколько блоков div, поле для поиска добавлено, стрелочки для сортировки и т.д. Вот это все откуда берется?
+
+
 ILYA11:43 PM
 Поделитесь мыслями кто делает optional, как можно реализовать добавление еды с сохранением фильтра
+
+
+pr1zrak   [Apr 7th at 8:27 AM]
+<beans:bean name=“noopEncoder” class=“org.springframework.security.crypto.password.NoOpPasswordEncoder”/>
+помечен как deprecated, будем что-то вместо него использовать?
+2 replies
+
+pr1zrak   [8 days ago]
+или позже мы будем использовать BCryptPasswordEncoder ? Когда хэш пароля в базу будем сохранять
+
+Grigory Kislin   [8 days ago]
+будем.
+https://github.com/JavaWebinar/topjava#1804-10-е-занятие
+- Encoding password (edited)
+
+
+Heorhii   [Apr 8th at 7:50 PM]
+Кто второй пункт д.з. через onclick сделал? Надо использовать makeEditable и туда как-то по хитрому передать контекст попутно впихнув {user.id}?
+11 replies
+
+Bahis   [7 days ago]
+Привет. Обсуждаем 5ю постами выше. Думаю, надо удалять makeEditable. Я пытаюсь через <tr> сделать.
+
+Grigory Kislin   [7 days ago]
+я проблему не понял
+если onclick- делаешь function и все (edited)
+
+Bahis   [7 days ago]
+из makeEditable удалять тогда надо это:
+$(".delete").click(function () {
+       if (confirm('Are you sure?')) {
+           deleteRow($(this).closest('tr').attr("id"));
+       }
+   });
+?
+
+Heorhii   [7 days ago]
+@Grigory Kislin проблема была в том, что если в onclick просто использовать deleteRow(${user.id}), то не срабатывал confirm описанный в makeEditable;
+
+@Bahis Полагаю что так, надо оба метода переписать. Я только сейчас в полной мере понял как срабатывает удаление, я думал deleteRow из-за строки
+ type: "DELETE"
+Срабатывает, а это тип запроса на сервер, срабатывает он из-за этой строчки
+$(".delete").click(function ()
+Единственное что, не совсем понимаю как это работает.  В начале как страничка загружается, мы вызываем метод makeEditable и он на этой строке
+
+$(".delete").click(function () {
+висит и ждет пока его кто-нибудь дернет, так по идее?
+
+Bahis   [7 days ago]
+да
+
+Bahis   [7 days ago]
+ну или на каждом из них
+
+Grigory Kislin   [7 days ago]
+$(".delete").click(function () { - вешается событие click на элементы с class delete
+
+makushatnik   [7 days ago]
+@Heorhii Передача параметра в метод никак не связана с инструкцией confirm внутри него. Знчт что-то не так делаешь.
+
+Олег   [6 days ago]
+у меня так работает с onclic
+
+Олег   [6 days ago]
+if (confirm('Are you sure?')) {
+           $(this).onclick();
+
+Олег   [6 days ago]
+а в классе delete: onclick="deleteRow(${user.id}
+
+
+Bahis   [Apr 8th at 9:34 PM]
+Почему может не парсить в дату?
+Parse attempt failed for value [2017-12-22T12:01]]
+8 replies
+
+Story   [7 days ago]
+потому что не хватает форматтера для LocalDateTime
+
+Bahis   [7 days ago]
+Как правильно пользоваться дебагом? Он меня в такую глушь тащит.
+
+Story   [7 days ago]
+ставить брейкпоинты в стретегически важные места)
+но меня тоже часто тащит..
+
+Bahis   [7 days ago]
+@Story Мы же добавляли в spring-mvc... кажется
+
+Story   [7 days ago]
+мы добавляли на прошлом занятии для LocalDate и LocalTime
+
+Story   [7 days ago]
+для LocalDateTime нету
+добавь, заработает )
+
+Bahis   [7 days ago]
+@Story Точно!!! Спасибо.
+
+tolik1106   [7 days ago]
+А можно просто аннотацию в контроллер добавить
+
+
+Heorhii   [Apr 8th at 11:11 PM]
+При попытке добавить еду получаю 400 error, попробовал дебажить js, вроде все красиво. В контроллере что-то не так? Скрин контроллера приложу в треде
+Pasted image at 2019-04-08, 11:11 PM 
+13 replies
+
+Heorhii   [7 days ago]
+Pasted image at 2019-04-08, 11:11 PM 
+
+Bahis   [7 days ago]
+у меня в логах было, что не может спарсить дату... темой выше
+
+Bahis   [7 days ago]
+@Heorhii
+
+tolik1106   [7 days ago]
+Ты отправляеш dateTime без времени и он не парсится.
+
+Heorhii   [7 days ago]
+походу так и есть, зашел в HW7 и проверил, в тесте время убрал, тоже упал по 400, не думал что время обязательно, значит с такой аннотацией не канает.
+
+Heorhii   [7 days ago]
+@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
+Вот так скушал, только в конструктор еще бонусом пришлось LocalTime скармливать, посмотрел в демо готового приложения, там при создании новой еды мы и время выбираем, а у нас только дата.
+
+tolik1106   [7 days ago]
+Аннотация ISO.DATE_TIME а передавать год-месяц-деньТчасы:минуты. Вроде через input datetime
+
+tolik1106   [7 days ago]
+В контроллере LocalDateTime параметр
+
+Heorhii   [7 days ago]
+Попробую. Благодаря тебе словил себя на том, что это я просто реализовал в форме инпут даты без времени, и сам же себе решил что так и надо было. :upside_down_face:
+
+makushatnik   [7 days ago]
+@Heorhii А как meals апдейтишь?
+
+tolik1106   [6 days ago]
+а разве нужно апдейт делать?
+
+Heorhii   [6 days ago]
+@makushatnik никак) примера же нет чтобы сориентироваться. В задании написано рано пока.
+
+Heorhii   [6 days ago]
+datetime-local использовал как input, но вся магия и красота пропала (Firefox) руками в строчку теперь просто вбивать
+"2018-02-21T19:05"
+А в chrome работает более-менее красивая форма, но все равно не такая как в демо.
+
+
+dancelikefish   [Apr 9th at 10:38 AM]
+Подскажите кто делал, уже долго бьюсь с ajax-ом, а конкретно с фильтрацией, вот к чему пришел:
+
+function filterTable() {
+   event.preventDefault();
+   $.ajax({
+       type: "GET",
+       url: ajaxUrl + "filter",
+       data: $('#filter').serialize(),
+   }).done(updateTable);
+}
+Но таблица не обновляется, что я упустил? (edited)
+8 replies
+
+Story   [6 days ago]
+в updateTable вызывается Get и вытаскиваются все данные
+
+Story   [6 days ago]
+у меня правда тоже не работает :joy: (edited)
+
+dancelikefish   [6 days ago]
+:joy:
+в итоге вставил строчку
+.done(function (data) {
+       context.datatableApi.clear().rows.add(data).draw()});
+и отрисовалась корректно, но без jsp форматирования.
+хотя я так часа три назад пробовал и не работало:exploding_head:
+
+Story   [6 days ago]
+вот у меня почему-то так не работает, борюсь
+
+Story   [6 days ago]
+вызывался после фильтрации getAll из рут контроллера, из-за того что я кнопку фильтра не вынесла из формы
+
+Story   [6 days ago]
+теперь тоже все стили пропадают
+
+dancelikefish   [6 days ago]
+то что стили пропадают вроде же ок, в таске написано же, что будем фиксить позже:slightly_smiling_face: (edited)
+
+Bahis   [6 days ago]
+@dancelikefish спасибо. Если просто updateTable поставить, то не фильтруется. data надо свою.
+
+
+Nikolai Dvinin   [Apr 9th at 10:10 PM]
+Форма фильтра должна очищаться?
+5 replies
+
+Story   [6 days ago]
+да, по кнопке
+
+Nikolai Dvinin   [6 days ago]
+пробовал так: `$("#filterForm")[0].reset();` - не очищается
+
+Story   [6 days ago]
+в методе add есть очищение полей формы
+
+Story   [6 days ago]
+в topjava.common.js
+
+Nikolai Dvinin   [6 days ago]
+ага, спасибо
+
+
+Nikita Ivanov [10:35 PM]
+видео 6 перестало подгружаться
+https://drive.google.com/drive/folders/0B9Ye2auQ_NsFfkpMd2UyWjBsc2JsSE4tRDFkU3BvMktFQkhUN1J6VExxSUUzOHlSR0RhNm8
+
+Milan Kotykov   [Apr 9th at 11:07 PM]
+Почему возникает ошибка 405 когда делаю PATCH или PUT к юзеру?
+6 replies
+
+Milan Kotykov   [6 days ago]
+Такой запрос:
+curl -X PATCH \
+'http://localhost:8080/topjava/ajax/admin/users/100000?enabled=false'
+
+Возвращает
+HTTP Status 405 – Method Not Allowed Request method "PATCH" not supported The method received in the request-line is known by the origin server but not supported by the target resource.
+
+Milan Kotykov   [6 days ago]
+Нашёл ошибку: в контроллере мапинг был неправильно настроен.
+
+Milan Kotykov   [6 days ago]
+Теперь сам запрос через curl отрабатывает нормально и возвращает 204. Но если в веб-приложении вызываю через ajax
+   $.ajax({
+       url: context.ajaxUrl + userId+"?enabled="+enabled,
+       type: "PATCH"
+   }).done(function () {
+       updateTable();
+       successNoty("Updated");
+   });
+
+то почему-то выдает сразу и сообщение "Updated" и "Error status: 405".
+
+Story   [5 days ago]
+у меня через PUT работает
+
+Grigory Kislin   [5 days ago]
+до бэкэнда не доходит?
+сравни, в чем разница в заголовках от ajax и curl (edited)
+
+Milan Kotykov   [4 days ago]
+там оказалось что была ошибка в updateTable(); неправильно строилось URL
+
+
+dancelikefish   [Apr 10th at 6:34 AM]
+"1: enable/disable делать c @Transactional (можно реализовать как на уровне репозитория, так и на уровне сервиса через несколько sql, которые должны быть в одной транзакции)"
+
+Наверно глупый вопрос, но кто-нибудь сделал эту таску на уровне сервиса? Интересно посмотреть реализацию. Я сделал через репо, дергаю метод в репо из сервиса и меняю булеан значение через sql.
+Если работаем через сервис, означает ли это, что сам сервис должен обращаться к базе напрямую без userRepository? Тогда же нужно впрыскивать в него классы работы с базой и sql, а у нас профайлы и слой сервиса вроде ничего не должен знать о базе, т.е. неправильно.
+
+Немного недогоняю, поясните) (edited)
+13 replies
+
+pr1zrak   [5 days ago]
+я делал через уровнь сервиса
+
+pr1zrak   [5 days ago]
+для себя я понял, что если у метода стоит нода @Transactional то при старте метода открывается транзакция
+
+pr1zrak   [5 days ago]
+если ты в методе на 10 разных
+
+pr1zrak   [5 days ago]
+репозиториев ссылаешься
+
+pr1zrak   [5 days ago]
+ну составной у тебя объект
+
+pr1zrak   [5 days ago]
+то все выполнится в одной транзакции
+
+pr1zrak   [5 days ago]
+если хоть на одном шаге что то сломается, какой нить репозиторий вернет эррор
+
+pr1zrak   [5 days ago]
+то транзакция откатится
+
+dancelikefish   [5 days ago]
+По-моему понял, по сути описание задачи сводится к указанию transactional в правильном месте сервис или репо.
+
+Смутило фраза "так и на уровне сервиса через несколько sql, " - там всего же один sql Update. И лишних методов не дергается, получается можно и так и так. (edited)
+
+pr1zrak   [5 days ago]
+получается можно унести в репо
+
+pr1zrak   [5 days ago]
+как остальные методы
+
+Story   [5 days ago]
+я думаю, про несколько sql написано, потому что в сервисе мы будем просто гет и сэйв вызывать а не писать один запрос
+
+Dmitry   [5 days ago]
+через сервис get и update - т.е. запросов как раз несколько, всё верно.
+
+
+pr1zrak [1:27 PM]
+Подскажите пож, что то запутался уже. Я могу задать событие onclick="update()" на intup type=checkbox в JSP и в js файле обработать функцию update , а могу задать $(":checkbox").click(function () {....} и сразу ее обработать. Можно делать и так и так? Или есть ньюансы? Просто сейчас мне кажется что первый вариант это просто javascript, а второй вариант это jquery.
+
+Grigory Kislin [3:30 PM]
+можно и так и так. мне кажется первый проще. еще возможно кто-то скажет, что надо отделять html от js и 2й предпочтительнее (edited) 
+
+
+pr1zrak   [Apr 10th at 7:05 PM]
+скажите пожалуйста, немного непонятно, а зачем мы используем webjar? для удобства? Мы же могли просто выкачать jsки, как мы используем наши jsки и все. Зачем мы через мавен их добавляем?
+1 reply
+
+Grigory Kislin   [5 days ago]
+для удобства
+
+
+tolik1106   [Apr 10th at 10:36 PM]
+как получить селектор строки на которой меняешь checkbox?
+2 replies
+
+Grigory Kislin   [5 days ago]
+this в параметрах (edited)
+
+tolik1106   [5 days ago]
+спс

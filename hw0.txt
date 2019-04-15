@@ -1097,3 +1097,18 @@ Tanya   [12 days ago]
 
 Grigory Kislin [3:06 PM]
 никак
+
+
+Oleksii Leshchenko [1:39 PM]
+Хочу с нуля склонировать себе проект и начать накатывать все патчи от начала до конца....
+Какой коммит или откуда взять исходную версию?
+
+Solenoid [2:04 PM]
+Сделать Fork проекта https://github.com/JavaOPs/topjava
+JavaOPs/topjava
+Java Enterprise: Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery
+Stars
+129
+Language
+Java
+JavaOPs/topjavaAug 26th, 2015Added by GitHub

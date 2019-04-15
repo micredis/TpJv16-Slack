@@ -1,0 +1,265 @@
+Grigory Kislin [11:45 PM]
+joined #hw9 along with Oleg.
+
+Grigory Kislin [1:11 AM]
+Добро пожаловать на HW9: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson09.md
+Успехов! (edited) 
+
+Dmitry [1:15 AM]
+joined #hw9 along with 17 others.
+
+
+Bahis   [Apr 11th at 11:02 AM]
+@Grigory Kislin При первом патче ругнулся, что один блок из изменений из двух в meals.jsp не применится. Я его закопипастил руками. Правильно сделал или этот блок не нужен (все что ниже блока фильтров)? Да и в блоке фильтров ни каких изменений... Все action на старые контроллеры вместо onclick... Можно проверить первый патч? (edited)
+5 replies
+
+Bahis   [4 days ago]
+У кого ещё так? Или у меня одного?
+
+Milan Kotykov   [4 days ago]
+У меня первый патч применился без вопросов.
+
+Bahis   [4 days ago]
+Спасибо. Пойду смотреть.
+
+Grigory Kislin   [4 days ago]
+@Bahis https://github.com/JavaOPs/topjava/wiki/Git#patch-не-накатывается-предлагает-merge
+
+Bahis   [4 days ago]
+@Grigory Kislin спасибо. Нашел разницу в 2 символа.
+
+
+Bahis   [Apr 13th at 12:17 AM]
+а вот почему она не удаляется... )
+2 replies
+
+Bahis   [3 days ago]
+там даже в "сети" тишина
+
+Bahis   [3 days ago]
+Вопрос снят.
+
+
+pr1zrak   [Apr 13th at 7:02 AM]
+Скажите пожалуйста, мы в домашнем задании выносили userId в tr, а сейчас после первых двух патчей он опять в td…
+2 replies
+
+Bahis   [2 days ago]
+"Все события сделал через onlick"... не нужен он теперь в tr
+
+pr1zrak   [2 days ago]
+спасиб
+
+
+pr1zrak   [Apr 13th at 7:25 AM]
+а мы постраничный вывод делать не будем?(
+5 replies
+
+Grigory Kislin   [2 days ago]
+нет. см. демо
+
+pr1zrak   [2 days ago]
+жалко :slightly_smiling_face: нужная вещь :slightly_smiling_face:
+
+makushatnik   [1 day ago]
+Постраничный вывод легко реализ-ся с помощью Spring Data - PagingAndSortingRepository. В общем, если будет по ней вопрос - делал и в Спринге и в GWT - пиши в личку.
+
+pr1zrak   [23 hours ago]
+я делал через spring data, а если через jdbc?
+
+makushatnik   [17 hours ago]
+Принцип 1. Я и на PHP делал.
+
+
+pr1zrak   [Apr 13th at 9:32 AM]
+а мы будем как то обрабатывать ошибку 500? Когда мы пытаемся с таким же емейлом добавить юзера в базу
+1 reply
+
+Grigory Kislin   [2 days ago]
+будем
+
+
+Story   [Apr 13th at 10:37 AM]
+Подскажите "добавить тест на неавторизованный доступ"
+это когда вообще не залогинен пользователь или когда залогиненный юзер пытается получить доступ к пользователям ?
+на не залогиненого пользователя вроде бы у нас есть уже тест? testUnAuth (edited)
+5 replies
+
+Story   [2 days ago]
+а, юзер у нас может смотреть на пользователей
+
+Bahis   [2 days ago]
+шустрая :slightly_smiling_face:
+
+Grigory Kislin   [2 days ago]
+тест на неавторизованный доступ - это для еды. можно все случаи сделать...
+
+Story   [2 days ago]
+спасибо
+
+makushatnik   [1 day ago]
+Да. 2 случая:
+1. Не залогинен юзер (не аутентифицирован). Тогда больш-во сервисов ему должно быть не доступно.
+2. Залогинен, но у него нет прав. User не может видеть список юзеров. И чужую еду.
+Есть еще 3й - залогинен, есть права, потерялся токен. Но его не рассматриваем.
+
+
+ILYA   [Apr 13th at 6:20 PM]
+Народ как вы чинили валидацию при пустых калориях так чтобы не выскакивал numberFormatException? У нас же при пустых калориях пустая строка
+7 replies
+
+Max   [1 day ago]
+Только приготовился задать этот же самый вопрос :grin:
+
+ILYA   [1 day ago]
+Что то я в нете полазил ничего толкового не нашел как починить
+
+Max   [1 day ago]
+Может мы вперед забегаем и это будет правиться в следующем уроке, где у нас обработка исключений по плану
+
+synya   [1 day ago]
+int calories -> Integer calories с аннотацией NotNull в самом бине
+
+ILYA   [1 day ago]
+@synya все равно тоже самое
+
+ILYA   [1 day ago]
+Не, все работает @synya  спасибо!
+
+Max   [1 day ago]
+Мда, я с самого начала сразу поменял там на Integer и NotNull повесил и все никак не мог дорубить, чего ж оно не работает. Уже начал думать, что может так и надо. Вот только что до меня дошло - я когда int на Integer менял, поменял везде кроме сеттера, там int остался. В этом и был косяк. Так что будьте внимательны если у кого такая проблема будет
+
+
+Bahis   [Apr 13th at 7:49 PM]
+Мы ни где не обрабатываем в контроллере /spring_security_check и /login?error=true. Это тоже магия Spring?
+1 reply
+
+Grigory Kislin   [1 day ago]
+вроде есть в уроке вопрос. это spring security обрабатывает
+
+
+Ivan   [Yesterday at 7:45 AM]
+Всем привет! Кто-нибудь сталкивался со следующим?
+При попытке сохранить или изменить еду с одним невалидным полем,  например, когда приходит response "calories должно быть задано", то ошибка отображается корректно. Если же невалидны несколько полей, например response "dateTime должно быть задано<br>calories должно быть задано", то тогда выводится только код ошибки 422 без описания.
+На пользователях всё отрабатывает корректно в обоих случаях, код одинаковый. Не могу понять в чем дело.
+3 replies
+
+Ivan   [1 day ago]
+При дебаге, когда пытаешься сохранить юзера c невалидными полями у объекта jqXHR присутствует responseJson, а при попытке сохранить еду с невалидными полями только responseText (edited)
+
+Story   [1 day ago]
+у меня тоже такое поведение
+
+Ivan   [10 hours ago]
+Оказалось, что проблема возникала из-за конвертора, который я добавил для преобразования даты в Meal
+
+
+Bahis   [Yesterday at 9:22 AM]
+Ссылка на статью испортилась http://www.spring-source.ru/articles.php?type=manual&theme=articles&docs=article_07
+4 replies
+
+Grigory Kislin   [1 day ago]
+не нашел такую в уроке..
+
+Bahis   [1 day ago]
+1я ссылка в 9м.
+Pasted image at 2019-04-14, 1:58 PM 
+
+Grigory Kislin   [1 day ago]
+да, и копии не осталось
+самое близкое, что нашел: https://ru.wikibooks.org/wiki/Spring_Security/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B1%D0%B7%D0%BE%D1%80_Spring_Security
+
+Bahis   [1 day ago]
+Спасибо. Параграф "Резюме" очень хорош для понимания принципов работы. (edited)
+
+
+Artem   [Yesterday at 12:11 PM]
+У меня не работает добавление, правка и удаление, еды после пройденного занятия, я скачал версию из project change, также не работает. Сам пробовал реализовать, у меня показывало еду красиво, но операции с ней не происходили. Никто не сталкивался? (edited)
+5 replies
+
+Story   [1 day ago]
+не должно работать, вроде бы (edited)
+
+Story   [1 day ago]
+после выполнения дз должно
+
+makushatnik   [1 day ago]
+ХаХа) Так его ж и нужно реализовать.
+
+Artem   [1 day ago]
+Пипец я забодался)
+
+Artem   [1 day ago]
+сори, товарищи
+
+
+makushatnik   [Yesterday at 1:06 PM]
+Если говорить о Spring Security, используем ли мы в проекте @Secured / @PreAuthorize ?
+4 replies
+
+makushatnik   [1 day ago]
+Кстати, на список юзеров по идее надо повесить. И если не ADMIN то должен быть редирект обратно.
+
+Grigory Kislin   [1 day ago]
+спасибо, по старинке... поправлю
+
+Grigory Kislin   [1 day ago]
+по @Column- можно, но тут делаю явно
+
+makushatnik   [17 hours ago]
+В общем надо подумать, как сделать чтобы вместо перехода по ссылке с ошибкой datatables видеть ту же страницу, что была. Я пока не придумал. Конфиг то правильно написан. Может при получении 403 в JS подсовывать старый адрес (window.location.href) ?
+
+
+makushatnik [2:01 PM]
+@Grigory Kislin Почему мы пишем @RequestParam("userId") int userId?
+Если совпадает, то можно не писать: @RequestParam int userId
+Также:
+@Column(name = "calories")
+private int calories - достаточно: @Column private int calories
+
+
+pr1zrak   [Yesterday at 4:36 PM]
+видео смотрю, на первых уроках было 20 человек, сейчас на 9_08 уже 5….
+1 reply
+
+makushatnik   [17 hours ago]
+Выживают не все=)
+
+
+makushatnik   [Yesterday at 10:43 PM]
+Называется найди 20 отличий:
+Expecting:
+<"[MealTo{id=100007, dateTime=2015-05-31T20:00, description='����', calories=510, excess=true},
+   MealTo{id=100006, dateTime=2015-05-31T13:00, description='����', calories=1000, excess=true},
+   MealTo{id=100005, dateTime=2015-05-31T10:00, description='����ࠪ', calories=500, excess=true},
+   MealTo{id=100004, dateTime=2015-05-30T20:00, description='����', calories=500, excess=false},
+   MealTo{id=100003, dateTime=2015-05-30T13:00, description='����', calories=1000, excess=false},
+   MealTo{id=100002, dateTime=2015-05-30T10:00, description='����ࠪ', calories=500, excess=false}] (ArrayList@68908be7)">
+to be equal to:
+<"[MealTo{id=100007, dateTime=2015-05-31T20:00, description='����', calories=510, excess=true},
+   MealTo{id=100006, dateTime=2015-05-31T13:00, description='����', calories=1000, excess=true},
+   MealTo{id=100005, dateTime=2015-05-31T10:00, description='����ࠪ', calories=500, excess=true},
+   MealTo{id=100004, dateTime=2015-05-30T20:00, description='����', calories=500, excess=false},
+   MealTo{id=100003, dateTime=2015-05-30T13:00, description='����', calories=1000, excess=false},
+   MealTo{id=100002, dateTime=2015-05-30T10:00, description='����ࠪ', calories=500, excess=false}] (ArrayList@1aba8978)">
+but was not.,
+3 replies
+
+makushatnik   [17 hours ago]
+Что-то я и забыл в чем тут может быть дело. Разве что в датах?
+
+Grigory Kislin   [16 hours ago]
+1. UTF-8 в логах можно чз параметр запуска поставить, есть в https://github.com/JavaOPs/topjava/wiki/IDEA
+2. по тестам было же в занятии- выводимтся через toString, сравниваем совсем по другому
+
+makushatnik   [3 hours ago]
+Ошибку нашел)
+
+
+makushatnik   [Today at 2:26 PM]
+В приложении где-то используется dateTime с секундами, а где-то без. Какой бы паттерн я не выбрал, в 1 из 2 случаев будет ошибка.
+Кто знает, есть ли возможность сделать 1 паттерн под оба случая? И если конвертер ajax убирает "Т" из editForm, то как ее обратно подсунуть, чтобы конвертер dateTime работал?
+1 reply
+
+Andrey   [1 hour ago]
+я сделал так: pattern = "yyyy-MM-dd'T'HH:mm[:ss]"

@@ -1685,3 +1685,151 @@ Grigory Kislin [12:45 AM]
 *------------------------------------------   LESSON08 ----------------------------------------------*
 Готов #hw8. Прошу! Уже движемся к завершению проекта.
 *--------------------------------------------------------------------------------------------------------*
+
+
+pr1zrak   [Apr 8th at 8:17 AM]
+Всем привет! МОжет кому пригодится НА РУССКОМ
+https://yadi.sk/i/n9qghqxe2E10pg
+Yandex.Disk
+Java Persistence API и Hibernate.pdf
+View and download from Yandex.Disk
+7 replies
+
+Petr Kreslin   [7 days ago]
+спасибо
+
+pr1zrak   [7 days ago]
+да незачто :slightly_smiling_face:
+
+Alexander   [7 days ago]
+Спасибо!
+
+WowHugePatch   [7 days ago]
+волшебно!
+
+WowHugePatch   [7 days ago]
+блин уже 4 книги скачал, когда читать буду :thinking_face: вообще времени нет  :white_frowning_face: (edited)
+
+pr1zrak   [6 days ago]
+у меня уже библиотека целая!
+
+pr1zrak   [6 days ago]
+тоже пока времени нет (
+
+
+Solenoid   [Apr 8th at 6:05 PM]
+Help! Что-то у меня сегодня после запуска Tomcat страница http://localhost:8080/ не открывается...
+В чём может быть причина?
+
+При этом http://localhost:8080/manager/html открывается нормально
+tomcat-8-04.JPG 
+4 replies
+
+Grigory Kislin   [7 days ago]
+TOMCAT_HOME\webapps\ROOT  - тут все на месте?
+
+Solenoid   [7 days ago]
+Там 2 папки:  META-INF и WEB-INF
+
+Grigory Kislin   [6 days ago]
+пустые?
+
+Solenoid   [6 days ago]
+Скачал заново Tomcat, распаковал, скопировал оттуда всю папку ROOT целиком и заменил на неё в своём рабочем Tomcate.
+Вроде бы заработало.
+Спасибо за подсказку
+
+
+Solenoid   [Apr 9th at 12:10 PM]
+Как правильно писать при объявлении переменной:
+public static final int a или public final static int a
+?
+Тот же вопрос и для метода... (edited)
+7 replies
+
+Grigory Kislin   [6 days ago]
+привет. гуглил?
+
+Solenoid   [6 days ago]
+Гуглил конечно. Вот здесь например
+https://stackoverflow.com/questions/11219556/difference-between-final-static-and-static-final
+пишут что без разницы.
+Но как-то не особо верится что без разницы.
+Stack Overflow
+Difference between final static and static final
+I found a code where it declared code like private final static String API_RTN_SUCCESS = "0"; private final static String API_RTN_ERROR = "1"; public static final String SHARED_PREFERENCE_CONFIG = "
+
+Timur   [6 days ago]
+думаю psfi, так IDEA подсказывает.
+
+Grigory Kislin   [6 days ago]
+я гуглил по словам java+keywords+order
+https://www.google.com/search?q=java+keywords+order
+1й ответ: https://stackoverflow.com/questions/10299067/modifier-keyword-order-in-java
+Stack Overflow
+Modifier Keyword order in Java
+Every time I write method in Java with more keywords than public void, every time I write it another way. Sometimes "static public void" sometimes "public static void" etc. What is the best order ...
+
+Solenoid   [6 days ago]
+В разных темах на StackOF разный порядок... :disappointed:
+
+shomnest   [6 days ago]
+@Solenoid зачем so, если есть первоисточник
+https://www.oracle.com/technetwork/articles/javaee/codeconventions-135099.html
+oracle.com
+Code Conventions for the Java Programming Language: 9. Naming Conventions
+Code Conventions for the Java Programming Language: 9. Naming Conventions
+
+Grigory Kislin   [5 days ago]
+so ищется проще. обычно там есть ссылки на первоисточники. и обычно ответ в более читаемом виде
+
+
+Grigory Kislin [1:14 AM]
+@here
+*---------------------------------------------------------------------------------*
+*Готово 9е занятие, прошу в #hw9*
+*---------------------------------------------------------------------------------* (edited) 
+
+Dmitry [8:38 PM]
+Всем привет, делюсь третьим изданием Блоха на русском кому интересно:)https://yadi.sk/i/QlkCaH4n_PDsQQ
+Yandex.Disk
+Блох Д.- Java. Эффективное программирование, 3-е издание - 2019.pdf
+View and download from Yandex.Disk
+
+
+Nikita Ivanov   [Yesterday at 4:26 PM]
+Запутался. Зачем нужны отдельно MealRestController, MealUIController, RootController. И какой порядок обращений между контроллерами. Спасибо!
+11 replies
+
+32xlevel   [23 hours ago]
+У контроллеров разное назначение, соответсвенно разные типы возвращаемых и приходящих данных (produces и consumes). На нашем вебе используются RootController и UIController's, а Rest контроллеры существуют отдельно, мы их делаем для получения практики - на работе будешь часто встречать
+
+Grigory Kislin   [16 hours ago]
+2. между собой контроллеры не общаются
+
+Nikita Ivanov   [7 hours ago]
+@Grigory Kislin тогда подскажите, почему у нас есть в RootController функция public String users(Model model) и отдельно в AdminUIController функция public List<User> getAll() (edited)
+
+Nikita Ivanov   [7 hours ago]
+у меня было такое понимание, что запрос из .js попадает в public List<User> getAll() в AdminUIController
+
+Nikita Ivanov   [7 hours ago]
+его ответ сериализуется в JSON
+
+Nikita Ivanov   [7 hours ago]
+далее этот ответ приходит в RootController в public String users(Model model)
+
+Nikita Ivanov   [7 hours ago]
+далее по возвращаемому значению - String "users" система понимает, что резолвится вьюха users.jsp
+
+Nikita Ivanov   [7 hours ago]
+и тем самым в users.jsp приходят данные и ложатся в таблицу
+
+Nikita Ivanov   [7 hours ago]
+подскажите пожалуйста, что в этой логике не верно?
+
+Nikita Ivanov   [7 hours ago]
+спасибо!
+
+Nikita Ivanov   [7 hours ago]
+у меня было понимание, что эти два контроллера общаются через DispatcherServlet

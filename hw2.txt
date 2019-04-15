@@ -1012,3 +1012,26 @@ Grigory Kislin   [6 days ago]
 
 Wladimir   [5 days ago]
 хорошо, рефреш не помог. надо пересоздать проект. я об этом уже тоже думал.
+
+
+Solenoid   [Apr 12th at 4:13 PM]
+После патча 2_1_HW1.patch
+в файле meals.jsp
+есть строка <%@ taglib prefix="fn" uri="http://topjava.javawebinar.ru/functions" %>
+Для чего она? Нужна там вообще?
+2 replies
+
+Grigory Kislin   [3 days ago]
+мы обявляем нажу функцию formatDateTime, которая находится в functions.tld
+в уроке есть ссылки на jsp tld функции (edited)
+
+Solenoid   [2 hours ago]
+А почему по ссылке  "Ошибка 404, страница не найдена." открывается. Это нормально?
+
+
+Solenoid [2:17 PM]
+В файле meals.jsp есть строка
+<c:forEach items="${meals}" var="meal">
+А не будет ли логичнее написать
+<c:forEach var="meal" items="${meals}">
+?
