@@ -1035,3 +1035,17 @@ Solenoid [2:17 PM]
 А не будет ли логичнее написать
 <c:forEach var="meal" items="${meals}">
 ?
+
+
+Solenoid [5:27 PM]
+После накатывания патча 2_2_HW1_optional во вкладке 9: Version Control -> Local Changes показывает что появились 3 новых файла.
+Вопрос: А почему не показывает что был изменён класс MealServlet
+15-04.JPG 
+
+
+Solenoid [9:27 AM]
+Если имя интерфейса "MealRepository", то имя класса, его реализующего, должно быть в основе своей тоже "MealRepository" плюс какое-то дополнение.
+Вопрос в том это дополнение может быть с двух сторон ("InMemoryMealRepositoryImpl") или лучше только с одной? (Если только с одной, то с какой?)
+
+Grigory Kislin [12:21 PM]
+InMemoryMealRepositoryImpl

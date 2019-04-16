@@ -263,3 +263,59 @@ makushatnik   [Today at 2:26 PM]
 
 Andrey   [1 hour ago]
 я сделал так: pattern = "yyyy-MM-dd'T'HH:mm[:ss]"
+
+Tanya   [21 hours ago]
+Проблема в том, что твой вариант не работает ни с секундами ни без. В спорных случаях смотрим демо
+
+
+Bahis   [Yesterday at 9:49 PM]
+Проверить работу при пустом значении calories. - ругается. Вопрос, а что должно происходить?
+9 replies
+
+Story   [19 hours ago]
+писать какая ошибка , не просто 401
+
+Bahis   [19 hours ago]
+@Story Спасибо. Я думал, что при пустом значении ставить 1000 в калории и текущую дату в dateTime.
+
+Bahis   [19 hours ago]
+А может я правильно понял ТЗ ? :slightly_smiling_face:
+
+Story   [19 hours ago]
+ну это же не мешает пользователю пустую строку попытаться сохранить
+
+Bahis   [19 hours ago]
+придумал... посмотрю в демо
+
+Bahis   [19 hours ago]
+@Story Да. В демо просто пишет, что поле не должно быть пустым.
+
+Bahis   [18 hours ago]
+А у меня упорно ругается, что не можеи конвертировать строку "" в число.
+
+Story   [18 hours ago]
+в ветке выше было обсуждение по этому поводу
+
+Bahis   [18 hours ago]
+Спасибо.
+
+
+DmitrIY Stakhanov   [Today at 7:48 AM]
+Не у кого не было, что при удалении модели meal из RootController и возврата просто "meals" в методе meals, со страницы meals.jsp пропадает таблица с едой?
+4 replies
+
+Grigory Kislin   [5 hours ago]
+ты ее чз datatables наполняешь? ДЗ HW9
+
+DmitrIY Stakhanov   [5 hours ago]
+Возможно что-то пропустил, пересмотрю предыдущий урок.
+
+DmitrIY Stakhanov   [4 hours ago]
+А таблица users должна отображаться? или её в ДЗ тоже нужно сделать, а то её тоже нет.
+
+DmitrIY Stakhanov   [4 hours ago]
+Точнее не заполняется
+
+
+pr1zrak [5:15 PM]
+Подскажите пожалуйста, что то видимо не внимательно посмотрел, почему у нас в рутконтроллере *.with(userAuth(ADMIN)))*, а в  AdminRestController’e *.with(userHttpBasic(ADMIN)))* ?
