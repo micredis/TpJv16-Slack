@@ -200,3 +200,53 @@ JavaWebinar
 `d0ae4c29` - 9_12_spring_security_test
 Show less
 JavaWebinar/topjava
+
+
+GitHub APP [1:35 PM]
+JavaWebinar
+*16 new commits pushed to `master`*
+`acdfa174` - 10_0_fix
+`9e63320e` - 10_01_HW9_binding_ajax
+`fcbc3485` - 10_02_HW9_test
+`cb6be4a1` - 10_03_HW9_datetimepicker
+`87cb5d2c` - 10_04_jquery_converters
+`3a17a0c7` - 10_05_persist_validate_group
+`60e1eb08` - 10_06_secure_tag_annotation
+`362c189e` - 10_07_interceptor
+`b21c826f` - 10_08_profile_jsptag
+`fd7c0559` - 10_09_registration
+`a31b04ee` - 10_10_not_found_422
+`0fc27806` - 10_11_global_exception
+`d52b9c65` - 10_12_controller_advice_exception
+`53ad9521` - 10_13_password_encoding
+`7760cb48` - 10_14_read_write_access
+`62e6036d` - 10_15_csrf
+Show less
+JavaWebinar/topjava
+
+
+GitHub APP [12:45 PM]
+Pull request opened by dimio
+dimio
+#5 Update lesson10.md
+"Ajax" controllers renamed to "UI" controllers.
+JavaWebinar/topjavaApr 23rd
+
+GitHub APP [5:06 PM]
+JavaWebinar
+*13 new commits pushed to `master`*
+`4a65bc2e` - 11_0_fix
+`f78c146e` - 11_01_HW10_fix_encoding
+`608c3464` - 11_02_HW10_validation
+`f4b4067b` - 11_03_HW10_duplicate_email
+`2be7dcf2` - 11_04_HW10_duplicate_datetime
+`8a2b5bf0` - 11_05_HW10_binder_validation
+`19564b3d` - 11_06_HW10_change_locale
+`24593066` - 11_07_i18n
+`e09979c2` - 11_08_XSS
+`c4be7f8a` - 11_09_404
+`196b0adc` - 11_10_auth_user
+`663b2d65` - 11_11_restrict_modification
+`3a393c71` - 11_12_heroku
+Show less
+JavaWebinar/topjava

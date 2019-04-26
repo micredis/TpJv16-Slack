@@ -1,0 +1,56 @@
+Grigory Kislin [4:20 AM]
+joined #hw11.
+
+Grigory Kislin [4:20 AM]
+set the channel topic: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson11.md
+
+Grigory Kislin [4:21 AM]
+Наконец финал с деплоем в heroku: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson11.md
+Успехов! 02.05  сделаю последнюю рассылку с подведением итогов (edited) 
+
+Dmitry [4:25 AM]
+joined #hw11 along with 18 others.
+
+
+ILYA   [Yesterday at 2:06 PM]
+что то не получается в idea к базе heroku подконектиться пишет: Connection to d53umrlqktv6bd@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com failed. [08006] The hostname ec2-54-228-243-238.eu-west-1.compute.amazonaws.com could not be verified by hostnameverifier PgjdbcHostnameVerifier.
+9 replies
+
+pr1zrak   [1 day ago]
+я норм подключался
+
+pr1zrak   [1 day ago]
+Pasted image at 2019-04-25, 6:08 PM 
+
+pr1zrak   [1 day ago]
+Pasted image at 2019-04-25, 6:08 PM 
+
+ILYA   [1 day ago]
+странно почему у меня не хочет
+
+pr1zrak   [1 day ago]
+на втором скрине жирным
+
+pr1zrak   [1 day ago]
+настройки сравни
+
+ILYA   [1 day ago]
+когда sslFactory добавляю то не конектиться. А без него конектилось. Настройки вроде верные (edited)
+
+ILYA   [1 day ago]
+заработало. я перед этим обновил драйвер до версии 42.2.5. А когда вернул версию драйвера до 42.2.2 тонормально законектилось
+
+Denis Volkov   [13 hours ago]
+С новым драйвером через ssl не хочет работать, подозреваю связано с проверкой сертификатов, но без ssl работает.
+
+
+ILYA   [Yesterday at 4:26 PM]
+Никто не сталкивался? Когда я запускаю hr.bat при сборке проекта вылетает Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:compile (default-compile) on project topjava: Fatal error compiling
+1 reply
+
+Grigory Kislin   [1 day ago]
+что не компилируется то- посмотрел?
+
+
+Bahis [11:05 AM]
+11-10 (вторая ссылка) https://docs.spring.io/spring-security/site/docs/4.2.x/reference/html/taglibs.html#the-authentication-tag

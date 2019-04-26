@@ -1,0 +1,523 @@
+Grigory Kislin [2:34 AM]
+joined #hw10.
+
+Grigory Kislin [2:36 AM]
+Предпоследнее занятие: https://github.com/JavaWebinar/topjava/blob/doc/doc/lesson10.md
+Успехов! Держимся до последнего:) (edited) 
+
+Ivan [2:37 AM]
+joined #hw10 along with 18 others.
+
+Alexander [6:26 PM]
+@Validated and Default group - http://forum.spring.io/forum/spring-projects/web/117289-validated-s-given-groups-should-consider-default-group-or-not
+
+
+Alexander   [Apr 18th at 6:26 PM]
+плохая ссылка
+1 reply
+
+Grigory Kislin   [6 days ago]
+Да, спасибо...чтото ничего подходящего,
+только в web архиве нашел: http://web.archive.org/web/20170826153901/http://forum.spring.io/forum/spring-projects/web/117289-validated-s-given-groups-should-consider-default-group-or-not
+web.archive.org
+@Validated's given groups should consider Default group or not - Spring Forum
+Discussion on developing web applications with Spring, including usage of Spring MVC and it's REST support, as well as the Web Flow, Flex, and Social projects.
+
+
+Alexander [6:27 PM]
+Легаси, однако :grin:
+
+
+pr1zrak   [Apr 20th at 10:12 AM]
+накатил опциональный патч 10_04
+и что то не показывается теперь список meals ( (edited)
+12 replies
+
+pr1zrak   [6 days ago]
+в Ajax возвращается
+
+pr1zrak   [6 days ago]
+1: {id: 100009, description: “Админ ужин“, calories: 1500, excess: true, dateTimeUI: “2015-06-01 21:00”}
+calories: 1500
+dateTimeUI: “2015-06-01 21:00"
+description: “Админ ужин”
+excess: true
+id: 100009
+2: {id: 100008, description: “Админ ланч“, calories: 510, excess: true, dateTimeUI: “2015-06-01 14:00”}
+calories: 510
+dateTimeUI: “2015-06-01 14:00"
+description: “Админ ланч”
+excess: true
+id: 100008
+
+pr1zrak   [6 days ago]
+все вроде ок
+
+pr1zrak   [6 days ago]
+а в браузере выводится алерт “DataTables warning: table id=datatable - Invalid JSON response. For more information about this error, please see http://datatables.net/tn/1”
+
+pr1zrak   [6 days ago]
+а в нотифи “Error status: 200
+[object Object],[object Object],[object Object]”
+
+pr1zrak   [6 days ago]
+тоесть по какой то причине происходит ajaxError
+
+pr1zrak   [6 days ago]
+хотя в responseText написано [{“id”:100009,“description”:“Админ ужин“,”calories”:1500,“excess”:true,“dateTimeUI”:“2015-06-01 21:00”},{“id”:100008,“description”:“Админ ланч“,”calories”:510,“excess”:true,“dateTimeUI”:“2015-06-01 14:00”}]
+
+pr1zrak   [6 days ago]
+закомментировал //    @JsonGetter
+//    @JsonView(View.JsonUI.class)
+//    @JsonFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
+//    public LocalDateTime getDateTimeUI() {
+//        return dateTime;
+//    }
+//
+//    @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
+//    public void setDateTimeUI(LocalDateTime dateTime) {
+//        this.dateTime = dateTime;
+//    }
+
+pr1zrak   [6 days ago]
+вставил аннотации
+   @JsonView(View.JsonUI.class)
+   @JsonFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
+   private LocalDateTime dateTime;
+
+pr1zrak   [6 days ago]
+работает
+
+makushatnik   [2 days ago]
+@pr1zrak Invalid JSON - Не корректный Json отправляешь. Почитай про корректную передачу в JSON. (все должно быть в кавычках, а у тебя в 3м сообщении некорректный JSON)
+
+makushatnik   [2 days ago]
+Есть сервис для проверки на корректность - jsonlint.com . Туда вставляешь JSON, потом в свой запрос.
+
+
+pr1zrak   [Apr 20th at 10:54 AM]
+короче если стоит
+   @JsonView(View.JsonREST.class)
+   private LocalDateTime dateTime;
+2 replies
+
+Story   [6 days ago]
+ну вот не зря написано что opt патчи делать в отдельной ветке)
+
+pr1zrak   [6 days ago]
+просто интересно как оно должно работать)
+
+
+pr1zrak   [Apr 20th at 10:54 AM]
+то через UI не работает
+53 replies
+
+pr1zrak   [6 days ago]
+может это из-за
+       //      https://stackoverflow.com/questions/22875642/jackson-set-default-view
+       setConfig(getSerializationConfig().withView(View.JsonREST.class));
+?
+Stack Overflow
+Jackson set default view
+I am using Jackson 2.3.2, and I want to set the ObjectMapper default View First try: http://wiki.fasterxml.com/JacksonJsonViews#Implementation // short-cut: objectMapper.writeValueUsingView(out,
+
+Bahis   [6 days ago]
+Давай у себя проверю.... Сейчас верну ветку.
+
+Bahis   [6 days ago]
+@pr1zrak Тоже самое ). А я и не проверял работу сайта после патча  :sweat_smile:
+
+pr1zrak   [6 days ago]
+теперь проверь
+
+pr1zrak   [6 days ago]
+закомментируй аннотацию
+
+pr1zrak   [6 days ago]
+JsonREST
+
+pr1zrak   [6 days ago]
+в самом верху у dateTime
+
+pr1zrak   [6 days ago]
+//    @JsonView(View.JsonREST.class)  НЕ РАБОТАЕТ
+   private LocalDateTime dateTime;
+
+Bahis   [6 days ago]
+в каком классе?
+
+pr1zrak   [6 days ago]
+в MealTo
+
+pr1zrak   [6 days ago]
+и в Meal
+
+Bahis   [6 days ago]
+в MealTo @JsonView(View.JsonUI.class)
+
+Bahis   [6 days ago]
+Закоментил оба dateTime
+
+Bahis   [6 days ago]
+тоже
+
+Bahis   [6 days ago]
+Ошибка 200
+
+Bahis   [6 days ago]
+Pasted image at 2019-04-20, 11:09 AM 
+
+Bahis   [6 days ago]
+и при запуске
+
+Bahis   [6 days ago]
+Pasted image at 2019-04-20, 11:10 AM 
+
+pr1zrak   [6 days ago]
+fuf
+
+pr1zrak   [6 days ago]
+короче нужны пояснения по патчу :slightly_smiling_face: чтобы оно заработало(
+
+Bahis   [6 days ago]
+какой fuf? дебаг теперь на пол дня )
+
+pr1zrak   [6 days ago]
+ну я говорю
+
+pr1zrak   [6 days ago]
+я починил
+
+pr1zrak   [6 days ago]
+закомментировав сверху
+
+pr1zrak   [6 days ago]
+в Meal
+
+pr1zrak   [6 days ago]
+//    @JsonView(View.JsonREST.class)  НЕ РАБОТАЕТ
+   private LocalDateTime dateTime;
+
+pr1zrak   [6 days ago]
+и в MealTo
+
+pr1zrak   [6 days ago]
+//    @JsonView(View.JsonREST.class) НЕ РАБОТАЕТ
+   private LocalDateTime dateTime;
+
+pr1zrak   [6 days ago]
+теперь у меня работает в UI
+
+Bahis   [6 days ago]
+у меня тоже
+
+Bahis   [6 days ago]
+но есть подозрения, что сломалось в rest...
+
+Bahis   [6 days ago]
+проверяю
+
+pr1zrak   [6 days ago]
+у меня работает рест
+
+pr1zrak   [6 days ago]
+[{“id”:100007,“dateTime”:“2015-05-31T20:00:00”,“description”:“Ужин“,”calories”:510,“excess”:true},{“id”:100006,“dateTime”:“2015-05-31T13:00:00",“description”:“Обед“,”calories”:1000,“excess”:true},{“id”:100005,“dateTime”:“2015-05-31T10:00:00",“description”:“Завтрак“,”calories”:500,“excess”:true},{“id”:100004,“dateTime”:“2015-05-30T20:00:00",“description”:“Ужин“,”calories”:500,“excess”:false},{“id”:100003,“dateTime”:“2015-05-30T13:00:00",“description”:“Обед“,”calories”:1000,“excess”:false},{“id”:100002,“dateTime”:“2015-05-30T10:00:00",“description”:“Завтрак“,”calories”:500,“excess”:false}]
+
+pr1zrak   [6 days ago]
+вот так отдает
+
+pr1zrak   [6 days ago]
+вроде в правильном формате время
+
+Bahis   [6 days ago]
+у меня так же
+
+pr1zrak   [6 days ago]
+@Grigory Kislin нам нужна ваша помощь :slightly_smiling_face: добрый день
+
+Grigory Kislin   [6 days ago]
+@pr1zrak ок, счас гляну
+Ctrl+F5 делал?
+
+pr1zrak   [6 days ago]
+да
+
+pr1zrak   [6 days ago]
+в итоге помогло только комментирование @JsonView(View.JsonREST.class)
+
+Grigory Kislin   [6 days ago]
+ближе к вечеру отпишусь
+
+pr1zrak   [6 days ago]
+Спасиб, буду ждать :slightly_smiling_face:
+
+Grigory Kislin   [6 days ago]
+@pr1zrak
+добрался до компа. у меня все работает
+1. уверено чтоCtrl+F5 делал?
+
+Grigory Kislin   [6 days ago]
+запрос правильный приходит
+
+Grigory Kislin   [6 days ago]
+Pasted image at 2019-04-20, 6:10 PM 
+
+Grigory Kislin   [6 days ago]
+проверь что скрипт у тебя обновился
+
+Grigory Kislin   [6 days ago]
+и посмотри вкладку console в браузере- что там
+
+pr1zrak   [3 days ago]
+Проверил на другом компьютере, не вопроизводится.
+
+pr1zrak   [3 days ago]
+Странно
+
+pr1zrak   [3 days ago]
+Вечером проверю на своем еще раз и кэш почищу
+
+pr1zrak   [3 days ago]
+спасибо за помощь)
+
+pr1zrak   [3 days ago]
+может что то глюкануло
+
+
+Bahis   [Apr 20th at 12:31 PM]
+Патч 10.07 Интерсепторы...
+16 replies
+
+pr1zrak   [6 days ago]
+тяжко пошел?)
+
+Bahis   [6 days ago]
+)
+
+Bahis   [6 days ago]
+This interceptor adds userTo to the model of every requests
+
+Bahis   [6 days ago]
+Он добавляет userTo на каждом контроллере при выполнении любого метода?
+
+Bahis   [6 days ago]
+Т.е. тратятся дополнительные ресурсы при любом запросе?
+
+Grigory Kislin   [6 days ago]
+@Bahis а какие доп. ресурсы тратятся?
+
+Bahis   [6 days ago]
+Ну проверка на то, есть ли модель, пустая ли она, добавление в эту модель userTo
+
+Bahis   [6 days ago]
+@Grigory Kislin Мне не важно, что тратятся ресурсы )) Мне интересно, правильно ли я понял, что интерсепторы влезают в каждый метод каждого контроллера (и Rest??? )
+
+Grigory Kislin   [6 days ago]
+@Bahis дак дерни и погялди.. если с rest тоже- можно подумать как убрать, там он не нужен
+
+Bahis   [6 days ago]
+@Grigory Kislin Посмотрел. Везде лезет. Даже если просто еду просишь через REST.
+
+Grigory Kislin   [6 days ago]
+при REST запросах полагаю modelAndView == null ?? (edited)
+
+Bahis   [6 days ago]
+Да.
+
+Bahis   [6 days ago]
+Мы в REST не возвращаем Model или ModelAndView
+
+Bahis   [6 days ago]
+Интерсепторы лезут везде - мне это нравится. )
+
+Grigory Kislin   [6 days ago]
+ну тогда все ок. мы никуда ничего не кладем
+
+makushatnik   [2 days ago]
+@Bahis Советую почитать про advices - Before, After, Around.., и вообще про аспекты в Спринге.
+
+
+pr1zrak   [Apr 20th at 4:26 PM]
+скажите пожалуйста, захожу в профайл, а там все красное, после добавления патча с профайлом
+Screenshot 2019-04-20 20.06.37.png 
+6 replies
+
+Grigory Kislin   [6 days ago]
+это бутстрап стили. в демке также (edited)
+
+pr1zrak   [5 days ago]
+Просто почему то, когда я открываю профиль
+
+pr1zrak   [5 days ago]
+у меня у всех элементов выставляется
+
+pr1zrak   [5 days ago]
+<input id=“name” name=“name” class=“form-control is-invalid” type=“text” value=“Admin”>
+
+pr1zrak   [5 days ago]
+как будто все поля неправильно заполнены
+
+pr1zrak   [5 days ago]
+в видео поля не красные
+
+
+Ivan   [Apr 20th at 5:33 PM]
+Всем привет! Не могу разобраться как воспроизвести ошибку с кодировкой из пункта 6 ДЗ.  Пробовал с помощью расширения chrome менять кодировку, но поведение на странице profile и на остальных страницах одинаковое.
+3 replies
+
+Grigory Kislin   [6 days ago]
+нужно java запускать не в кодировке UTF-8
+если винда- то без опции
+-Dfile.encoding=UTF-8 (edited)
+
+Story   [4 days ago]
+Получилось поломать кодировку? у меня не получается (edited)
+
+Story   [4 days ago]
+все нашла. надо задать юзеру русское имя тогда видно
+
+
+Bahis   [Apr 21st at 1:43 PM]
+Убрал form:form из ajax запросов: там csrf работает через header. Проверьте в вкладке браузера Network.
+5 replies
+
+Bahis   [5 days ago]
+Не нашел в header (скрин). Куда посмотреть.
+
+Bahis   [5 days ago]
+Pasted image at 2019-04-21, 1:46 PM 
+
+Bahis   [5 days ago]
+Нашел... Нужно что-то сделать не с методом get
+
+Bahis   [5 days ago]
+Pasted image at 2019-04-21, 2:02 PM 
+
+pr1zrak   [5 days ago]
+да, в видео же говорилось, что csfr не работает для get )
+
+
+Bahis   [Apr 21st at 2:16 PM]
+Вторая ссылка сверху - 404.
+Нашел валидную:
+https://docs.spring.io/spring-security/site/docs/4.1.x/reference/html/csrf.html#csrf-using
+Pasted image at 2019-04-21, 2:16 PM 
+2 replies
+
+Bahis   [5 days ago]
+Соответственно 3я ссылка:
+https://docs.spring.io/spring-security/site/docs/4.1.x/reference/html/csrf.html#csrf-include-csrf-token-ajax
+
+Grigory Kislin   [3 days ago]
+скорее так: https://docs.spring.io/spring-security/site/docs/current/reference/html/web-app-security.html#csrf-using
+https://docs.spring.io/spring-security/site/docs/current/reference/html/web-app-security.html#csrf-include-csrf-token-ajax
+спасибо, поправил
+
+
+Story [10:42 PM]
+у кого-то еще двоится текст ошибки из Validatorа в BindingResult? не пойму где это происходит (edited) 
+
+Dmitry [12:21 PM]
+fix патч 10_0 можно в материалах урока 10_00 переименовать (для удобства), а то он в середину списка попадает и не сразу виден.
+
+
+Story   [Apr 22nd at 3:32 PM]
+пример локализации на русском https://devcolibri.com/spring-3-mvc-internationalization-and-localization/
+2 replies
+
+pr1zrak   [1 day ago]
+Блин, в 5ом спринге этого класса уже нет((
+
+Story   [1 day ago]
+очень легко гуглится чем его заменить
+
+
+Bahis [9:17 PM]
+Очень странный баг, если ставишь в user на password @Size(min = 5, max = 32, message = "length must between 5 and 32 characters"), то валидация кидает ошибку... при max = 100 такой проблемы нет....
+
+
+tolik1106   [Apr 23rd at 9:25 AM]
+А почему в дз пункт 3 не сделать вот так https://www.baeldung.com/spring-mvc-custom-validator?
+Baeldung
+Spring MVC Custom Validation | Baeldung
+Learn how to build a custom validation annotation and use it in Spring MVC.
+Apr 5th, 2017
+9 replies
+
+Bahis   [3 days ago]
+Мне этот способ понравился больше... Если такой ящик есть, то корректно обрабатывается ошибка и выводится предупрждение. А вот если его нет, то падает NPE.
+Проверка в валидаторе выглядит так:
+return repository.getByEmail(email) == null; (edited)
+
+tolik1106   [3 days ago]
+а как решить?
+
+tolik1106   [3 days ago]
+А в имплементации валидатора спринг нужно все поля проверять на валидность?
+
+Bahis   [3 days ago]
+не думаю..
+
+Grigory Kislin   [3 days ago]
+@tolik1106 @Bahis интересно. попробовали сделать?
+
+tolik1106   [2 days ago]
+@Grigory Kislin при валидации на слое контроллеров проходит нормально. А при валидации перед сохранением/обновлением userService не инжектится. Почему?
+
+Bahis   [2 days ago]
+@Grigory Kislin да. В отдельной опциональной ветке.
+
+Story   [1 day ago]
+@tolik1106 у меня так было когда делала setValidator вместо addValidator
+set - чистит все существующие валидаторы и заменяет твоим
+
+tolik1106   [1 day ago]
+Ну это я понял тоже когда никакая другая валидация не выполнялась. Спасибо.
+
+
+Dmitry   [Apr 23rd at 12:06 PM]
+Можно раскрыть подробней про "... если мы энкодим пароль, то на один и тот же пароль будут каждый раз получаться новые значения" (не дословно). Как тогда сравнение происходит, если хэш от пароля разный при каждой проверке?
+3 replies
+
+Grigory Kislin   [3 days ago]
+вот так: org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder#matches
+
+Grigory Kislin   [3 days ago]
+поправка: при генерации хэш от парооля хранится в базе. он не меняется при проверка. но на один и тот же пароль генерятся разные хэши
+
+Dmitry   [1 day ago]
+Залез в код - видимо, при первичном хэшировании генерируется рандомная соль, при сравнении - ее значение восстанавливается на основании хэша из базы.
+
+
+tolik1106   [Apr 23rd at 6:25 PM]
+https://stackoverflow.com/questions/5141403/utf-8-encoding-in-spring-mvc-problem-with-forms
+Stack Overflow
+UTF-8 encoding in Spring MVC, problem with FORMs
+I have this in web.xml <filter> <filter-name>encoding-filter</filter-name> <filter-class> org.springframework.web.filter.CharacterEncodingFil...
+1 reply
+
+Grigory Kislin   [3 days ago]
+добавь, что последнее решение:)
+
+
+makushatnik   [Apr 24th at 7:49 PM]
+В чем смысл задания 2 - избавиться от BindingResult? Если так, то не пойму, почему не работает. Надо MappingJacksonJsonView прописывать? А то не совсем понятно что делать по не актуальной инфе, когда Спринг уже не 3й, а 5й, и много чего поменялось..
+4 replies
+
+makushatnik   [1 day ago]
+https://optimumcode.wordpress.com/2016/03/19/mappingjacksonjsonview-not-working-with-spring-4-x-x/
+Classic Coder !Shardul Singh Bartwal
+MappingJacksonJsonView not working with Spring 4.x.x
+You can see this error line with spring 4.x.x. as:-
+Cannot find class [org.springframework.web.servlet.view.json.MappingJacksonJsonView] with Spring 4.2.5.
+You may get this error with any version of spring with 4.x.During upgrade of my spring application this issue wasted enough time of mine.Below is bit stack trace of this one issue:-
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping’: Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.springframework.web.servlet.view.json.M… Show more
+
+Grigory Kislin   [1 day ago]
+смысл задания 2- сделать валидацию в ExceptionInfoHandler, те в одном месте. В spring 5 она работает точно также
+
+makushatnik   [1 day ago]
+Что касается ExceptionInfoHandler - тут все ясно - кидаешь exception и он туда уходит. В задании нужно избавиться от BindingResult и возвращать void, если я правильно понял.
+
+ILYA   [1 day ago]
+@makushatnik обработку валидации сделать в хендлере нужно, поэтому и binding Result можно убрать с параметров. Также ещё и тесты сделать нужно для невалидных данных
