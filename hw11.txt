@@ -54,3 +54,462 @@ Grigory Kislin   [1 day ago]
 
 Bahis [11:05 AM]
 11-10 (вторая ссылка) https://docs.spring.io/spring-security/site/docs/4.2.x/reference/html/taglibs.html#the-authentication-tag
+
+
+makushatnik   [Apr 28th at 3:35 PM]
+https://hh.ru/applicant/resumes/view?resume=5866a6faff02d3b09e0039ed1f363839674d50
+8 replies
+
+Igor   [9 days ago]
+Pasted image at 2019-04-28, 5:36 PM 
+
+makushatnik   [9 days ago]
+Открыл на ближайшие 2 дня.
+
+Marat   [8 days ago]
+Здесь оказывается учатся и те кто 5 лет уже работает разработчиком
+
+Story   [8 days ago]
+я 10 лет работала разработчиком ..
+
+Marat   [8 days ago]
+@Story Почему работала? Сейчас продолжаешь работать или нет? Или специализация другая была?
+
+Story   [8 days ago]
+да, на другом языке писала
+потом я ушла в декрет а банк решил перейти на другое ПО, нас расформировали
+сейчас не работаю пока
+
+
+Story   [8 days ago]
+то о чем Григорий говорил, надо было смотреть по сторонам) но у нас была почти идеальная работа и практически нулевая текучка. в общем мыслей не было об уходе
+
+Marat   [8 days ago]
+@Story Ну я тоже работал админом Оракл, но проблема в том что в городе всего 1 вакансия есть, и зп там максимальная такая как начальная у мидла Java
+
+
+Story   [Apr 29th at 10:16 AM]
+достаточно ли резюме на линкедин или лучше где-то еще сделать?
+9 replies
+
+Marat   [8 days ago]
+hh
+
+Marat   [8 days ago]
+hh.ru
+
+Grigory Kislin   [8 days ago]
+еще:)
+
+Story   [8 days ago]
+на hh.ru не только по России?
+
+Marat   [8 days ago]
+На Епам сразу отправь они вроде постоянно набирают
+
+Story   [8 days ago]
+спасибо. сначала надо написать)
+
+Marat   [8 days ago]
+у вас там еще всякие люксофт
+
+Story   [8 days ago]
+да у нас много контор
+
+makushatnik   [1 day ago]
+Епам и Люксофт есть везде :slightly_smiling_face:
+
+
+Oleg   [Apr 29th at 1:34 PM]
+https://hh.ru/resume/10bb4fcaff03a993d30039ed1f546e7a567868
+hh.ru
+Java-разработчик
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+8 replies
+
+Marat   [8 days ago]
+и че реально с 3 месяцами опыта столько платят в РФ?
+
+Oleg   [8 days ago]
+Понятия не имею. В принципе я согласен на какие нибудь теплые края))) Но обязательно что бы рядом море было. (edited)
+
+Marat   [8 days ago]
+Почему у меня такое ощущение что все тут мои ровесники по 33-35 лет
+
+Igor   [8 days ago]
+@Marat я тоже это заметил... Совпадение?
+
+shomnest   [8 days ago]
+@Oleg дай знать как оффер получишь по такому резюме с такой зп
+
+Oleg   [8 days ago]
+@shomnest Ok.
+
+Marat   [8 days ago]
+@Igor Не совпадение. Просто куча админов поработав лет 10 поняли что их 10-летний опыт никому не нужен, работодателю проще взять любого с 1 годом опыта за копейки чтобы перезагружать сервера когда они зависнут. К этой куче еще есть куча всяких юристов, экономистов, которым достала их профессия.
+
+
+Story   [4 days ago]
+все время думала что я тут среди студентов:grin:
+
+
+Bahis   [Apr 29th at 3:25 PM]
+ммм.. скажите мне кто-нибудь, пожалуйста, что сейчас читать все ссылки по 4-му пункту не обязательно... у меня уже глаза устали :disappointed_relieved:
+2 replies
+
+Story   [8 days ago]
+а это возможно?)
+
+Bahis   [8 days ago]
+Спустя 2 дня меня посетила таже мысль )
+
+
+Story [3:45 PM]
+https://www.linkedin.com/in/victoria-teliuk-77b9905/
+https://hh.ru/resume/3cef75b0ff06dea8130039ed1f585438386376 (edited) 
+hh.ru
+backEnd java разработчик
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+
+Nikolai Dvinin [10:22 PM]
+Может кому пригодится:
+Postgres heroku не проходил тест подключения к БД пока не поставил sslmode=require
+https://devcenter.heroku.com/articles/connecting-to-heroku-postgres-databases-from-outside-of-heroku
+devcenter.heroku.com
+Connecting to Heroku Postgres Databases from Outside of Heroku | Heroku Dev Center
+Considerations for connecting to a Heroku Postgres database from outside of Heroku, including SSL and credential details.
+
+Bahis [10:47 PM]
+https://www.linkedin.com/in/pavel-alekseev-651673185
+
+
+Bahis   [Apr 29th at 10:50 PM]
+https://hh.ru/resume/3c7adb7fff06df59760039ed1f32556d745359
+2 replies
+
+Oleg   [8 days ago]
+Резюме скрыто.
+
+Bahis   [8 days ago]
+@Oleg окрыл
+
+
+Bahis [10:10 AM]
+Надо менять резюме... - где в ХХ выбор: "Только удаленная работа"? Мне с ЦБ звонили с предложением :slightly_smiling_face:. А я мигрировать собрался. Скину вакансию сюда. Должны выслать на почту.
+
+
+Marat   [Apr 30th at 10:59 AM]
+Я бы вообще убрал весь админский опыт и написал где-нибудь в конце коротко об этом.
+3 replies
+
+Bahis   [7 days ago]
+Спасибо. Думал об этом. Совсем коротким резюме делать тоже не хочется. А сократить раза в 2, думаю, надо.
+
+Marat   [7 days ago]
+Я тоже админ с 10 летним стажем. И этот опыт никому не нужен в разработке
+
+Marat   [7 days ago]
+Смысла нет его писать
+
+
+Олег   [Apr 30th at 11:09 AM]
+Проблема с деплоем на Heroku. При патче 11_12 Идея отказалась вставлять файл Procfile пишет файл неизвестный (без расширения) или пропускай его или откат патча. Сделал его вручную. Но опять же без расширения он у меня в Идее не открывается - только с использованием разных редакторов. Не знаю из-за этого или нет но при запуске hr.bat выдает ошибку Error: Unable to access jarfile target/dependency/webapp-runner.jar. На Heroku соответственно тоже не деплоится. Может кто что подскажет?
+8 replies
+
+ILYA   [7 days ago]
+У меня такая же проблема была. Он у меня после накатки патча пустой был. Я открыл файл как txt в idea вставил туда нужную строку потом сделал пуш на гитхаб и в heroku задеплоилось тогда нормально
+
+Олег   [7 days ago]
+Procfile в настройках пометил как текстовый. Стал открываться в Идее, все в нем записано правильно. Но итог пока прежний Error: Unable to access jarfile target/dependency/webapp-runner.jar
+
+Олег   [7 days ago]
+Проверил версию Tomcat (у меня 8.5.24) и webapp runner чтобы была одинаковая - не помогло. :disappointed:
+
+ILYA   [7 days ago]
+А ты пробовал пуш и задеплоить в heruku?
+
+Bahis   [7 days ago]
+Дада!
+
+Bahis   [7 days ago]
+У меня так же было. Надо пушнуть... (edited)
+
+Grigory Kislin   [7 days ago]
+Unable to access jarfile target/dependency/webapp-runner.jar скорее всего означает отсутствие этого файла
+а это от того, что проект не собрался
+
+Олег   [5 days ago]
+Все заработало.  Все версии перепроверил, Сначала вручную сделал clean package в mavene потом запустил. Сейчас все запускается и в hr.bat и на heroku
+
+
+Олег   [Apr 30th at 2:04 PM]
+Должен ли файл webapp-runner.jar попадать в target/topjava/WEBINF/lib или какую другую папку в target? У меня его там нет.
+1 reply
+
+Grigory Kislin   [7 days ago]
+должен. собери проект с профилем heroku
+
+
+Nikolai Dvinin   [Apr 30th at 7:30 PM]
+https://spb.hh.ru/resume/4cfb57adff06dfeaec0039ed1f3761594a6461
+spb.hh.ru
+Java-разработчик
+HeadHunter (spb.hh.ru) позволяет найти работу в Санкт-Петербурге. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+1 reply
+
+Grigory Kislin   [7 days ago]
+да вродже все неплохо
+2стучись куда можно и пробуй собеседоваться
+
+
+Dmitry   [May 1st at 7:18 AM]
+@Grigory Kislin, как и к 10 уроку, просьба - можно фикс-патч называть XX_00, а не XX_0? Иначе в идее apply patch он в середину списка падает и его легко пропустить, накатив до этого те патчи, которые должны быть после него
+1 reply
+
+Grigory Kislin   [6 days ago]
+ок, учту:) вообще порядок патчей в занятии есть
+
+
+Denis Volkov [12:59 PM]
+https://nizhnevartovsk.hh.ru/applicant/resumes/view?resume=849e418eff0612fc130039ed1f6c4b3738366a
+nizhnevartovsk.hh.ru
+Java developer
+HeadHunter (nizhnevartovsk.hh.ru) позволяет найти работу в Нижневартовске. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+
+
+timdzha   [May 1st at 2:48 PM]
+Ссылка на моё резюме https://hh.ru/resume/974280b4ff0624ae200039ed1f744b4b4f776b
+Отправлено с помощью мобильного приложения hh https://hh.ru/mobile?from=share_android
+hh.ru
+Мобильные приложения
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+2 replies
+
+Bahis   [6 days ago]
+Ссылка закрытая
+
+Grigory Kislin   [6 days ago]
+Авторизуйтесь на сайте, чтобы иметь возможность посмотреть резюме.
+крупными буквами писал- ПРОВЕРЬТЕ!
+
+
+Artem [11:23 AM]
+Никто не сталкивался с такой ошибкой при деплое в heroku?
+Screen Shot 2019-05-02 at 11.22.38.png 
+
+Screen Shot 2019-05-02 at 11.23.51.png 
+
+
+Artem [11:54 AM]
+Переменную окружения замучил и все ок...
+
+
+Marat   [May 3rd at 3:13 PM]
+Пришел на проект где EJB. Придется все заново изучать.
+16 replies
+
+Marat   [4 days ago]
+До этого только со спрингом имел дело (edited)
+
+Marat   [4 days ago]
+@shomnest Вот кстати спрашивал с 2016 года почему до сих пор не устроился прогером. Прошло 3 года всего и устроился)))
+
+shomnest   [4 days ago]
+Три года норм, поздравляю с трудоустройством, вроде ты же писал что был не так давно, не очень удачный опыт прогерром, так что меньше трёх лет))
+Ejb, в госсектор что ли куда-то?
+
+Marat   [4 days ago]
+@shomnest Проект сам в гос, только вот все щас на спринг же переходят
+
+shomnest   [4 days ago]
+Но, только не те кто не хочет связываться с опенсорсом)
+
+shomnest   [4 days ago]
+Так или иначе, считай что доп строчка в резюме, в разделе используемых технологий.
+
+Grigory Kislin   [3 days ago]
+@Marat главное на стажировке- учимся разработчиками работать. технология - это уже дело второе-третье.
+> . Прошло 3 года всего и устроился
+а собеседований ск-ко прошел?
+
+Marat   [3 days ago]
+@Grigory Kislin Примерно 12-14 очных, плюс еще 3 только по телефону. Плюс еще в иностранную компанию проходил техническое собеседование, потом проверку английского с преподавателем, потом с директором HR из австралии, потом еще одно тех собес(в итоге не взяли). В трех компаниях предлагали работу, но денег давали меньше чем я просил - не пошел.
+
+Marat   [3 days ago]
+Это все за последние пол года. До этого не шевелился. Примерно по 2 собес в месяц (edited)
+
+Grigory Kislin   [3 days ago]
+ага. ты детали говори:) стандартно- месяца за 3 можно чтото подходящее найти. и да- 10-15 собесов
+
+Marat   [3 days ago]
+@Grigory Kislin
+```технология - это уже дело второе-третье```
+Просто когда ты попробовал Spring Data, а на проекте голый  JDBC с открытием и закрытием коннекшенов, то это ....
+
+Marat   [3 days ago]
+@Grigory Kislin
+```месяца за 3 можно чтото подходящее найти```
+Так я находил и за 2-3 месяца, но уходил из 2 компаний за это время, так как условия не соответствовали тому на что договаривались
+
+Grigory Kislin   [3 days ago]
+голый  JDBC с открытием и закрытием коннекшенов
+1. это basejava :slightly_smiling_face:
+2. в EE есть JPA (тоже что Spring JPA) (edited)
+
+makushatnik   [1 day ago]
+Я часто думаю, что голый JDBC намного лучше :slightly_smiling_face: С ним меньше проблем. Может проблема в том, что не хочется ему учиться? А когда его знаешь - на нем не сложно писать.
+
+makushatnik   [1 day ago]
+У меня за последние полгода наверное ~100 собес-й. По 2-5 в день, чуть ли не каждый будний день. Ни к одному спец-но не готовился) А если не суетиться работа и не появится. И пока не Сеньор лучше не перегибать палку по оплате.
+
+shomnest   [1 day ago]
+@makushatnik зачем так много, не боишься что конторы закончатся?))
+
+
+Dmitry   [May 4th at 3:32 PM]
+Подсвечивает ошибку в `AbstractUserController`:
+```@Autowired
+    public void setEnvironment(Environment environment) {
+        modificationRestriction = environment.acceptsProfiles(Profiles.HEROKU);
+    }
+......
+@Deprecated
+    boolean acceptsProfiles(String... profiles);```
+3 replies
+
+Dmitry   [3 days ago]
+Хочет перейти на такой вариант: `boolean acceptsProfiles(Profiles profiles);`
+
+Grigory Kislin   [3 days ago]
+да, вроде я собирался перевести.. переведи у себя:) (edited)
+
+Dmitry   [1 day ago]
+Да это просто "опечатка", кмк. Там же в `AbstractServiceTest` сделано:
+    ```boolean isJpaBased() {
+//        return Arrays.stream(env.getActiveProfiles()).noneMatch(Profiles.JDBC::equals);
+        return env.acceptsProfiles(org.springframework.core.env.Profiles.of(Profiles.JPA, Profiles.DATAJPA));
+    }```
+Поменял на аналогичный вариант для HEROCU
+
+
+ILYA   [May 5th at 1:41 PM]
+https://hh.ru/resume/42a00537ff06e28e1f0039ed1f554543676d4c
+7 replies
+
+Marat   [2 days ago]
+нет доступа
+
+ILYA   [2 days ago]
+А ты авторизировался?
+
+Elena Sheva   [1 day ago]
+Я тоже там не зарегистрирована, не могу посмотреть
+
+Marat   [1 day ago]
+@ILYA да
+
+ILYA   [1 day ago]
+Доступ не выставил теперь все видно)
+
+Grigory Kislin   [1 day ago]
+а до 2018- что делал? (edited)
+
+ILYA   [1 day ago]
+@Grigory Kislin работал в МЧС
+
+
+Dmitry   [May 5th at 3:42 PM]
+https://spb.hh.ru/applicant/resumes/view?resume=778697c3ff0087403a0039ed1f736563726574
+spb.hh.ru
+Java developer
+HeadHunter (spb.hh.ru) позволяет найти работу в Санкт-Петербурге. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+3 replies
+
+Grigory Kislin   [1 day ago]
+опыт работы отсортирован по date, desc
+
+Grigory Kislin   [1 day ago]
+от javaops- не хочешь сертификат приложить?
+
+Dmitry   [1 day ago]
+он там есть, на первом месте! :slightly_smiling_face:
+
+
+Max   [May 5th at 9:21 PM]
+https://hh.ru/resume/1f8d43c9ff06e7d8b20039ed1f7a6f32464b46
+hh.ru
+Java-разработчик
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+4 replies
+
+Grigory Kislin   [1 day ago]
+1. Макс - по паспорту? в сертификате- лучше:) (edited)
+
+Grigory Kislin   [1 day ago]
+2. а до 2018- что было? (edited)
+
+Max   [1 day ago]
+@Grigory Kislin я просто не люблю полным именем называться )) но да, пожалуй лучше исправлю.
+
+А до 2018 был универ, потом армия, потом почти 2 года в институте. Я подумал не нужно указывать то, что не связано с ит. Или все таки стоит упомянуть работу в институте ядерных и энергетических исследований, сойдет за галочку?
+
+Grigory Kislin   [1 day ago]
+работу в институте ядерных и энергетических исследований- обязательно
+вопрос, который я задал на собеседовании будет, если пробел в резюме
+если позовут, не побоявшись этого отсутствия информации (edited)
+
+
+Egor Voronov   [May 5th at 9:57 PM]
+Видимости резюме по прямой ссылке достаточно?
+1 reply
+
+Nikolai Dvinin   [1 day ago]
+Достаточно
+
+
+Milan Kotykov   [Yesterday at 12:16 AM]
+https://kiev.hh.ua/applicant/resumes/view?resume=987ab33aff06e75e230039ed1f56464e4e3955
+kiev.hh.ua
+Java Developer
+HeadHunter (kiev.hh.ua) позволяет найти работу в Киеве. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+1 reply
+
+Grigory Kislin   [1 day ago]
+вроде все хорошо:)
+
+
+pr1zrak [6:14 AM]
+https://tomsk.hh.ru/resume/82a9e1feff05b071850039ed1f666471417141
+tomsk.hh.ru
+Программист-разработчик
+HeadHunter (tomsk.hh.ru) позволяет найти работу в Томске. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+
+
+Oleg   [Yesterday at 6:29 AM]
+https://hh.ru/resume/10bb4fcaff03a993d30039ed1f546e7a567868
+hh.ru
+Java-разработчик
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+1 reply
+
+Oleg   [1 day ago]
+Есть ли смысл указывать работу Админом в больнице и администрации района?
+
+
+tolik1106 [8:58 AM]
+https://rabota.ua/cv/13452436
+rabota.ua
+Резюме Java developer в Киеве - Анатолий, 29 лет | Rabota.ua
+Анатолий, Java developer - поиск работы в Киеве. Ключевая информация: 29 лет, Последнее место работы: Исполняющий обязанности начальника смены, ПАТ "Укрпластик", 8 мес.
+
+Dmitriy [7:48 PM]
+https://spb.hh.ru/resume/95afb230ff05bedf920039ed1f477a4e765378
+spb.hh.ru
+Java-developer
+HeadHunter (spb.hh.ru) позволяет найти работу в Санкт-Петербурге. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.
+
+Igor' [10:07 AM]
+https://hh.ru/resume/893abf22ff06e1b4cb0039ed1f467930383366
+hh.ru
+Java-разработчик
+HeadHunter (hh.ru) позволяет найти работу в России. HeadHunter - это качественная база резюме и вакансий и современные сервисы для поиска работы и персонала.

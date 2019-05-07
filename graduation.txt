@@ -422,3 +422,110 @@ Story   [17 hours ago]
 
 Story   [16 hours ago]
 добавила руками в libraries из maven библиотеку, работает
+
+
+Denis Volkov   [Apr 29th at 2:54 PM]
+В очередной раз перечитал ТЗ. И возникло недопонимание:
+If user votes again the same day:
+If it is before 11:00 we asume that he changed his mind.
+If it is after 11:00 then it is too late, vote can't be changed
+А что делать если юзер голосует первый раз после 11?
+4 replies
+
+Bahis   [8 days ago]
+После 11:00 - передумал. Меняем его голос со старого места на новое.
+
+Max   [8 days ago]
+Ну это же касается только если он уже голосовал в этот день. Если юзер в этот день еще не голосовал, то не важно который час, до 11 или после, просто учитываем его голос на сегодня.
+
+А вот если он решит в этот день проголосовать повторно, тогда смотрим: если 11 еще нет, то меняем его голос на новый, если уже позже 11, значит оставляем его голос прежним.
+
+Grigory Kislin   [8 days ago]
+после 11 голосовать можно. он не votes again
+
+Denis Volkov   [8 days ago]
+@Grigory Kislin, вот это то и смущает. Т.е. итог получается, что голос юзера может быть только один за день. И может измениться только до 11. Вроде уложилось.
+
+
+Denis Volkov [2:56 PM]
+Я так себе думаю, что не давать голосовать после 11 совсем. Но может у кого другое мнение?
+
+Marat [3:19 PM]
+Ну там так и написано, что после 11 нельзя
+ресторанам же нужно заранее до 11 знать сколько готовить
+поэтому наверное никому нельзя после 11
+
+Grigory Kislin [3:56 PM]
+@here
+сеще раз - для сдачи выпускного заполняйте форму: https://docs.google.com/forms/d/1G8cSGBfXIy9bNECo6L-tkxWQYWeVhfzR7te4b-Jwn-Q
+
+
+timdzha   [May 2nd at 12:11 PM]
+Если мы делаем без фронтенда, как реализовать тестирование контроллера? Тестируем же через jsp страницы?
+6 replies
+
+pr1zrak   [5 days ago]
+через рест же можно тесттировать
+
+pr1zrak   [5 days ago]
+как мы делали
+
+pr1zrak   [5 days ago]
+curl -X GET \
+ http://localhost:8080/topjava/rest/profile/meals \
+ -H ‘Authorization: Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=’ \
+ -H ‘Postman-Token: d895ef9f-ee7e-4ffd-bc31-6479c6c98078’ \
+ -H ‘cache-control: no-cache’
+
+pr1zrak   [5 days ago]
+а если в проекте тестирование через JUnit то мы тоже делали тесты
+
+timdzha   [5 days ago]
+Точно, спасибо, в рестКонтроллеры заглянул! Смутило то, что в RootController проверяем через страницы.
+
+pr1zrak   [5 days ago]
+да незачто )
+
+
+Heorhii   [May 3rd at 5:09 PM]
+Привет, у меня есть таблицы в бд(прилагаю скрин) и соответствующие сущности, не очень понимаю как написать HSQL таким образом чтобы вытащить всех юзеров проголосовавших за определенный ресторан.
+
+SELECT u FROM Vote u LEFT JOIN FETCH u.user WHERE u.restaurant=:id
+
+Таким запросом я смогу получить только Votes, это ошибка архитектуры или можно написать запрос чтобы достать юзеров основываясь на совпадении restaurantid в таблице Votes?
+Pasted image at 2019-05-03, 5:08 PM 
+8 replies
+
+Heorhii   [4 days ago]
+В обычном SQL это было бы по идее так:
+SELECT * FROM users  LEFT JOIN votes v WHERE v.restaurant_id=id;
+
+Story   [4 days ago]
+select * from users u join votes v on u.id = v.user_id where v.restaurant_id = :id
+думаю так в обычном (edited)
+
+Story   [4 days ago]
+может так select u from User u, Vote v where u.id=v.user_id and v. restaurant_id = :id:
+
+Heorhii   [4 days ago]
+Сейчас попробую, очень похоже не правду.
+
+Story   [4 days ago]
+давай
+
+Heorhii   [4 days ago]
+Вот так сработало
+"select u from User u, Vote v where u.id=v.user and v.restaurant.id=:restaurantId"
+
+Спасибо!
+
+p.s. больше чем пол часа сражался с ошибкой что restaurantid является id, а не рестораном(Согласно первоначальному запросу оно ожидало что я ему передам целую сущность, а не просто id).
+
+Не понимаю почему нет аналогичной проблемы в этом запросе в части "WHERE u.id=v.user" тут же он почему-то понял что мы айди сравниваем, а не id и сущность. (edited)
+
+Grigory Kislin   [3 days ago]
+1. алиас к vote таки лучше v а не u
+
+Grigory Kislin   [3 days ago]
+2. делай  SELECT FROM User u либо
+SELECT v.user from Vote v

@@ -2164,3 +2164,240 @@ Igor   [1 hour ago]
 @Vladimir Gorbatenko из последнего письма:
 ```Для хорошо сделавших выпускной проект возможно участие в бесплатной стажировке нашего партнера, одного из ведущих интеграторов России, AT Consulting (только для тех, кто готов к трудоустройству в Москве и Санкт-Петербурге). По готовности партнера сделаю дополнительную рассылку (если планы не изменятся, то в середине мая).```
 (edited)
+
+
+Vladimir Gorbatenko   [11 days ago]
+Спасибо!
+
+Grigory Kislin   [11 days ago]
+по последним данным собирается быть в июне
+
+
+timdzha   [Apr 30th at 6:10 PM]
+@Grigory Kislin Вопрос. Предположим вы разрабатываете систему состоящую из 20+ микросервисов, которые активно взаимодействуют друг с другом. Какими технологиями, фреймворками и подходами к тестированию Вы будете пользоваться?
+3 replies
+
+Grigory Kislin   [7 days ago]
+известно какие:)
+майнстрим: spring-cloud (edited)
+
+timdzha   [7 days ago]
+В  spring-cloud есть возможность тестирования работы всей системы?
+
+Grigory Kislin   [6 days ago]
+интеграционные тесты. конечно
+
+
+timdzha   [Apr 30th at 6:25 PM]
+@Grigory Kislin Вопрос. Опишите все проблемы, которые Вы видите в этом коде:.
+public class Generator {
+  private static final Map<byte[], byte[]> cache = new HashMap<byte[], byte[]>();
+ public static byte[] generate(byte[] src) {
+   byte[] generated = cache.get(src);
+   if (generated == null) {
+     synchronized (cache) {
+       generated = cache.get(src);
+       if (generated == null) {
+         generated = doGenerate(src);
+         cache.put(src, generated);
+       }
+     }
+   }
+   return generated;
+ }
+ private static byte[] doGenerate(byte[] src) {...}
+ ...
+ }
+5 replies
+
+timdzha   [7 days ago]
+Отпустите конструктора private, concurrentHashMap вместо HashMap
+
+timdzha   [7 days ago]
+Отсутствие конструктора. В остальном все потокобезопасно?
+
+Vladimir Glinskikh   [7 days ago]
+@timdzha Дублирование ифа.
+
+timdzha   [7 days ago]
+Вопрос в том, как скоро новый элемент Concurrent hash map виден другим потокам в jmm. Первый if нужен в угоду производительности, чтобы не блокировать лишний раз потоки, а затем если нулл или значение не попало в зону видимости, блокируем потоки и снова проверяем на нулл уже на проверку отсутствия в мэпе. Да if'а нужны
+
+Grigory Kislin   [7 days ago]
+concurrentHashMap  +. еще есть всякие computeIfAbsent
+остальное- думать надо:)
+
+
+Grigory Kislin   [May 1st at 12:24 PM]
+@here сегодня последний день Masterjava (http://javaops.ru/view/masterjava) по *6300р*
+первое занятие Многопоточность открытое (edited)
+Java Online Projects
+Проект Masterjava
+Разработка полнофункционального многомодульного Maven проекта, состоящего из трех веб приложений. Открытое занятие многопоточность.
+4 replies
+
+timdzha   [5 days ago]
+Правильно ли я понимаю, что если я продолжу этот курс, то в июньскую стажировку в  AT Consulting могу не попасть?
+
+timdzha   [5 days ago]
+Хотя если сделаю выпускной проект до 06.05, в masterjava есть выпускной проект?
+
+timdzha   [5 days ago]
+@Grigory Kislin, забыл добавить
+
+Grigory Kislin   [5 days ago]
+> если я продолжу этот курс, то в июньскую стажировку в  AT Consulting могу не попасть?
+в мастерждава сроков нет
+на  AT Consulting нужно сдать выпускной
+
+
+Dmitry   [May 4th at 3:37 PM]
+@Grigory Kislin а как лучше совместить условия про сроки сдачи выпускного при условии прохождения masterjava и про стажировку AT Consulting? там будет что добавить в проект из masterjava или продлённый срок - "поблажка" по времени?
+4 replies
+
+Grigory Kislin   [3 days ago]
+про совместить вопрос не понял- уточни плз
+из AT Copnsulting - да, там есть которые с masterjava пересекаются- многомодульный мавен и веб сервисы (edited)
+
+Dmitry   [2 days ago]
+условие для рассмотрения кандидатуры - сданный выпускной. но сроки при masterjava объявлены до августа, а стажировка - в июне.
+
+Grigory Kislin   [1 day ago]
+да, так
+можно на следующую попасть- месяца чз 4-5
+
+Dmitry   [1 day ago]
+это радует, спасибо.
+
+
+pr1zrak   [May 5th at 2:17 PM]
+Подскажите пожалуйста, что то я немного запутался. Мы для объектов модели используем equals и hashCode с участием id. Чтобы все было окей мы используем глобальную сиквенцию на всю базу. Окей. Сделали мы это из-за lazy полей у моделей. Но это накладывает ограничения, если, например я получу объект, поменяю его свойства сохраню в переменную, и получа еще раз этот объект из базы. *При equals они будут равны, так как у них одинаковые id.* Как с этим правильно работать? Некоторые объекты модели я конвертирую в To объекты, у которых нет никаких Lazy полей. Отсюда непонятки. Как мне их сравнивать? У некоторых моделей есть DTO объекты, у которых Lazy поля отсутствуют. У них я могу переопределить equals и hashCode. Но нужно ли мне тогда на уровне контроллера\сервиса работать с DTO объектами? Тоесть чтобы объекты модели никогда не уходили дальше репозитория. Или как правильно? (edited)
+6 replies
+
+pr1zrak   [1 day ago]
+@Grigory Kislin подскажите пожалуйста
+
+makushatnik   [1 day ago]
+Сравнивать DTO и модели неправильно. Модель имеет состояния (напр. detached), что не имеет DTO, назначение другое - работа с бд. А ДТО - для получения в контроллере, передачи в сервис, если нужно, создания в сервисе на его основе модели. Соответственно, equals будет другой у ДТО - быстрей всего по всем полям. И этот equals нужен только если этот ДТО где-то записываешь в коллекцию, либо используешь сортировку.
+
+pr1zrak   [1 day ago]
+Тогда как правильно работать с моделями? Я могу загрузить модель из базы, отреда
+
+pr1zrak   [1 day ago]
++ я не говорил о сравнении моделей и DTO.
+
+pr1zrak   [1 day ago]
+я говорил о том, можно ли работать с DTO всегда? Тоесть на слое сервиса конвертнул модель в DTO и можешь equals использовать.
+
+pr1zrak   [1 day ago]
+если какие то данные в базу нужно добавить, добавляешь через DTO, которое на слое сервиса конвертируется в модель и отдается в репо
+
+
+Elena Sheva   [May 5th at 3:32 PM]
+В какую группу все приглашены по случаю удаления этой? Киньте ссылкой, пожалуйста
+1 reply
+
+Story   [1 day ago]
+https://join.slack.com/t/javaops/shared_invite/enQtNTE3Mjc3NDg2NzA3LTc4ZWNmYzI3MGQ1ZDU0NDhmMjc3OWY5NjZmY2YzMGZjNGQ4OTcyYzhlNWM4MDk5ZWRhMDE3MGYzZTZkYTFjNjQ
+
+
+Dmitry   [May 5th at 5:50 PM]
+А вот встретил в требованиях `spring async` - оно вообще, исходя из производственной практики, встречается насколько часто?
+1 reply
+
+Grigory Kislin   [1 day ago]
+@Dmitry нечасто. а в чем с ним проблемы? почитал stackovflow или документацию. поставил нужную анотацию. есть огромное количество разных вещей. все еще желание изучить все что есть? (edited)
+
+
+makushatnik   [May 5th at 9:47 PM]
+Привет! Если кому нужно подтверждение навыков в LinkedIn - пишите)
+2 replies
+
+Bahis   [1 day ago]
+Привет. Не знаю что это, но давай )
+
+Bahis   [1 day ago]
+А что это и зачем?
+
+
+Grigory Kislin [11:07 PM]
+@here
+напомню- рассылка обновлений резюме по HR - завтра в 7.00 москвы (edited) 
+
+Grigory Kislin [12:17 AM]
+@here
+не оставляйте в резюме пустот... один javaops и 26 лет - несколько странно
+если совсем-совсем не it- то кратко
+
+
+pr1zrak   [Yesterday at 8:00 AM]
+Можно вопрос по unit тестам? Из стажировки
+   @Test
+   void create() throws Exception {
+       User newUser = new User(null, “New”, “new@gmail.com”, “newPass”, 1555, false, new Date(), Collections.singleton(Role.ROLE_USER));
+       User created = service.create(new User(newUser));
+       newUser.setId(created.getId());
+       assertMatch(newUser, created);
+       assertMatch(service.getAll(), ADMIN, newUser, USER);
+   }
+Не понял, зачем мы в create создаем new User из только что созданного юзера. (edited)
+13 replies
+
+pr1zrak   [1 day ago]
+User created = service.create(new User(newUser));
+
+pr1zrak   [1 day ago]
+вот в этой строке зачем мы далем new User
+
+pr1zrak   [1 day ago]
+почему просто не можем сделать User created = service.create(newUser);
+
+pr1zrak   [1 day ago]
+вот этот момент не понятен оказался
+
+Dmitry   [1 day ago]
+Смотри вопросы HW7: https://topjava16.slack.com/archives/CHA8U6T40/p1553780173006000
+ILYA
+А зачем нам в тестах юзера service.create(new User(newUser))?
+Это ж мы 2 раза юзера создаём
+Thread in #hw7Mar 28thView message
+
+pr1zrak   [1 day ago]
+Спасибо, посмотрел, но из ответа так и не понял, нужно ли так делать
+
+pr1zrak   [1 day ago]
+Или фишка в том, что мы создаем нового юзера из updated ради валидации полей?
+
+pr1zrak   [1 day ago]
+тоесть если мы засетим не валидные данные, сеттер не заругается
+
+pr1zrak   [1 day ago]
+а вот когда мы будем создавать юзера, то поидее должно заругаться
+
+pr1zrak   [1 day ago]
+@Test
+   void create() throws Exception {
+       User newUser = new User(null, “New”, “new@gmail.com”, “newPass”, 1555, false, new Date(), Collections.singleton(Role.ROLE_USER));
+       User created = service.create(new User(newUser));
+
+pr1zrak   [1 day ago]
+но опять же здесь непонятно, зачем такое
+
+pr1zrak   [1 day ago]
+не валидные данные у нас бы рухнули на создании newUser
+
+Grigory Kislin   [19 hours ago]
+> нужно ли так делать
+как говорится- it depends...
+насколько все глубоко тестируется. всегда есть место где остановится
+
+
+Dmitry   [Yesterday at 4:37 PM]
+А при добавлении пагинации как лучше делать - объявить все не-datajpa реализации абстрактными или сделать в них заглушки (возвращающие все записи или emptyList)?
+2 replies
+
+Grigory Kislin   [19 hours ago]
+а бы сделал по образцу, как мы делали доставание с едой. новые методы и дефолтное отсутствие реализации
+или вообще сделать например в выускном. там только data-jpa по хорошему
+
+Dmitry   [6 hours ago]
+Спасибо, понял.
