@@ -529,3 +529,199 @@ Grigory Kislin   [3 days ago]
 Grigory Kislin   [3 days ago]
 2. делай  SELECT FROM User u либо
 SELECT v.user from Vote v
+
+
+Artem   [May 8th at 3:20 PM]
+Кто смог реализовать Spring-Security обертку на одмена и юзира? Ничего не понимаю и туплю. Как?:disappointed_relieved:
+1 reply
+
+Grigory Kislin   [5 days ago]
+я в скайп ответил. для начала надо понять что ты хочешь.
+
+
+IgorPetrov   [May 8th at 3:31 PM]
+@Grigory Kislin  Никак не могу понять... Запускаю тест                    Создал тесты с такими настройками со Spring =================================================                                                                            @ContextConfiguration({
+       "classpath:spring/spring-app.xml"
+})
+@RunWith(SpringRunner.class)
+public class RestRestaurantTest {
+
+  @Autowired
+   RestRestaurant restRestaurant ;
+   @Before
+   public void setUp() throws Exception {
+        RestaurentCreateData restaurentCreateData = new RestaurentCreateData(restRestaurant);
+     =====  В ЭТОМ МЕСТЕ === Передаю в созданный объект (без Spring) Уже ссылку  на объект из Springa  === " restRestaurant" === Здесь Объект существует и передается в в объект === RestaurentCreateData === НО присвоение в переменную не происходит                                                             public class RestaurentCreateData {
+
+private  RestRestaurant restRestaurant;
+
+   public RestaurentCreateData(RestRestaurant restRestaurant) {
+       this.restRestaurant = restRestaurant;
+=======  ЗДЕСЬ ОСТАЕТСЯ this.restRestaurant ==NULL  ==============}  Не пойму что я упустил? (edited)
+5 replies
+
+Story   [5 days ago]
+зачем ты делаешь this.restRestaurant = restRestaurant
+если у тебя restRestaurant - @Autowired - сам спрингом инициализируется
+
+Heorhii   [5 days ago]
+Да, чепуха какая-то выходит. У тебя дважды объявлена одна и та же переменная с разным уровнем доступа:
+
+@Autowired
+  RestRestaurant restRestaurant ;
+private  RestRestaurant restRestaurant;
+
+компилятор по идее должен даже подчеркивать как ошибку, хотя похоже я не прав если ты даже можешь этот код продебажить.
+Ты пытаешься в private переменную запихнуть что-то, что заинжектил спринг? Если да то зачем, можно просто анотацию повесить сразу над приватной переменной. Не очень понятно что ты хочешь сделать. (edited)
+
+IgorPetrov   [4 days ago]
+Переменная в разных объектах передаю с объекта RestRestaurantTest  в объект RestaurentCreateData в конструкторе
+
+Heorhii   [3 days ago]
+@IgorPetrov в названии класса грамматическая ошибка, но это мелочь.
+Очень сумбурно описываешь проблему вставляя прямо в код капсом комменатрии о коде.
+Лучше кинь скрины целиком обоих классов и уже ниже опиши в какой строчке что не работает. Не знаю как все, а я о твоей проблеме понял только в очень общих чертах. А программирование не любит образности в том что требует детального рассмотрения) (edited)
+
+IgorPetrov   [2 days ago]
+@Heorhii Ок! Спасибо. Переделал без этого класса. Пытался воссоздать туже ситуацию, И ошибка не повторилась , значение присвоилось.                   2.Да граматическую видел, не стал исправлять стразу, думал подчистить ошибки позже. (edited)
+
+
+Grigory Kislin [4:56 PM]
+1. RestaurentCreateData- что это такое??
+2. дебажил??
+
+IgorPetrov [4:32 PM]
+@Grigory Kislin RestaurentCreateData сюда передаю restRestaurant для инициализации mock реализации. 2. Да дебажил, В том то и дело ни как не пойму почему с одного объекта "restRestaurant" попадает в конструктор другого объекта RestaurentCreateData(RestRestaurant restRestaurant) { А здесь не присваивает  this.restRestaurant = restRestaurant;                                                                                                ВОТ это поле остается пустым  "private  RestRestaurant restRestaurant" (edited) 
+
+
+Grigory Kislin   [May 9th at 8:28 PM]
+вместо @Autowired мощешь сеттер сделать, поставить брекпойнт и посмотреть порядок вызовов
+RestaurentCreateData  - для меня таки название странное... подумай- может лучше получится
+1 reply
+
+IgorPetrov   [3 days ago]
+@Grigory Kislin А  подскажи пожалуйста с названием, Если мне нужно создать данные для ресторана и рестораны. То как было бы лучше, Может дело в расположении слов CreateDataRestaurant. или что то еще учесть?
+
+
+IgorPetrov   [May 11th at 12:54 PM]
+Друзья! Кто уже владеет темой jpa. Есть Два класса Menu  и Restaurant. Так же две таблицы Restaurant и MENUS. Если делаю запрос "SELECT r FROM  restaurant r    ORDER BY r.name ASC" до достаются все Restaurant  . Если делаю запрос "SELECT r FROM  restaurant r LEFT JOIN FETCH r.menus  ORDER BY r.name ASC"  C Присоединением то ошибка Caused by: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: MENU in statement [/* Restaurant.ALL */ select restaurant0_.id as id1_4_0_, menu2_.id as id1_1_1_, restaurant0_.name as name2_4_0_, menu2_.user_id as user_id3_1_1_, menu2_.voting as voting2_1_1_, menus1_.restaurant_id as restaura1_3_0__, menus1_.menus_id as menus_id2_3_0__ from restaurant restaurant0_ left outer join menus menus1_ on restaurant0_.id=menus1_.restaurant_id left outer join Menu menu2_ on menus1_.menus_id=menu2_.id order by restaurant0_.name ASC]
+Какие еще нужны анотации?  Скрипт создания таблиц прилагается.
+Menu.jpg 
+restaurant.jpg 
+table.jpg 
+9 replies
+
+Heorhii   [2 days ago]
+Из того что бросается сразу в глаза - у тебя сущности POJO не равносильны сущностям в базе. Есть SET<Menu> в классе ресторан, но в базе нет FK menu_id, ты своим запросом просишь достать тебе из таблицы ресторанов меню, но в таблице ресторана нет никаких меню)
+
+Heorhii   [2 days ago]
+Я выше в треде просил помочь с запросом, посмотри, там хороший пример с запросом + можно погуглить ошибку и HSQL запросы, например я не знал как ManyToMany запрос написать - нагуглил почти сразу.
+
+IgorPetrov   [2 days ago]
+ок! Спасибо . думал что ресторану не обязательно ссылать на меню. Т.е Я правильно понимаю что в таблице Базы должно быть поле ссылающеся на id menu.
+
+Heorhii   [2 days ago]
+То, что делает Hibernate, это сам пишет SQL запрос на основе твоего HSQL запроса. Нужно понимать то, что называется под капотом. Вот ты ему пишешь,
+Достань из таблицы restaurant такой ресторан где колонка r.МЕНЮ (там должно быть еще сравнение по id), он идет, смотрит, и говорит, нет там никакого меню, ты о чем просишь вообще?))
+
+IgorPetrov   [2 days ago]
+Ок! Это я понял я не пойму как указать туда таблицу(menus) в поле menus Пробую анотации @CollectionTable(name = "menus")  и другие не получается,. N.е Как Hibernate указать что нужно брать из таблицы menus.
+
+Story   [2 days ago]
+с таблицами (связями) все ок ,имхо
+лишнее "=new HashSet" (edited)
+
+Story   [2 days ago]
+и над полем menus надо дописать fetch = FetchType.LAZY, mappedBy = "menu"
+
+IgorPetrov   [2 days ago]
+Ок! Спасибо, вот думал что mappedBy = "menu" пишется для  обратной связи.
+
+IgorPetrov   [2 days ago]
+Друзья! Никак не получается опять ошибка не найдено меню. Уже прописал в меню ресторан.  Может еще какая ошибка есть .
+Menu.jpg 
+restaurant.jpg 
+table.jpg 
+
+
+IgorPetrov [3:38 PM]
+Напомните плиз как включить правильное отображение на базу . сейчас отключил как то и теперь слово в скобках не зеленое и подчеркнуто красным. Ничего не могу сделать. Перебрал все из выпадающего меню(Alt->Enter) ничего не помогает. (edited) 
+red.jpg 
+
+
+IgorPetrov   [May 11th at 4:08 PM]
+Причем не ассоциируется с базой только JoinColumn в других файлах работает
+red2.jpg 
+17 replies
+
+Heorhii   [2 days ago]
+можно refresh потыкать в Maven-e, а можно просто забить) главное чтобы работало)
+
+Heorhii   [2 days ago]
+А вообще уверен такие штуки гугляться) ну должны)
+
+IgorPetrov   [1 day ago]
+Может я еще не научился, два дня уже гуглю, запутался окончательно, по связям вроде понятно , а как применяю не работает. по подчеркиваниям, может. не знаю как задать вопрос. Если знаешь подскажи. Еще один завис вопрос с BASEJAVA (edited)
+
+Grigory Kislin   [1 day ago]
+Facet- JPA, далее в Persistance вкладке слева Assign DataSource. в уроке же есть- там бы посмотрел (edited)
+
+IgorPetrov   [1 day ago]
+@Grigory Kislin В этом уроке? 4_5_orm_jpa.mp4  Не нашел. Если вот эта настройка что на фото так у меня она стоит.  Там Hibernate внизу .  А где слева вкладка  Persistance  слева Assign DataSource  не вижу. Можно поподробней.
+persictense.jpg 
+
+IgorPetrov   [1 day ago]
+Источник данных нашел,  и там все впорядке  НО проблема остается  Все так же нет связи с базой , или другая причина, не знаю. Где еще копать Одни Анотации соединяются с базой а эта  @JoinColumn нет??? (edited)
+
+IgorPetrov   [1 day ago]
+basa.jpg 
+
+Grigory Kislin   [1 day ago]
+https://github.com/JavaOPs/topjava/wiki/IDEA#Добавить-jpa
+
+Grigory Kislin   [1 day ago]
+еще попробуй на базе дать syncronize. там есть таблицы? (edited)
+
+IgorPetrov   [1 day ago]
+@Grigory Kislin Все есть и таблицы и данные , ничего не помогает , причем в одном классе  В одной аннотации  ссылка на эту (одноименную ) таблицу " id" работает  а на зависимую  user_id нет!  просто подчеркнуто красным а так же не является зеленой. когда.   напишешь не то имя поля. Что я еще мог упустить?
+anotacii.jpg 
+
+Grigory Kislin   [1 day ago]
+ну 1. похерить:)
+2. попробовать заново проект загрузить или у idea кэш инвалидировать File->Invalidate Cache / Restart..
+
+Grigory Kislin   [1 day ago]
+погоди. а что за persistance.xml??
+
+Grigory Kislin   [1 day ago]
+и
+image.png 
+
+Grigory Kislin   [1 day ago]
+сделал или нет?
+
+IgorPetrov   [1 day ago]
+@Grigory Kislin Assign Data Sourses Делал, Идею и проэкт перезагружал, Инвалюдацию сделал.  persistance.xml = Я так понял что это настройки JPA , просто добавил на всякий случай, (переберая решения). Или он нам не нужен??? Мне кажеться это что то я сбил в настройках самой Идеи, потому что во всех проектах одинаковая проблема. (edited)
+
+IgorPetrov   [1 day ago]
+Пробовал загрузить проект без старых настроек - не помогло
+
+IgorPetrov   [1 day ago]
+@Grigory Kislin Если в одном классе что то имеет связь с базой а что то нет. Можно такое  Решение, которое надеюсь запомнится на долго!!!  Удаляем Папку c:\Users\home\.IntelliJIdea2018.2\config\   И загружаем Идею заново настраиваем. (edited)
+
+
+Heorhii   [Today at 3:36 PM]
+Прикручиваю spring security и впал в ступор, с одной стороны, по идее, над юзерами все действия должен производить админ, но с другой стороны юзер и сам должен быть в состоянии удалиться\изменить данные и зарегестрироваться. Т.е. нужно дать доступ к данным юзера только ему, а не всем юзерам, не очень понимаю как это сделать, не на основе Role очевидно.
+
+Буду сейчас лазить по уроками и читать ссылки, но если есть у кого конкретная ссылка с описанием этого механизма буду благодарен. (edited)
+3 replies
+
+Grigory Kislin   [1 hour ago]
+все как в topjava
+ссылки на занятия полагаю есть:) (edited)
+
+Heorhii   [1 hour ago]
+Есть)
+
+Story   [41 minutes ago]
+смотри ProfileRestController

@@ -393,3 +393,34 @@ this в параметрах (edited)
 
 tolik1106   [5 days ago]
 спс
+
+
+Artem   [May 8th at 3:15 PM]
+Как обернуть объект в Spring-Security? B как получить к нему доступ через Postman, например, передав там же логин и пароль?
+6 replies
+
+VladZn   [5 days ago]
+С помощью spring security обычно закрывают доступ к ресурсам. Например, есть у тебя REST API, какие-то эндпоинты должны быть доступны всем, какие-то только авторизованным пользователям, какие-то только пользователям с определенными ролями. Вкратце, добавляешь spring security, включаешь, закрываешь какой-нибудь эндпоинт. Затем дергаешь этот эндпоинт из того же постмана без логина/пароля, получаешь от сервера 401, передаешь логин/пароль или токен, смотря какая аутентификация, получаешь в ответ 200 и тело ответа (json тот же)
+
+Artem   [5 days ago]
+Так, это вроде понятно. Как я закрываю доступ? Как закрыть эндпоинт по связке логин/пароль?
+
+VladZn   [5 days ago]
+Посмотри вот, например, https://www.baeldung.com/securing-a-restful-web-service-with-spring-security
+Baeldung
+Spring Security for a REST API | Baeldung
+How to Secure a REST API with Spring Security - the XML Configuration, the web.xml, the HTTP status codes for authentication, etc.
+Jan 2nd, 2014
+
+VladZn   [5 days ago]
+Можно включить method security аннотацией EnableMethodSecurity и над методами повесить  @PreAuthorize(“isAuthenticated()“) (edited)
+
+VladZn   [5 days ago]
+https://www.baeldung.com/spring-security-method-security
+Baeldung
+Introduction to Spring Method Security | Baeldung
+A guide to method-level security using the Spring Security framework.
+Jan 20th, 2018
+
+Artem   [5 days ago]
+Ага, спасибо, попробую разобраться
