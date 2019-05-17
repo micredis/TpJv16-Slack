@@ -725,3 +725,63 @@ Heorhii   [1 hour ago]
 
 Story   [41 minutes ago]
 смотри ProfileRestController
+
+
+IgorPetrov   [May 13th at 9:21 PM]
+Запрос в базу  ОШИБКА  Caused by: org.hsqldb.HsqlException: incompatible data type in conversion: from SQL type INTEGER to [B, value: 1             Не совместимы тип данных  при преобразовании. А где не пойму. Как определить где ошибка? Нет каких либо указаний на поле, или колонку. В гугле такая ошибка почему то на Date выводит но, у меня вроде не с этим связано. (edited)
+запрос.jpg 
+базя.jpg 
+restaurant.jpg 
+menu.jpg 
+5 replies
+
+Story   [4 days ago]
+мне кажется дело в AtomicInteger
+а в чем смысл объявлять поле - колонку таблицы такого типа?
+
+Story   [4 days ago]
+попробуй поменять на Integer для эксперимента
+
+IgorPetrov   [4 days ago]
+ОК попробую! Может не лучшее решение,  Голосование  по такому типу?
+
+Grigory Kislin   [3 days ago]
+@IgorPetrov я советую смотреть побольше на topjava. и не изобретать велосипедов с ооочень квадратными колесами
+
+IgorPetrov   [2 days ago]
+@Grigory Kislin Да Спасибо, я согласен, Пока еще не соображу как, применять .
+
+
+Heorhii   [May 15th at 2:36 PM]
+Не понимаю почему происходит такая картина:
+Из базы класс репозитория достает Integer значение 2, но в случае с контроллером, который идет в эту же базу и достает этот же Integer, значение уже массив - [2]. Это, видимо, связано с конвертацией из Json-a но я делал в точности по аналогии как с классами, может кто-нибудь что-то подсказать?
+image.png 
+7 replies
+
+Heorhii   [1 day ago]
+image.png 
+
+Heorhii   [1 day ago]
+image.png 
+
+Heorhii   [1 day ago]
+image.png 
+
+Story   [1 day ago]
+Integer можно просто через equals сравнить
+
+Heorhii   [1 day ago]
+Конструкция andExpect принимает resultMatcher, через equals не очень понимаю как сделать
+
+Story   [1 day ago]
+я бы как-то так делала (работоспособность не проверяла)
+andExpect(result -> assertEquals(Integer.parseInt(result.getResponse().getContentAsString(), someExpectedIntegerValue)))
+
+Heorhii   [1 day ago]
+Покорнейше благодарю :smiley:
+
+
+Grigory Kislin [12:35 PM]
+@here друзья, напомню что сегодня последний день сдачи graduation (если не участник masterjava)
+не обязательно делать ВСЕ. главное- основной сценарий голосования.
+чего в ТЗ нет- скорее вредно, чем полезно
