@@ -785,3 +785,66 @@ Grigory Kislin [12:35 PM]
 @here друзья, напомню что сегодня последний день сдачи graduation (если не участник masterjava)
 не обязательно делать ВСЕ. главное- основной сценарий голосования.
 чего в ТЗ нет- скорее вредно, чем полезно
+
+
+IgorPetrov   [May 17th at 5:02 PM]
+У кого была Ошибка.  Дублирование сопоставления запросов.  Хибернет Ошибка созадния бина entityManagerFactory  Намекните если кто решал , плиз где найти ошибку?     Мне на ум приходит что ошибка где то в Entity. Но пока без результатно.                                      CCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/spring-db.xml]: Invocation of init method failed; nested exception is org.hibernate.DuplicateMappingException: Duplicate query mapping Restaurant.getAll                ========== (edited)
+2 replies
+
+Katherine   [11 days ago]
+DuplicateMappingException: Duplicate query mapping Restaurant.getAll
+image.png 
+
+IgorPetrov   [10 days ago]
+Спасибо!!!
+
+
+IgorPetrov [5:15 PM]
+Похоже ошибка в этом Классе Убрал Entity Загрузка прошла.
+restaurant.jpg 
+
+
+Grigory Kislin [9:47 PM]
+@here
+по поводу выпускних- я проверяю по очереди.. думаю еще дней 5
+перед проверкой делаю update, поэтому если хотите чтото поправить- можно до проверки делать
+
+Grigory Kislin [6:04 PM]
+проверку выпускных заканчиваю на этой неделе. добавил:
+*API ДОЛЖНО соответствовать принципам REST (см. ссылки)*
+*ОБЯЗАТЕЛЬНО: запустите `mvn test` - ошибок быть не должно*
+*ОБЯЗАТЕЛЬНО: запустите приложение без всяких предварительных настроек (базы, переменных окружения, ..), лучше на другом компьютере. Должно запускаться!* (edited) 
+
+
+Bahis   [May 26th at 10:43 AM]
+Всем привет! Есть вопрос: Будет ли нужным смотреть в истории меню ресторана в определенный день?
+4 replies
+
+Bahis   [2 days ago]
+Просто если хранить еду, то количество, допустим даже за год, будет очень большим: 365 дней * количество ресторанов * количество блюд. Я хочу сделать отдельную таблицу на блюда. Если еду смотреть не понадобиться, то можно ежедневную еду просто переписывать. Просто в ТЗ этого нет. Кто как решил поступить с хранением еды каждого ресторана на каждый день?
+
+Story   [2 days ago]
+у меня справочник еды не меняется, а дневное меню хранится на каждый день, со ссылкой на справочник
+
+ILYA   [2 days ago]
+У меня есть отдельный метод который берет еду за какой то день
+
+Bahis   [2 days ago]
+Всем спасибо. Сделаю тоже. Хоть и записей будет много... )
+
+
+Yuriy Podobed   [Yesterday at 3:33 PM]
+Добрый день, возник такой вопрос, есть тестовый класс со спринговой аннотацией @Transactional,
+если выполнить тест вида:
+@Test
+void test() {
+    repository.save(new Item("data"));
+}
+Хибернейт в логе скажет:
+Hibernate: call next value for global_seq, но выполнение запроса отложит.
+если оставить класс/метод без @Transactional, то все заработает и запрос выполниться сразу.
+Все бы ничего, только проблема в том, что если, к примеру, внутри Item("data"), data не валидная для БД то тест проглотит Exception, а покажет что тест прошел. Что делать в таких случаях?
+1 reply
+
+Story   [1 day ago]
+может, @Transactional(propagation = Propagation.NEVER) поможет?
