@@ -1503,3 +1503,18 @@ makushatnik   [Mar 27th at 8:02 PM]
 Grigory Kislin   [7 days ago]
 1. Ctrl+F5 часто помогает
 2.  делай как в topjava
+
+
+IgorPetrov [May 30th at 7:40 PM]
+@Grigory Kislin После Патча  6_15_spring_i18n.patch     Приложение падает при загрузке TomCat, Возникает ошибка на странице jsp. Не находит сообщений под кодом  "app.title" для Locale ru_Ru  хотя все интегрируется в коде. что это может быть? При изменении пути настроек бина "messageSource" <property value=".......messages/app" никаких изменений не происходит. Этот путь на интеграцию ни как не влияет , В коде  <spring:message code="app.title"/> Связано с настойками , с файлами app.properties , и можно делать выбор  для  ru  локали . При изменении локали в браузере на  en_US происходит тоже самое для этой локали.javax.servlet.ServletException: javax.servlet.jsp.JspTagException: No message found under code 'app.title' for locale 'en_US'. (edited)
+3 replies
+
+Grigory Kislin  [15 days ago]
+спринг не находит app.title
+те, елси он есть в локализации- самого файла. полагаю что не видит/не установлена переменная окружения
+
+IgorPetrov  [15 days ago]
+@Grigory Kislin Переменная установлена,  проверял echo  %TOPJAVA_ROOT% H:\topjava
+
+IgorPetrov  [13 days ago]
+Решение простое! После объявления  переменной окружения , обязательна перезагрузка idea. :grinning:
